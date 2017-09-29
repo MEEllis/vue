@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        body {
+            padding: 30px;
+        }
+
+        .p-desc {
+            color: red;
+            font-size: 20px;
+            line-height: 1;
+            padding-top: 20px;
+            padding-bottom: 5px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+<p class="p-desc"></p>
+<p class="p-desc">hello word 入门</p>
+
+<div id="app">
+    {{ message }}
+</div>
+<p class="p-desc">vue 指令;v-bind</p>
+
+<div id="app-2">
+    <span v-bind:title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </span>
+</div>
+
+<p class="p-desc">vue 指令;v-if</p>
+<div id="app-3">
+    <span v-if="seen">
+         你可以看到我了
+    </span>
+</div>
+
+<p class="p-desc">vue 指令;v-for</p>
+<div id="app-4">
+    <ol>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ol>
+</div>
+
+<p class="p-desc">vue 双向绑定</p>
+<div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+
+<p class="p-desc">vue 组件</p>
+<ol id="aaa">
+    <!-- 创建一个 todo-item 组件的实例 -->
+    <todo-item v-for=" item in arrList" v-bind:todo="item"></todo-item>
+</ol>
+
+<p class="p-desc">vue computed计算属性: <br>
+    我们可以将同一函数定义为一个 method 而不是一个计算属性。对于最终的结果，两种方式确实是相同的。然而，不同的是计算属性是基于它们的依赖进行缓存的。计算属性只有在它的相关依赖发生改变时才会重新求值。这就意味着只要 message
+    还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。 <br>
+    依赖项发生改变 就 会触发计算属性
+</p>
+<div id="example">
+    <p>Original message: "{{ message.split('').reverse().join('') }}"</p>
+    <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    <input v-model="message">
+
+    <p>
+        Ask a yes/no question:
+        <input v-model="question">
+    </p>
+    <p>{{ answer }}</p>
+    <child msg="hello!"></child>
+</div>
+
+
+<p class="p-desc">vue 组件</p>
+组件意味着协同工作，通常父子组件会是这样的关系：组件 A 在它的模版中使用了组件 B。它们之间必然需要相互通信：<br>
+父组件要给子组件传递数据，子组件需要将它内部发生的事情告知给父组件。然而，在一个良好定义的接口中尽可能将父子组件解耦是很重要的。<br>
+这保证了每个组件可以在相对隔离的环境中书写和理解，也大幅提高了组件的可维护性和可重用性。<br>
+在 Vue 中，父子组件的关系可以总结为 props down, events up。父组件通过 props 向下传递数据给子组件，子组件通过 events 给父组件发送消息。看看它们是怎么工作的。<br>
+
+<script>
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<li>{{todo.text}}</li>'
+    });
+
+    Vue.component('child', {
+        // 声明 props
+        props: ['msg'],
+        // 就像 data 一样，prop 可以用在模板内
+        // 同样也可以在 vm 实例中像“this.message”这样使用
+        template: '<span>{{ msg }}</span>'
+    })
+    var appExample = new Vue({
+            el: '#example ', // dom ID，
+            data: {
+                message: 'Hello',  //原始属性
+                question: '',
+                msg:'',
+                answer: 'I cannot give you an answer until you ask a question!'
+            },
+
+            methods: {    //方法事件处理器
+                reversedMessagess: function () {
+                    return this.message = 1111;
+                }
+
+            },
+            watch: {   //监听事件
+                // 如果 question 发生改变，这个函数就会运行
+                question: function (newQuestion) {
+                    this.answer = 'Waiting for you to stop typing...'
+                }
+            }
+            ,
+            computed: {                  //计算属性
+                reversedMessage: function () {
+                    // `this` points to the vm instance
+                    return this.message.split('').reverse().join('')
+                }
+            }
+            ,
+            filters: {     //过滤器
+                capitalize: function (value) {
+                    if (!value) return ''
+                    value = value.toString()
+                    return value.charAt(0).toUpperCase() + value.slice(1)
+                }
+            }
+
+        })
+    ;
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    });
+
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message: '页面加载于 ' + new Date()
+        }
+    });
+
+    var app3 = new Vue({
+        el: '#app-3',
+        data: {
+            seen: true
+        }
+    });
+
+    var app4 = new Vue({
+        el: '#app-4',
+        data: {
+            todos: [
+                {text: '学习 JavaScript'},
+                {text: '学习 Vue'},
+                {text: '整个牛项目'}
+            ]
+        }
+    });
+
+    var app6 = new Vue({
+        el: '#app-6',
+        data: {
+            message: "vue 双向绑定"
+        }
+    });
+
+
+
+    new Vue({
+        el: "#aaa",
+        data: {
+            arrList: [{
+                text: "aaa"
+            },
+                {
+                    text: "bbb"
+                },
+                {
+                    text: "ccc"
+                }
+            ]
+        }
+    });
+</script>
+
+</body>
+</html>
