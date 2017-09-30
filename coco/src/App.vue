@@ -1,37 +1,25 @@
 <!-- 主页面 -->
-
 <template>
   <div id="app">
-    <Head></Head>
+    <headTop></headTop>
     <div class="main">
       <router-view></router-view>
     </div>
+    <Player></Player>
   </div>
 </template>
 
 <script>
-  import Head from './components/header/head'
+  import headTop from './components/header/headTop'
+  import Player from './components/Player'
+  console.log('载入app.vue')
+  console.log(headTop)
   export default {
     name: 'app',
     components: {
-      Head
+      headTop, Player
     }
   }
 </script>
 
-<style>
-  body {
 
-  }
-</style>
-
-<style scoped="">
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
-
-</style>
