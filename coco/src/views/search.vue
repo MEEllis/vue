@@ -53,7 +53,7 @@
           text: '加载中...',
           spinnerType: spinnerType[1]
         })
-        this.$http.get('/aproxy/api/v3/search/hot?format=json&plat=0&count=30').then(({data}) => {
+        this.$http.get('https://bird.ioliu.cn/v2?url='+'http://mobilecdn.kugou.com/api/v3/search/hot?format=json&plat=0&count=30').then(({data}) => {
           Indicator.close();
           this.hotList = data.data.info
         });
@@ -66,7 +66,7 @@
             text: '加载中...',
             spinnerType: 'snake'
           })
-          this.$http.get(`/aproxy/api/v3/search/song?format=json&keyword=${this.keyword}&page=1&pagesize=30&showtype=1`).then(({data}) => {
+          this.$http.get('https://bird.ioliu.cn/v2?url='+`http://mobilecdn.kugou.com/api/v3/search/song?format=json&keyword=${this.keyword}&page=1&pagesize=30&showtype=1`).then(({data}) => {
             this.songList = data.data.info
             this.total = data.data.total
             Indicator.close();

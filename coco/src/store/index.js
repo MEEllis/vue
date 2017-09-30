@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 Vue.use(Vuex)
 
+/* 状态视图 */
 const store = new Vuex.Store({
   state: {
     audio: {
@@ -91,7 +92,7 @@ const store = new Vuex.Store({
   actions: {
     getSong({commit, state}, hash){
       commit('toggleAudioLoadding', true)
-      axios.get(`/bproxy/yy/index.php?r=play/getdata&hash=${hash}`).then(({data}) => {
+      axios.get('https://bird.ioliu.cn/v2?url=' + `http://www.kugou.com/yy/index.php?r=play/getdata&hash=${hash}`).then(({data}) => {
         data = data.data
         const songUrl = data.play_url
         const imgUrl = data.img
