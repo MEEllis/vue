@@ -42,7 +42,6 @@
       }
     },
     created(){
-      console.log(this);
       this.getLatestHotList()
     },
     methods: {
@@ -57,7 +56,6 @@
           Indicator.close();
           this.hotList = data.data.info
         });
-        console.log("载入最近热门");
       },
       search(){
         if (this.keyword.trim().length > 0) {

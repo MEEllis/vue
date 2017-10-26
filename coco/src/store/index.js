@@ -20,7 +20,7 @@ const store = new Vuex.Store({
       title: '',
       style: {'background': 'rgba(43,162,251,0)'}
     },
-    headNav: 'head-nav1',
+    headNav: '',
     audioLoadding: false,
     detailPlayerFlag: false,
     showPlayer: false,

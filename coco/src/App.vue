@@ -12,8 +12,6 @@
 <script>
   import headTop from './components/header/headTop'
   import Player from './components/Player'
-  console.log('载入app.vue')
-  console.log(headTop)
   export default {
     name: 'app',
     components: {

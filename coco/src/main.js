@@ -13,14 +13,33 @@ import './assets/css/style.css'
 
 Vue.use(mint)
 
-console.log(App)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+
+axios.interceptors.response.use(
+  response => {
+    return response
+  },
+  error => {
+    if (error.response) {
+      switch (error.response.status) {
+        case 401:
+          // 这里写清除token的代码
+          router.replace({
+            path: 'login',
+            query: {redirect: router.currentRoute.fullPath}
+          })
+      }
+    }
+    return Promise.reject(error.response.data)
+  })
+
 /* eslint-disable no-new */
-new Vue({
+var vm = new Vue({
   el: '#app',
   router,
   store,
   template: '<App/>',
   components: {App}
 })
+console.log(vm)

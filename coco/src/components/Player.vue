@@ -54,7 +54,6 @@
         }
       },
       next(){
-          console.log(111)
         this.$store.dispatch('next')
       }
     }
