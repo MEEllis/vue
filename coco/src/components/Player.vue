@@ -44,6 +44,11 @@
         }
         this.$store.commit('isPlay', !this.isPlay)
       },
+      showDetailPlayer(){
+        if (this.showPlayer) {
+          this.$store.commit('showDetailPlayer', true);
+        }
+      },
       change(){
         var time = document.getElementById('audioPlay').currentTime
         if (this.audio.currentFlag) {

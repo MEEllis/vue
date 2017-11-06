@@ -20,9 +20,6 @@
         }, {
           id: 'head-nav3',
           lable: '歌单'
-        }, {
-          id: 'head-nav4',
-          lable: '歌手'
         }]
       }
     },

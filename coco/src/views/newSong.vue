@@ -1,21 +1,27 @@
 <template>
   <div>
-    <mt-swipe :auto="4000">
+    <mt-swipe >
       <mt-swipe-item v-for="(banner,index) in banners" :key="index">
         <a :href="banner.extra.tourl">
           <img :src="banner.imgurl" :alt="banner.title" :title="banner.title">
         </a>
-
       </mt-swipe-item>
     </mt-swipe>
+
+    <mt-cell v-for="(song,index) in songList" :title="song.filename" @click.native="playAudio(index)" :key="index">
+      <img src="../assets/images/icon_music.png" width="20" height="20">
+    </mt-cell>
   </div>
 </template>
 <script>
   import  {Indicator}  from 'mint-ui'
+  import { PLAY_AUDIO } from '../mixins'
   export default{
+    mixins: [PLAY_AUDIO],
     data(){
       return {
-        banners: []
+        banners: [],
+        songList:[]
       }
     },
     created(){
@@ -24,24 +30,26 @@
     },
     methods: {
       getSong(){
-        Indicator.open({
-          text: '加载中...',
-          spinnerType: 'fading-circle'
-        })
+        this.FUN.indicator.open()
         this.$http.get('https://bird.ioliu.cn/v2?url=' + 'http://m.kugou.com/?json=true').then(({data}) => {
           this.banners = data.banner
           this.songList = data.data
         }).then(() => {
-          Indicator.close()
+          this.FUN.indicator.close()
         })
       }
     }
   }
 </script>
 
-<style>
-  .mint-swipe {
+<style scoped="">
+  .mint-swipe{
     height: 39vw !important;
+  }
+
+  .mint-swipe-items-wrap > div{
+    text-align: center;
+    background: #e7e7e7;
   }
 
   .mint-swipe-indicator {

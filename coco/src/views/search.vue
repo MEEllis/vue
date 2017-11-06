@@ -19,7 +19,7 @@
         共有{{total}}条搜索结果
       </div>
       <mt-cell v-for="(item,index) in songList" :title="item.filename" @click.native="playAudio(index)" :key="index">
-        <img src="../assets/images/download_icon.png" width="20" height="20">
+        <img src="../assets/images/icon_music.png" width="20" height="20">
       </mt-cell>
     </div>
 

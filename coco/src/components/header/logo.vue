@@ -1,7 +1,7 @@
 <template>
   <div class="logo-container">
     <div class="head-logo">
-      <a href="#"><img src="http://m.kugou.com/v3/static/images/index/logo.png"></a>
+      <router-link to="/"><img src="http://m.kugou.com/v3/static/images/index/logo.png"></router-link>
     </div>
     <div class="head-search" @click="searchRouter">
       <img src="http://m.kugou.com/v3/static/images/index/search.png">

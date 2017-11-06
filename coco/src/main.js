@@ -3,6 +3,8 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import Vue from 'vue'
 import App from './App'
+import global_ from './config/global'
+import fun_ from './config/fun'
 import router from './router'
 import store from './store'
 import mint from 'mint-ui'
@@ -13,8 +15,11 @@ import './assets/css/style.css'
 
 Vue.use(mint)
 
+// 全局常量
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+Vue.prototype.GLOBAL = global_
+Vue.prototype.FUN = fun_
 
 axios.interceptors.response.use(
   response => {
@@ -42,4 +47,5 @@ var vm = new Vue({
   template: '<App/>',
   components: {App}
 })
-console.log(vm)
+
+

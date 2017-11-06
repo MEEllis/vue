@@ -5,17 +5,19 @@
     <div class="main">
       <router-view></router-view>
     </div>
-    <Player></Player>
+    <Player/>
+    <DetailPlayer/>
   </div>
 </template>
 
 <script>
   import headTop from './components/header/headTop'
   import Player from './components/Player'
+  import DetailPlayer from './components/DetailPlayer'
   export default {
     name: 'app',
     components: {
-      headTop, Player
+      headTop, Player, DetailPlayer
     }
   }
 </script>
