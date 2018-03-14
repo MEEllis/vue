@@ -2,7 +2,7 @@
   "name": "coco",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Billzhizhi <guo18745134271@hotmail.com>",
+  "author": "MEEllis <1641919800@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
