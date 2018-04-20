@@ -7,9 +7,10 @@ export const GET_USER_INFO_FAIL = "userInfo/GET_USER_INFO_FAIL";
 export function getUserInfo() {
     return {
         types: [GET_USER_INFO_REQUEST, GET_USER_INFO_SUCCESS, GET_USER_INFO_FAIL],
-        promise: client => client.get(`http://localhost:8089/api/user.json`),
+        promise: client => client.get(`/api/user`),
         afterSuccess:(dispatch,getState,response)=>{
             /*请求成功后执行的函数*/
+            console.log(response)
         },
     }
 }

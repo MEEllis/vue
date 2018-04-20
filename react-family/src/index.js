@@ -8,6 +8,7 @@ import store from './redux/store';
 
 
 
+
 /*热更新*/
 if (module.hot) {
     module.hot.accept('./router/router', () => {
@@ -15,6 +16,7 @@ if (module.hot) {
         renderWithHotReload(getRouter());
     });
 }
+
 
 /*初始化*/
 renderWithHotReload(getRouter());

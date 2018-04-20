@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-var a=100500
-console.log(1)
+
 export default class Home extends Component {
     constructor(props) {
         super(props);
