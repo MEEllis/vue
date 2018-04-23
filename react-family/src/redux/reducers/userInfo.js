@@ -10,8 +10,8 @@ const initState = {
     abc:'abc'
 };
 
-export default function reducer(state = initState, action) {
-    console.log('reducer-userinfo'+action.type)
+export default function bbb(state = initState, action) {
+    console.log('reducer-userInfo====>'+action.type)
 
     switch (action.type) {
         case GET_USER_INFO_REQUEST:

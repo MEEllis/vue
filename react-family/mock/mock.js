@@ -10,5 +10,9 @@ module.exports = function () {
         'name': Random.cname(),
         'intro': Random.word(20)
     };
+    data.login = {
+        'status': 1,
+        'currentAuthority': 'admin'
+    };
     return data;
 };

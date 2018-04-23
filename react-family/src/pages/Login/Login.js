@@ -1,50 +1,24 @@
-import  React,{Component}  from 'react'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {postLogin} from "../../redux/actions/login";
+import Login from "components/Login/index";
 
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
-const FormItem = Form.Item;
-import './Login.less';
- class NormalLoginForm extends  Component{
+class LoginPage extends Component {
 
+    handleSubmit  = (err, values) => {
+        if(err){
+            return;
+        }
+        const {props} = this;
+        const {userName,password} = values;
+        props.postLogin({userName,password})
+      }
 
-    handleSubmit = (err, values) => {
-      console.log(111111111111)
-    }
-
-    render(){
-        const { getFieldDecorator } = this.props.form;
-        return(
-            <Form className="login-form">
-                <FormItem>
-                {getFieldDecorator('userName', {
-                    rules: [{ required: true, message: '请输入用户名!' }],
-                })(
-                    <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入用户名" />
-                )}
-                </FormItem>
-                <FormItem>
-                {getFieldDecorator('password', {
-                    rules: [{ required: true, message: '请输入密码!' }],
-                })(
-                    <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="请输入密码" />
-                )}
-                </FormItem>
-                <FormItem>
-                {getFieldDecorator('remember', {
-                    valuePropName: 'checked',
-                    initialValue: true,
-                })(
-                    <Checkbox>记住我</Checkbox>
-                )}
-                <a className="login-form-forgot" href="">忘记密码</a>
-                <Button type="primary" htmlType="button" onClick={() =>this.handleSubmit()} className="login-form-button">
-                    登录
-                </Button>
-                没有帐号？<a href="">注册</a>
-                </FormItem>
-            </Form>
+    render() {
+        return (
+            <Login onSubmit={this.handleSubmit}></Login>
         )
     }
 }
 
-
-export default  Form.create()(NormalLoginForm);
+export default connect((state) => ({login: state.login}), {postLogin})(LoginPage);

@@ -2,12 +2,10 @@ export const GET_USER_INFO_REQUEST = "login/GET_USER_INFO_REQUEST";
 export const GET_USER_INFO_SUCCESS = "login/GET_USER_INFO_SUCCESS";
 export const GET_USER_INFO_FAIL = "login/GET_USER_INFO_FAIL";
 
-
-
-export function postLogin() {
+export function postLogin(data) {
     return {
         types: [GET_USER_INFO_REQUEST, GET_USER_INFO_SUCCESS, GET_USER_INFO_FAIL],
-        promise: client => client.get(`http://localhost:8089/api/user.json`),
+        promise: client => client.post(`/api/login`,data),
         afterSuccess:(dispatch,getState,response)=>{
             /*请求成功后执行的函数*/
             console.log(response)
