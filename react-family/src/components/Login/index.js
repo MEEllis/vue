@@ -49,4 +49,4 @@ class NormalLoginForm extends Component{
     }
 }
 
-export default   Form.create()(NormalLoginForm);
+export default Form.create()(NormalLoginForm);

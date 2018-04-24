@@ -32,7 +32,7 @@ const getRouter = () => (
 
             </ul>
             <Switch>
-            <Route exact path="/" component={createComponent(Home)}/>
+                <Route exact path="/" component={createComponent(Home)}/>
                 <Route path="/page1" component={createComponent(Page1)}/>
                 <Route path="/counter" component={createComponent(Counter)}/>
                 <Route path="/userinfo" component={createComponent(UserInfo)}/>
