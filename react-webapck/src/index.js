@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import 'antd/dist/antd.css';
 
 import { Form, Input, Button, notification, Icon } from 'antd';
-import './index.scss';
+
 
 ReactDOM.render(
     <div>
