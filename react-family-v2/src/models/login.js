@@ -37,6 +37,7 @@ export default {
       };
     },
   },
+
   /**
    * 以key/value 格式定义 subscription。subscription 是订阅，用于订阅一个数据源，
    * 然后根据需要 dispatch 相应的 action。在 app.start() 时被执行，
