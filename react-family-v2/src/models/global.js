@@ -5,4 +5,13 @@ export default {
     collapsed: false,
     notices: [],
   },
+
+  reducers: {
+    changeLayoutCollapsed(state, { payload }) {
+      return {
+        ...state,
+        collapsed: payload,
+      };
+    },
+  },
 };

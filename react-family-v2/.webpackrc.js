@@ -17,4 +17,12 @@ export default {
   disableDynamicImport: true,
   publicPath: '/',
   hash: true,
+  devtool: 'source-map',
+  // proxy: {
+  //   "/": {
+  //     "target": "http://192.168.0.62/",
+  //     "changeOrigin": true,
+  //     "pathRewrite": { "^/api" : "" }
+  //   }
+  // }
 };
