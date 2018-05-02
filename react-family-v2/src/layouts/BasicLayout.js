@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Layout, Icon, message } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
-import { Route, Redirect, Switch, routerRedux } from 'dva/router';
+import { Route, Redirect, Switch } from 'dva/router';
 import { ContainerQuery } from 'react-container-query';
 import classNames from 'classnames';
 import { enquireScreen, unenquireScreen } from 'enquire-js';
@@ -79,9 +79,6 @@ const query = {
 };
 
 let isMobile;
-enquireScreen(b => {
-  isMobile = b;
-});
 
 class BasicLayout extends React.PureComponent {
   static childContextTypes = {
@@ -154,10 +151,6 @@ class BasicLayout extends React.PureComponent {
     });
   };
   handleMenuClick = ({ key }) => {
-    if (key === 'triggerError') {
-      this.props.dispatch(routerRedux.push('/exception/trigger'));
-      return;
-    }
     if (key === 'logout') {
       this.props.dispatch({
         type: 'login/logout',

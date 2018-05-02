@@ -11,6 +11,7 @@ export default {
   },
 
   effects: {
+    // 登录
     *login({ payload }, { call, put }) {
       // 用于调用异步逻辑，支持 promise 。
       const response = yield call(fakeAccountLogin, payload);
@@ -23,6 +24,26 @@ export default {
       if (response.status === 'ok') {
         reloadAuthorized();
         yield put(routerRedux.push('/'));
+      }
+    },
+    *logout(_, { put, select }) {
+      try {
+        // get location pathname
+        const urlParams = new URL(window.location.href);
+        const pathname = yield select(state => state.routing.location.pathname);
+        // add the parameters in the url
+        urlParams.searchParams.set('redirect', pathname);
+        window.history.replaceState(null, null, urlParams.href);
+      } finally {
+        yield put({
+          type: 'changeLoginStatus',
+          payload: {
+            status: false,
+            currentAuthority: 'guest',
+          },
+        });
+        reloadAuthorized();
+        yield put(routerRedux.push('/user/login'));
       }
     },
   },

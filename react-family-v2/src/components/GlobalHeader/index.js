@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Menu, Icon, Spin, Tag, Dropdown, Avatar, Divider, Tooltip } from 'antd';
+import { Menu, Icon, Spin, Tag, Dropdown, Avatar, Divider } from 'antd';
 import moment from 'moment';
 import groupBy from 'lodash/groupBy';
 import Debounce from 'lodash-decorators/debounce';
@@ -74,9 +74,6 @@ export default class GlobalHeader extends PureComponent {
         <Menu.Item disabled>
           <Icon type="setting" />设置
         </Menu.Item>
-        <Menu.Item key="triggerError">
-          <Icon type="close-circle" />触发报错
-        </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="logout">
           <Icon type="logout" />退出登录
@@ -109,16 +106,6 @@ export default class GlobalHeader extends PureComponent {
               console.log('enter', value); // eslint-disable-line
             }}
           />
-          <Tooltip title="使用文档">
-            <a
-              target="_blank"
-              href="http://pro.ant.design/docs/getting-started"
-              rel="noopener noreferrer"
-              className={styles.action}
-            >
-              <Icon type="question-circle-o" />
-            </a>
-          </Tooltip>
           <NoticeIcon
             className={styles.action}
             count={currentUser.notifyCount}
