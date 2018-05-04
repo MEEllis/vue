@@ -31,7 +31,6 @@ export default {
         // get location pathname
         const urlParams = new URL(window.location.href);
         const pathname = yield select(state => state.routing.location.pathname);
-        // add the parameters in the url
         urlParams.searchParams.set('redirect', pathname);
         window.history.replaceState(null, null, urlParams.href);
       } finally {
