@@ -1,5 +1,5 @@
 import mockjs from 'mockjs';
-import { getRule, postRule } from './mock/rule';
+import { getSellingPoint, postSellingPoint } from './mock/sellingPoint';
 import { getActivities, getNotice, getFakeList } from './mock/api';
 import { getFakeChartData } from './mock/chart';
 import { getProfileBasicData } from './mock/profile';
@@ -51,15 +51,15 @@ const proxy = {
   ],
   'GET /api/project/notice': getNotice,
   'GET /api/activities': getActivities,
-  'GET /api/rule': getRule,
-  'POST /api/rule': {
+  'GET /api/sellingPoint': getSellingPoint,
+  'POST /api/sellingPoint': {
     $params: {
       pageSize: {
         desc: '分页',
         exp: 2,
       },
     },
-    $body: postRule,
+    $body: postSellingPoint,
   },
   'POST /api/forms': (req, res) => {
     res.send({ message: 'Ok' });

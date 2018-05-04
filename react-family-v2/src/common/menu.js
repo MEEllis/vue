@@ -2,18 +2,6 @@ import { isUrl } from '../utils/utils';
 
 const menuData = [
   {
-    name: '分销管理',
-    icon: 'warning',
-    path: 'sales',
-    authority: 'auth',
-    children: [
-      {
-        name: '销售订单',
-        path: 'order',
-      },
-    ],
-  },
-  {
     name: '异常页',
     icon: 'warning',
     path: 'exception',
@@ -54,6 +42,17 @@ const menuData = [
       {
         name: '注册结果',
         path: 'register-result',
+      },
+    ],
+  },
+  {
+    name: '产品库',
+    icon: 'user',
+    path: 'productionLibrary',
+    children: [
+      {
+        name: ' 产品卖点',
+        path: 'sellingPoint',
       },
     ],
   },

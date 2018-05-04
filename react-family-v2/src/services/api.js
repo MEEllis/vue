@@ -9,8 +9,8 @@ export async function queryActivities() {
   return request('/api/activities');
 }
 
-export async function queryRule(params) {
-  return request(`/api/rule?${stringify(params)}`);
+export async function querySellingPoint(params) {
+  return request(`/api/sellingPoint?${stringify(params)}`);
 }
 
 export async function removeRule(params) {
@@ -23,8 +23,8 @@ export async function removeRule(params) {
   });
 }
 
-export async function addRule(params) {
-  return request('/api/rule', {
+export async function addSellingPoint(params) {
+  return request('/api/sellingPoint', {
     method: 'POST',
     body: {
       ...params,
