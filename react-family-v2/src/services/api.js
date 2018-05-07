@@ -10,7 +10,49 @@ export async function queryActivities() {
 }
 
 export async function querySellingPoint(params) {
-  return request(`/api/sellingPoint?${stringify(params)}`);
+  return request('/api/querySellingPoint', {
+    method: 'POST',
+    body: {
+      ...params,
+    },
+  });
+}
+
+export async function addSellingPoint(params) {
+  return request('/api/addSellingPoint', {
+    method: 'POST',
+    body: {
+      ...params,
+      method: 'post',
+    },
+  });
+}
+
+export async function updateSellingPoint(params) {
+  return request('/api/updateSellingPoint', {
+    method: 'POST',
+    body: {
+      ...params,
+    },
+  });
+}
+
+export async function updateSellingPointState(params) {
+  return request('/api/updateSellingPointState', {
+    method: 'POST',
+    body: {
+      ...params,
+    },
+  });
+}
+
+export async function deleteSellingPoint(params) {
+  return request('/api/deleteSellingPoint', {
+    method: 'POST',
+    body: {
+      ...params,
+    },
+  });
 }
 
 export async function removeRule(params) {
@@ -19,16 +61,6 @@ export async function removeRule(params) {
     body: {
       ...params,
       method: 'delete',
-    },
-  });
-}
-
-export async function addSellingPoint(params) {
-  return request('/api/sellingPoint', {
-    method: 'POST',
-    body: {
-      ...params,
-      method: 'post',
     },
   });
 }

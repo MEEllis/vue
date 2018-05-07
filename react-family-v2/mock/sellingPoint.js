@@ -1,4 +1,4 @@
-import { parse } from 'url';
+import findIndex from 'lodash/findIndex';
 
 // mock tableListDataSource
 let tableListDataSource = [];
@@ -11,53 +11,90 @@ for (let i = 0; i < 46; i += 1) {
     sellingRemark: `remark ${i}`,
   });
 }
-
-export function getSellingPoint(req, res, u) {
+// 查询
+export function getSellingPoint(req, res, u, b) {
   let url = u;
   if (!url || Object.prototype.toString.call(url) !== '[object String]') {
     url = req.url; // eslint-disable-line
   }
-
-  const params = parse(url, true).query;
-
+  const body = (b && b.body) || req.body;
+  const { keyword, pageSize, currentPage } = body;
   let dataSource = [...tableListDataSource];
 
-  if (params.sorter) {
-    const s = params.sorter.split('_');
-    dataSource = dataSource.sort((prev, next) => {
-      if (s[1] === 'descend') {
-        return next[s[0]] - prev[s[0]];
-      }
-      return prev[s[0]] - next[s[0]];
-    });
+  if (keyword !== undefined) {
+    dataSource = dataSource.filter(data => data.sellingCode.indexOf(keyword) > -1);
   }
 
-  if (params.status) {
-    const status = params.status.split(',');
-    let filterDataSource = [];
-    status.forEach(s => {
-      filterDataSource = filterDataSource.concat(
-        [...dataSource].filter(data => parseInt(data.status, 10) === parseInt(s[0], 10))
-      );
-    });
-    dataSource = filterDataSource;
-  }
-
-  if (params.keyword) {
-    dataSource = dataSource.filter(data => data.sellingCode.indexOf(params.keyword) > -1);
-  }
-
-  let pageSize = 10;
-  if (params.pageSize) {
-    pageSize = params.pageSize * 1;
-  }
+  const pageSizes = pageSize === undefined ? 10 : pageSize * 1;
 
   const result = {
     list: dataSource,
     pagination: {
       total: dataSource.length,
-      pageSize,
-      current: parseInt(params.currentPage,10) || 1,
+      pageSize: pageSizes,
+      current: parseInt(currentPage, 10) || 1,
+    },
+  };
+  if (res && res.json) {
+    res.json(result);
+  } else {
+    return result;
+  }
+}
+// 修改
+export function updateSellingPoint(req, res, u, b) {
+  let url = u;
+  if (!url || Object.prototype.toString.call(url) !== '[object String]') {
+    url = req.url; // eslint-disable-line
+  }
+  const body = (b && b.body) || req.body;
+  const { key, sellingName, sellingRemark } = body;
+  if (key !== undefined) {
+    for (let i = 0; i < tableListDataSource.length; i++) {
+      if (key === tableListDataSource[i].key) {
+        tableListDataSource[i].sellingName = sellingName;
+        tableListDataSource[i].sellingRemark = sellingRemark;
+        break;
+      }
+    }
+  }
+
+  const result = {
+    list: tableListDataSource,
+    pagination: {
+      total: tableListDataSource.length,
+    },
+  };
+
+  if (res && res.json) {
+    res.json(result);
+  } else {
+    return result;
+  }
+}
+// 修改状态
+export function updateSellingPointState(req, res, u, b) {
+  let url = u;
+  if (!url || Object.prototype.toString.call(url) !== '[object String]') {
+    url = req.url; // eslint-disable-line
+  }
+  const body = (b && b.body) || req.body;
+  const { key, disable } = body;
+  if (key !== undefined) {
+    const keyArr = key.split(',');
+    for (let i = 0; i < keyArr.length; i++) {
+      const keyitem = parseInt(keyArr[i], 10);
+      const aaaindex = findIndex(tableListDataSource, ['key', keyitem]);
+      if (aaaindex > -1) {
+        tableListDataSource[aaaindex].disable = disable;
+      }
+    }
+  }
+
+  const result = {
+    list: tableListDataSource,
+    pagination: {
+      total: tableListDataSource.length,
     },
   };
 
@@ -68,6 +105,40 @@ export function getSellingPoint(req, res, u) {
   }
 }
 
+// 删除
+export function deleteSellingPoint(req, res, u, b) {
+  let url = u;
+  if (!url || Object.prototype.toString.call(url) !== '[object String]') {
+    url = req.url; // eslint-disable-line
+  }
+  const body = (b && b.body) || req.body;
+  const { key } = body;
+  if (key !== undefined) {
+    const keyArr = key.split(',');
+    let i;
+    for (i = 0; i < keyArr.length; i++) {
+      const keyitem = parseInt(keyArr[i], 10);
+      const aaaindex = findIndex(tableListDataSource, ['key', keyitem]);
+      if (aaaindex > -1) {
+        tableListDataSource.splice(aaaindex, 1);
+      }
+    }
+  }
+
+  const result = {
+    list: tableListDataSource,
+    pagination: {
+      total: tableListDataSource.length,
+    },
+  };
+
+  if (res && res.json) {
+    res.json(result);
+  } else {
+    return result;
+  }
+}
+// 添加
 export function postSellingPoint(req, res, u, b) {
   let url = u;
   if (!url || Object.prototype.toString.call(url) !== '[object String]') {
@@ -75,7 +146,7 @@ export function postSellingPoint(req, res, u, b) {
   }
 
   const body = (b && b.body) || req.body;
-  const { method, no, sellingName,sellingRemark } = body;
+  const { method, no, sellingName, sellingRemark } = body;
 
   switch (method) {
     /* eslint no-case-declarations:0 */
@@ -109,8 +180,3 @@ export function postSellingPoint(req, res, u, b) {
     return result;
   }
 }
-
-export default {
-  getSellingPoint,
-  postSellingPoint,
-};

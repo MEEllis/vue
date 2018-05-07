@@ -1,4 +1,10 @@
-import { querySellingPoint, addSellingPoint } from '../services/api';
+import {
+  querySellingPoint,
+  addSellingPoint,
+  updateSellingPoint,
+  updateSellingPointState,
+  deleteSellingPoint,
+} from '../services/api';
 
 export default {
   namespace: 'sellingPoint',
@@ -20,6 +26,27 @@ export default {
     },
     *add({ payload }, { put, call }) {
       const response = yield call(addSellingPoint, payload);
+      yield put({
+        type: 'save',
+        payload: response,
+      });
+    },
+    *update({ payload }, { put, call }) {
+      const response = yield call(updateSellingPoint, payload);
+      yield put({
+        type: 'save',
+        payload: response,
+      });
+    },
+    *updateDisbale({ payload }, { put, call }) {
+      const response = yield call(updateSellingPointState, payload);
+      yield put({
+        type: 'save',
+        payload: response,
+      });
+    },
+    *delete({ payload }, { put, call }) {
+      const response = yield call(deleteSellingPoint, payload);
       yield put({
         type: 'save',
         payload: response,

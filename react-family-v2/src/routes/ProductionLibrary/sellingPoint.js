@@ -6,6 +6,7 @@ import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import styles from './sellingPoint.less';
 
 const FormItem = Form.Item;
+const { confirm } = Modal;
 const getValue = obj =>
   Object.keys(obj)
     .map(key => obj[key])
@@ -13,9 +14,26 @@ const getValue = obj =>
 const disableMap = ['success', 'error'];
 const disableText = ['启用', '禁用'];
 
-const CreateForm = Form.create()(props => {
-  const { modalVisible, form, handleAdd, handleModalVisible } = props;
-  const okHandle = () => {
+const CreateForm = Form.create({
+  mapPropsToFields(props) {
+    const { modalState, selectedRows, modalVisible } = props;
+    if (modalState === 'update' && modalVisible) {
+      return {
+        sellingCode: Form.createFormField({
+          value: selectedRows[0].sellingCode,
+        }),
+        sellingName: Form.createFormField({
+          value: selectedRows[0].sellingName,
+        }),
+        sellingRemark: Form.createFormField({
+          value: selectedRows[0].sellingRemark,
+        }),
+      };
+    }
+  },
+})(props => {
+  const { modalVisible, form, handleAdd, handleUpdate, handleModalVisible, modalState } = props;
+  const okHandle = flag => {
     form.validateFields((err, fieldsValue) => {
       if (err) return;
       form.resetFields();
@@ -23,45 +41,83 @@ const CreateForm = Form.create()(props => {
         sellingName: fieldsValue.sellingName,
         sellingRemark: fieldsValue.sellingRemark,
       });
+      if (flag === 1) {
+        handleModalVisible();
+      }
     });
   };
+  const HandleUpdate = () => {
+    form.validateFields((err, fieldsValue) => {
+      if (err) return;
+      form.resetFields();
+      const { selectedRows } = props;
+      handleUpdate({
+        key: selectedRows[0].key,
+        sellingName: fieldsValue.sellingName,
+        sellingRemark: fieldsValue.sellingRemark,
+      });
+      handleModalVisible();
+    });
+  };
+  let footer;
+  let title = '';
+  if (modalState === 'update') {
+    title = `修改`;
+    footer = [
+      <Button
+        type="primary"
+        onClick={() => {
+          HandleUpdate();
+        }}
+      >
+        保存
+      </Button>,
+      <Button
+        onClick={() => {
+          handleModalVisible();
+        }}
+      >
+        取消
+      </Button>,
+    ];
+  } else {
+    title = `新增`;
+    footer = [
+      <Button
+        type="primary"
+        onClick={() => {
+          okHandle(0);
+        }}
+      >
+        保存并新增
+      </Button>,
+      <Button
+        type="primary"
+        onClick={() => {
+          okHandle(1);
+        }}
+      >
+        保存并关闭
+      </Button>,
+      <Button
+        onClick={() => {
+          handleModalVisible();
+        }}
+      >
+        取消
+      </Button>,
+    ];
+  }
   return (
     <Modal
       width={620}
-      title="产品卖点"
+      title={`${title}产品卖点`}
       visible={modalVisible}
       destroyOnClose={true} // eslint-disable-line
       onCancel={() => {
         handleModalVisible();
       }}
-      footer={[
-        <Button
-          key="back"
-          onClick={() => {
-            handleModalVisible();
-          }}
-        >
-          取消
-        </Button>,
-        <Button
-          key="submitAdd"
-          type="primary"
-          onClick={() => {
-            okHandle(0);
-          }}
-        >
-          保存并新增
-        </Button>,
-        <Button
-          key="submitClose"
-          type="primary"
-          onClick={() => {
-            okHandle(1);
-          }}
-        >
-          保存并关闭
-        </Button>,
-      ]}
+      footer={footer}
     >
       <Row>
         <Col span={8}>
@@ -96,7 +152,8 @@ const CreateForm = Form.create()(props => {
 @Form.create()
 export default class sellingPointPage extends PureComponent {
   state = {
-    modalVisible: false,
+    modalVisible: false, // 是否显示模态框
+    modalState: 'add', // 模态框的状态
     selectedRows: [],
     formValues: {},
   };
@@ -144,9 +201,74 @@ export default class sellingPointPage extends PureComponent {
     });
   };
 
+  handleAdd = fieldsValue => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'sellingPoint/add',
+      payload: fieldsValue,
+    });
+    message.success('添加成功');
+  };
+
+  handleUpdate = fieldsValue => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'sellingPoint/update',
+      payload: fieldsValue,
+    });
+    message.success('修改成功');
+  };
+
   handleModalVisible = flag => {
     this.setState({
       modalVisible: flag,
+    });
+  };
+
+  handleModalOpen = sign => {
+    if (sign === 'update') {
+      const { selectedRows } = this.state;
+      if (selectedRows.length !== 1) {
+        message.warning('只能修改一条数据！');
+        return;
+      }
+    }
+    this.handleModalVisible(true);
+    this.setState({
+      modalState: sign === undefined ? 'add' : sign,
+    });
+  };
+
+  handleDisable = disable => {
+    const { dispatch } = this.props;
+    const { selectedRows } = this.state;
+
+    dispatch({
+      type: 'sellingPoint/updateDisbale',
+      payload: {
+        key: selectedRows.map(row => row.key).join(','),
+        disable,
+      },
+    });
+    message.success('修改成功');
+  };
+
+  handleDelete = () => {
+    confirm({
+      title: '你确定是否删除?',
+      onOk: () => {
+        const { dispatch } = this.props;
+        const { selectedRows } = this.state;
+
+        dispatch({
+          type: 'sellingPoint/delete',
+          payload: {
+            key: selectedRows.map(row => row.key).join(','),
+          },
+        });
+        message.success('删除成功');
+      },
+      onCancel() {},
     });
   };
 
@@ -174,14 +296,6 @@ export default class sellingPointPage extends PureComponent {
       type: 'sellingPoint/fetch',
       payload: params,
     });
-  };
-  handleAdd = fieldsValue => {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'sellingPoint/add',
-      payload: fieldsValue,
-    });
-    message.success('添加成功');
   };
 
   renderSimpleForm() {
@@ -211,12 +325,14 @@ export default class sellingPointPage extends PureComponent {
 
   render() {
     const { sellingPoint: { data }, loading } = this.props;
-    const { selectedRows, modalVisible } = this.state;
+    const { selectedRows, modalVisible, modalState } = this.state;
     const { pagination } = data;
+    const isDisable = selectedRows.length > 0 ? '' : 'disabled';
     const columns = [
       {
         title: '序号',
         dataIndex: 'number',
+        width: 100,
         render: (text, record, index) => {
           if (pagination.current) {
             return (pagination.current - 1) * pagination.pageSize + index + 1;
@@ -227,14 +343,17 @@ export default class sellingPointPage extends PureComponent {
       },
       {
         title: '卖点编码',
+        width: 150,
         dataIndex: 'sellingCode',
       },
       {
         title: '卖点名称',
+        width: 150,
         dataIndex: 'sellingName',
       },
       {
         title: '是否禁用',
+        width: 150,
         dataIndex: 'disable',
         render(val) {
           return <Badge status={disableMap[val]} text={disableText[val]} />;
@@ -248,6 +367,7 @@ export default class sellingPointPage extends PureComponent {
 
     const parentMethods = {
       handleAdd: this.handleAdd,
+      handleUpdate: this.handleUpdate,
       handleModalVisible: this.handleModalVisible,
     };
     return (
@@ -256,17 +376,23 @@ export default class sellingPointPage extends PureComponent {
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderSimpleForm()}</div>
             <div className={styles.tableListOperator}>
-              <Button icon="plus" type="primary" onClick={() => this.handleModalVisible(true)}>
+              <Button icon="plus" type="primary" onClick={() => this.handleModalOpen()}>
                 新建
               </Button>
-              {selectedRows.length > 0 && (
-                <span>
-                  <Button>修改</Button>
-                  <Button>禁用</Button>
-                  <Button>启用</Button>
-                  <Button type="danger">删除</Button>
-                </span>
-              )}
+              <span>
+                <Button disabled={isDisable} onClick={() => this.handleModalOpen('update')}>
+                  修改
+                </Button>
+                <Button disabled={isDisable} onClick={() => this.handleDisable(1)}>
+                  禁用
+                </Button>
+                <Button disabled={isDisable} onClick={() => this.handleDisable(0)}>
+                  启用
+                </Button>
+                <Button disabled={isDisable} onClick={() => this.handleDelete()} type="danger">
+                  删除
+                </Button>
+              </span>
             </div>
             <StandardTable
               selectedRows={selectedRows}
@@ -275,10 +401,16 @@ export default class sellingPointPage extends PureComponent {
               columns={columns}
               onSelectRow={this.handleSelectRows}
               onChange={this.handleStandardTableChange}
+              scroll={{ y: 340 }}
             />
           </div>
         </Card>
-        <CreateForm {...parentMethods} modalVisible={modalVisible} />
+        <CreateForm
+          {...parentMethods}
+          modalVisible={modalVisible}
+          modalState={modalState}
+          selectedRows={selectedRows}
+        />
       </PageHeaderLayout>
     );
   }
