@@ -145,10 +145,12 @@ const CreateForm = Form.create({
   );
 });
 
-@connect(({ sellingPoint, loading }) => ({
-  sellingPoint,
-  loading: loading.models.sellingPoint,
-}))
+@connect(({ sellingPoint, loading }) => {
+  return {
+    sellingPoint,
+    loading: loading.models.sellingPoint,
+  };
+})
 @Form.create()
 export default class sellingPointPage extends PureComponent {
   state = {
