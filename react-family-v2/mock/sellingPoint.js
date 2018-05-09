@@ -26,13 +26,22 @@ export function getSellingPoint(req, res, u, b) {
   }
 
   const pageSizes = pageSize === undefined ? 10 : pageSize * 1;
-
+  const current = parseInt(currentPage, 10) || 1;
+  const list = [];
+  for (let i = 0; i < pageSizes; i++) {
+    const startCur = (current - 1) * pageSizes + i;
+    if (startCur < dataSource.length) {
+      list.push(dataSource[startCur]);
+    } else {
+      break;
+    }
+  }
   const result = {
-    list: dataSource,
+    list,
     pagination: {
       total: dataSource.length,
       pageSize: pageSizes,
-      current: parseInt(currentPage, 10) || 1,
+      current,
     },
   };
   if (res && res.json) {
@@ -168,10 +177,8 @@ export function postSellingPoint(req, res, u, b) {
   }
 
   const result = {
-    list: tableListDataSource,
-    pagination: {
-      total: tableListDataSource.length,
-    },
+    result: 1,
+    desc: null,
   };
 
   if (res && res.json) {

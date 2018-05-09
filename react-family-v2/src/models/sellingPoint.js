@@ -24,12 +24,11 @@ export default {
         payload: response,
       });
     },
-    *add({ payload }, { put, call }) {
+    *add({ payload, callback }, { call }) {
       const response = yield call(addSellingPoint, payload);
-      yield put({
-        type: 'save',
-        payload: response,
-      });
+      if (callback) {
+        callback(response);
+      }
     },
     *update({ payload }, { put, call }) {
       const response = yield call(updateSellingPoint, payload);

@@ -65,6 +65,7 @@ const CreateForm = Form.create({
     title = `修改`;
     footer = [
       <Button
+        key="update"
         type="primary"
         onClick={() => {
           HandleUpdate();
@@ -73,6 +74,7 @@ const CreateForm = Form.create({
         保存
       </Button>,
       <Button
+        key="close"
         onClick={() => {
           handleModalVisible();
         }}
@@ -84,6 +86,7 @@ const CreateForm = Form.create({
     title = `新增`;
     footer = [
       <Button
+        key="add"
         type="primary"
         onClick={() => {
           okHandle(0);
@@ -92,6 +95,7 @@ const CreateForm = Form.create({
         保存并新增
       </Button>,
       <Button
+        key="addClose"
         type="primary"
         onClick={() => {
           okHandle(1);
@@ -100,6 +104,7 @@ const CreateForm = Form.create({
         保存并关闭
       </Button>,
       <Button
+        key="close"
         onClick={() => {
           handleModalVisible();
         }}
@@ -108,6 +113,7 @@ const CreateForm = Form.create({
       </Button>,
     ];
   }
+
   return (
     <Modal
       width={620}
@@ -205,11 +211,18 @@ export default class sellingPointPage extends PureComponent {
 
   handleAdd = fieldsValue => {
     const { dispatch } = this.props;
+    const { formValues } = this.state;
     dispatch({
       type: 'sellingPoint/add',
       payload: fieldsValue,
+      callback: () => {
+        message.success('添加成功');
+        dispatch({
+          type: 'sellingPoint/fetch',
+          payload: formValues,
+        });
+      },
     });
-    message.success('添加成功');
   };
 
   handleUpdate = fieldsValue => {
@@ -251,8 +264,9 @@ export default class sellingPointPage extends PureComponent {
         key: selectedRows.map(row => row.key).join(','),
         disable,
       },
+    }).then(response => {
+      message.success(response);
     });
-    message.success('修改成功');
   };
 
   handleDelete = () => {
