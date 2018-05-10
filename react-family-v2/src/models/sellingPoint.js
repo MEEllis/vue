@@ -30,26 +30,23 @@ export default {
         callback(response);
       }
     },
-    *update({ payload }, { put, call }) {
+    *update({ payload, callback }, { call }) {
       const response = yield call(updateSellingPoint, payload);
-      yield put({
-        type: 'save',
-        payload: response,
-      });
+      if (callback) {
+        callback(response);
+      }
     },
-    *updateDisbale({ payload }, { put, call }) {
+    *updateDisbale({ payload, callback }, { call }) {
       const response = yield call(updateSellingPointState, payload);
-      yield put({
-        type: 'save',
-        payload: response,
-      });
+      if (callback) {
+        callback(response);
+      }
     },
-    *delete({ payload }, { put, call }) {
+    *delete({ payload, callback }, { call }) {
       const response = yield call(deleteSellingPoint, payload);
-      yield put({
-        type: 'save',
-        payload: response,
-      });
+      if (callback) {
+        callback(response);
+      }
     },
   },
 

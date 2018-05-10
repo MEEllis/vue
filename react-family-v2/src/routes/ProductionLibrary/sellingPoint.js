@@ -7,10 +7,6 @@ import styles from './sellingPoint.less';
 
 const FormItem = Form.Item;
 const { confirm } = Modal;
-const getValue = obj =>
-  Object.keys(obj)
-    .map(key => obj[key])
-    .join(',');
 const disableMap = ['success', 'error'];
 const disableText = ['启用', '禁用'];
 
@@ -227,11 +223,66 @@ export default class sellingPointPage extends PureComponent {
 
   handleUpdate = fieldsValue => {
     const { dispatch } = this.props;
+    const { formValues } = this.state;
     dispatch({
       type: 'sellingPoint/update',
       payload: fieldsValue,
+      callback: () => {
+        message.success('修改成功');
+        dispatch({
+          type: 'sellingPoint/fetch',
+          payload: formValues,
+        });
+      },
     });
-    message.success('修改成功');
+  };
+
+  handleDisable = disable => {
+    const { dispatch } = this.props;
+    const { selectedRows, formValues } = this.state;
+
+    dispatch({
+      type: 'sellingPoint/updateDisbale',
+      payload: {
+        key: selectedRows.map(row => row.key).join(','),
+        disable,
+      },
+      callback: () => {
+        message.success('修改成功');
+        dispatch({
+          type: 'sellingPoint/fetch',
+          payload: formValues,
+        });
+      },
+    });
+  };
+
+  handleDelete = () => {
+    confirm({
+      title: '你确定是否删除?',
+      onOk: () => {
+        const { dispatch } = this.props;
+        const { selectedRows, formValues } = this.state;
+
+        dispatch({
+          type: 'sellingPoint/delete',
+          payload: {
+            key: selectedRows.map(row => row.key).join(','),
+          },
+          callback: () => {
+            this.setState({
+              selectedRows: [],
+            });
+            message.success('删除成功');
+            dispatch({
+              type: 'sellingPoint/fetch',
+              payload: formValues,
+            });
+          },
+        });
+      },
+      onCancel() {},
+    });
   };
 
   handleModalVisible = flag => {
@@ -254,63 +305,17 @@ export default class sellingPointPage extends PureComponent {
     });
   };
 
-  handleDisable = disable => {
-    const { dispatch } = this.props;
-    const { selectedRows } = this.state;
-
-    dispatch({
-      type: 'sellingPoint/updateDisbale',
-      payload: {
-        key: selectedRows.map(row => row.key).join(','),
-        disable,
-      },
-    }).then(response => {
-      message.success(response);
-    });
-  };
-
-  handleDelete = () => {
-    confirm({
-      title: '你确定是否删除?',
-      onOk: () => {
-        const { dispatch } = this.props;
-        const { selectedRows } = this.state;
-
-        dispatch({
-          type: 'sellingPoint/delete',
-          payload: {
-            key: selectedRows.map(row => row.key).join(','),
-          },
-        });
-        message.success('删除成功');
-      },
-      onCancel() {},
-    });
-  };
-
-  handleStandardTableChange = (pagination, filtersArg, sorter) => {
+  handleStandardTableChange = ({ pagination }) => {
     const { dispatch } = this.props;
     const { formValues } = this.state;
-
-    const filters = Object.keys(filtersArg).reduce((obj, key) => {
-      const newObj = { ...obj };
-      newObj[key] = getValue(filtersArg[key]);
-      return newObj;
-    }, {});
-
-    const params = {
+    const payload = {
       currentPage: pagination.current,
       pageSize: pagination.pageSize,
       ...formValues,
-      ...filters,
     };
-    if (sorter.field) {
-      params.sorter = `${sorter.field}_${sorter.order}`;
-    }
-
     dispatch({
       type: 'sellingPoint/fetch',
-      payload: params,
+      payload,
     });
   };
 

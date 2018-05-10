@@ -54,7 +54,7 @@ class StandardTable extends PureComponent {
   };
 
   handleTableChange = (pagination, filters, sorter) => {
-    this.props.onChange(pagination, filters, sorter);
+    this.props.onChange({ pagination, filters, sorter });
   };
 
   cleanSelectedKeys = () => {
@@ -63,7 +63,7 @@ class StandardTable extends PureComponent {
 
   render() {
     const { selectedRowKeys, needTotalList } = this.state;
-    const { data: { list, pagination }, loading, columns, rowKey, scroll } = this.props;
+    const { data: { list, pagination }, loading, columns, rowKey } = this.props;
 
     const paginationProps = {
       showSizeChanger: true,
@@ -111,7 +111,6 @@ class StandardTable extends PureComponent {
           columns={columns}
           pagination={paginationProps}
           onChange={this.handleTableChange}
-          scroll={scroll}
         />
       </div>
     );

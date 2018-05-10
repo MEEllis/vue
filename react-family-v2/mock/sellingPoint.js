@@ -69,10 +69,8 @@ export function updateSellingPoint(req, res, u, b) {
   }
 
   const result = {
-    list: tableListDataSource,
-    pagination: {
-      total: tableListDataSource.length,
-    },
+    result: 1,
+    desc: null,
   };
 
   if (res && res.json) {
@@ -101,10 +99,8 @@ export function updateSellingPointState(req, res, u, b) {
   }
 
   const result = {
-    list: tableListDataSource,
-    pagination: {
-      total: tableListDataSource.length,
-    },
+    result: 1,
+    desc: null,
   };
 
   if (res && res.json) {
@@ -135,10 +131,8 @@ export function deleteSellingPoint(req, res, u, b) {
   }
 
   const result = {
-    list: tableListDataSource,
-    pagination: {
-      total: tableListDataSource.length,
-    },
+    result: 1,
+    desc: null,
   };
 
   if (res && res.json) {
