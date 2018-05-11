@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Row, Col, Card, Form, Input, Button, Modal, message, Badge } from 'antd';
 import StandardTable from '../../components/StandardTable';
+import EntityModal from '../../components/entityModal';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import styles from './sellingPoint.less';
 
@@ -11,9 +12,12 @@ const disableMap = ['success', 'error'];
 const disableText = ['启用', '禁用'];
 
 const CreateForm = Form.create({
+  onFieldsChange(props, changedFields) {
+    props.onChange(changedFields);
+  },
   mapPropsToFields(props) {
     const { modalState, selectedRows, modalVisible } = props;
-    if (modalState === 'update' && modalVisible) {
+    if (modalState === 1 && modalVisible && selectedRows.length === 1) {
       return {
         sellingCode: Form.createFormField({
           value: selectedRows[0].sellingCode,
@@ -28,98 +32,44 @@ const CreateForm = Form.create({
     }
   },
 })(props => {
-  const { modalVisible, form, handleAdd, handleUpdate, handleModalVisible, modalState } = props;
-  const okHandle = flag => {
+  const { title, modalState, modalVisible, handleAdd, handleUpdate, handleClose, form } = props;
+  const handleOk = flag => {
     form.validateFields((err, fieldsValue) => {
       if (err) return;
       form.resetFields();
-      handleAdd({
-        sellingName: fieldsValue.sellingName,
-        sellingRemark: fieldsValue.sellingRemark,
-      });
-      if (flag === 1) {
-        handleModalVisible();
+      if (handleAdd) {
+        handleAdd(
+          {
+            sellingName: fieldsValue.sellingName,
+            sellingRemark: fieldsValue.sellingRemark,
+          },
+          flag
+        );
       }
     });
   };
-  const HandleUpdate = () => {
+  const HandleUp = () => {
     form.validateFields((err, fieldsValue) => {
       if (err) return;
       form.resetFields();
       const { selectedRows } = props;
-      handleUpdate({
-        key: selectedRows[0].key,
-        sellingName: fieldsValue.sellingName,
-        sellingRemark: fieldsValue.sellingRemark,
-      });
-      handleModalVisible();
+      if (handleUpdate) {
+        handleUpdate({
+          key: selectedRows[0].key,
+          sellingName: fieldsValue.sellingName,
+          sellingRemark: fieldsValue.sellingRemark,
+        });
+      }
     });
   };
-  let footer;
-  let title = '';
-  if (modalState === 'update') {
-    title = `修改`;
-    footer = [
-      <Button
-        key="update"
-        type="primary"
-        onClick={() => {
-          HandleUpdate();
-        }}
-      >
-        保存
-      </Button>,
-      <Button
-        key="close"
-        onClick={() => {
-          handleModalVisible();
-        }}
-      >
-        取消
-      </Button>,
-    ];
-  } else {
-    title = `新增`;
-    footer = [
-      <Button
-        key="add"
-        type="primary"
-        onClick={() => {
-          okHandle(0);
-        }}
-      >
-        保存并新增
-      </Button>,
-      <Button
-        key="addClose"
-        type="primary"
-        onClick={() => {
-          okHandle(1);
-        }}
-      >
-        保存并关闭
-      </Button>,
-      <Button
-        key="close"
-        onClick={() => {
-          handleModalVisible();
-        }}
-      >
-        取消
-      </Button>,
-    ];
-  }
-
   return (
-    <Modal
-      width={620}
-      title={`${title}产品卖点`}
-      visible={modalVisible}
-      destroyOnClose={true} // eslint-disable-line
-      onCancel={() => {
-        handleModalVisible();
-      }}
-      footer={footer}
+    <EntityModal
+      title={title}
+      modalState={modalState}
+      modalVisible={modalVisible}
+      handleAdd={handleOk}
+      handleUpdate={HandleUp}
+      handleClose={handleClose}
     >
       <Row>
         <Col span={8}>
@@ -135,7 +85,6 @@ const CreateForm = Form.create({
           </FormItem>
         </Col>
       </Row>
-
       <Row>
         <Col span={24}>
           <FormItem labelCol={{ span: 3 }} wrapperCol={{ span: 21 }} label="备注">
@@ -143,7 +92,7 @@ const CreateForm = Form.create({
           </FormItem>
         </Col>
       </Row>
-    </Modal>
+    </EntityModal>
   );
 });
 
@@ -157,7 +106,7 @@ const CreateForm = Form.create({
 export default class sellingPointPage extends PureComponent {
   state = {
     modalVisible: false, // 是否显示模态框
-    modalState: 'add', // 模态框的状态
+    modalState: 0, // 模态框的状态
     selectedRows: [],
     formValues: {},
   };
@@ -205,7 +154,7 @@ export default class sellingPointPage extends PureComponent {
     });
   };
 
-  handleAdd = fieldsValue => {
+  handleAdd = (fieldsValue, flag) => {
     const { dispatch } = this.props;
     const { formValues } = this.state;
     dispatch({
@@ -213,6 +162,9 @@ export default class sellingPointPage extends PureComponent {
       payload: fieldsValue,
       callback: () => {
         message.success('添加成功');
+        if (flag === 1) {
+          this.handleModalVisible(false);
+        }
         dispatch({
           type: 'sellingPoint/fetch',
           payload: formValues,
@@ -229,6 +181,10 @@ export default class sellingPointPage extends PureComponent {
       payload: fieldsValue,
       callback: () => {
         message.success('修改成功');
+        this.handleModalVisible(false);
+        this.setState({
+          selectedRows: [],
+        });
         dispatch({
           type: 'sellingPoint/fetch',
           payload: formValues,
@@ -292,7 +248,7 @@ export default class sellingPointPage extends PureComponent {
   };
 
   handleModalOpen = sign => {
-    if (sign === 'update') {
+    if (sign === 1) {
       const { selectedRows } = this.state;
       if (selectedRows.length !== 1) {
         message.warning('只能修改一条数据！');
@@ -301,7 +257,7 @@ export default class sellingPointPage extends PureComponent {
     }
     this.handleModalVisible(true);
     this.setState({
-      modalState: sign === undefined ? 'add' : sign,
+      modalState: sign,
     });
   };
 
@@ -385,11 +341,14 @@ export default class sellingPointPage extends PureComponent {
         dataIndex: 'sellingRemark',
       },
     ];
-
-    const parentMethods = {
+    const entityModalProps = {
+      title: '产品卖点',
+      modalState,
+      modalVisible,
       handleAdd: this.handleAdd,
       handleUpdate: this.handleUpdate,
-      handleModalVisible: this.handleModalVisible,
+      handleClose: this.handleModalVisible,
+      selectedRows,
     };
     return (
       <PageHeaderLayout>
@@ -397,11 +356,11 @@ export default class sellingPointPage extends PureComponent {
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderSimpleForm()}</div>
             <div className={styles.tableListOperator}>
-              <Button icon="plus" type="primary" onClick={() => this.handleModalOpen()}>
+              <Button icon="plus" type="primary" onClick={() => this.handleModalOpen(0)}>
                 新建
               </Button>
               <span>
-                <Button disabled={isDisable} onClick={() => this.handleModalOpen('update')}>
+                <Button disabled={isDisable} onClick={() => this.handleModalOpen(1)}>
                   修改
                 </Button>
                 <Button disabled={isDisable} onClick={() => this.handleDisable(1)}>
@@ -426,12 +385,7 @@ export default class sellingPointPage extends PureComponent {
             />
           </div>
         </Card>
-        <CreateForm
-          {...parentMethods}
-          modalVisible={modalVisible}
-          modalState={modalState}
-          selectedRows={selectedRows}
-        />
+        <CreateForm {...entityModalProps} />
       </PageHeaderLayout>
     );
   }

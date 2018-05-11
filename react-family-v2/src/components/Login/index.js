@@ -8,10 +8,12 @@ import LoginSubmit from './LoginSubmit';
 import styles from './index.less';
 
 class Login extends Component {
+  // 属性默认值:你可以通过配置 defaultProps 为 props定义默认值
   static defaultProps = {
     className: '',
     onSubmit: () => {},
   };
+  // 属性类型检查
   static propTypes = {
     className: PropTypes.string,
     onSubmit: PropTypes.func,
