@@ -12,9 +12,6 @@ const disableMap = ['success', 'error'];
 const disableText = ['启用', '禁用'];
 
 const CreateForm = Form.create({
-  onFieldsChange(props, changedFields) {
-    props.onChange(changedFields);
-  },
   mapPropsToFields(props) {
     const { modalState, selectedRows, modalVisible } = props;
     if (modalState === 1 && modalVisible && selectedRows.length === 1) {
@@ -99,7 +96,8 @@ const CreateForm = Form.create({
 @connect(({ sellingPoint, loading }) => {
   return {
     sellingPoint,
-    loading: loading.models.sellingPoint,
+    loading: loading.effects['sellingPoint/fetch'],
+    disbaleLoading: loading.effects['sellingPoint/updateDisbale'],
   };
 })
 @Form.create()
@@ -107,6 +105,7 @@ export default class sellingPointPage extends PureComponent {
   state = {
     modalVisible: false, // 是否显示模态框
     modalState: 0, // 模态框的状态
+    disable: 0, // 启用 ，禁用
     selectedRows: [],
     formValues: {},
   };
@@ -185,6 +184,10 @@ export default class sellingPointPage extends PureComponent {
         this.setState({
           selectedRows: [],
         });
+        this.handleModalVisible(false);
+        this.setState({
+          selectedRows: [],
+        });
         dispatch({
           type: 'sellingPoint/fetch',
           payload: formValues,
@@ -193,15 +196,17 @@ export default class sellingPointPage extends PureComponent {
     });
   };
 
-  handleDisable = disable => {
+  handleDisable = flag => {
     const { dispatch } = this.props;
     const { selectedRows, formValues } = this.state;
-
+    this.setState({
+      disable: flag,
+    });
     dispatch({
       type: 'sellingPoint/updateDisbale',
       payload: {
         key: selectedRows.map(row => row.key).join(','),
-        disable,
+        disable: flag,
       },
       callback: () => {
         message.success('修改成功');
@@ -301,8 +306,8 @@ export default class sellingPointPage extends PureComponent {
   }
 
   render() {
-    const { sellingPoint: { data }, loading } = this.props;
-    const { selectedRows, modalVisible, modalState } = this.state;
+    const { sellingPoint: { data }, loading, disbaleLoading } = this.props;
+    const { selectedRows, modalVisible, modalState, disable } = this.state;
     const { pagination } = data;
     const isDisable = selectedRows.length > 0 ? '' : 'disabled';
     const columns = [
@@ -363,10 +368,18 @@ export default class sellingPointPage extends PureComponent {
                 <Button disabled={isDisable} onClick={() => this.handleModalOpen(1)}>
                   修改
                 </Button>
-                <Button disabled={isDisable} onClick={() => this.handleDisable(1)}>
+                <Button
+                  disabled={isDisable}
+                  loading={disable === 1 && disbaleLoading}
+                  onClick={() => this.handleDisable(1)}
+                >
                   禁用
                 </Button>
-                <Button disabled={isDisable} onClick={() => this.handleDisable(0)}>
+                <Button
+                  disabled={isDisable}
+                  loading={disable === 0 && disbaleLoading}
+                  onClick={() => this.handleDisable(0)}
+                >
                   启用
                 </Button>
                 <Button disabled={isDisable} onClick={() => this.handleDelete()} type="danger">

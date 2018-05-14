@@ -1,0 +1,55 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/follow/follow",
+    "pages/stock/stock",
+    "pages/billing/billing",
+    "pages/sales/sales",
+    "pages/my/my",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color":"#999",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "selectedColor":"#476EC9",
+    "list": [
+      {
+        "pagePath": "pages/follow/follow",
+        "text": "串号跟踪",
+        "iconPath":"images/tabBar/follow.png",
+        "selectedIconPath": "images/tabBar/follow-sel.png"
+      },
+      {
+        "pagePath": "pages/stock/stock",
+        "text": "库存",
+        "iconPath": "images/tabBar/stock.png",
+        "selectedIconPath": "images/tabBar/stock-sel.png"
+      },
+      {
+        "pagePath": "pages/billing/billing",
+        "text": "开单",
+        "iconPath": "images/tabBar/billing.png",
+        "selectedIconPath": "images/tabBar/billing-sel.png"
+      },
+      {
+        "pagePath": "pages/sales/sales",
+        "text": "销量",
+        "iconPath": "images/tabBar/sales.png",
+        "selectedIconPath": "images/tabBar/sales-sel.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/tabBar/my.png",
+        "selectedIconPath": "images/tabBar/my-sel.png"
+      }
+    ]
+  }
+}
