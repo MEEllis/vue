@@ -1,10 +1,26 @@
 /**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+@import 'weui.wxss';
+@import 'reset.wxss';
+page{
+    background-color: #F8F8F8;
+    font-size: 32rpx;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+.pt-20{
+  padding-top: 20rpx;
+}
+.mt-30{
+  margin-top: 30rpx;
+}
+.mb-30{
+    margin-bottom: 30rpx;
+}
+
+.ellipsis{
+  display: -webkit-box ;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1; 
+}

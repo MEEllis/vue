@@ -1,0 +1,18 @@
+
+.logo-wrap{
+  margin: 48rpx auto;
+  text-align: center;
+}
+.logo{
+  width: 328rpx;
+  height: 184rpx;
+}
+
+form{
+  display:block;
+  padding: 80rpx 30rpx 0rpx 30rpx;
+}
+
+form .txt{
+
+}

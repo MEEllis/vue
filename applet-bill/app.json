@@ -6,12 +6,13 @@
     "pages/billing/billing",
     "pages/sales/sales",
     "pages/my/my",
+     "pages/login/login",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "零售开单",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
