@@ -1,4 +1,4 @@
-// pages/login/login.js
+
 Page({
 
   /**
@@ -6,7 +6,8 @@ Page({
    */
   data: {
     name: '',
-    pwd: ''
+    pwd: '',
+    companyList:[],//公司列表
   },
 
   /**
@@ -20,7 +21,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.thridModal = this.selectComponent("#thridModal");
   },
 
   /**
@@ -86,42 +87,91 @@ Page({
     });
   },
   loginSubmit: function (e) {
+    const _this = this;
     const { name, pwd } = this.data
+    wx.authorize({
+      scope: 'scope.userInfo',
+      success:()=> {
+        // 用户已经同意小程序使用用户信息
+        wx.getUserInfo({
+          success(user) {
+            // 登录
+            wx.login({
+              success: res => {
+                if (res.code){
+                  //发起网络请求
+                  wx.request({
+                    method: 'POST',
+                    url: 'http://192.168.0.62/wxapi/auth/getAccessCompanyList',
+                    data: {
+                      userName: name,
+                      password: pwd
+                    },
+                    header: {
+                      'content-type': 'application/x-www-form-urlencoded' // 默认值
+                    },
+                    success: (ajaxData) => {
+                      console.log(ajaxData)
+                      _this.setData({
+                        companyList: ajaxData.data.data.companyList
+                      });
+                      _this.thridModal.show();
+                    }
+                  })
 
-    //  获取商城名称
-    wx.request({
-      method: 'POST',
-      url: 'http://192.168.0.62/wxapi/auth/getAccessCompanyList',
-      data: {
-        userName: name,
-        password: pwd,
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        wx.showModal({
-          content: '弹窗内容1',
-          showCancel: false,
-          success: function (res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-            }
+              
+                }
+              }
+            })
           }
-        });
-      },
-      fail:function (res) {
-        wx.showModal({
-          content: '弹窗内容2',
-          showCancel: false,
-          success: function (res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-            }
-          }
-        });
-      },
+        })
+      }
     })
-
   },
+  tapCompany: function (e){
+    // 用户已经同意小程序使用用户信息
+    const { name, pwd } = this.data;
+    const companyId = e.currentTarget.dataset.id;
+    wx.getUserInfo({
+      success(user) {
+        // 登录
+        wx.login({
+          success: res => {
+            if (res.code) {
+              //发起网络请求
+              wx.request({
+                method: 'POST',
+                url: 'http://192.168.0.62/wxapi/auth/login',
+                data: {
+                  userName: name,
+                  password: pwd,
+                  companyId,
+                  code: res.code,
+                  userInfo: JSON.stringify(user),
+                },
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                success: (ajaxData) => {
+           
+                  wx.setStorageSync('userInfo', ajaxData.data.data.employeeVo);
+                  wx.setStorage({
+                    key: "token",
+                    data: ajaxData.data.data['ERP-WX-TOKEN'],
+                    success: function () {
+                      wx.switchTab({
+                        url: '/pages/stock/stock'
+                      });
+                    }
+                  });
+                }
+              })
+
+
+            }
+          }
+        })
+      }
+    })
+  }
 })

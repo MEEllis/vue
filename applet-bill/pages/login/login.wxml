@@ -16,7 +16,22 @@
       </view>
     </view>
     <view>
-      <button class="weui-btn" type="primary" bindtap="loginSubmit">登录</button>
+    <!-- 15116201365 123456 -->
+      <button open-type="getUserInfo" class="weui-btn" type="primary" bindtap="loginSubmit">登录</button>
     </view>
   </form>
+
+
+
+  <easy-modal id="thridModal" title="选择公司" bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEventFirst">
+    <view class='modal-content'>
+      <scroll-view scroll-y="true" style="height: 300rpx;" class="cate-cotent">
+        <view class='list-item ' bindtap="tapCompany" wx:for-items="{{companyList}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}">
+          {{item.name}}
+        </view>
+     </scroll-view>
+    </view>
+
+  </easy-modal>
+
 </view>

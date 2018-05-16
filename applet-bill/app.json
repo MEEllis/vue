@@ -1,30 +1,30 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
+    "pages/login/login",
     "pages/follow/follow",
     "pages/stock/stock",
     "pages/billing/billing",
     "pages/sales/sales",
     "pages/my/my",
-     "pages/login/login",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "零售开单",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color":"#999",
+    "color": "#999",
     "borderStyle": "white",
     "backgroundColor": "#fff",
-    "selectedColor":"#476EC9",
+    "selectedColor": "#476EC9",
     "list": [
       {
         "pagePath": "pages/follow/follow",
         "text": "串号跟踪",
-        "iconPath":"images/tabBar/follow.png",
+        "iconPath": "images/tabBar/follow.png",
         "selectedIconPath": "images/tabBar/follow-sel.png"
       },
       {
@@ -52,5 +52,6 @@
         "selectedIconPath": "images/tabBar/my-sel.png"
       }
     ]
-  }
+  },
+  "debug": true
 }
