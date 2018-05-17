@@ -17,11 +17,11 @@
   </view>
   <view class='cate-wrap'>
     <scroll-view scroll-x="true" class="cate-cotent">
-      <button class="cate-item  {{activeCategoryId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}"> {{item.text}}</button>
+      <button class="cate-item  {{activeCategoryId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}"  bindtap="cateTap"> {{item.text}}</button>
     </scroll-view>
   </view>
   <view class='list-wrap pt-20'>
-    <view class='list-item mb-30' wx:for-items="{{listDatas}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}">
+    <navigator class='list-item mb-30 '  wx:for-items="{{listDatas}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}">
       <view class='weui-flex ellipsis title '>{{item.title}}</view>
 
       <view class='list-item-body'>
@@ -42,7 +42,7 @@
           </view>
         </view>
       </view>
-    </view>
+    </navigator>
   </view>
   
 </view>

@@ -1,18 +1,38 @@
-
-.logo-wrap{
-  margin: 48rpx auto;
+.logo-wrap {
+  margin: 0rpx auto;
   text-align: center;
+  margin-top: 48rpx;
+  margin-bottom: 20rpx;
 }
-.logo{
+
+.logo {
   width: 328rpx;
   height: 184rpx;
 }
 
-form{
-  display:block;
-  padding: 80rpx 30rpx 0rpx 30rpx;
+form {
+  display: block;
+  padding: 0rpx 30rpx 0rpx 30rpx;
 }
 
-form .txt{
-
+.txt-input {
+  border-bottom: 1rpx solid #ccc;
+  padding-bottom: 15rpx;
+  margin-top: 40rpx;
+  font-size: 32rpx;
 }
+
+.txt-input:focus
+{ 
+  border-bottom-color: #FFAF23 !important;
+}
+
+.login{
+  margin-top: 80rpx;
+  background-color: rgba(71, 110, 201, 1) !important;
+}
+
+.login[disabled][type=primary] {
+  background-color: rgba(71, 110, 201, 0.5) !important;
+}
+

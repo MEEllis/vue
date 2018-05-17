@@ -1,5 +1,6 @@
-var NewApiRootUrl = 'http://192.168.0.62/wxapi/';
-
+let NewApiRootUrl = ''
+  NewApiRootUrl = 'http://192.168.0.62/wxapi/'; // 后台联调的接口
+  NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/'; // 模拟接口地址
 module.exports = {
   authLogin: NewApiRootUrl + 'auth/login', //账号密码登录
   authAutoLogin: NewApiRootUrl + 'auth/autoLogin', //微信账号自动登录

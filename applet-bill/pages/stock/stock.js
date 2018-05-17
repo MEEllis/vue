@@ -68,7 +68,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '实时库存'
+    })
   },
 
   /**
@@ -140,5 +142,22 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
-  }
+  },
+
+  cateTap: function (e) {
+    const activeCategoryId = e.currentTarget.dataset.id;
+    this.setData({
+      activeCategoryId
+    });
+    this.getGoodsList(activeCategoryId);
+  },
+
+  getGoodsList:function() {
+    const activeCategoryId = e.currentTarget.dataset.id;
+    this.setData({
+      activeCategoryId
+    });
+    this.getGoodsList(activeCategoryId);
+  },
+
 })

@@ -9,8 +9,8 @@
     </view>
  
     <view slot="footer" class='modal-footer'>
-         <text catchtap='_cancelModal' class='btn btn-default'>{{cancelText}}</text>
-         <text catchtap='_confirmModal'  class='btn btn-primary'>{{confirmText}}</text>      
+         <text catchtap='_cancelModal'  wx:if="{{isShowCancel}}"  class='btn btn-default {{isShowCancel}}'>{{cancelText}}</text>
+         <text catchtap='_confirmModal' wx:if="{{isShowConfirm}}"  class='btn btn-primary'>{{confirmText}}</text>      
     </view>
 
 </base-modal>

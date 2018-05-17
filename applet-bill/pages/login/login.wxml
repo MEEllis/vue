@@ -2,33 +2,27 @@
   <view class='logo-wrap'>
     <image src="../../images/logo.png" lazy-load='true' class='logo' />
   </view>
-  <form bindsubmit="formSubmit" bindreset="formReset">
+  <form bindsubmit="formSubmit" >
     <view>
-      <input class='txt' type="text" class="" placeholder="请输入手机号" value="{{name}}" bindinput="inputName" />
-      <view class="weui-icon-clear" wx:if="{{name.length > 0}}" bindtap="clearName">
-        <icon type="clear" size="14"></icon>
-      </view>
+      <input class='txt-input' type="text" focus  placeholder="请输入手机号" value="{{name}}" bindinput="inputName" />
     </view>
     <view>
-      <input class='txt' password='true' type="text" class="" placeholder="请输入密码" value="{{pwd}}" bindinput="inputPwd" />
-      <view class="weui-icon-clear" wx:if="{{pwd.length > 0}}" bindtap="clearPwd">
-        <icon type="clear" size="14"></icon>
-      </view>
+      <input class='txt-input' password='true' type="text"  placeholder="请输入密码" value="{{pwd}}" bindinput="inputPwd" />
     </view>
     <view>
+
     <!-- 15116201365 123456 -->
-      <button open-type="getUserInfo" class="weui-btn" type="primary" bindtap="loginSubmit">登录</button>
+      <button open-type="getUserInfo"   wx:if="{{name.length>0&&pwd.length>0}}" class="login " type="primary" bindgetuserinfo="formSubmit">登录</button>
+      <button open-type="getUserInfo" disabled wx:else class="login" type="primary" bindgetuserinfo="formSubmit">登录</button>
     </view>
   </form>
 
-
-
-  <easy-modal id="thridModal" title="选择公司" bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEventFirst">
+  <easy-modal id="thridModal" title="选择公司" isShowConfirm='{{false}}' >
     <view class='modal-content'>
       <scroll-view scroll-y="true" style="height: 300rpx;" class="cate-cotent">
-        <view class='list-item ' bindtap="tapCompany" wx:for-items="{{companyList}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}">
-          {{item.name}}
-        </view>
+            <navigator  bindtap="tapCompany" wx:for-items="{{companyList}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" class="weui-cell  weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">{{item.name}}</view>
+            </navigator>
      </scroll-view>
     </view>
 

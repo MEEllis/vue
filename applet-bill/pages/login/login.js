@@ -1,20 +1,24 @@
+import util from '../../utils/util.js';
+import api from '../../config/api.js';
+import user from '../../services/user.js';
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    name: '',
-    pwd: '',
-    companyList:[],//公司列表
+    name: '15116201365',
+    pwd: '123456',
+    companyList: [],//公司列表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '云盛店员助手'
+    })
   },
 
   /**
@@ -71,107 +75,61 @@ Page({
       name: e.detail.value
     });
   },
-  clearName: function (e) {
-    this.setData({
-      name: ""
-    });
-  },
+
   inputPwd: function (e) {
     this.setData({
       pwd: e.detail.value
     });
   },
-  clearPwd: function (e) {
-    this.setData({
-      pwd: ""
-    });
-  },
-  loginSubmit: function (e) {
+
+  formSubmit: function (e) {
+    const wxUserInfo = e.detail;
     const _this = this;
     const { name, pwd } = this.data
-    wx.authorize({
-      scope: 'scope.userInfo',
-      success:()=> {
-        // 用户已经同意小程序使用用户信息
-        wx.getUserInfo({
-          success(user) {
-            // 登录
-            wx.login({
-              success: res => {
-                if (res.code){
-                  //发起网络请求
-                  wx.request({
-                    method: 'POST',
-                    url: 'http://192.168.0.62/wxapi/auth/getAccessCompanyList',
-                    data: {
-                      userName: name,
-                      password: pwd
-                    },
-                    header: {
-                      'content-type': 'application/x-www-form-urlencoded' // 默认值
-                    },
-                    success: (ajaxData) => {
-                      console.log(ajaxData)
-                      _this.setData({
-                        companyList: ajaxData.data.data.companyList
-                      });
-                      _this.thridModal.show();
-                    }
-                  })
-
-              
-                }
-              }
-            })
-          }
-        })
+    util.login().then(({ code }) => {
+      if (code) {
+        util.request(
+          api.authGetAccessCompanyList,
+          {
+            userName: name,
+            password: pwd
+          },
+        ).then(ajaxData => {
+          _this.setData({
+            companyList: ajaxData.data.companyList
+          });
+          _this.thridModal.show();
+        }
+          )
       }
     })
   },
-  tapCompany: function (e){
+  tapCompany: function (e) {
     // 用户已经同意小程序使用用户信息
     const { name, pwd } = this.data;
     const companyId = e.currentTarget.dataset.id;
-    wx.getUserInfo({
-      success(user) {
-        // 登录
-        wx.login({
-          success: res => {
-            if (res.code) {
-              //发起网络请求
-              wx.request({
-                method: 'POST',
-                url: 'http://192.168.0.62/wxapi/auth/login',
-                data: {
-                  userName: name,
-                  password: pwd,
-                  companyId,
-                  code: res.code,
-                  userInfo: JSON.stringify(user),
-                },
-                header: {
-                  'content-type': 'application/x-www-form-urlencoded' // 默认值
-                },
-                success: (ajaxData) => {
-           
-                  wx.setStorageSync('userInfo', ajaxData.data.data.employeeVo);
-                  wx.setStorage({
-                    key: "token",
-                    data: ajaxData.data.data['ERP-WX-TOKEN'],
-                    success: function () {
-                      wx.switchTab({
-                        url: '/pages/stock/stock'
-                      });
-                    }
-                  });
-                }
-              })
-
-
-            }
-          }
-        })
-      }
+    user.loginByWeixin().then(({ code, userInfo }) => {
+      return util.request(
+        api.authLogin,
+        {
+          userName: name,
+          password: pwd,
+          companyId,
+          code: code,
+          userInfo: JSON.stringify(userInfo),
+        },
+      )
+    }).then(ajaxData => {
+      wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
+      wx.setStorage({
+        key: "token",
+        data: ajaxData.data['ERP-WX-TOKEN'],
+        success: function () {
+          wx.switchTab({
+            url: '/pages/stock/stock'
+          });
+        }
+      });
     })
   }
 })

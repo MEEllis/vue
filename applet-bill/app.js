@@ -4,11 +4,26 @@ import user  from './services/user.js'
 App({
   //生命周期函数--监听小程序初始化 (desc:当小程序初始化完成时，会触发 onLaunch（全局只触发一次）)
   onLaunch: function () {
+    const _this=this;
     //获取用户的登录信息
     user.checkLogin().then(res => {
-      console.log('app login')
-      this.globalData.userInfo = wx.getStorageSync('userInfo');
-      this.globalData.token = wx.getStorageSync('token');
+      user.loginByWeixin().then(({ code, userInfo }) => {
+        return util.request(
+          api.authAutoLogin,
+          {
+            code: code,
+            userInfo: JSON.stringify(userInfo),
+          },
+        )
+      }).then(ajaxData => {
+        wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
+        wx.setStorageSync({
+          key: "token",
+          data: ajaxData.data['ERP-WX-TOKEN'],
+        });
+        _this.globalData.userInfo = wx.getStorageSync('userInfo');
+        _this.globalData.token = wx.getStorageSync('token');
+      })
     },res => {
       console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
       setTimeout(()=>{
@@ -20,7 +35,7 @@ App({
             console.log(res)
           }
         })
-      },0)
+      },50)
     }
     ).catch(() => {
 

@@ -17,8 +17,13 @@ const formatNumber = n => {
 /**
  * 封封微信的的request
  */
-function request(url, data = {}, method = "GET") {
+function request(url, data = {}, method = "POST") {
   return new Promise(function (resolve, reject) {
+    wx.showLoading({
+      title:'小云拼命加载中...',
+      mask:true,
+      icon: 'loading'
+    })
     wx.request({
       url: url,
       data: data,
@@ -28,47 +33,35 @@ function request(url, data = {}, method = "GET") {
         'X-Nideshop-Token': wx.getStorageSync('token')
       },
       success: function (res) {
+        wx.hideLoading()
+     
         if (res.statusCode == 200) {
-
-          if (res.data.errno == 401) {
-            //需要登录后才可以操作
-
-            let code = null;
-            return login().then((res) => {
-              code = res.code;
-              return getUserInfo();
-            }).then((userInfo) => {
-              //登录远程服务器
-              request(api.AuthLoginByWeixin, { code: code, userInfo: userInfo }, 'POST').then(res => {
-                if (res.errno === 0) {
-                  //存储用户信息
-                  wx.setStorageSync('userInfo', res.data.userInfo);
-                  wx.setStorageSync('token', res.data.token);
-
-                  resolve(res);
-                } else {
-                  reject(res);
-                }
-              }).catch((err) => {
-                reject(err);
-              });
-            }).catch((err) => {
-              reject(err);
-            })
-          } else {
+          if (res.data.result==1){
             resolve(res.data);
+          }else{
+            showErrorToast()
+            reject(res.data);
           }
         } else {
+          showErrorToast()
           reject(res.errMsg);
         }
 
       },
       fail: function (err) {
+        wx.hideLoading()
+        showErrorToast()
         reject(err)
-        console.log("failed")
       }
     })
   });
+}
+
+function httpErr(){
+  wx.showToast({
+    title: '网络异常',
+    icon: 'none',
+  })
 }
 
 /**
@@ -96,7 +89,6 @@ function login() {
       success: function (res) {
         if (res.code) {
           //登录远程服务器
-          console.log(res)
           resolve(res);
         } else {
           reject(res);
@@ -114,7 +106,6 @@ function getUserInfo() {
     wx.getUserInfo({
       withCredentials: true,
       success: function (res) {
-        console.log(res)
         resolve(res);
       },
       fail: function (err) {
@@ -139,10 +130,10 @@ function redirect(url) {
   }
 }
 
-function showErrorToast(msg) {
+function showErrorToast({ msg}) {
   wx.showToast({
-    title: msg,
-    image: '/static/images/icon_error.png'
+    title: msg||'网络异常',
+    icon: 'none',
   })
 }
 

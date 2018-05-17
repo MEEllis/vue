@@ -15,25 +15,14 @@ function loginByWeixin() {
       code = res.code;
       return util.getUserInfo();
     }).then((userInfo) => {
-      //登录远程服务器
-      util.request(api.AuthLoginByWeixin, { code: code, userInfo: userInfo }, 'POST').then(res => {
-        if (res.errno === 0) {
-          //存储用户信息
-          wx.setStorageSync('userInfo', res.data.userInfo);
-          wx.setStorageSync('token', res.data.token);
-
-          resolve(res);
-        } else {
-          reject(res);
-        }
-      }).catch((err) => {
-        reject(err);
-      });
+      resolve({ code, userInfo});
     }).catch((err) => {
       reject(err);
     })
   });
 }
+
+
 
 /**
  * 判断用户是否登录
@@ -48,7 +37,6 @@ function checkLogin() {
       }).catch(() => {
         reject(false);
       });
-
     } else {
       reject(false);
     }

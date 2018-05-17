@@ -32,7 +32,16 @@ Component({
     modalSize: {
       type: String,
       value: "md"
-    },    
+    }, 
+
+    isShowConfirm: {
+      type: Boolean,
+      value: true
+    },  
+    isShowCancel: {
+      type: Boolean,
+      value: true
+    },   
   },
 
   /**

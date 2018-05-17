@@ -1,9 +1,11 @@
 /* common/component/customModal.wxss */
 
 .modal-header{
-    background: #00A7F7;
-    color:  #fff;
+    background: #fff;
+    color:  #000;
+    border-bottom: 1rpx solid #ccc;
     padding: 20rpx;
+    text-align: center;
     border-top-left-radius: 10rpx;
     border-top-right-radius: 10rpx;  
 }

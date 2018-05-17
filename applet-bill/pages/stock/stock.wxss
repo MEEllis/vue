@@ -17,10 +17,12 @@
   font-size: 26rpx;
   color: #000;
   background-color: #efeff4;
-  border: none;
   border-radius: 6rpx;
   margin-right: 18rpx;
   padding: 0rpx 50rpx;
+}
+.cate-item::after{
+    border: none !important;
 }
 
 .cate-item.on{
