@@ -17,10 +17,7 @@ App({
         )
       }).then(ajaxData => {
         wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
-        wx.setStorageSync({
-          key: "token",
-          data: ajaxData.data['ERP-WX-TOKEN'],
-        });
+        wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN'],);
         _this.globalData.userInfo = wx.getStorageSync('userInfo');
         _this.globalData.token = wx.getStorageSync('token');
       })

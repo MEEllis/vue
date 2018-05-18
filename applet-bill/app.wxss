@@ -1,6 +1,8 @@
 /**app.wxss**/
+@import 'iconfont.wxss';
 @import 'weui.wxss';
 @import 'reset.wxss';
+
 page{
     background-color: #F8F8F8;
     font-size: 32rpx;
@@ -9,12 +11,20 @@ page{
 .pt-20{
   padding-top: 20rpx;
 }
+.mt-20{
+  margin-top: 20rpx;
+}
 .mt-30{
   margin-top: 30rpx;
 }
 .mb-30{
     margin-bottom: 30rpx;
 }
+
+.container {
+  background-color: #efeff4;
+}
+
 
 .ellipsis{
   display: -webkit-box ;
@@ -23,4 +33,13 @@ page{
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp:1; 
+}
+
+.ellipsis2{
+  display: -webkit-box ;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2; 
 }

@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/login/login",
     "pages/follow/follow",
-    "pages/stock/stock",
+    "pages/stock/index/index",
+    "pages/stock/sectionStockList/sectionStockList",
+    "pages/stock/goodDetail/goodDetail",
     "pages/billing/billing",
     "pages/sales/sales",
     "pages/my/my",
@@ -28,7 +30,7 @@
         "selectedIconPath": "images/tabBar/follow-sel.png"
       },
       {
-        "pagePath": "pages/stock/stock",
+        "pagePath": "pages/stock/index/index",
         "text": "库存",
         "iconPath": "images/tabBar/stock.png",
         "selectedIconPath": "images/tabBar/stock-sel.png"
