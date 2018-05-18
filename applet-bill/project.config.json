@@ -30,12 +30,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "stock",
-					"pathName": "pages/stock/stock",
+					"pathName": "pages/stock/index/index",
 					"query": ""
 				},
 				{
@@ -43,6 +43,18 @@
 					"name": "login",
 					"pathName": "pages/login/login",
 					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "stock/sectionStockList",
+					"pathName": "pages/stock/sectionStockList/sectionStockList",
+					"query": "id=1"
+				},
+				{
+					"id": 3,
+					"name": "goodDetail/goodDetail",
+					"pathName": "pages/stock/goodDetail/goodDetail",
+					"query": "id=1"
 				}
 			]
 		}

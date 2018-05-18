@@ -126,7 +126,7 @@ Page({
         data: ajaxData.data['ERP-WX-TOKEN'],
         success: function () {
           wx.switchTab({
-            url: '/pages/stock/stock'
+            url: '/pages/stock/index/index'
           });
         }
       });

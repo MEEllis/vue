@@ -57,12 +57,6 @@ function request(url, data = {}, method = "POST") {
   });
 }
 
-function httpErr(){
-  wx.showToast({
-    title: '网络异常',
-    icon: 'none',
-  })
-}
 
 /**
  * 检查微信会话是否过期
