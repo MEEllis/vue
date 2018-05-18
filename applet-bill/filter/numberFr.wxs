@@ -1,0 +1,16 @@
+//js控制千分位
+function formatNum(num, n){
+  num = Number(num)
+  num = (num.toFixed(n));
+  var re = getRegExp('(-?\d+)(\d{3})');
+  while (re.test(num)) {
+    num = num.replace(re, "$1,$2");
+  }
+  return num;  
+}
+
+
+module.exports = {
+  formatNum: formatNum,
+}
+
