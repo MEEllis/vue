@@ -1,0 +1,27 @@
+
+.list-item {
+  background-color: #fff;
+  padding:0rpx 30rpx;
+  border-top:1rpx solid #d9d9d9;
+}
+
+
+.title {
+  position: relative;
+  line-height: 50rpx;
+  height: 110rpx;
+  font-size: 34rpx;
+  color: #333;
+  padding: 30rpx 0rpx 10rpx 0rpx;
+}
+
+.weui-cell{
+  font-size: 32rpx;
+}
+
+.weui-cell__bd{
+  color: #666;
+}
+.weui-cell__ft{
+  color: #333;
+}
