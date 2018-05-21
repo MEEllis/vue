@@ -8,4 +8,5 @@ module.exports = {
   getGoodsFirstClass: NewApiRootUrl + 'wxapi/common/getGoodsFirstClass', //商品一级类别集合
   getStockSimpleGoodsVoPageList: NewApiRootUrl + 'wxapi/common/getStockSimpleGoodsVoPageList', //在库商品查询(预览)
   getStockDetailGoodsVo: NewApiRootUrl + 'wxapi/common/getStockDetailGoodsVo', //单个在库商品查询(详情)
+  getImeiStockVoPageList: NewApiRootUrl + 'wxapi/common/getImeiStockVoPageList', //库存 / 在库串号分页查询
 };

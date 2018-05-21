@@ -6,6 +6,7 @@
     "pages/stock/index/index",
     "pages/stock/sectionStockList/sectionStockList",
     "pages/stock/goodDetail/goodDetail",
+    "pages/stock/goodImeiDetail/goodImeiDetail",
     "pages/billing/billing",
     "pages/sales/sales",
     "pages/my/my",

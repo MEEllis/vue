@@ -21,6 +21,13 @@ page{
     margin-bottom: 30rpx;
 }
 
+.color1 {
+  color: #ffaf23;
+}
+.color2 {
+  color: #333;
+}
+
 .container {
   background-color: #efeff4;
 }

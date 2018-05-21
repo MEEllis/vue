@@ -42,7 +42,7 @@
 .title {
   line-height: 98rpx;
   height: 98rpx;
-  border-bottom: 1rpx solid #ccc;
+  border-bottom: 1rpx solid #E6E6E6;
   font-size: 34rpx;
   color: #333;
 }

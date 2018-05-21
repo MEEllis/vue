@@ -1,7 +1,9 @@
 .list-item {
   background-color: #fff;
-  padding:0rpx 30rpx;
-  border-top:1rpx solid #d7d6dc;
+  padding: 0rpx 30rpx;
+  border-top: 1rpx solid #d7d6dc;
+  height: 240rpx;
+  overflow: hidden;
 }
 
 .title {
@@ -11,7 +13,10 @@
   font-size: 34rpx;
   color: #333;
   padding: 30rpx 0rpx 10rpx 0rpx;
-
+}
+.weui-badge{
+  position: relative;
+  top: -4rpx;
 }
 
 .list-item-body {
@@ -19,8 +24,7 @@
   padding-bottom: 20rpx;
 }
 
-
-.my-stock {
+.deatil {
   color: #476ec9;
   position: absolute;
   right: 0px;
@@ -31,29 +35,78 @@
   color: #ffaf23;
 }
 
-.weui-navbar{
-    background-color:#fff;
-    border-bottom:none;
+.weui-navbar {
+  background-color: #fff;
+  border-bottom: none;
 }
 
-.weui-navbar__title{
+.weui-cell {
+  line-height: 98rpx;
+  padding: 0rpx 30rpx;
+}
+
+.weui-cell__bd{
+  padding-left: 80rpx;
+}
+
+.weui-navbar__title {
   font-size: 30rpx;
 }
-.weui-navbar__slider{
+
+.weui-navbar__slider {
   width: 150px;
-  background-color:#476ec9;
-}
-.weui-navbar__item{
-  color:#8c8c8c;
-line-height:120rpx;
-padding:0rpx;
-height:120rpx;
+  background-color: #476ec9;
 }
 
-.weui-navbar__item.weui-bar__item_on{
-  color:#476ec9;
+.weui-navbar__item {
+  color: #8c8c8c;
+  line-height: 120rpx;
+  padding: 0rpx;
+  height: 120rpx;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #476ec9;
 }
 
 .weui-tab__panel {
-  padding-top:120rpx
+ padding-top: 120rpx;
+}
+.icon-fa-bank,
+.icon-mendian {
+  color: #4b7eeb;
+  font-size: 60rpx;
+  position: absolute;
+  top:-4rpx;
+  left:30rpx;
+}
+.icon-fa-bank {
+    top:-8rpx;
+  color: #ffaf23;
+}
+.storage-wrap{
+  background-color: #fff;
+}
+.section-item:first-child:before {
+	content: " ";
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 1px;
+	color: #E6E6E6;
+  border-top: 1rpx solid #E6E6E6
+}
+
+
+ .storage-wrap::after {
+	content: " ";
+	position: absolute;
+	left: 30rpx;
+	right: 0;
+	height: 1px;
+	color: #E6E6E6;
+  border-bottom: 1rpx solid #E6E6E6
+}
+.storage-wrap:last-child:after {
+  border-bottom: 1rpx solid transparent
 }

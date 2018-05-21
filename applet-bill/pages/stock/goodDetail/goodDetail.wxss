@@ -13,11 +13,31 @@
   font-size: 34rpx;
   color: #333;
   padding: 30rpx 0rpx 10rpx 0rpx;
+  font-weight: 600;
 }
 
 .weui-cell{
   font-size: 32rpx;
+  padding-right: 0rpx;
+  padding-left: 0rpx;
 }
+.weui-cell:before{
+  border-top:none;
+}
+.weui-cell:first-child{
+  line-height: 90rpx;
+}
+.pc:after{
+	content: " ";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 1px;
+	border-top: 1rpx solid #E6E6E6;
+	color: #E6E6E6;
+}
+
 
 .weui-cell__bd{
   color: #666;

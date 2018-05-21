@@ -8,12 +8,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodsId: '',
     goodsVo: {},
     tabs: ["本店库存:", "他店库存:"],
-    activeIndex: 0,
+    inputVal: "",
+    activeIndex: 1,
     sliderOffset: 0,
-    sliderLeft: 0
+    sliderLeft: 0,
+    scrollHeightTab1: 0,
   },
 
   /**
@@ -21,8 +22,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    this.setData({
+    const goodsVo={
       goodsId: options.id,
+    }
+    this.setData({
+      goodsVo
     });
     wx.setNavigationBarTitle({
       title: '实时库存详细'
@@ -34,6 +38,14 @@ Page({
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
         });
+        //误差调控10
+        const scrollHeightTab1 = res.windowHeight - res.windowWidth / 750 * (380+10)
+        const scrollHeightTab2 = res.windowHeight - res.windowWidth / 750 * (380+112+ 10)
+        // 计算主体部分高度,单位为px
+        that.setData({
+          scrollHeightTab1,
+          scrollHeightTab2
+        })
       }
     });
   },
@@ -89,17 +101,17 @@ Page({
   // 获取明细信息
   getStockDetailGoodsVo: function () {
     const _this = this;
-    const { goodsId } = this.data;
+    const { goodsId } = this.data.goodsVo;
 
     util.request(api.getStockDetailGoodsVo, {
       goodsId
     },
       'GET'
     ).then(res => {
-
+      let goodsVo = res.data.goodsVo
+      goodsVo.reOtherSectionStockList = goodsVo.otherSectionStockList
       _this.setData({
-        goodsVo: res.data.goodsVo,
-
+        goodsVo,
       });
     });
   },
@@ -109,5 +121,60 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
-  }
+  },
+  //跳转进入串号详情页
+  tapDetailImei: function (e) {
+    console.log(e)
+    const { goodsId, ifManageImei, name } = this.data.goodsVo;
+    const storageId = e.currentTarget.dataset.storageId;
+    if (ifManageImei==1){
+      wx.navigateTo({
+        url: `pages/stock/goodImeiDetail/goodImeiDetail?goodsId=${goodsId}&storageId=${storageId}&goodsName=${name}`
+      }) 
+    }
+   
+  },
+
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+    this.searchSubmit()
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+    this.searchSubmit()
+  },
+  //关键字搜索
+  searchSubmit: function () {
+    var that = this;
+    const { goodsVo, inputVal} =this.data;
+    if (goodsVo.reOtherSectionStockList){
+      const { reOtherSectionStockList } = goodsVo; 
+      const otherSectionStockList = reOtherSectionStockList.filter(data => {
+
+        if (String(data.sectionCode).indexOf(inputVal) > -1 || String(data.sectionName).indexOf(inputVal) > -1){
+          return true;
+        }
+      });
+      goodsVo.otherSectionStockList = otherSectionStockList;
+      this.setData({
+        goodsVo,
+      });
+    }
+  },
 })
