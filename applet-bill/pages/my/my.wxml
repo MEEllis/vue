@@ -1,2 +1,8 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="container">
+	<view class="userinfo">
+		<image wx:if="{{WXUserInfo && WXUserInfo.avatarUrl}}" class="userinfo-avatar" src="{{ WXUserInfo.avatarUrl }}" background-size="cover"></image>
+		<text class="userinfo-nickname">{{ WXUserInfo.nickName }}</text>
+    <text class="ysUserinfo-nickname">{{ ysUserInfo.employeeName }} {{ ysUserInfo.telephone }}</text>
+	</view>
+
+</view>

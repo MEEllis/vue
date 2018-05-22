@@ -1,1 +1,29 @@
-/* pages/my/my.wxss */
+.userinfo {
+	display: flex;
+	flex-direction: column;
+	padding: 50rpx 0;
+	align-items: center;
+	background: #e85654;
+  width: 750rpx;
+}
+
+.userinfo-avatar {
+	width: 160rpx;
+	height: 160rpx;
+	margin: 20rpx;
+	border-radius: 50%;
+}
+
+.userinfo-nickname {
+   margin-top: 20rpx;
+  color: #FFF;
+	margin: 20rpx;
+	border-radius: 50%;
+}
+
+.userinfo-nickname {
+ 
+}
+.ysUserinfo-nickname{
+
+}

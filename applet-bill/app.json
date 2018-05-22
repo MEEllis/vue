@@ -9,8 +9,7 @@
     "pages/stock/goodImeiDetail/goodImeiDetail",
     "pages/billing/billing",
     "pages/sales/sales",
-    "pages/my/my",
-    "pages/logs/logs"
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",

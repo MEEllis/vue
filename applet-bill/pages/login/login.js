@@ -98,9 +98,14 @@ Page({
           _this.setData({
             companyList: ajaxData.data.companyList
           });
-          _this.thridModal.show();
-        }
-          )
+          wx.setStorage({
+            key: "companyList",
+            data: ajaxData.data.companyList,
+            success: function () {
+              _this.thridModal.show();
+            }
+          });
+        })
       }
     })
   },

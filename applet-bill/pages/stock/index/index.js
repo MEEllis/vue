@@ -13,20 +13,32 @@ Page({
     categoryData: [],
     pageNumber: 1,
     pageSize: 20,
-    listData: [],
+    dataList: [],
     curListData: [],
     loadingMore: true,
+    scrollHeight:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const that=this;
     wx.setNavigationBarTitle({
       title: '实时库存'
     });
     this.getGoodsFirstClass();
     this.getGoodsList();
+    wx.getSystemInfo({
+      success: function (res) {
+        //误差调控10
+        const scrollHeight = res.windowHeight - res.windowWidth / 750 * ((56 + 48 + 10 ) * 2 +10) 
+        // 计算主体部分高度,单位为px
+        that.setData({
+          scrollHeight,
+        })
+      }
+    });
   },
 
   /**
@@ -68,13 +80,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.data.curListData.length === 0) {
-      return;
-    }
-    this.setData({
-      pageNumber: this.pageNumber + 1,
-    });
-    this.getGoodsList();
+  
   },
 
   /**
@@ -112,7 +118,7 @@ Page({
   searchSubmit: function () {
     this.setData({
       pageNumber: 1,
-      listData: [],
+      dataList: [],
     });
     this.getGoodsList()
   },
@@ -122,7 +128,7 @@ Page({
     this.setData({
       activeCategoryId,
       pageNumber: 1,
-      listData: [],
+      dataList: [],
     });
     this.getGoodsList();
   },
@@ -137,10 +143,11 @@ Page({
       pageSize,
     }
     ).then(res => {
-      let listData = _this.data.listData.concat(res.data.dataList)
+      let dataList = _this.data.dataList.concat(res.data.dataList)
       _this.setData({
-        listData,
-        curListData: res.data.dataList
+        dataList,
+        curListData: res.data.dataList,
+        loadingMore:false,
       });
     });
   },
@@ -160,6 +167,14 @@ Page({
         categoryData: categoryData.concat(res.data.dataList)
       });
     });
-  }
-
+  },
+  scrolltolower: function () {
+    if (this.data.curListData.length === 0) {
+      return;
+    }
+    this.setData({
+      pageNumber: this.pageNumber + 1,
+    });
+    this.getGoodsList();
+  },
 })

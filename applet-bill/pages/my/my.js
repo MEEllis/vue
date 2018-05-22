@@ -5,14 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    WXUserInfo:{} ,//微信用户信息
+    ysUserInfo: {},//云盛用户信息
+    companyList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.setNavigationBarTitle({
+      title: '我的'
+    });
+    this.getWXUserInfo();
+    this.getysUserInfo();
+    this.getCompanyList();
   },
 
   /**
@@ -62,5 +69,41 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  getWXUserInfo: function (cb) {
+    var that = this
+    wx.login({
+      success: function () {
+        wx.getUserInfo({
+          success: function (res) {
+            that.setData({
+              WXUserInfo: res.userInfo
+            });
+          }
+        })
+      }
+    })
+  },
+  getysUserInfo: function (cb) {
+    var that = this
+    wx.getStorage({
+      key:'userInfo',
+      success: function (res) {
+        that.setData({
+          ysUserInfo: res.data
+        });
+      }
+    })
+  },
+  getCompanyList: function (cb) {
+    var that = this
+    wx.getStorage({
+      key: 'companyList',
+      success: function (res) {
+        that.setData({
+          companyList: res.data
+        });
+      }
+    })
+  },
 })

@@ -11,7 +11,7 @@ Page({
     goodsVo: {},
     tabs: ["本店库存:", "他店库存:"],
     inputVal: "",
-    activeIndex: 1,
+    activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
     scrollHeightTab1: 0,
@@ -126,10 +126,10 @@ Page({
   tapDetailImei: function (e) {
     console.log(e)
     const { goodsId, ifManageImei, name } = this.data.goodsVo;
-    const storageId = e.currentTarget.dataset.storageId;
+    const { storageid, sectionname, storagename} = e.currentTarget.dataset;
     if (ifManageImei==1){
       wx.navigateTo({
-        url: `pages/stock/goodImeiDetail/goodImeiDetail?goodsId=${goodsId}&storageId=${storageId}&goodsName=${name}`
+        url: `/pages/stock/goodImeiDetail/goodImeiDetail?goodsId=${goodsId}&goodsName=${name}&storageId=${storageid}&storageName=${storagename}&sectionName=${sectionname}`
       }) 
     }
    

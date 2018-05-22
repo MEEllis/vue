@@ -17,9 +17,7 @@ App({
         )
       }).then(ajaxData => {
         wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
-        wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN'],);
-        _this.globalData.userInfo = wx.getStorageSync('userInfo');
-        _this.globalData.token = wx.getStorageSync('token');
+        wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
       })
     },res => {
       console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
@@ -48,10 +46,9 @@ App({
   },
   //错误监听函数 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
   onError:function(){
-
+  
   },
   globalData: {
-    userInfo: null,
-    token:'',
+  
   }
 })
