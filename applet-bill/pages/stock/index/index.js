@@ -23,29 +23,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const that=this;
+   
     wx.setNavigationBarTitle({
       title: '实时库存'
     });
     this.getGoodsFirstClass();
     this.getGoodsList();
-    wx.getSystemInfo({
-      success: function (res) {
-        //误差调控10
-        const scrollHeight = res.windowHeight - res.windowWidth / 750 * ((56 + 48 + 10 ) * 2 +10) 
-        // 计算主体部分高度,单位为px
-        that.setData({
-          scrollHeight,
-        })
-      }
-    });
+  
+ 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    const that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        //误差调控10
+        const scrollHeight = res.windowHeight - res.windowWidth / 750 * ((56 + 48 + 10) * 2 + 10)
+        // 计算主体部分高度,单位为px
+        that.setData({
+          scrollHeight,
+        })
+      }
+    });
   },
 
   /**

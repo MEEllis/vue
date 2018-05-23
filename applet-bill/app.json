@@ -8,7 +8,7 @@
     "pages/stock/goodDetail/goodDetail",
     "pages/stock/goodImeiDetail/goodImeiDetail",
     "pages/billing/billing",
-    "pages/sales/sales",
+    "pages/sales/index/index",
     "pages/my/my"
   ],
   "window": {
@@ -42,7 +42,7 @@
         "selectedIconPath": "images/tabBar/billing-sel.png"
       },
       {
-        "pagePath": "pages/sales/sales",
+        "pagePath": "pages/sales/index/index",
         "text": "销量",
         "iconPath": "images/tabBar/sales.png",
         "selectedIconPath": "images/tabBar/sales-sel.png"

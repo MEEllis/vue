@@ -1,4 +1,5 @@
-// pages/my/my.js
+import util from '../../utils/util.js';
+import api from '../../config/api.js';
 Page({
 
   /**
@@ -104,6 +105,37 @@ Page({
           companyList: res.data
         });
       }
+    })
+  },
+  bindPickerChange:function(e) {
+    var that = this
+    var index = e.detail.value;
+    var companyId = this.data.companyList[index].id; // 这个id就是选中项的id
+ 
+    util.request(
+      api.changeLoginCompany,
+      {
+        companyId,
+      },
+    ).then(ajaxData => {
+      that.setData({
+        companyList: ajaxData.data.companyList,
+        success: function () {
+          that.getCompanyList()
+        }
+      });
+      wx.setStorage({
+        key: "userInfo",
+        data: ajaxData.data.userInfo,
+        success: function () {
+          that.getysUserInfo()
+        }
+      });
+      wx.setStorage({
+        key: "token",
+        data: ajaxData.data['ERP-WX-TOKEN'],
+ 
+      });
     })
   },
 })

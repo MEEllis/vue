@@ -21,8 +21,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    const goodsVo={
+
+    const goodsVo = {
       goodsId: options.id,
     }
     this.setData({
@@ -32,22 +32,7 @@ Page({
       title: '实时库存详细'
     });
     this.getStockDetailGoodsVo()
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
-          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
-        });
-        //误差调控10
-        const scrollHeightTab1 = res.windowHeight - res.windowWidth / 750 * (380+10)
-        const scrollHeightTab2 = res.windowHeight - res.windowWidth / 750 * (380+112+ 10)
-        // 计算主体部分高度,单位为px
-        that.setData({
-          scrollHeightTab1,
-          scrollHeightTab2
-        })
-      }
-    });
+
   },
 
   /**
@@ -55,12 +40,33 @@ Page({
    */
   onReady: function () {
 
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
+
+        //误差调控10
+        const scrollHeightTab1 = res.windowHeight - res.windowWidth / 750 * (380 + 10)
+        const scrollHeightTab2 = res.windowHeight - res.windowWidth / 750 * (380 + 112 + 10)
+        // 计算主体部分高度,单位为px
+        that.setData({
+          scrollHeightTab1,
+          scrollHeightTab2
+        })
+
+        
+      }
+    });
 
   },
 
@@ -126,13 +132,13 @@ Page({
   tapDetailImei: function (e) {
     console.log(e)
     const { goodsId, ifManageImei, name } = this.data.goodsVo;
-    const { storageid, sectionname, storagename} = e.currentTarget.dataset;
-    if (ifManageImei==1){
+    const { storageid, sectionname, storagename } = e.currentTarget.dataset;
+    if (ifManageImei == 1) {
       wx.navigateTo({
         url: `/pages/stock/goodImeiDetail/goodImeiDetail?goodsId=${goodsId}&goodsName=${name}&storageId=${storageid}&storageName=${storagename}&sectionName=${sectionname}`
-      }) 
+      })
     }
-   
+
   },
 
   showInput: function () {
@@ -162,12 +168,12 @@ Page({
   //关键字搜索
   searchSubmit: function () {
     var that = this;
-    const { goodsVo, inputVal} =this.data;
-    if (goodsVo.reOtherSectionStockList){
-      const { reOtherSectionStockList } = goodsVo; 
+    const { goodsVo, inputVal } = this.data;
+    if (goodsVo.reOtherSectionStockList) {
+      const { reOtherSectionStockList } = goodsVo;
       const otherSectionStockList = reOtherSectionStockList.filter(data => {
 
-        if (String(data.sectionCode).indexOf(inputVal) > -1 || String(data.sectionName).indexOf(inputVal) > -1){
+        if (String(data.sectionCode).indexOf(inputVal) > -1 || String(data.sectionName).indexOf(inputVal) > -1) {
           return true;
         }
       });

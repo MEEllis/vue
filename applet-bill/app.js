@@ -35,6 +35,8 @@ App({
     ).catch(() => {
 
     });
+
+ 
   },
   //生命周期函数--监听小程序显示 (desc:当小程序启动，或从后台进入前台显示，会触发 onShow)
   onShow:function(){
@@ -46,9 +48,9 @@ App({
   },
   //错误监听函数 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
   onError:function(){
-  
+
   },
   globalData: {
-  
+   
   }
 })
