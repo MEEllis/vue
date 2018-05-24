@@ -1,0 +1,105 @@
+<view class="container">
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">选项一的内容</view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <view class="weui-flex tab-content">
+          <view class="weui-flex__item {{activeIndex2 == index ? 'on' : ''}}" data-index="{{index}}" wx:for="{{tabContent2}}" wx:key="*this" bindtap="tabContent2Click">
+            {{item}}
+          </view>
+        </view>
+        <view class="tc">
+          查询时间:{{startTime2==endTime2?startTime2:(startTime2+'至'+endTime2)}}
+        </view>
+
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+        <view>aaaaaa </view>
+      </view>
+    </view>
+  </view>
+
+
+  <easy-modal id="thridModal" title="自定义查询时间" bind:confirmEvent="modalConfirm2">
+    <view class='modal-content'>
+      <picker mode="date" value="{{modalConfirmStartTime2}}" end="{{toDayDate}}" bindchange="bindDateStart2" >
+        <view class="picker">
+          {{modalConfirmStartTime2}}
+        </view>
+      </picker>
+      至
+      <picker mode="date" value="{{modalConfirmEndTime2}}" end="{{toDayDate}}" bindchange="bindDateEnd2">
+        <view class="picker">
+          {{modalConfirmEndTime2}}
+        </view>
+      </picker>
+    </view>
+  </easy-modal>
+</view>

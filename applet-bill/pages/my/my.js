@@ -138,4 +138,17 @@ Page({
       });
     })
   },
+  relogin: function (e) {
+    try {
+      wx.clearStorageSync()
+    } catch (e) {
+     
+    }
+    wx.reLaunch({
+      url: '/pages/login/login',
+      success: (res) => {
+       
+      }
+    })
+  }
 })

@@ -46,3 +46,10 @@
   padding:20rpx 16rpx;
 }
 
+.weui-navbar__slider {
+  background-color: #476ec9;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #476ec9;
+}

@@ -10,4 +10,6 @@ module.exports = {
   getStockSimpleGoodsVoPageList: NewApiRootUrl + 'common/getStockSimpleGoodsVoPageList', //在库商品查询(预览)
   getStockDetailGoodsVo: NewApiRootUrl + 'common/getStockDetailGoodsVo', //单个在库商品查询(详情)
   getImeiStockVoPageList: NewApiRootUrl + 'common/getImeiStockVoPageList', // 在库串号分页查询
+
+  getMySalesStatistics: NewApiRootUrl + 'common/getMySalesStatistics', //  我的销量
 };

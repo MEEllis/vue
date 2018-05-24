@@ -28,6 +28,14 @@ page{
   color: #333;
 }
 
+.on{
+ color: #476ec9;
+}
+
+.tc{
+  text-align: center;
+}
+
 .container {
   background-color: #efeff4;
 }

@@ -1,1 +1,3 @@
-/* pages/sales/index/index.wxss */
+.tab-content{
+  text-align: center;
+}

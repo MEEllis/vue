@@ -55,7 +55,6 @@
 
 .weui-navbar__slider {
   width: 150px;
-  background-color: #476ec9;
 }
 
 .weui-navbar__item {
@@ -65,9 +64,6 @@
   height: 120rpx;
 }
 
-.weui-navbar__item.weui-bar__item_on {
-  color: #476ec9;
-}
 
 .weui-tab__panel {
  padding-top: 120rpx;

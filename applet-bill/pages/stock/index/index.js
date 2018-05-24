@@ -29,7 +29,7 @@ Page({
     });
     this.getGoodsFirstClass();
     this.getGoodsList();
-  
+    
  
   },
 
@@ -46,6 +46,7 @@ Page({
         that.setData({
           scrollHeight,
         })
+        console.log('stock/index:windowHeight'+res.windowHeight)
       }
     });
   },
