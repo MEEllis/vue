@@ -37,71 +37,25 @@ Page({
       storageName,
       sectionName
     });
-    wx.setNavigationBarTitle({
-      title: '串号明细'
-    });
+
     this.getImeiDetail()
-    wx.getSystemInfo({
-      success: function (res) {
-        //误差调控10
-        const scrollHeight = res.windowHeight - res.windowWidth / 750 * ((77 + 50 + 50 + 15) * 2 + 10) 
-      
-        // 计算主体部分高度,单位为px
-        that.setData({
-          scrollHeight,
-        })
-      }
-    });
+  
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    const that = this;
+    util.getScrollHeight((77 + 50 + 50 + 8)).then((scrollHeight) => {
+      // 计算主体部分高度,单位为px
+      that.setData({
+        scrollHeight,
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
   // 获取明细信息
   getImeiDetail: function () {
     const _this = this;

@@ -73,6 +73,12 @@
 					"name": "sales",
 					"pathName": "pages/sales/index/index",
 					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "sales/goodsVo",
+					"pathName": "pages/sales/goodsVo/goodsVo",
+					"query": "startTime=2018-05-25&endTime=2018-05-25"
 				}
 			]
 		}

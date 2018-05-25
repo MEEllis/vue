@@ -13,7 +13,8 @@ Page({
     sliderLeft: 0,
     toDayDate:null,
     tabContent2: ["今日", "昨日", "本月", "上月", "自定义"],
-    tabContentObj:null,
+    tabContentObj2:null,
+    scrollHeightTab2:0,
     activeIndex2: 0,
     startTime2: '',
     endTime2: '',
@@ -26,9 +27,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.setNavigationBarTitle({
-      title: '销量'
-    });
     this.thridModal = this.selectComponent("#thridModal");
     wx.getSystemInfo({
       success: function (res) {
@@ -52,7 +50,15 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    var that = this;
 
+    util.getScrollHeight([0, 50+54+35+10]).then((scrollHeight) => {
+      // 计算主体部分高度,单位为px
+      that.setData({
+        scrollHeightTab1: scrollHeight[0],
+        scrollHeightTab2: scrollHeight[1],
+      })
+    })
   },
   tabClick: function (e) {
     this.setData({
@@ -60,6 +66,7 @@ Page({
       activeIndex: e.currentTarget.id
     });
   },
+  //我的销量 ： 点击今日-明日等
   tabContent2Click: function (e) {
     let startTime2, endTime2;
 
@@ -96,8 +103,13 @@ Page({
         modalConfirmStartTime2: this.data.startTime2,
         modalConfirmEndTime2: this.data.endTime2,
       });
+      
       this.thridModal.show();
     }
+  },
+  //我的销量 ： 点击 表格事件
+  tabTable2Click: function (e) {
+  
   },
   bindDateStart2: function (e) {
     this.setData({
@@ -114,6 +126,7 @@ Page({
       startTime2: this.data.modalConfirmStartTime2,
       endTime2: this.data.modalConfirmEndTime2,
     })
+    
     this.thridModal.hide();
     this.getMySalesStatistics();
   },
@@ -128,10 +141,24 @@ Page({
     },
       'GET'
     ).then(res => {
-      let tabContentObj = res.data
+      let tabContentObj2 = res.data;   
+      const dealNullObj=(item)=>{
+        if (item == null) {
+           item = {
+            totalCount: 0,
+            totalAmount: 0,
+            detailList: []
+          }
+        }
+        return item;
+      }
+      for (const keyItem in tabContentObj2){
+        tabContentObj2[keyItem] = dealNullObj(tabContentObj2[keyItem])
+      }
       _this.setData({
-        tabContentObj,
+        tabContentObj2,
       });
     });
   },
+ 
 })

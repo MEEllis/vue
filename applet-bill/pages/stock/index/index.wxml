@@ -1,6 +1,7 @@
 <view class="container">
   <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
   <import src="../../../template/pagination.wxml" />
+  <!-- 搜索 -->
   <view class="weui-search-bar">
     <form class="weui-search-bar__form">
       <view class="weui-search-bar__box">
@@ -17,12 +18,13 @@
     </form>
     <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消 </view>
   </view>
+  <!-- 一级类目 -->
   <view class='cate-wrap'>
     <scroll-view scroll-x="true" class="cate-cotent">
       <button class="cate-item  {{activeCategoryId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" bindtap="cateTap"> {{item.name}}</button>
     </scroll-view>
   </view>
-
+  <!-- 商品列表 -->
   <scroll-view scroll-y='true' class="list-wrap pt-20" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
     <navigator class='list-item mb-30 ' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="dataId" data-id="{{item.dataId}}" url='/pages/stock/sectionStockList/sectionStockList?id={{item.dataId}}'>
       <view class='weui-flex ellipsis title'>

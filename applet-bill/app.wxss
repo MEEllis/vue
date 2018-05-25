@@ -3,58 +3,102 @@
 @import 'weui.wxss';
 @import 'reset.wxss';
 
-page{
-    background-color: #F8F8F8;
-    font-size: 32rpx;
-    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+page {
+  background-color: #efeff4;
+  font-size: 32rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
 }
-.pt-20{
+
+.pt-20 {
   padding-top: 20rpx;
 }
-.mt-20{
+
+.mt-20 {
   margin-top: 20rpx;
 }
-.mt-30{
+
+.mt-30 {
   margin-top: 30rpx;
 }
-.mb-30{
-    margin-bottom: 30rpx;
+
+.mb-30 {
+  margin-bottom: 30rpx;
 }
 
 .color1 {
   color: #ffaf23;
 }
+
 .color2 {
   color: #333;
 }
 
-.on{
- color: #476ec9;
+.on {
+  color: #476ec9;
 }
 
-.tc{
+.tc {
   text-align: center;
+}
+
+.tr {
+  text-align: right;
+}
+
+/*清除浮动代码*/
+
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.tl {
+  text-align: left;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
 }
 
 .container {
   background-color: #efeff4;
 }
 
-
-.ellipsis{
-  display: -webkit-box ;
+.ellipsis {
+  display: -webkit-box;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
   word-break: break-all;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp:1; 
+  -webkit-line-clamp: 1;
 }
 
-.ellipsis2{
-  display: -webkit-box ;
+.ellipsis2 {
+  display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-all;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp:2; 
+  -webkit-line-clamp: 2;
+}
+
+.sel-time {
+  position: relative;
+  font-size: 26rpx;
+  padding-left: 30rpx;
+  color: #8c8c8c;
+  line-height: 70rpx;
+  height: 70rpx;
 }

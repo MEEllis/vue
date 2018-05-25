@@ -12,4 +12,5 @@ module.exports = {
   getImeiStockVoPageList: NewApiRootUrl + 'common/getImeiStockVoPageList', // 在库串号分页查询
 
   getMySalesStatistics: NewApiRootUrl + 'common/getMySalesStatistics', //  我的销量
+  getGoodsSalesVoPageList: NewApiRootUrl + 'common/getGoodsSalesVoPageList', //   我的商品销售流水
 };

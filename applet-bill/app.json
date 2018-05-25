@@ -9,6 +9,7 @@
     "pages/stock/goodImeiDetail/goodImeiDetail",
     "pages/billing/billing",
     "pages/sales/index/index",
+    "pages/sales/goodsVo/goodsVo",
     "pages/my/my"
   ],
   "window": {

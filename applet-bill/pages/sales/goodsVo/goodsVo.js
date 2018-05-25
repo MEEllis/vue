@@ -7,24 +7,30 @@ Page({
    * 页面的初始数据
    */
   data: {
+    startTime: null,
+    endTime: null,
     inputShowed: false,
-    inputVal: "",
-    activeCategoryId: '',
-    categoryData: [],
+    queryKey: "",
     dataList: [],
     curListData: [],
     pageNumber: 1,
     pageSize: 20,
     loadingMore: true,
-    scrollHeight:0,
+    scrollHeight: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getGoodsFirstClass();
-    this.getGoodsList();
+    const that = this;
+    const startTime = options.startTime;
+    const endTime = options.endTime;
+    this.setData({
+      startTime,
+      endTime,
+    });
+    this.getGoodsList()
   },
 
   /**
@@ -32,8 +38,7 @@ Page({
    */
   onReady: function () {
     const that = this;
-
-    util.getScrollHeight((56 + 48 + 10)).then((scrollHeight) => {
+    util.getScrollHeight((56 + 35+6)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -48,19 +53,19 @@ Page({
 
   inputTyping: function (e) {
     this.setData({
-      inputVal: e.detail.value
+      queryKey: e.detail.value
     });
   },
   hideInput: function () {
     this.setData({
-      inputVal: "",
+      queryKey: "",
       inputShowed: false
     });
     this.searchSubmit()
   },
   clearInput: function () {
     this.setData({
-      inputVal: ""
+      queryKey: ""
     });
     this.searchSubmit()
   },
@@ -72,23 +77,14 @@ Page({
     });
     this.getGoodsList()
   },
-  //选择一级类别
-  cateTap: function (e) {
-    const activeCategoryId = e.currentTarget.dataset.id;
-    this.setData({
-      activeCategoryId,
-      pageNumber: 1,
-      dataList: [],
-    });
-    this.getGoodsList();
-  },
   // 获取商品列表
   getGoodsList: function () {
     const _this = this;
-    const { inputVal, activeCategoryId, pageNumber, pageSize } = this.data;
-    util.request(api.getStockSimpleGoodsVoPageList, {
-      firstClassId: activeCategoryId,
-      queryKey: inputVal,
+    const { queryKey, pageNumber, pageSize, startTime, endTime} = this.data;
+    util.request(api.getGoodsSalesVoPageList, {
+      startTime,
+      endTime,
+      queryKey,
       pageNumber,
       pageSize,
     }
@@ -97,23 +93,7 @@ Page({
       _this.setData({
         dataList,
         curListData: res.data.dataList,
-        loadingMore:false,
-      });
-    });
-  },
-  // 获取一级类别列表
-  getGoodsFirstClass: function () {
-    const _this = this;
-    util.request(api.getGoodsFirstClass, {},
-      'GET'
-    ).then(res => {
-      let categoryData = [{
-        id: '',
-        dataId: '',
-        name: '全部'
-      }]
-      _this.setData({
-        categoryData: categoryData.concat(res.data.dataList)
+        loadingMore: false,
       });
     });
   },

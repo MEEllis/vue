@@ -1,5 +1,7 @@
 <view class="container">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
   <view class="weui-tab">
+    <!-- tab 头部 -->
     <view class="weui-navbar">
       <block wx:for="{{tabs}}" wx:key="*this">
         <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
@@ -8,20 +10,154 @@
       </block>
       <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
     </view>
+    <!-- tab 内容 -->
     <view class="weui-tab__panel">
       <view class="weui-tab__content" hidden="{{activeIndex != 0}}">选项一的内容</view>
       <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-        <view class="weui-flex tab-content">
-          <view class="weui-flex__item {{activeIndex2 == index ? 'on' : ''}}" data-index="{{index}}" wx:for="{{tabContent2}}" wx:key="*this" bindtap="tabContent2Click">
+        <view class="weui-flex  cate-wrap">
+          <button class="weui-flex__item  {{activeIndex2 == index ? 'on' : ''}}" data-index="{{index}}" wx:for="{{tabContent2}}" wx:key="*this" bindtap="tabContent2Click">
             {{item}}
-          </view>
+          </button>
         </view>
-        <view class="tc">
+        <view class="sel-time">
           查询时间:{{startTime2==endTime2?startTime2:(startTime2+'至'+endTime2)}}
         </view>
-
+        <view class="table-wrap">
+          <scroll-view scroll-y='true' style="height:{{scrollHeightTab2}}px;" wx:if="{{tabContentObj2!==null}}">
+            <navigator url="/pages/sales/goodsVo/goodsVo?startTime={{startTime2}}&endTime={{endTime2}}"   class="table table1">
+              <view class="weui-flex table-head ">
+                <view class="weui-flex__item name">
+                  商品
+                </view>
+                <view class="weui-flex__item tr count">
+                  <view>数量</view>
+                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.goodsVo.totalCount)}}</view>
+                </view>
+                <view class="weui-flex__item tr aomout">
+                  <view>销售金额</view>
+                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.goodsVo.totalAmount,2)}}</view>
+                </view>
+              </view>
+              <view class="weui-flex table-body"  wx:key="*this" wx:for="{{tabContentObj2.goodsVo.detailList}}">
+                <view class=" weui-flex__item name">
+                  {{item.groupName}}
+                </view>
+                <view class="weui-flex__item tr count">
+                  {{numberFr.formatNum(item.groupCount)}}
+                </view>
+                <view class="weui-flex__item tr aomout">
+                  {{numberFr.formatNum(item.amount,2)}}
+                </view>
+              </view>
+            </navigator>
+            <navigator class="table mt-30 table2">
+              <view class="weui-flex table-head ">
+                <view class="weui-flex__item name">
+                  运营商业务
+                </view>
+                <view class="weui-flex__item tr count">
+                  <view>数量</view>
+                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.operatorVo.totalCount)}}</view>
+                </view>
+                <view class="weui-flex__item tr aomout">
+                  <view>收款金额</view>
+                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.operatorVo.totalAmount,2)}}</view>
+                </view>
+              </view>
+              <view class="weui-flex table-body"  wx:key="*this" wx:for="{{tabContentObj2.operatorVo.detailList}}">
+                <view class=" weui-flex__item name">
+                  {{item.groupName}}
+                </view>
+                <view class="weui-flex__item tr count">
+                  {{numberFr.formatNum(item.groupCount)}}
+                </view>
+                <view class="weui-flex__item tr aomout">
+                  {{numberFr.formatNum(item.amount,2)}}
+                </view>
+              </view>
+            </navigator>
+            <navigator class="table mt-30 table3">
+              <view class="weui-flex table-head ">
+                <view class="weui-flex__item name">
+                  分期业务
+                </view>
+                <view class="weui-flex__item tr count">
+                  <view>数量</view>
+                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.installmentVo.totalCount)}}</view>
+                </view>
+                <view class="weui-flex__item tr aomout">
+                  <view>分期贷款金额</view>
+                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.installmentVo.totalAmount,2)}}</view>
+                </view>
+              </view>
+              <view class="weui-flex table-body"  wx:key="*this" wx:for="{{tabContentObj2.installmentVo.detailList}}">
+                <view class=" weui-flex__item name">
+                  {{item.groupName}}
+                </view>
+                <view class="weui-flex__item tr count">
+                  {{numberFr.formatNum(item.groupCount)}}
+                </view>
+                <view class="weui-flex__item tr aomout">
+                  {{numberFr.formatNum(item.amount,2)}}
+                </view>
+              </view>
+            </navigator>
+            <navigator class="table mt-30 table4">
+              <view class="weui-flex table-head ">
+                <view class="weui-flex__item name">
+                  增值服务
+                </view>
+                <view class="weui-flex__item tr count">
+                  <view>数量</view>
+                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.addedServicesVo.totalCount)}}</view>
+                </view>
+                <view class="weui-flex__item tr aomout">
+                  <view>实际收款金额</view>
+                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.addedServicesVo.totalAmount,2)}}</view>
+                </view>
+              </view>
+              <view class="weui-flex table-body"  wx:key="*this" wx:for="{{tabContentObj2.addedServicesVo.detailList}}">
+                <view class=" weui-flex__item name">
+                  {{item.groupName}}
+                </view>
+                <view class="weui-flex__item tr count">
+                  {{numberFr.formatNum(item.groupCount)}}
+                </view>
+                <view class="weui-flex__item tr aomout">
+                  {{numberFr.formatNum(item.amount,2)}}
+                </view>
+              </view>
+            </navigator>
+            <navigator class="table mt-30 table5">
+              <view class="weui-flex table-head ">
+                <view class="weui-flex__item name">
+                  第三方抵扣
+                </view>
+                <view class="weui-flex__item tr count">
+                  <view>数量</view>
+                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.thirdPartyVo.totalCount)}}</view>
+                </view>
+                <view class="weui-flex__item tr aomout">
+                  <view>抵现金额</view>
+                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.thirdPartyVo.totalAmount,2)}}</view>
+                </view>
+              </view>
+              <view class="weui-flex table-body" wx:key="*this" wx:for="{{tabContentObj2.thirdPartyVo.detailList}}">
+                <view class=" weui-flex__item name">
+                  {{item.groupName}}
+                </view>
+                <view class="weui-flex__item tr count">
+                  {{numberFr.formatNum(item.groupCount)}}
+                </view>
+                <view class="weui-flex__item tr aomout">
+                  {{numberFr.formatNum(item.amount,2)}}
+                </view>
+              </view>
+            </navigator>
+          </scroll-view>
+        </view>
       </view>
-      <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+      <view class=" weui-tab__content " hidden="{{activeIndex !=2 }} ">
         <view>aaaaaa </view>
         <view>aaaaaa </view>
         <view>aaaaaa </view>
@@ -89,14 +225,14 @@
 
   <easy-modal id="thridModal" title="自定义查询时间" bind:confirmEvent="modalConfirm2">
     <view class='modal-content'>
-      <picker mode="date" value="{{modalConfirmStartTime2}}" end="{{toDayDate}}" bindchange="bindDateStart2" >
-        <view class="picker">
+      <picker mode="date" value="{{modalConfirmStartTime2}}" end="{{toDayDate}}" bindchange="bindDateStart2">
+        <view class="picker ">
           {{modalConfirmStartTime2}}
         </view>
       </picker>
       至
       <picker mode="date" value="{{modalConfirmEndTime2}}" end="{{toDayDate}}" bindchange="bindDateEnd2">
-        <view class="picker">
+        <view class="picker ">
           {{modalConfirmEndTime2}}
         </view>
       </picker>

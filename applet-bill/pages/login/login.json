@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "云盛店员助手",
     "usingComponents": {
       "base-modal": "/component/easyModal/base/baseModal",
       "easy-modal": "/component/easyModal/easy/easyModal"

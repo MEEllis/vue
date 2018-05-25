@@ -53,3 +53,11 @@
 .weui-navbar__item.weui-bar__item_on {
   color: #476ec9;
 }
+
+.weui-navbar{
+  border-bottom:none;
+}
+
+.weui-loadmore__tips_in-line{
+  background-color:transparent;
+}

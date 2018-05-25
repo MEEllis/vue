@@ -1,4 +1,4 @@
-function formatTime(date, fmt ='yyyy-MM-dd') { 
+function formatTime(date, fmt = 'yyyy-MM-dd') {
   var o = {
     "M+": date.getMonth() + 1,                 //月份   
     "d+": date.getDate(),                    //日   
@@ -14,7 +14,7 @@ function formatTime(date, fmt ='yyyy-MM-dd') {
     if (new RegExp("(" + k + ")").test(fmt))
       fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
   return fmt;
-} 
+}
 
 /**
  * 封封微信的的request
@@ -22,8 +22,8 @@ function formatTime(date, fmt ='yyyy-MM-dd') {
 function request(url, data = {}, method = "POST") {
   return new Promise(function (resolve, reject) {
     wx.showLoading({
-      title:'小云拼命加载中...',
-      mask:true,
+      title: '小云拼命加载中...',
+      mask: true,
       icon: 'loading'
     })
     wx.request({
@@ -36,11 +36,11 @@ function request(url, data = {}, method = "POST") {
       },
       success: function (res) {
         wx.hideLoading()
-     
+
         if (res.statusCode == 200) {
-          if (res.data.result==1){
+          if (res.data.result == 1) {
             resolve(res.data);
-          }else{
+          } else {
             showErrorToast()
             reject(res.data);
           }
@@ -111,19 +111,45 @@ function getUserInfo() {
   });
 }
 
-function showErrorToast({ msg}) {
+function showErrorToast({ msg }) {
   wx.showToast({
-    title: msg||'网络异常',
+    title: msg || '网络异常',
     icon: 'none',
   })
 }
 
+//获取滚动高度
+function getScrollHeight(subHeight) {
+  return new Promise(function (resolve, reject) {
+    wx.getSystemInfo({
+      success: function (res) {
+        let scrollHeight
+        if (Array.isArray(subHeight)){
+          scrollHeight=[]
+          for (let i = 0; i < subHeight.length;i++){
+            //误差调控5
+            scrollHeight.push(res.windowHeight - ((res.windowWidth / 750) * (subHeight[i] * 2)) + 5)
+          }
+        }else{
+          //误差调控5
+          scrollHeight = res.windowHeight - ((res.windowWidth / 750) * (subHeight * 2)) + 5
+        }
+        resolve(scrollHeight);
+      },
+      fail: function (err) {
+        reject(err);
+      }
+    });
+  });
+}
+
+
 module.exports = {
   formatTime,
   request,
-
   showErrorToast,
   checkSession,
   login,
   getUserInfo,
+  getScrollHeight,
 }
