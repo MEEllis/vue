@@ -41,7 +41,7 @@ function request(url, data = {}, method = "POST") {
           if (res.data.result == 1) {
             resolve(res.data);
           } else {
-            showErrorToast()
+            showErrorToast(res.data.desc)
             reject(res.data);
           }
         } else {
@@ -111,7 +111,7 @@ function getUserInfo() {
   });
 }
 
-function showErrorToast({ msg }) {
+function showErrorToast(msg) {
   wx.showToast({
     title: msg || '网络异常',
     icon: 'none',

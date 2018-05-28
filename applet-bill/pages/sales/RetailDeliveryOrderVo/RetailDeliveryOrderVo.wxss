@@ -1,0 +1,42 @@
+.detail-subject {
+  background-image: linear-gradient(0deg, #4f5fbf 41%, #4867cc 77%, #416ed8 100%);
+  color: #e6e6e6;
+  font-size: 28rpx;
+  padding: 30rpx;
+}
+
+.detail-subject .weui-flex__item {
+  text-align: right;
+  color: #fff;
+  margin-left: 30rpx;
+}
+
+.detail-subject .weui-flex {
+  padding: 10rpx 0;
+}
+
+.detail-subject .remark {
+  border-bottom: 1px solid #7d8ce8;
+}
+
+.detail-list .weui-cell {
+ padding: 0;
+}
+
+
+.detail-list .tap {
+   padding: 20rpx 30rpx 20rpx 0rpx;
+   background-color: #fff;
+}
+
+.tap .weui-cell__bd {
+  border-left-width: 16rpx;
+  border-left-style: solid;
+  font-size: 34rpx;
+  padding-left: 10rpx;
+}
+
+.detail-good .tap .weui-cell__bd {
+  border-left-color: #3d70f3;
+}
+

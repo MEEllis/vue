@@ -11,11 +11,11 @@
       </view>
       <view class="weui-cell">
         <view class="weui-cell__bd">品牌:</view>
-        <view class="weui-cell__ft">￥{{goodsVo.brandName}}</view>
+        <view class="weui-cell__ft">{{goodsVo.brandName}}</view>
       </view>
       <view class="weui-cell">
         <view class="weui-cell__bd">型号:</view>
-        <view class="weui-cell__ft">{{goodsVo.models}}</view>
+        <view class="weui-cell__ft">{{goodsVo.models===null?'':goodsVo.models}}</view>
       </view>
       <view class="weui-cell">
         <view class="weui-cell__bd">配置:</view>

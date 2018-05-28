@@ -10,6 +10,11 @@
     "pages/billing/billing",
     "pages/sales/index/index",
     "pages/sales/goodsVo/goodsVo",
+    "pages/sales/installmentVo/installmentVo",
+    "pages/sales/addedServicesVo/addedServicesVo",
+    "pages/sales/operatorVo/operatorVo",
+    "pages/sales/thirdPartyVo/thirdPartyVo",
+    "pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo",
     "pages/my/my"
   ],
   "window": {

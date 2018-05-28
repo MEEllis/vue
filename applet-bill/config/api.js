@@ -1,6 +1,6 @@
 let NewApiRootUrl = ''
-  NewApiRootUrl = 'http://192.168.0.62/wxapi/'; // 后台联调的接口
-  NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
+//NewApiRootUrl = 'http://192.168.0.62/wxapi/'; // 后台联调的接口
+ NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
 module.exports = {
   authLogin: NewApiRootUrl + 'auth/login', //账号密码登录
   authAutoLogin: NewApiRootUrl + 'auth/autoLogin', //微信账号自动登录
@@ -13,4 +13,9 @@ module.exports = {
 
   getMySalesStatistics: NewApiRootUrl + 'common/getMySalesStatistics', //  我的销量
   getGoodsSalesVoPageList: NewApiRootUrl + 'common/getGoodsSalesVoPageList', //   我的商品销售流水
+  getOperatorSalesVoPageList: NewApiRootUrl + 'common/getOperatorSalesVoPageList', //   我的运营商业务流水
+  getInstallmentSalesVoPageList: NewApiRootUrl + 'common/getInstallmentSalesVoPageList', //   我的分期业务流水
+  getAddedServicesSalesVoPageList: NewApiRootUrl + 'common/getAddedServicesSalesVoPageList', //   我的增值服务流水
+  getThirdPartySalesVoPageList: NewApiRootUrl + 'common/getThirdPartySalesVoPageList', //   我的第三方抵扣流水
+  getRetailDeliveryOrderVo: NewApiRootUrl + 'common/getRetailDeliveryOrderVo', //   我的第三方抵扣流水
 };

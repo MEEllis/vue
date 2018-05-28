@@ -6,7 +6,7 @@
     <form class="weui-search-bar__form">
       <view class="weui-search-bar__box">
         <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-        <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder="商品类别/品牌/型号/商品名称/条码/串号" value="{{queryKey}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
+        <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder="第三方活动名称" value="{{queryKey}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
         <view class="weui-icon-clear" wx:if="{{queryKey.length > 0}}" bindtap="clearInput">
           <icon type="clear" size="14"></icon>
         </view>
@@ -24,31 +24,28 @@
 
   <!-- 商品列表 -->
   <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-    <navigator class='list-item' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" data-id="{{item.billsId}}"
-     url="{{(item.billsType==45?'/pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo':'')}}?billsId={{item.billsId}}">
+    <navigator class='list-item  ' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" data-id="{{item.billsId}}" url=''>
       <view class='list-item-title'>
         <view class='weui-flex'>
-          <text class='iconfont icon-shouji1'></text>
-          <text class='title'>{{item.goodsName}}</text>
+          <text class='iconfont icon-dikouquan'></text>
+          <text class='title'>{{item.thirdPartyName}}</text>
         </view>
       </view>
 
       <view class='list-item-body'>
         <view class="weui-flex">
           <view class="weui-flex__item">
-            <view class="my-stock">数量:{{numberFr.formatNum(item.goodsCount)}}</view>
+            <view class="my-stock">抵现金额:{{numberFr.formatNum(item.deductionAmount,2)}}</view>
           </view>
           <view class="weui-flex__item">
-            <view class="other-stock">零售标价:{{numberFr.formatNum(item.retailPrice,2)}}</view>
+            <view class="other-stock">结算金额:{{numberFr.formatNum(item.settlementAmount,2)}}</view>
           </view>
         </view>
         <view class="weui-flex">
           <view class="weui-flex__item">
-            <view class="">折后单价:{{numberFr.formatNum(item.price,2)}}</view>
+            <view class="">业务号:{{item.businessNo}}</view>
           </view>
-          <view class="weui-flex__item">
-            <view class="">折后金额:{{numberFr.formatNum(item.amount,2)}}</view>
-          </view>
+        
         </view>
       </view>
       <view class='list-item-footer'>
@@ -70,7 +67,11 @@
         <view class='f1'>{{numberFr.formatNum(0)}}</view>
       </view>
       <view class="weui-flex__item tr aomout">
-        <view class='color3'>收款金额</view>
+        <view class='color3'>抵现金额</view>
+        <view class='f1'>{{numberFr.formatNum(0,2)}}</view>
+      </view>
+       <view class="weui-flex__item tr aomout">
+        <view class='color3'>结算金额</view>
         <view class='f1'>{{numberFr.formatNum(0,2)}}</view>
       </view>
     </view>

@@ -1,0 +1,2 @@
+<view class="intro">没有tabbar，windowHeight: {{ height }}</view>
+<view class="intro">结果错误</view>

@@ -1,0 +1,9 @@
+@import '../sales.wxss';
+
+.icon-zengzhifuwu1 {
+  color: #FB949F;
+  font-size: 44rpx;
+  position: relative;
+}
+
+

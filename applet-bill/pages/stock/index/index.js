@@ -122,7 +122,7 @@ Page({
       return;
     }
     this.setData({
-      pageNumber: this.pageNumber + 1,
+      pageNumber: this.data.pageNumber + 1,
     });
     this.getGoodsList();
   },

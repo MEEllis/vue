@@ -33,6 +33,10 @@ page {
   color: #333;
 }
 
+.color3 {
+  color: #666;
+}
+
 .on {
   color: #476ec9;
 }

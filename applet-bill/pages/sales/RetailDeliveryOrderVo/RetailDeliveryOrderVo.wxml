@@ -1,0 +1,69 @@
+<view class="container">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <view class='detail-subject'>
+    <view class="weui-flex">
+      <text class="">单据编号</text>
+      <view class="weui-flex__item">
+        <view class="">{{orderVo.billsCode}}</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <text class="">门店</text>
+      <view class="weui-flex__item">
+        <view class="">{{orderVo.sectionName}}</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <text class="">营业员</text>
+      <view class="weui-flex__item">
+        <view class="">{{orderVo.salesManName}}</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <text class="">业务日期</text>
+      <view class="weui-flex__item">
+        <view class="">{{orderVo.billsDateStr}}</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <text class="">客户电话</text>
+      <view class="weui-flex__item">
+        <view class="color1" bindtap="tapTel" data-tel="{{orderVo.customerTelephone}}">{{orderVo.customerTelephone}}</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <text class="">单据备注</text>
+      <view class="weui-flex__item">
+        <input class='remark' type="text" placeholder="单据备注" value="{{orderVo.remark}}" />
+      </view>
+    </view>
+    <view class="weui-flex">
+      <text class="">过账人</text>
+      <view class="weui-flex__item">
+        <view class="">{{orderVo.postByName}}</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <text class="">过账时间</text>
+      <view class="weui-flex__item">
+        <view class="">{{orderVo.postDateStr}}</view>
+      </view>
+    </view>
+
+  </view>
+  <view class='detail-list detail-good'>
+    <view class="weui-cell tap">
+      <view class="weui-cell__bd">商品</view>
+      <view class="weui-cell__ft"></view>
+    </view>
+    <view class="weui-cell item-index">
+      <view class="weui-cell__hd">
+      1
+      </view>
+      <view class="weui-cell__bd">标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字</view>
+   
+    </view>
+  </view>
+  <view class='detail-good'>
+  </view>
+</view>

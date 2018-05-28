@@ -8,11 +8,9 @@
 
 .title {
   position: relative;
-  line-height: 50rpx;
-  height: 110rpx;
   font-size: 34rpx;
   color: #333;
-  padding: 30rpx 0rpx 10rpx 0rpx;
+  padding: 30rpx 0rpx 30rpx 0rpx;
   font-weight: 600;
 }
 

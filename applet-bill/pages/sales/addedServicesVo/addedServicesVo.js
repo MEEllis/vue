@@ -38,7 +38,7 @@ Page({
    */
   onReady: function () {
     const that = this;
-    util.getScrollHeight((56 + 35+60 + 6)).then((scrollHeight) => {
+    util.getScrollHeight((56 + 35 + 60 + 6)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -81,7 +81,7 @@ Page({
   getGoodsList: function () {
     const _this = this;
     const { queryKey, pageNumber, pageSize, startTime, endTime } = this.data;
-    util.request(api.getGoodsSalesVoPageList, {
+    util.request(api.getAddedServicesSalesVoPageList, {
       startTime,
       endTime,
       queryKey,

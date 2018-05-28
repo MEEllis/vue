@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 12,
 			"list": [
 				{
 					"id": 0,
@@ -54,7 +54,7 @@
 					"id": 3,
 					"name": "goodDetail/goodDetail",
 					"pathName": "pages/stock/goodDetail/goodDetail",
-					"query": "id=1"
+					"query": "id=33505"
 				},
 				{
 					"id": 4,
@@ -79,6 +79,36 @@
 					"name": "sales/goodsVo",
 					"pathName": "pages/sales/goodsVo/goodsVo",
 					"query": "startTime=2018-05-25&endTime=2018-05-25"
+				},
+				{
+					"id": -1,
+					"name": "sales/operatorVo",
+					"pathName": "pages/sales/operatorVo/operatorVo",
+					"query": "startTime=2018-05-25&endTime=2018-05-25"
+				},
+				{
+					"id": -1,
+					"name": "sales/installmentVo",
+					"pathName": "pages/sales/installmentVo/installmentVo",
+					"query": "startTime=2018-05-25&endTime=2018-05-25"
+				},
+				{
+					"id": -1,
+					"name": "sales/addedServicesVo",
+					"pathName": "pages/sales/addedServicesVo/addedServicesVo",
+					"query": "startTime=2018-05-25&endTime=2018-05-25"
+				},
+				{
+					"id": -1,
+					"name": "sales/thirdPartyVo",
+					"pathName": "pages/sales/thirdPartyVo/thirdPartyVo",
+					"query": "startTime=2018-05-25&endTime=2018-05-25"
+				},
+				{
+					"id": 12,
+					"name": "sales/RetailDeliveryOrderVo",
+					"pathName": "pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo",
+					"query": "billsId=1"
 				}
 			]
 		}

@@ -50,7 +50,7 @@
                 </view>
               </view>
             </navigator>
-            <navigator class="table mt-30 table2">
+            <navigator url="/pages/sales/operatorVo/operatorVo?startTime={{startTime2}}&endTime={{endTime2}}"  class="table mt-30 table2">
               <view class="weui-flex table-head ">
                 <view class="weui-flex__item name">
                   运营商业务
@@ -76,7 +76,7 @@
                 </view>
               </view>
             </navigator>
-            <navigator class="table mt-30 table3">
+            <navigator url="/pages/sales/installmentVo/installmentVo?startTime={{startTime2}}&endTime={{endTime2}}" class="table mt-30 table3">
               <view class="weui-flex table-head ">
                 <view class="weui-flex__item name">
                   分期业务
@@ -102,7 +102,7 @@
                 </view>
               </view>
             </navigator>
-            <navigator class="table mt-30 table4">
+            <navigator url="/pages/sales/addedServicesVo/addedServicesVo?startTime={{startTime2}}&endTime={{endTime2}}"  class="table mt-30 table4">
               <view class="weui-flex table-head ">
                 <view class="weui-flex__item name">
                   增值服务
@@ -128,7 +128,7 @@
                 </view>
               </view>
             </navigator>
-            <navigator class="table mt-30 table5">
+            <navigator url="/pages/sales/thirdPartyVo/thirdPartyVo?startTime={{startTime2}}&endTime={{endTime2}}"  class="table mt-30 table5">
               <view class="weui-flex table-head ">
                 <view class="weui-flex__item name">
                   第三方抵扣

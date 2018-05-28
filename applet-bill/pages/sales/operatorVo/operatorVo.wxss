@@ -1,0 +1,8 @@
+@import '../sales.wxss';
+
+.icon-yewu {
+  color: #60bceb;
+  font-size: 44rpx;
+  position: relative;
+}
+
