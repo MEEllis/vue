@@ -25,7 +25,7 @@
   <!-- 商品列表 -->
   <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
     <navigator class='list-item' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" data-id="{{item.billsId}}"
-     url="{{(item.billsType==45?'/pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo':'')}}?billsId={{item.billsId}}">
+     url="/pages/sales/{{(item.billsType==45?'RetailDeliveryOrderVo/RetailDeliveryOrderVo':'RetailRefundOrderVo/RetailRefundOrderVo')}}?billsId={{item.billsId}}">
       <view class='list-item-title'>
         <view class='weui-flex'>
           <text class='iconfont icon-shouji1'></text>

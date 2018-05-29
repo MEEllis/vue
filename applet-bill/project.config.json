@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 13,
 			"list": [
 				{
 					"id": 0,
@@ -108,6 +108,12 @@
 					"id": 12,
 					"name": "sales/RetailDeliveryOrderVo",
 					"pathName": "pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo",
+					"query": "billsId=1"
+				},
+				{
+					"id": -1,
+					"name": "sales/RetailRefundOrderVo",
+					"pathName": "pages/sales/RetailRefundOrderVo/RetailRefundOrderVo",
 					"query": "billsId=1"
 				}
 			]

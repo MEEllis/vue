@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '',
-    pwd: '',
+    name: '15116201365',
+    pwd: 'ys123456',
     companyList: [],//公司列表
   },
 
@@ -84,6 +84,7 @@ Page({
     const wxUserInfo = e.detail;
     const _this = this;
     const { name, pwd } = this.data
+
     util.login().then(({ code }) => {
       if (code) {
         util.request(
@@ -91,7 +92,7 @@ Page({
           {
             userName: name,
             password: pwd
-          },
+          }
         ).then(ajaxData => {
           _this.setData({
             companyList: ajaxData.data.companyList
@@ -120,7 +121,7 @@ Page({
           companyId,
           code: code,
           userInfo: JSON.stringify(userInfo),
-        },
+        }
       )
     }).then(ajaxData => {
       wx.setStorageSync('userInfo', ajaxData.data.employeeVo);

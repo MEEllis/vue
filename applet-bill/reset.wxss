@@ -57,7 +57,3 @@
 .weui-navbar{
   border-bottom:none;
 }
-
-.weui-loadmore__tips_in-line{
-  background-color:transparent;
-}

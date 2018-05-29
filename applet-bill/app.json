@@ -15,6 +15,7 @@
     "pages/sales/operatorVo/operatorVo",
     "pages/sales/thirdPartyVo/thirdPartyVo",
     "pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo",
+    "pages/sales/RetailRefundOrderVo/RetailRefundOrderVo",
     "pages/my/my"
   ],
   "window": {

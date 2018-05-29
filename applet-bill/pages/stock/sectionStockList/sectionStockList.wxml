@@ -2,7 +2,7 @@
   <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
   <navigator class='list-item  ' hidden='{{!goodsVo.dataId}}' data-id="{{goodsVo.dataId}}" url='/pages/stock/goodDetail/goodDetail?id={{goodsVo.dataId}}' data-ifManageImei="{{goodsVo.ifManageImei}}">
     <view class='weui-flex ellipsis2 title'>
-      {{goodsVo.name}}
+      {{numberFr.stringNull(goodsVo.name)}}
       <view  class="weui-badge" hidden='{{goodsVo.ifManageImei==0}}'>串</view>
       <text class="deatil" >（查看详情）</text>
     </view>
@@ -40,16 +40,16 @@
         <view class='section-item' wx:for-item="sectionItem" wx:for="{{goodsVo.ourSectionStockList}}" wx:for-index="sectionIdx" wx:key="{{sectionIdx}}" data-index="{{sectionIdx}}" data-code="{{sectionItem.sectionCode}}">
           <view class="weui-cell ">
             <view class="weui-cell__bd">
-              <text class='iconfont icon-mendian'></text>{{sectionItem.sectionName}}
+              <text class='iconfont icon-mendian'></text>{{numberFr.stringNull(sectionItem.sectionName)}}
             </view>
-            <view class="weui-cell__ft color1">{{sectionItem.stockCount}}</view>
+            <view class="weui-cell__ft color1">{{numberFr.formatNum(sectionItem.stockCount)}}</view>
           </view>
           <!-- 仓库列表 -->
           <view class="storage-wrap" wx:for-item="storageItem" wx:for="{{sectionItem.storageStockList}}" wx:for-index="storageIdx" wx:key="{{storageIdx}}">
             <view class="weui-cell "  hover-class="{{goodsVo.ifManageImei==0? '' : 'weui-cell_active'}}" bindtap="tapDetailImei"  data-storageId='{{storageItem.storageId}}'  data-storageName='{{storageItem.storageName}}'  data-sectionName='{{sectionItem.sectionName}}'>
               <view class="weui-cell__bd">
-                <text class='iconfont icon-fa-bank'></text>{{storageItem.storageName}}</view>
-              <view class="weui-cell__ft color1">{{storageItem.stockCount}}</view>
+                <text class='iconfont icon-fa-bank'></text>{{numberFr.stringNull(storageItem.storageName)}}</view>
+              <view class="weui-cell__ft color1">{{numberFr.formatNum(storageItem.stockCount)}}</view>
             </view>
           </view>
         </view>
@@ -77,16 +77,16 @@
           <view class='section-item' wx:for-item="sectionItem" wx:for="{{goodsVo.otherSectionStockList}}" wx:for-index="sectionIdx" wx:key="{{sectionIdx}}" data-index="{{sectionIdx}}" data-code="{{sectionItem.sectionCode}}">
             <view class="weui-cell">
               <view class="weui-cell__bd">
-                <text class='iconfont icon-mendian'></text>{{sectionItem.sectionName}}
+                <text class='iconfont icon-mendian'></text>{{numberFr.stringNull(sectionItem.sectionName)}}
               </view>
-              <view class="weui-cell__ft color1">{{sectionItem.stockCount}}</view>
+              <view class="weui-cell__ft color1">{{numberFr.formatNum(sectionItem.stockCount)}}</view>
             </view>
             <!-- 仓库列表 -->
             <view class="storage-wrap" wx:for-item="storageItem" wx:for="{{sectionItem.storageStockList}}" wx:for-index="storageIdx" wx:key="{{storageIdx}}">
               <view class="weui-cell "  hover-class="{{goodsVo.ifManageImei==0? '' : 'weui-cell_active'}}" bindtap="tapDetailImei"  data-storageId='{{storageItem.storageId}}'  data-storageName='{{storageItem.storageName}}'  data-sectionName='{{sectionItem.sectionName}}'>
                 <view class="weui-cell__bd">
-                  <text class='iconfont icon-fa-bank'></text>{{storageItem.storageName}}</view>
-                <view class="weui-cell__ft color1">{{storageItem.stockCount}}</view>
+                  <text class='iconfont icon-fa-bank'></text>{{numberFr.stringNull(storageItem.storageName)}}</view>
+                <view class="weui-cell__ft color1">{{numberFr.formatNum(storageItem.stockCount)}}</view>
               </view>
             </view>
           </view>

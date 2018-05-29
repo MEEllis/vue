@@ -9,6 +9,12 @@
         </view>
       </view>
       <view class="weui-flex">
+        <text class="">原单编号</text>
+        <view class="weui-flex__item">
+          <view class="">{{orderVo.billsCode}}</view>
+        </view>
+      </view>
+      <view class="weui-flex">
         <text class="">门店</text>
         <view class="weui-flex__item">
           <view class="">{{orderVo.sectionName}}</view>
@@ -656,7 +662,7 @@
         </view>
         <view class='color3'>共 {{numberFr.formatNum(0)}} 件</view>
       </view>
-      <button  type="primary" class="weui-flex__item print ">
+      <button type="primary" class="weui-flex__item print ">
         打印
       </button>
       <button type="primary" class="weui-flex__item update">

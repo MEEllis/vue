@@ -26,21 +26,31 @@ function request(url, data = {}, method = "POST") {
       mask: true,
       icon: 'loading'
     })
+    console.log(url)
     wx.request({
       url: url,
       data: data,
       method: method,
       header: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'X-Nideshop-Token': wx.getStorageSync('token')
+        'ERP-WX-TOKEN': wx.getStorageSync('token')
       },
       success: function (res) {
         wx.hideLoading()
-
+       
         if (res.statusCode == 200) {
           if (res.data.result == 1) {
             resolve(res.data);
-          } else {
+          }
+          else if (res.data.result == -1){
+            wx.reLaunch({
+              url: '/pages/login/login',
+              success: (res) => {
+               
+              }
+            })
+          } 
+          else {
             showErrorToast(res.data.desc)
             reject(res.data);
           }

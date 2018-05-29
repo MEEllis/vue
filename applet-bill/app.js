@@ -8,6 +8,7 @@ App({
     //获取用户的登录信息
     user.checkLogin().then(res => {
       user.loginByWeixin().then(({ code, userInfo }) => {
+        util.showErrorToast('aaaaaaaaa')
         return util.request(
           api.authAutoLogin,
           {
@@ -18,6 +19,7 @@ App({
       }).then(ajaxData => {
         wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
         wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
+        wx.setStorageSync('companyList', ajaxData.data.companyList);
       })
     },res => {
       console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')

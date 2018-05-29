@@ -11,7 +11,8 @@ Page({
     storageId: '',
     storageName: '',
     sectionName: '',
-    total:'',
+    records:'',
+    total: 1,
     pageNumber:1,
     pageSize:20,
     scrollHeight:0,
@@ -47,14 +48,13 @@ Page({
    */
   onReady: function () {
     const that = this;
-    util.getScrollHeight((77 + 50 + 50 + 8)).then((scrollHeight) => {
+    util.getScrollHeight((52 + 50 + 50 + 8)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
       })
     })
   },
-
 
   // 获取明细信息
   getImeiDetail: function () {
@@ -65,22 +65,22 @@ Page({
       storageId,
       pageNumber,
       pageSize,
-    },
-      'GET'
+    }
     ).then(res => {
 
       let dataList = _this.data.dataList.concat(res.data.dataList)
       _this.setData({
         dataList,
         curListData: res.data.dataList,
+        records: res.data.records,
         total: res.data.total,
         loadingMore:false,
       });
     });
   },
   scrolltolower:function(){
-    const { curListData, pageNumber } = this.data;
-    if (this.data.curListData.length === 0) {
+    const { total, pageNumber } = this.data;
+    if (pageNumber >= total) {
       return;
     }
     this.setData({

@@ -1,6 +1,9 @@
 let NewApiRootUrl = ''
 //NewApiRootUrl = 'http://192.168.0.62/wxapi/'; // 后台联调的接口
- NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
+//NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/'; // 提交测试的接口
+NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
+
+
 module.exports = {
   authLogin: NewApiRootUrl + 'auth/login', //账号密码登录
   authAutoLogin: NewApiRootUrl + 'auth/autoLogin', //微信账号自动登录
@@ -17,5 +20,6 @@ module.exports = {
   getInstallmentSalesVoPageList: NewApiRootUrl + 'common/getInstallmentSalesVoPageList', //   我的分期业务流水
   getAddedServicesSalesVoPageList: NewApiRootUrl + 'common/getAddedServicesSalesVoPageList', //   我的增值服务流水
   getThirdPartySalesVoPageList: NewApiRootUrl + 'common/getThirdPartySalesVoPageList', //   我的第三方抵扣流水
-  getRetailDeliveryOrderVo: NewApiRootUrl + 'common/getRetailDeliveryOrderVo', //   我的第三方抵扣流水
+  getRetailDeliveryOrderVo: NewApiRootUrl + 'common/getRetailDeliveryOrderVo', //    零售单详情
+  getRetailRefundOrderVo: NewApiRootUrl + 'common/getRetailRefundOrderVo', //    零售单详情
 };

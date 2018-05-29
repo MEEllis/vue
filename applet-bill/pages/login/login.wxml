@@ -2,28 +2,28 @@
   <view class='logo-wrap'>
     <image src="../../images/logo.png" lazy-load='true' class='logo' />
   </view>
-  <form bindsubmit="formSubmit" >
+  <form bindsubmit="formSubmit">
     <view>
-      <input class='txt-input' type="text" focus  placeholder="请输入手机号" value="{{name}}" bindinput="inputName" />
+      <input class='txt-input' type="number" focus placeholder="请输入手机号" value="{{name}}" bindinput="inputName" />
     </view>
     <view>
-      <input class='txt-input' password='true' type="text"  placeholder="请输入密码" value="{{pwd}}" bindinput="inputPwd" />
+      <input class='txt-input' password='true' type="text" placeholder="请输入密码" value="{{pwd}}" bindinput="inputPwd" />
     </view>
     <view>
 
-    <!-- 15116201365 ys123456 -->
-      <button open-type="getUserInfo"   wx:if="{{name.length>0&&pwd.length>0}}" class="login " type="primary" bindgetuserinfo="formSubmit">登录</button>
+      <!-- 15116201365 ys123456 -->
+      <button open-type="getUserInfo" wx:if="{{name.length>0&&pwd.length>0}}" class="login " type="primary" bindgetuserinfo="formSubmit">登录</button>
       <button open-type="getUserInfo" disabled wx:else class="login" type="primary" bindgetuserinfo="formSubmit">登录</button>
     </view>
   </form>
 
-  <easy-modal id="thridModal" title="选择公司" isShowConfirm='{{false}}' >
+  <easy-modal id="thridModal" title="选择公司" isShowConfirm='{{false}}'>
     <view class='modal-content'>
       <scroll-view scroll-y="true" style="height: 300rpx;" class="cate-cotent">
-            <navigator  bindtap="tapCompany" wx:for-items="{{companyList}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" class="weui-cell  weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__bd">{{item.name}}</view>
-            </navigator>
-     </scroll-view>
+        <view bindtap="tapCompany" wx:for-items="{{companyList}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" class="weui-cell  weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">{{item.name}}</view>
+        </view>
+      </scroll-view>
     </view>
 
   </easy-modal>

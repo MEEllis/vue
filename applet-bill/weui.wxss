@@ -80,7 +80,6 @@ icon {
 	height: 1px;
 	border-top: 1rpx solid #E6E6E6;
 	color: #E6E6E6;
-	left: 15px
 }
 
 .weui-cell:first-child:before {

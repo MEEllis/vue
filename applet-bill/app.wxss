@@ -106,3 +106,22 @@ page {
   line-height: 70rpx;
   height: 70rpx;
 }
+.border-bottom,
+.border-top{
+position: relative;
+}
+.border-bottom::before,
+.border-top::before{
+  content: " ";
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 1px;
+  border-top: 1rpx solid #e6e6e6;
+}
+.border-top::before{
+  top:0;
+}
+.border-bottom::before{
+  bottom:0;
+}

@@ -8,7 +8,7 @@ Page({
   data: {
     billsId: '',
     orderVo: {},
-    goodOn:false,
+    goodOn: true,
     operatorOn: false,
     addedServicesOn: false,
     thirdPartyOn: false,
@@ -27,7 +27,7 @@ Page({
     this.getDetail();
   },
   //拨打手机号
-  tapTel:function(e){
+  tapTel: function (e) {
     const tel = e.currentTarget.dataset.tel
     wx.makePhoneCall({
       phoneNumber: tel
@@ -38,7 +38,7 @@ Page({
   getDetail: function () {
     const _this = this;
     const { billsId } = this.data;
-    util.request(api.getRetailDeliveryOrderVo, {
+    util.request(api.getRetailRefundOrderVo, {
       billsId,
     }, 'GET').then(res => {
       _this.setData({
@@ -47,10 +47,10 @@ Page({
     });
   },
   //tap的显示/隐藏
-  tapList:function(e) {
+  tapList: function (e) {
     const target = e.currentTarget.dataset.target
     const flagOn = this.data[target];
-    const setObj={}
+    const setObj = {}
     setObj[target] = !flagOn
     this.setData(setObj);
   },

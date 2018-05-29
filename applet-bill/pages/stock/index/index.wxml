@@ -28,7 +28,7 @@
   <scroll-view scroll-y='true' class="list-wrap pt-20" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
     <navigator class='list-item mb-30 ' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="dataId" data-id="{{item.dataId}}" url='/pages/stock/sectionStockList/sectionStockList?id={{item.dataId}}'>
       <view class='weui-flex ellipsis title'>
-        <text class='iconfont icon-shouji1'></text> {{item.name}}
+        <text class='iconfont icon-shouji1'></text> {{numberFr.stringNull(item.name)}}
       </view>
 
       <view class='list-item-body'>
@@ -45,7 +45,7 @@
             <view class="">零售标价:￥{{numberFr.formatNum(item.retailPrice,2)}}</view>
           </view>
           <view class="weui-flex__item">
-            <view class="">一级目录:{{item.firstClassName}}</view>
+            <view class="">一级类别:{{numberFr.stringNull(item.firstClassName)}}</view>
           </view>
         </view>
       </view>

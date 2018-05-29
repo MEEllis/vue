@@ -13,6 +13,7 @@ Page({
     categoryData: [],
     dataList: [],
     curListData: [],
+    total: 1,
     pageNumber: 1,
     pageSize: 20,
     loadingMore: true,
@@ -97,6 +98,7 @@ Page({
       _this.setData({
         dataList,
         curListData: res.data.dataList,
+        total: res.data.total,
         loadingMore:false,
       });
     });
@@ -118,7 +120,8 @@ Page({
     });
   },
   scrolltolower: function () {
-    if (this.data.curListData.length === 0) {
+    const { total, pageNumber } = this.data;
+    if (pageNumber >= total) {
       return;
     }
     this.setData({

@@ -21,7 +21,7 @@
         <view class="weui-cell storage-item">
           <view class="weui-cell__bd">
             <text class='iconfont icon-fa-bank'></text>{{numberFr.stringEllipsis(storageName,15)}}</view>
-          <view wx:if="{{total!=''}}" class="weui-cell__ft color1">{{numberFr.formatNum(total)}}</view>
+          <view wx:if="{{records!=''}}" class="weui-cell__ft color1">{{numberFr.formatNum(records)}}</view>
         </view>
 
         <view class="weui-panel">
@@ -38,11 +38,11 @@
                 </view>
                 <view class='index-body-item'>
                   <view class='desc'>辅助串号：</view>
-                  <view class='desc-value color2'>{{item.auxiliaryImei}}</view>
+                  <view class='desc-value color2'>{{numberFr.stringNull(item.auxiliaryImei)}}</view>
                 </view>
                 <view class='index-body-item'>
                   <view class='desc'>采购日期：</view>
-                  <view class='desc-value color1'>{{item.purchaseDateStr}}</view>
+                  <view class='desc-value color1'>{{numberFr.stringNull(item.purchaseDateStr)}}</view>
                 </view>
               </view>
             </view>
