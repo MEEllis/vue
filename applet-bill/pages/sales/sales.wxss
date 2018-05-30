@@ -85,7 +85,7 @@ font-size:26rpx;
   right: 0rpx;
   top: 0;
   height: 1px;
-  border-bottom: 1px dashed #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .sum-wrap .sum {

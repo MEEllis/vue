@@ -21,6 +21,10 @@ page {
   margin-top: 30rpx;
 }
 
+.mb-20 {
+  margin-bottom: 20rpx;
+}
+
 .mb-30 {
   margin-bottom: 30rpx;
 }
@@ -36,9 +40,17 @@ page {
 .color3 {
   color: #666;
 }
+.color4 {
+  color: #1a1a1a;
+}
+
 
 .on {
   color: #476ec9;
+}
+
+.fw {
+  font-weight: 600;
 }
 
 .tc {
@@ -106,12 +118,12 @@ page {
   line-height: 70rpx;
   height: 70rpx;
 }
-.border-bottom,
-.border-top{
-position: relative;
+
+.border-bottom, .border-top {
+  position: relative;
 }
-.border-bottom::before,
-.border-top::before{
+
+.border-bottom::before, .border-top::before {
   content: " ";
   position: absolute;
   right: 0;
@@ -119,9 +131,31 @@ position: relative;
   height: 1px;
   border-top: 1rpx solid #e6e6e6;
 }
-.border-top::before{
-  top:0;
+
+.border-top::before {
+  top: 0;
 }
-.border-bottom::before{
-  bottom:0;
+
+.border-bottom::before {
+  bottom: 0;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

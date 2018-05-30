@@ -12,6 +12,7 @@ Page({
     inputShowed: false,
     queryKey: "",
     dataList: [],
+    totalVo: {},
     curListData: [],
     pageNumber: 1,
     pageSize: 20,
@@ -38,7 +39,7 @@ Page({
    */
   onReady: function () {
     const that = this;
-    util.getScrollHeight((56 + 35+60 + 6)).then((scrollHeight) => {
+    util.getScrollHeight((56 + 35 + 60 + 6)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -92,6 +93,7 @@ Page({
       _this.setData({
         dataList,
         curListData: res.data.dataList,
+        totalVo: res.data.totalVo,
         loadingMore: false,
       });
     });

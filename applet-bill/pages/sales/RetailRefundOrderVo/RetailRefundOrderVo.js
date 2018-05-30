@@ -8,11 +8,12 @@ Page({
   data: {
     billsId: '',
     orderVo: {},
+    totalCount:0,
     goodOn: true,
-    operatorOn: false,
-    addedServicesOn: false,
-    thirdPartyOn: false,
-    installmentOn: false,
+    operatorOn: true ,
+    addedServicesOn: true,
+    thirdPartyOn: true,
+    installmentOn: true,
     payAmountOn: true,
   },
 
@@ -41,8 +42,14 @@ Page({
     util.request(api.getRetailRefundOrderVo, {
       billsId,
     }, 'GET').then(res => {
+      let totalCount=0;
+      for (let i = 0; i < res.data.orderVo.goodsDetailList.length;i++){
+        totalCount += Number(res.data.orderVo.goodsDetailList[i].goodsCount)
+      }
+
       _this.setData({
         orderVo: res.data.orderVo,
+        totalCount,
       });
     });
   },

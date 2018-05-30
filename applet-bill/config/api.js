@@ -21,5 +21,7 @@ module.exports = {
   getAddedServicesSalesVoPageList: NewApiRootUrl + 'common/getAddedServicesSalesVoPageList', //   我的增值服务流水
   getThirdPartySalesVoPageList: NewApiRootUrl + 'common/getThirdPartySalesVoPageList', //   我的第三方抵扣流水
   getRetailDeliveryOrderVo: NewApiRootUrl + 'common/getRetailDeliveryOrderVo', //    零售单详情
-  getRetailRefundOrderVo: NewApiRootUrl + 'common/getRetailRefundOrderVo', //    零售单详情
+  getRetailRefundOrderVo: NewApiRootUrl + 'common/getRetailRefundOrderVo', //    零售退货单详情
+  getMyReceiptsStatistics: NewApiRootUrl + 'common/getMyReceiptsStatistics', //    我的营业款
+  getMyRankingStatistics: NewApiRootUrl + 'common/getMyRankingStatistics', //    我的营业款
 };

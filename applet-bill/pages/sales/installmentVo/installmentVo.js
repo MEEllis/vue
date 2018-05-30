@@ -13,6 +13,7 @@ Page({
     queryKey: "",
     dataList: [],
     curListData: [],
+    totalVo:{},
     pageNumber: 1,
     pageSize: 20,
     loadingMore: true,
@@ -92,6 +93,7 @@ Page({
       _this.setData({
         dataList,
         curListData: res.data.dataList,
+        totalVo: res.data.totalVo,
         loadingMore: false,
       });
     });

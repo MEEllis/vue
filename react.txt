@@ -1,0 +1,74 @@
+﻿dva :issue
+
+关于复杂业务组件的重用问题
+容器组件该不该放在Components目录下
+如何实现动态权限
+怎么实现异步获取菜单数据
+菜单路由部分的权限怎么和后台系统结合使用 #965
+设置多个权限
+我想在点击menu的时候，生成一个tab页，我应该怎么做才能动态的加载tab，并且tab的内容也是加载出来的
+假如我想改成多标签页版本要改哪些地方 
+右侧内容页(列表页，新增页，编辑页，删除页，详情页)一个完整的路由交互示范 #988
+为什么不直接定制create-react-app，而是搞一个roadhog出来？ #707
+有两个异步请求，第二个的请求依赖第一个的请求结果，
+
+
+
+角色权限的两种分法：
+以角色为基点的权限体系：
+需要删除对应的角色判断的代码。
+以权限为基点的权限体系：
+后台数据存储内移除该管理角色下的对应权限编码即可。
+
+
+
+
+
+
+
+Redux：
+三大原则:
+单一数据源:整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。
+State 是只读的:唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。
+使用纯函数来执行修改State: 了描述 action 如何改变 state tree ，你需要编写 reducers。
+http://www.redux.org.cn/
+
+
+
+React-Redux:
+React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。
+UI 组件有以下几个特征：
+	1.只负责 UI 的呈现，不带有任何业务逻辑
+	2.没有状态（即不使用this.state这个变量）
+	3.所有数据都由参数（this.props）提供
+	4.不使用任何 Redux 的 API
+容器组件：
+	1.负责管理数据和业务逻辑，不负责 UI 的呈现
+	2.带有内部状态
+	3.使用 Redux 的 API
+
+总之，只要记住一句话就可以了：UI 组件负责 UI 的呈现，容器组件负责管理数据和逻辑。
+你可能会问，如果一个组件既有 UI 又有业务逻辑，那怎么办？
+回答是，将它拆分成下面的结构：外面是一个容器组件，里面包了一个UI 组件。
+前者负责与外部的通信，将数据传给后者，由后者渲染出视图。
+React-Redux 规定，所有的 UI 组件都由用户提供，容器组件则是由 React-Redux 自动生成。
+也就是说，用户负责视觉层，状态管理则是全部交给它。
+
+http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_three_react-redux.html
+
+
+
+
+如何评价 Ant Design 这个项目
+https://github.com/ant-design/ant-design/issues/477
+
+
+
+
+小程序-零售开单-原型图
+https://pro.modao.cc/app/a7c16a144867d63723777312feecd83c6318cd1b?#screen=sd58e6613e3e9a5532e0aa4
+hqm
+
+
+
+

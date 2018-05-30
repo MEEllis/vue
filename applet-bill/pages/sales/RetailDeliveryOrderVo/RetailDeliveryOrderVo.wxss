@@ -58,6 +58,21 @@
   border-left-color: #31b179;
 }
 
+.item-wrap {
+  animation: fadeIn 0.4s linear;
+}
+
+.icon-shangyige:before {
+  transform: rotate(0deg);
+  display: inline-block;
+  transition: transform 0.4s linear;
+}
+
+.icon-shangyige.active:before {
+  transform: rotate(90deg);
+  transition: transform 0.4s linear;
+}
+
 .item-index {
   padding: 20rpx 30rpx;
   position: relative;
@@ -120,25 +135,6 @@
   position: relative;
 }
 
-.giftGoodsList-wrap::before {
-  font-family: "iconfont" !important;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  content: "\e614";
-  position: absolute;
-  left: 0rpx;
-  top: -20rpx;
-  color: #ffaf23;
-  font-size: 80rpx;
-  display: inline-block;
-  transform: rotate(-20deg);
-  -ms-transform: rotate(-20deg); /* IE 9 */
-  -moz-transform: rotate(-20deg); /* Firefox */
-  -webkit-transform: rotate(-20deg); /* Safari 和 Chrome */
-  -o-transform: rotate(-20deg); /* Opera */
-}
-
 .giftGoodsList-wrap .item-index:before {
   border-top: 1rpx dashed #e6e6e6;
 }
@@ -168,6 +164,7 @@ button.print {
   font-size: 32rpx;
   background-color: #56b7e9;
 }
+
 button.print.button-hover {
   color: rgba(255, 255, 255, 0.6);
   background-color: rgba(86, 183, 233, 0.9);

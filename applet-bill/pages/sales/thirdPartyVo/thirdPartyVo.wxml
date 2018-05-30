@@ -24,7 +24,7 @@
 
   <!-- 商品列表 -->
   <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-    <navigator class='list-item  ' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" data-id="{{item.billsId}}" url=''>
+    <navigator class='list-item  ' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" data-id="{{item.billsId}}" url="/pages/sales/{{(item.billsType==45?'RetailDeliveryOrderVo/RetailDeliveryOrderVo':'RetailRefundOrderVo/RetailRefundOrderVo')}}?billsId={{item.billsId}}">
       <view class='list-item-title'>
         <view class='weui-flex'>
           <text class='iconfont icon-dikouquan'></text>
@@ -64,15 +64,15 @@
       </view>
       <view class="weui-flex__item tr count">
         <view class='color3'>数量</view>
-        <view class='f1'>{{numberFr.formatNum(0)}}</view>
+        <view class='f1'>{{numberFr.formatNum((totalVo.totalCount===undefined?0:totalVo.totalCount))}}</view>
       </view>
       <view class="weui-flex__item tr aomout">
         <view class='color3'>抵现金额</view>
-        <view class='f1'>{{numberFr.formatNum(0,2)}}</view>
+        <view class='f1'>{{numberFr.formatNum((totalVo.totalDeductionAmount===undefined?0:totalVo.totalDeductionAmount),2)}}</view>
       </view>
        <view class="weui-flex__item tr aomout">
         <view class='color3'>结算金额</view>
-        <view class='f1'>{{numberFr.formatNum(0,2)}}</view>
+        <view class='f1'>{{numberFr.formatNum((totalVo.totalSettlementAmount===undefined?0:totalVo.totalSettlementAmount),2)}}</view>
       </view>
     </view>
   </view>

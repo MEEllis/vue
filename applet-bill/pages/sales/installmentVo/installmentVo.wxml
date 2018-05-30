@@ -24,7 +24,7 @@
 
   <!-- 商品列表 -->
   <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-    <navigator class='list-item  ' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" data-id="{{item.billsId}}" url=''>
+    <navigator class='list-item  ' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" data-id="{{item.billsId}}" url="/pages/sales/{{(item.billsType==45?'RetailDeliveryOrderVo/RetailDeliveryOrderVo':'RetailRefundOrderVo/RetailRefundOrderVo')}}?billsId={{item.billsId}}">
       <view class='list-item-title'>
         <view class='weui-flex'>
           <text class='iconfont icon-fenqiyewu1'></text>
@@ -71,15 +71,15 @@
       </view>
       <view class="weui-flex__item tr count">
         <view class='color3'>数量</view>
-        <view class='f1'>{{numberFr.formatNum(0)}}</view>
+        <view class='f1'>{{numberFr.formatNum((totalVo.totalCount===undefined?0:totalVo.totalCount))}}</view>
       </view>
        <view class="weui-flex__item tr aomout">
         <view class='color3'>贷款金额</view>
-        <view class='f1'>{{numberFr.formatNum(0,2)}}</view>
+        <view class='f1'>{{numberFr.formatNum((totalVo.totalLoanAmount===undefined?0:totalVo.totalLoanAmount),2)}}</view>
       </view>
       <view class="weui-flex__item tr aomout">
         <view class='color3'>预计佣金</view>
-        <view class='f1'>{{numberFr.formatNum(0,2)}}</view>
+        <view class='f1'>{{numberFr.formatNum((totalVo.totalCommissionAmount===undefined?0:totalVo.totalCommissionAmount),2)}}</view>
       </view>
     </view>
   </view>

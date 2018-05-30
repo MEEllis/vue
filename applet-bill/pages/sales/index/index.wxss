@@ -5,13 +5,13 @@
   border-top: 1rpx solid #d7d6dc;
 }
 
-picker{
+.modal-content picker {
   display: inline-block;
   border-bottom: 1rpx solid #e6e6e6;
   padding: 20rpx 30rpx;
 }
 
-.modal-content{
+.modal-content {
   padding: 30rpx;
   text-align: center;
 }
@@ -113,6 +113,61 @@ picker{
 
 .f1 {
   font-size: 40rpx;
+}
+
+.detail-list {
+  background-color: #fff;
+  font-size: 32rpx;
+}
+
+.detail-list .tap {
+  padding: 20rpx 30rpx 20rpx 0rpx;
+}
+
+.detail-list .weui-cells .weui-cell::before {
+  left: 30rpx;
+}
+
+.tap .weui-cell__bd {
+  border-left-width: 16rpx;
+  border-left-style: solid;
+  font-size: 34rpx;
+  padding-left: 10rpx;
+}
+
+.operating-receipt .tap .weui-cell__bd {
+  border-left-color: #476ec9;
+}
+
+.operating-pay .tap .weui-cell__bd {
+  border-left-color: #46be8a;
+}
+
+.operating-other .tap .weui-cell__bd {
+  border-left-color: #ffaf23;
+}
+
+.operating-arrear .tap .weui-cell__bd {
+  border-left-color: #e94f4f;
+}
+
+
+.tab-cotent3 .table-head{
+	height: 98rpx;
+}
+
+.tab-cotent3 image{
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.tab-cotent3 .active{
+  display: inline-block;
+  border-bottom:1px solid #fff;
+}
+
+.shrink-wrap {
+  animation: fadeIn 0.8s linear;
 }
 
 .table1 .table-head {

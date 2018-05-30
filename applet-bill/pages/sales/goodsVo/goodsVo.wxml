@@ -67,11 +67,11 @@
       </view>
       <view class="weui-flex__item tr count">
         <view class='color3'>数量</view>
-        <view class='f1'>{{numberFr.formatNum(0)}}</view>
+        <view class='f1' >{{numberFr.formatNum((totalVo.totalCount===undefined?0:totalVo.totalCount))}}</view>
       </view>
       <view class="weui-flex__item tr aomout">
         <view class='color3'>收款金额</view>
-        <view class='f1'>{{numberFr.formatNum(0,2)}}</view>
+        <view class='f1'>{{numberFr.formatNum((totalVo.totalAmount===undefined?0:totalVo.totalAmount),2)}}</view>
       </view>
     </view>
   </view>
