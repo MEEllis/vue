@@ -23,5 +23,8 @@ module.exports = {
   getRetailDeliveryOrderVo: NewApiRootUrl + 'common/getRetailDeliveryOrderVo', //    零售单详情
   getRetailRefundOrderVo: NewApiRootUrl + 'common/getRetailRefundOrderVo', //    零售退货单详情
   getMyReceiptsStatistics: NewApiRootUrl + 'common/getMyReceiptsStatistics', //    我的营业款
-  getMyRankingStatistics: NewApiRootUrl + 'common/getMyRankingStatistics', //    我的营业款
+  getMyRankingStatistics: NewApiRootUrl + 'common/getMyRankingStatistics', //    我的排行
+
+  getDetailImeiVo: NewApiRootUrl + 'common/getDetailImeiVo', //    串号跟踪 / 串号操作详情查询(串号精确匹配或串号id查询)
+  getSimpleImeiVoPageList: NewApiRootUrl + 'common/getSimpleImeiVoPageList', //    串号跟踪 / 串号分页模糊查询(预览)
 };

@@ -1,6 +1,7 @@
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
+var appInstance = getApp()
 Page({
 
   /**
@@ -8,7 +9,7 @@ Page({
    */
   data: {
     tabs: ["我的营业款", "我的销量", "我的排行"],
-    activeIndex: 2,
+    activeIndex: 1,
     sliderOffset: 0,
     sliderLeft: 0,
     toDayDate: '',
@@ -81,6 +82,18 @@ Page({
       })
     })
   },
+  /**
+* 生命周期函数--监听页面显示
+*/
+  onShow: function () {
+    var pages = getCurrentPages()
+    if (appInstance.globalData.isChangeCompany === true) {
+      appInstance.globalData.isChangeCompany = false;
+      wx.reLaunch({
+        url: pages[pages.length - 1].route
+      })
+    }
+  },
   tabClick: function (e) {
     this.thridModal.hide();
     this.setData({
@@ -96,7 +109,7 @@ Page({
   // 我的排行  排序
   bindSort: function (e) {
     const { sign, sort } = e.currentTarget.dataset;
-    const ranking={}
+    const ranking = {}
     ranking[sign] = Number(sort);
     this.setData(ranking)
   },

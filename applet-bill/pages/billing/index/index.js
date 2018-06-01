@@ -1,4 +1,4 @@
-// pages/follow/follow.js
+// pages/billing/index/index.js
 Page({
 
   /**

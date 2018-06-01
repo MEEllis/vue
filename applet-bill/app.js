@@ -53,6 +53,6 @@ App({
 
   },
   globalData: {
-   
+    isChangeCompany:false, //是否切换公司
   }
 })

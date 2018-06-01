@@ -1,5 +1,6 @@
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
+var appInstance = getApp()
 
 Page({
 
@@ -17,7 +18,7 @@ Page({
     pageNumber: 1,
     pageSize: 20,
     loadingMore: true,
-    scrollHeight:0,
+    scrollHeight: 0,
   },
 
   /**
@@ -33,13 +34,24 @@ Page({
    */
   onReady: function () {
     const that = this;
-
     util.getScrollHeight((56 + 48 + 10)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
       })
     })
+  },
+  /**
+ * 生命周期函数--监听页面显示
+ */
+  onShow: function () {
+    var pages = getCurrentPages()
+    if (appInstance.globalData.isChangeCompany===true){
+      appInstance.globalData.isChangeCompany=false;
+      wx.reLaunch({
+        url: pages[pages.length - 1].route
+      })
+    }
   },
   showInput: function () {
     this.setData({
@@ -99,7 +111,7 @@ Page({
         dataList,
         curListData: res.data.dataList,
         total: res.data.total,
-        loadingMore:false,
+        loadingMore: false,
       });
     });
   },

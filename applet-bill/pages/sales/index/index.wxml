@@ -1,5 +1,38 @@
 <view class="container">
   <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <template name="rank">
+    <text class="iconfont icon-laba"></text>
+    <view wx:if='{{ranking==1}}' class="weui-flex__item">哇,居然拿了销售冠军,怎能不去炫耀一下</view>
+    <view wx:elif='{{ranking==2}}' class="weui-flex__item">哇,居然拿了销售亚军,怎能不去小炫一下</view>
+    <view wx:elif='{{ranking==3}}' class="weui-flex__item">哇,上奖牌榜啦,怎能不去小炫一下</view>
+    <view wx:elif='{{ranking>3}}' class="weui-flex__item">您排名第{{ranking}}名,加油,向冠军学习,早日上榜哦!</view>
+    <view wx:else class="weui-flex__item">居然没对手，赶紧来轻松摘取金牌吧</view>
+  </template>
+
+  <template name="rankCount">
+    <view class="weui-flex table-body" wx:key="*this" wx:for="{{rankingSalesVoList}}">
+      <view class=" weui-flex__item name">
+        <image src="../../../images/index{{index}}.png" lazy-load='true'></image>
+        <text> {{item.sectionName}}
+                      </text>
+      </view>
+      <view class="weui-flex__item tr ">
+        {{numberFr.formatNum(item.salesCount)}}
+      </view>
+    </view>
+  </template>
+  <template name="rankAmount">
+    <view class="weui-flex table-body" wx:key="*this" wx:for="{{rankingSalesVoList}}">
+      <view class=" weui-flex__item name">
+        <image src="../../../images/index{{index}}.png" lazy-load='true'></image>
+        <text> {{item.sectionName}}
+                      </text>
+      </view>
+      <view class="weui-flex__item tr ">
+        {{numberFr.formatNum(item.salesAmount,2)}}
+      </view>
+    </view>
+  </template>
   <view class="weui-tab">
     <!-- tab 头部 -->
     <view class="weui-navbar">
@@ -306,141 +339,148 @@
                 </view>
               </view>
               <view hidden='{{thirdPartySort===0}}'>
-                <view class="weui-flex table-body" wx:key="*this" wx:for="{{tabContentObj3.goodsCountRankingVoList}}">
-                  <view class=" weui-flex__item name">
-                    <image src="../../../images/index{{index}}.png" lazy-load='true'></image>
-                    {{item.sectionName}}
-                  </view>
-                  <view class="weui-flex__item tr ">
-                    {{numberFr.formatNum(item.salesCount)}}
-                  </view>
+                <view>
+                  <template is="rankCount" data="{{...tabContentObj3.goodsCountRankingVoList}}"></template>
                 </view>
-                <view class="weui-flex">
-                  <text class="iconfont icon-laba"></text>{{item.ranking}}
-                  <text hidden='{{item.ranking!==1}}' class="">冠军：哇，居然拿了销售冠军，怎能不去炫耀一下</text>
-                  <text hidden='{{item.ranking!==2}}' class="">哇，居然拿了销售亚军，怎能不去小炫一下</text>
-                  <text hidden='{{item.ranking!==3}}' class="">第三名：哇，上奖牌榜啦，怎能不去小炫一下</text>
-                  <text hidden='{{!(item.ranking>3)}}' class=""> 您排第{{item.ranking}}名，加油，向冠军学习，争取也早日上榜哦</text>
-               
+                <view class="weui-flex rank-wrap rank-goods">
+                  <template is="rank" data="{{...tabContentObj3.goodsCountRankingVoList}}"></template>
                 </view>
               </view>
               <view hidden='{{thirdPartySort===1}}'>
-                <view class="weui-flex table-body" wx:key="*this" wx:for="{{tabContentObj3.goodsAmountRankingVoList}}">
-                  <view class=" weui-flex__item name">
-                    <image src="../../../images/index{{index}}.png" lazy-load='true'></image> {{item.sectionName}}
-                  </view>
-                  <view class="weui-flex__item tr ">
-                    {{numberFr.formatNum(item.salesAmount,2)}}
-                  </view>
+                <view>
+                  <template is="rankAmount" data="{{...tabContentObj3.goodsAmountRankingVoList}}"></template>
+                </view>
+                <view class="weui-flex rank-wrap rank-goods">
+                  <template is="rank" data="{{...tabContentObj3.goodsAmountRankingVoList}}"></template>
                 </view>
 
               </view>
 
             </view>
-            <navigator url="/pages/sales/operatorVo/operatorVo?startTime={{startTime2}}&endTime={{endTime2}}" class="table mt-30 table2">
+            <view class="table mt-30 table2">
               <view class="weui-flex table-head ">
                 <view class="weui-flex__item name">
-                  运营商业务
+                  运营商业务销售奖牌榜
                 </view>
-                <view class="weui-flex__item tr count">
-                  <view>数量</view>
-                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.operatorVo.totalCount)}}</view>
+                <view class="weui-flex__item tr count " bindtap='bindSort' data-sign='operatorSort' data-sort='1'>
+                  <text class="{{operatorSort===1?'active':''}}">按数量</text>
                 </view>
-                <view class="weui-flex__item tr aomout">
-                  <view>收款金额</view>
-                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.operatorVo.totalAmount,2)}}</view>
+                <view class="weui-flex__item tr aomout" bindtap='bindSort' data-sign='operatorSort' data-sort='0'>
+                  <text class="{{operatorSort===0?'active':''}}">按销售金额</text>
                 </view>
               </view>
-              <view class="weui-flex table-body" wx:key="*this" wx:for="{{tabContentObj2.operatorVo.detailList}}">
-                <view class=" weui-flex__item name">
-                  {{item.groupName}}
+              <view hidden='{{operatorSort===0}}'>
+                <view>
+                  <template is="rankCount" data="{{...tabContentObj3.operatorCountRankingVoList}}"></template>
                 </view>
-                <view class="weui-flex__item tr count">
-                  {{numberFr.formatNum(item.groupCount)}}
-                </view>
-                <view class="weui-flex__item tr aomout">
-                  {{numberFr.formatNum(item.amount,2)}}
+                <view class="weui-flex rank-wrap rank-goods">
+                  <template is="rank" data="{{...tabContentObj3.operatorCountRankingVoList}}"></template>
                 </view>
               </view>
-            </navigator>
-            <navigator url="/pages/sales/installmentVo/installmentVo?startTime={{startTime2}}&endTime={{endTime2}}" class="table mt-30 table3">
+              <view hidden='{{operatorSort===1}}'>
+                <view>
+                  <template is="rankAmount" data="{{...tabContentObj3.operatorAmountRankingVoList}}"></template>
+                </view>
+                <view class="weui-flex rank-wrap rank-goods">
+                  <template is="rank" data="{{...tabContentObj3.operatorAmountRankingVoList}}"></template>
+                </view>
+
+              </view>
+
+            </view>
+            <view class="table mt-30 table3">
               <view class="weui-flex table-head ">
                 <view class="weui-flex__item name">
-                  分期业务
+                  分期业务销售奖牌榜
                 </view>
-                <view class="weui-flex__item tr count">
-                  <view>数量</view>
-                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.installmentVo.totalCount)}}</view>
+                <view class="weui-flex__item tr count " bindtap='bindSort' data-sign='installmentSort' data-sort='1'>
+                  <text class="{{installmentSort===1?'active':''}}">按数量</text>
                 </view>
-                <view class="weui-flex__item tr aomout">
-                  <view>分期贷款金额</view>
-                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.installmentVo.totalAmount,2)}}</view>
+                <view class="weui-flex__item tr aomout" bindtap='bindSort' data-sign='installmentSort' data-sort='0'>
+                  <text class="{{installmentSort===0?'active':''}}">按销售金额</text>
                 </view>
               </view>
-              <view class="weui-flex table-body" wx:key="*this" wx:for="{{tabContentObj2.installmentVo.detailList}}">
-                <view class=" weui-flex__item name">
-                  {{item.groupName}}
+              <view hidden='{{installmentSort===0}}'>
+                <view>
+                  <template is="rankCount" data="{{...tabContentObj3.installmentCountRankingVoList}}"></template>
                 </view>
-                <view class="weui-flex__item tr count">
-                  {{numberFr.formatNum(item.groupCount)}}
-                </view>
-                <view class="weui-flex__item tr aomout">
-                  {{numberFr.formatNum(item.amount,2)}}
+                <view class="weui-flex rank-wrap rank-goods">
+                  <template is="rank" data="{{...tabContentObj3.installmentCountRankingVoList}}"></template>
                 </view>
               </view>
-            </navigator>
-            <navigator url="/pages/sales/addedServicesVo/addedServicesVo?startTime={{startTime2}}&endTime={{endTime2}}" class="table mt-30 table4">
+              <view hidden='{{installmentSort===1}}'>
+                <view>
+                  <template is="rankAmount" data="{{...tabContentObj3.installmentAmountRankingVoList}}"></template>
+                </view>
+                <view class="weui-flex rank-wrap rank-goods">
+                  <template is="rank" data="{{...tabContentObj3.installmentAmountRankingVoList}}"></template>
+                </view>
+
+              </view>
+
+            </view>
+            <view class="table mt-30 table4">
               <view class="weui-flex table-head ">
                 <view class="weui-flex__item name">
-                  增值服务
+                  增值服务销售奖牌榜
                 </view>
-                <view class="weui-flex__item tr count">
-                  <view>数量</view>
-                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.addedServicesVo.totalCount)}}</view>
+                <view class="weui-flex__item tr count " bindtap='bindSort' data-sign='addedServices' data-sort='1'>
+                  <text class="{{addedServices===1?'active':''}}">按数量</text>
                 </view>
-                <view class="weui-flex__item tr aomout">
-                  <view>实际收款金额</view>
-                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.addedServicesVo.totalAmount,2)}}</view>
+                <view class="weui-flex__item tr aomout" bindtap='bindSort' data-sign='addedServices' data-sort='0'>
+                  <text class="{{addedServices===0?'active':''}}">按销售金额</text>
                 </view>
               </view>
-              <view class="weui-flex table-body" wx:key="*this" wx:for="{{tabContentObj2.addedServicesVo.detailList}}">
-                <view class=" weui-flex__item name">
-                  {{item.groupName}}
+              <view hidden='{{addedServices===0}}'>
+                <view>
+                  <template is="rankCount" data="{{...tabContentObj3.addedServicesCountRankingVoList}}"></template>
                 </view>
-                <view class="weui-flex__item tr count">
-                  {{numberFr.formatNum(item.groupCount)}}
-                </view>
-                <view class="weui-flex__item tr aomout">
-                  {{numberFr.formatNum(item.amount,2)}}
+                <view class="weui-flex rank-wrap rank-goods">
+                  <template is="rank" data="{{...tabContentObj3.addedServicesCountRankingVoList}}"></template>
                 </view>
               </view>
-            </navigator>
-            <navigator url="/pages/sales/thirdPartyVo/thirdPartyVo?startTime={{startTime2}}&endTime={{endTime2}}" class="table mt-30 table5">
+              <view hidden='{{addedServices===1}}'>
+                <view>
+                  <template is="rankAmount" data="{{...tabContentObj3.addedServicesAmountRankingVoList}}"></template>
+                </view>
+                <view class="weui-flex rank-wrap rank-goods">
+                  <template is="rank" data="{{...tabContentObj3.addedServicesAmountRankingVoList}}"></template>
+                </view>
+
+              </view>
+
+            </view>
+            <view class="table mt-30 table5">
               <view class="weui-flex table-head ">
                 <view class="weui-flex__item name">
-                  第三方抵扣
+                  第三方抵扣销售奖牌榜
                 </view>
-                <view class="weui-flex__item tr count">
-                  <view>数量</view>
-                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.thirdPartyVo.totalCount)}}</view>
+                <view class="weui-flex__item tr count " bindtap='bindSort' data-sign='thirdPartySort' data-sort='1'>
+                  <text class="{{thirdPartySort===1?'active':''}}">按数量</text>
                 </view>
-                <view class="weui-flex__item tr aomout">
-                  <view>抵现金额</view>
-                  <view class='f1'>{{numberFr.formatNum(tabContentObj2.thirdPartyVo.totalAmount,2)}}</view>
+                <view class="weui-flex__item tr aomout" bindtap='bindSort' data-sign='thirdPartySort' data-sort='0'>
+                  <text class="{{thirdPartySort===0?'active':''}}">按销售金额</text>
                 </view>
               </view>
-              <view class="weui-flex table-body" wx:key="*this" wx:for="{{tabContentObj2.thirdPartyVo.detailList}}">
-                <view class=" weui-flex__item name">
-                  {{item.groupName}}
+              <view hidden='{{thirdPartySort===0}}'>
+                <view>
+                  <template is="rankCount" data="{{...tabContentObj3.thirdPartyCountRankingVoList}}"></template>
                 </view>
-                <view class="weui-flex__item tr count">
-                  {{numberFr.formatNum(item.groupCount)}}
-                </view>
-                <view class="weui-flex__item tr aomout">
-                  {{numberFr.formatNum(item.amount,2)}}
+                <view class="weui-flex rank-wrap rank-goods">
+                  <template is="rank" data="{{...tabContentObj3.thirdPartyCountRankingVoList}}"></template>
                 </view>
               </view>
-            </navigator>
+              <view hidden='{{thirdPartySort===1}}'>
+                <view>
+                  <template is="rankAmount" data="{{...tabContentObj3.addedServicesAmountRankingVoList}}"></template>
+                </view>
+                <view class="weui-flex rank-wrap rank-goods">
+                  <template is="rank" data="{{...tabContentObj3.addedServicesAmountRankingVoList}}"></template>
+                </view>
+
+              </view>
+
+            </view>
           </scroll-view>
         </view>
       </view>

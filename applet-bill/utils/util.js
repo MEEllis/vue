@@ -26,7 +26,7 @@ function request(url, data = {}, method = "POST") {
       mask: true,
       icon: 'loading'
     })
-    console.log(url)
+ 
     wx.request({
       url: url,
       data: data,

@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- 
+
   },
 
   /**
@@ -25,49 +25,6 @@ Page({
   onReady: function () {
     this.thridModal = this.selectComponent("#thridModal");
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-  ,
   inputName: function (e) {
     this.setData({
       name: e.detail.value
@@ -97,21 +54,31 @@ Page({
           _this.setData({
             companyList: ajaxData.data.companyList
           });
-          wx.setStorage({
-            key: "companyList",
-            data: ajaxData.data.companyList,
-            success: function () {
-              _this.thridModal.show();
-            }
-          });
+          //只有一个公司，直接登录
+          if (ajaxData.data.companyList.length === 1) {
+            _this.login(ajaxData.data.companyList[0].id)
+          } else {
+            wx.setStorage({
+              key: "companyList",
+              data: ajaxData.data.companyList,
+              success: function () {
+                _this.thridModal.show();
+              }
+            });
+          }
+
         })
       }
     })
   },
   tapCompany: function (e) {
     // 用户已经同意小程序使用用户信息
-    const { name, pwd } = this.data;
     const companyId = e.currentTarget.dataset.id;
+    this.login(companyId)
+  },
+  // 登录
+  login: function (companyId) {
+    const { name, pwd } = this.data;
     user.loginByWeixin().then(({ code, userInfo }) => {
       return util.request(
         api.authLogin,

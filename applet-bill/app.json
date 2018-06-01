@@ -2,12 +2,13 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
-    "pages/follow/follow",
+    "pages/follow/index/index",
+    "pages/follow/imeiDetailVo/imeiDetailVo",
     "pages/stock/index/index",
     "pages/stock/sectionStockList/sectionStockList",
     "pages/stock/goodDetail/goodDetail",
     "pages/stock/goodImeiDetail/goodImeiDetail",
-    "pages/billing/billing",
+    "pages/billing/index/index",
     "pages/sales/index/index",
     "pages/sales/goodsVo/goodsVo",
     "pages/sales/installmentVo/installmentVo",
@@ -16,7 +17,8 @@
     "pages/sales/thirdPartyVo/thirdPartyVo",
     "pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo",
     "pages/sales/RetailRefundOrderVo/RetailRefundOrderVo",
-    "pages/my/my"
+    "pages/my/index/index",
+    "pages/my/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,7 +33,7 @@
     "selectedColor": "#476EC9",
     "list": [
       {
-        "pagePath": "pages/follow/follow",
+        "pagePath": "pages/follow/index/index",
         "text": "串号跟踪",
         "iconPath": "images/tabBar/follow.png",
         "selectedIconPath": "images/tabBar/follow-sel.png"
@@ -43,7 +45,7 @@
         "selectedIconPath": "images/tabBar/stock-sel.png"
       },
       {
-        "pagePath": "pages/billing/billing",
+        "pagePath": "pages/billing/index/index",
         "text": "开单",
         "iconPath": "images/tabBar/billing.png",
         "selectedIconPath": "images/tabBar/billing-sel.png"
@@ -55,7 +57,7 @@
         "selectedIconPath": "images/tabBar/sales-sel.png"
       },
       {
-        "pagePath": "pages/my/my",
+        "pagePath": "pages/my/index/index",
         "text": "我的",
         "iconPath": "images/tabBar/my.png",
         "selectedIconPath": "images/tabBar/my-sel.png"
