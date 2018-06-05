@@ -12,6 +12,12 @@ page {
 .pt-20 {
   padding-top: 20rpx;
 }
+.pb-10 {
+  padding-bottom: 10rpx;
+}
+.pb-20 {
+  padding-bottom: 20rpx;
+}
 
 .mt-20 {
   margin-top: 20rpx;
@@ -44,6 +50,9 @@ page {
   color: #1a1a1a;
 }
 
+.color5 {
+  color: #46be8a;
+}
 
 .on {
   color: #476ec9;

@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
    setTimeout(()=>{
      wx.switchTab({
-       url: '/pages/stock/index/index'
+       url: '/pages/billing/index/index'
      });
    },10)
   },

@@ -14,12 +14,12 @@
         辅助串号：
       </view>
       <view class=" weui-flex__item desc">
-        {{imeiVo.auxiliaryImei}}
+        {{numberFr.stringNull(imeiVo.auxiliaryImei)}}
       </view>
     </view>
     <view class="weui-flex ">
       <view class=" weui-flex__item color1" style='text-align:right;'>
-        {{imeiVo.statusName}}
+        {{numberFr.stringNull(imeiVo.statusName)}}
       </view>
       <view class=" weui-flex__item desc">
 

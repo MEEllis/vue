@@ -1,0 +1,116 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<view class="container  {{goodsVo.length===0?'pb-20':''}}">
+  <view class="weui-flex banner-top">
+    <view class="weui-flex__item" bindtap='tapPrevious'>
+      <view class='iconfont icon-shangyibu'></view>
+      <view class=''>上一步</view>
+    </view>
+    <view class="weui-flex__item ">
+    </view>
+    <view class="weui-flex__item ">
+      <view class='iconfont icon-delete'></view>
+      <view class=''>删除本单</view>
+    </view>
+
+    <view class="weui-flex__item ">
+      <view class='iconfont icon-baocuncaogaodan'></view>
+      <view class=''>存草稿</view>
+    </view>
+    <view class="weui-flex__item " bindtap=''>
+      <view class='iconfont icon-kaidan'></view>
+      <view class=''>新开单</view>
+    </view>
+  </view>
+</view>
+<view hidden='{{goodsVo.length!==0}}' class='add-good'>
+
+  <view class="weui-flex c1">
+    <view class="weui-flex__item ">
+      <view class='iconfont icon-luru'></view>
+      <view class=''>录串号</view>
+    </view>
+
+    <view class="weui-flex__item " style='border-left: 1px solid #efeff4'>
+      <view class='iconfont icon-sousuo'></view>
+      <view class=''>选商品</view>
+    </view>
+
+  </view>
+  <view class="weui-flex saoma" bindtap='tapScanCode'>
+    <view class="weui-flex__item">
+      <view class='iconfont icon-iconfontsaoyisao1'></view>
+      <view class=''>扫串号/条码</view>
+    </view>
+
+  </view>
+</view>
+<view hidden='{{goodsVo.length===0}}' class='good-wrap'>
+  <view class="container pb-20" bindtap="tapAddSheet">
+    <view class='add-button'>
+      <text class='iconfont icon-shibai1'></text> 添加商品
+    </view>
+  </view>
+  <view class='good-list pb-20'>
+    <view class='good-item  mb-20' wx:for-items="{{goodsVo}}" wx:key="*this">
+      <view class='good-item-wrap weui-flex' style="{{item.txtStyle}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
+        <text class='good-item-index'>{{index+1}}.</text>
+        <view class='good-item-con weui-flex__item'>
+          <view class='good-name pb-10'>{{item.goodsName}}</view>
+          <view class="weui-flex ">
+            <view class="weui-flex__item lab">
+              零售标价：
+            </view>
+            <view class="weui-flex__item labv">
+              {{numberFr.formatNum(item.retailPrice,2)}}
+            </view>
+            <view class="weui-flex__item lab">
+              折后单价：
+            </view>
+            <view class="weui-flex__item labv">
+              {{numberFr.formatNum(item.retailPrice,2)}}
+            </view>
+          </view>
+          <view class="weui-flex ">
+            <view class="weui-flex__item lab">
+              数量：
+            </view>
+            <view class="weui-flex__item labv">
+              {{numberFr.formatNum(item.retailPrice,2)}}
+            </view>
+            <view class="weui-flex__item lab">
+              折后金额：
+            </view>
+            <view class="weui-flex__item labv">
+              {{numberFr.formatNum(item.retailPrice,2)}}
+            </view>
+          </view>
+          <view class="weui-flex ">
+            <view class="weui-flex__item lab">
+              备注：
+            </view>
+            <view class="weui-flex__item labv">
+              {{numberFr.stringNull(item.remark,2)}}
+            </view>
+
+          </view>
+          <view class="weui-flex add-gift">
+            <view class="weui-flex__item">
+              添加赠品
+            </view>
+            <view class="weui-flex__item sz">
+              设为赠品
+            </view>
+          </view>
+        </view>
+      </view>
+      <!--这里是左滑按钮部分----start-->
+      <view class="posit weui-flex" bindtap='tapDelGood'>
+        <view class="del weui-flex__item" data-addressid="{{item.address.ID}}" data-index="{{index}}" catchtap="delAddress">
+          删除
+        </view>
+      </view>
+      <!--这里是左滑按钮部分----end-->
+
+    </view>
+  </view>
+</view>

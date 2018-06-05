@@ -8,7 +8,6 @@ App({
     //获取用户的登录信息
     user.checkLogin().then(res => {
       user.loginByWeixin().then(({ code, userInfo }) => {
-        util.showErrorToast('aaaaaaaaa')
         return util.request(
           api.authAutoLogin,
           {
@@ -22,10 +21,8 @@ App({
         wx.setStorageSync('companyList', ajaxData.data.companyList);
       })
     },res => {
-      console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
       setTimeout(()=>{
         //如果没有登录，就去登录页面
-        console.log('=====================================')
         wx.reLaunch({
           url: '/pages/login/login',
           success: (res) => {

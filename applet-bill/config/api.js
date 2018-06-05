@@ -1,5 +1,5 @@
 let NewApiRootUrl = ''
-//NewApiRootUrl = 'http://192.168.0.62/wxapi/'; // 后台联调的接口
+//NewApiRootUrl = 'https://192.168.0.20/wxapi/'; // 后台联调的接口
 //NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/'; // 提交测试的接口
 NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
 
@@ -27,4 +27,12 @@ module.exports = {
 
   getDetailImeiVo: NewApiRootUrl + 'common/getDetailImeiVo', //    串号跟踪 / 串号操作详情查询(串号精确匹配或串号id查询)
   getSimpleImeiVoPageList: NewApiRootUrl + 'common/getSimpleImeiVoPageList', //    串号跟踪 / 串号分页模糊查询(预览)
-};
+
+  //开单
+  getAccessSectionVoList: NewApiRootUrl + 'common/getAccessSectionVoList', //获取可使用门店
+  getVipVo: NewApiRootUrl + 'common/getVipVo', //    会员信息查询
+  getImeiGoodsVoByImeiId: NewApiRootUrl + 'common/getImeiGoodsVoByImeiId', //开单 / 零售开单通过串号id查询串号商品信息
+  getNumberGoodsVoByGoodsId: NewApiRootUrl + 'common/getNumberGoodsVoByGoodsId', //零售开单通过商品id,仓库id查询唯一数量商品信息
+  getNumberGoodsVoListByGoodsId: NewApiRootUrl + 'common/getNumberGoodsVoListByGoodsId', //零售开单通过商品id查询数量商品信息集合
+  getScanResultVo: NewApiRootUrl + 'common/getScanResultVo', //    开单 / 零售开单扫描(串号|条码)获取扫描接口
+}

@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 15,
+			"current": 17,
 			"list": [
 				{
 					"id": 0,
@@ -133,6 +133,24 @@
 					"name": "follow/imeiDetailVo",
 					"pathName": "pages/follow/imeiDetailVo/imeiDetailVo",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "billing",
+					"pathName": "pages/billing/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "billing/newBilling",
+					"pathName": "pages/billing/newBilling/newBilling",
+					"query": ""
+				},
+				{
+					"id": 19,
+					"name": "billing/addGood",
+					"pathName": "pages/billing/addGood/addGood",
+					"query": "customerTelephone=15608631192&sectionId=72"
 				}
 			]
 		}

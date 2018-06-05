@@ -23,7 +23,6 @@ Page({
   },
   //拨打手机号
   tapTel: function (e) {
-    debugger
     const tel = e.currentTarget.dataset.tel
     wx.makePhoneCall({
       phoneNumber: tel

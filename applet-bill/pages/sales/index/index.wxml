@@ -169,7 +169,7 @@
           </view>
         </scroll-view>
 
-        <button style='margin:0 30rpx;' type="default" bindtap='bindShrink'>{{isShrink===true?'点我显示完整营业款信息':'点我显示简版营业款信息'}}</button>
+        <button style='margin:0 30rpx;' wx:if="{{receiptsVo!==null}}" type="default" bindtap='bindShrink'>{{isShrink===true?'点我显示完整营业款信息':'点我显示简版营业款信息'}}</button>
       </view>
       <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
         <view class="weui-flex  cate-wrap">

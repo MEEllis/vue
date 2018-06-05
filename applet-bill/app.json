@@ -9,6 +9,8 @@
     "pages/stock/goodDetail/goodDetail",
     "pages/stock/goodImeiDetail/goodImeiDetail",
     "pages/billing/index/index",
+    "pages/billing/newBilling/newBilling",
+    "pages/billing/addGood/addGood",
     "pages/sales/index/index",
     "pages/sales/goodsVo/goodsVo",
     "pages/sales/installmentVo/installmentVo",

@@ -49,7 +49,7 @@ Page({
     if (appInstance.globalData.isChangeCompany===true){
       appInstance.globalData.isChangeCompany=false;
       wx.reLaunch({
-        url: pages[pages.length - 1].route
+        url: '/' + pages[pages.length - 1].route
       })
     }
   },

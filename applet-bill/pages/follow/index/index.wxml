@@ -15,17 +15,17 @@
         <view class="weui-search-bar__text">搜索</view>
       </label>
     </form>
-    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="bindScanCode">
+    <view class="weui-search-bar__cancel-btn" hidden='{{dataList.length===0}}' bindtap="bindScanCode">
       <text class='iconfont icon-iconfontsaoyisao1'></text>
     </view>
   </view>
-  <view hidden='{{dataList.length!==0}}' class='scanCode-wrap'>
+  <view hidden="{{inputShowed}}" class='scanCode-wrap'>
     <image bindtap='bindScanCode' src="../../../images/scanCode.png" lazy-load='true' class='scanCode' />
   </view>
 
   <!-- 商品列表 -->
-  <scroll-view hidden='{{dataList.length===0}}' scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-    <view class='list-item mb-30 ' wx:for-items="{{dataList}}" wx:key="*this" url=''>
+  <scroll-view  hidden="{{!inputShowed}}" scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+    <view class='list-item mb-30 ' wx:for-items="{{dataList}}" wx:key="*this" >
       <view class='list-item-body'>
         <view class="weui-flex">
           <view class='weui-flex__item color3 title'>串号：</view>
@@ -40,7 +40,7 @@
           </view>
         </view>
         <navigator url='/pages/follow/imeiDetailVo/imeiDetailVo?imeiId={{item.imeiId}}' class="weui-cell mt-20">
-          <view class="weui-cell__bd">{{numberFr.stringNull(item.statusName)}}</view>
+          <view class="weui-cell__bd {{item.imStatus==1?'color1':'color5'}}">{{numberFr.stringNull(item.statusName)}}</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
       </view>

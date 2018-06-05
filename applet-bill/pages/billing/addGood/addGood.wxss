@@ -1,0 +1,142 @@
+page {
+  background-color: #fff;
+}
+
+.banner-top {
+  background-color: #fff;
+  font-size: 20rpx;
+  height: 104rpx;
+  box-shadow: 0px 5rpx 12rpx 0px rgba(153, 153, 153, 0.3);
+  align-items: center;
+  justify-content: space-around;
+}
+
+.banner-top .iconfont {
+  color: #fff;
+  background-color: #497be4;
+  border-radius: 50%;
+  width: 50rpx;
+  height: 50rpx;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.banner-top .weui-flex__item {
+  width: 120rpx;
+  max-width: 120rpx;
+  text-align: center;
+}
+
+.add-good {
+  color: #999;
+  font-size: 34rpx;
+  text-align: center;
+}
+
+.add-good .iconfont {
+  color: #497be4;
+  font-size: 132rpx;
+  display: inline-block;
+}
+
+.c1 {
+  align-items: center;
+  justify-content: center;
+  height: 536rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #efeff4;
+}
+
+.c1 .weui-flex__item {
+  padding: 138rpx 0rpx;
+}
+
+.saoma {
+  align-items: center;
+  justify-content: center;
+}
+
+.saoma .weui-flex__item {
+  padding: 140rpx 0rpx 140rpx;
+}
+
+.add-button {
+  height: 98rpx;
+  line-height: 98rpx;
+  background-color: #fff;
+  text-align: center;
+  font-size: 36rpx;
+  color: #333;
+  border-top: 1px solid #e6e6e6;
+  box-shadow: 0px 5rpx 12rpx 0px rgba(153, 153, 153, 0.3);
+}
+
+.icon-shibai1:before {
+  display: inline-block;
+  transform: rotate(45deg);
+  color: #4779e4;
+  font-size: 48rpx;
+}
+
+.good-list {
+  background-color: #efeff4;
+}
+
+.good-item {
+  background-color: #fff;
+  position: relative;
+}
+
+.posit {
+  position: absolute;
+  top: 0;
+  background-color: #e64340;
+  width: 80px;
+  text-align: center;
+  z-index: 1;
+  right: 0;
+  bottom:0;
+  color: #fff;
+  align-items: center;
+}
+
+
+.good-item-wrap {
+  padding: 30rpx 30rpx;
+  z-index: 2;
+  position: relative;
+  background: #fff;
+}
+
+.good-list .good-name, .good-list .good-item-index {
+  font-size: 34rpx;
+  color: #333;
+}
+
+.good-item .lab {
+  max-width: 140rpx;
+  font-size: 28rpx;
+  color: #666;
+  text-align: right;
+}
+
+.good-item .labv {
+  font-size: 32Rpx;
+  color: #333;
+}
+
+.add-gift {
+  height: 70rpx;
+  background-color: #4779e4;
+  box-shadow: 0px 5rpx 8rpx 0px rgba(71, 121, 228, 0.4);
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 32Rpx;
+  text-align: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.sz{
+  border-left: 1px solid #cccccc;
+}

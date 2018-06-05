@@ -13,7 +13,7 @@
         <text class='iconfont icon-gongsi'></text>
       </view>
       <view class="weui-cell__bd">当前公司</view>
-      <picker range-key="name" class="weui-cell__ft" bindchange="bindPickerChange" value="{{ysUserInfo.companyId}}" range="{{companyList}}">
+      <picker range-key="name" class="weui-cell__ft" bindchange="bindPickerChange" value="{{companyIndex}}" range="{{companyList}}">
         <view class="picker">
           {{ysUserInfo.companyName}}
         </view>

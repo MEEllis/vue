@@ -20,8 +20,8 @@ page {
 }
 
 .scanCode {
-  width: 333rpx;
-  height: 361rpx;
+  width: 375rpx;
+  height: 376rpx;
   margin: 0 auto;
   display: block;
   padding-top: 260rpx;
@@ -29,13 +29,19 @@ page {
 
 .list-item-body {
   background-color: #fff;
-  padding: 20rpx 30rpx 0rpx 30rpx;
+  padding: 20rpx 0rpx 0rpx 0rpx;
 }
 
 .list-item-body .weui-flex {
+  font-size: 32rpx;
 }
 
-.list-item-body .title{
+.list-item-body .weui-cell {
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+}
+
+.list-item-body .title {
   text-align: right;
 }
 
@@ -43,8 +49,4 @@ page {
   -webkit-box-flex: 3;
   -webkit-flex: 3;
   flex: 3;
-}
-
-.list-item-body .weui-cell {
-  padding: 20rpx 0;
 }

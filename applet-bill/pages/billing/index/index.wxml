@@ -1,2 +1,18 @@
-<!--pages/billing/index/index.wxml-->
-<text>pages/billing/index/index.wxml</text>
+<view class="container">
+
+  <navigator url='/pages/billing/newBilling/newBilling' class="weui-flex">
+    <view class=" weui-flex__item">
+      <image class='img' src="../../../images/nk.png" lazy-load='true' /> 新开单
+    </view>
+  </navigator>
+  <navigator url='' class="weui-flex">
+    <view class=" weui-flex__item">
+      <image class='img' src="../../../images/cg.png" lazy-load='true' /> 草稿单
+    </view>
+  </navigator>
+  <navigator url='' class="weui-flex">
+    <view class=" weui-flex__item">
+      <image class='img' src="../../../images/ls.png" lazy-load='true' /> 历史单据
+    </view>
+  </navigator>
+</view>

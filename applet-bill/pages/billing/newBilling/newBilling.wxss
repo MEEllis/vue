@@ -1,0 +1,79 @@
+.iconfont {
+  color: #476ec9;
+  font-size: 48rpx;
+  margin-right: 20rpx;
+}
+
+page {
+  background-color: #fff;
+}
+
+.weui-cells:after, .weui-cells:before {
+  border: none;
+}
+
+.bt.weui-cells {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.weui-cell {
+  padding: 16rpx 30rpx;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.form {
+  padding: 0 30rpx;
+  font-size: 32rpx;
+}
+
+.form .weui-flex {
+  margin-top: 30rpx;
+}
+
+.form .weui-flex__item {
+  margin-left: 20rpx;
+}
+
+.txt-input {
+  color: #333;
+}
+
+.desc{
+  	font-size: 26rpx;
+}
+
+.next {
+  margin-top: 80rpx;
+  background-color: rgba(71, 110, 201, 1) !important;
+}
+
+.next[disabled][type=primary] {
+  background-color: rgba(71, 110, 201, 0.5) !important;
+}
+
+
+.jf{
+  position: relative;
+  height: 98rpx;
+  line-height: 98rpx;
+}
+
+.jf:before {
+	top: 0;
+	border-top: 1rpx solid #E6E6E6
+}
+
+.jf:after,.jf:before {
+	content: " ";
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 1px;
+	color: #E6E6E6
+}
+
+.jf:after {
+	bottom: 0;
+	border-bottom: 1rpx solid #E6E6E6
+}

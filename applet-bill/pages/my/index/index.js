@@ -10,6 +10,7 @@ Page({
   data: {
     WXUserInfo: {},//微信用户信息
     ysUserInfo: {},//云盛用户信息
+    companyIndex:0,
     companyList: []
   },
 
@@ -19,57 +20,8 @@ Page({
   onLoad: function (options) {
     this.getWXUserInfo();
     this.getysUserInfo();
-    this.getCompanyList();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   getWXUserInfo: function (cb) {
     var that = this
     wx.login({
@@ -79,6 +31,7 @@ Page({
             that.setData({
               WXUserInfo: res.userInfo
             });
+            that.getCompanyList();
           }
         })
       }
@@ -96,12 +49,21 @@ Page({
     })
   },
   getCompanyList: function (cb) {
-    var that = this
+    var that = this;
+    const { ysUserInfo } = this.data;
     wx.getStorage({
       key: 'companyList',
       success: function (res) {
+        let companyIndex=0;
+        for (let i = 0; i < res.data.length;i++){
+          if (ysUserInfo.companyId == res.data[i].id){
+            companyIndex=i;
+            break;
+          }
+        }
         that.setData({
-          companyList: res.data
+          companyList: res.data,
+          companyIndex,
         });
       }
     })

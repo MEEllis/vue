@@ -97,7 +97,7 @@ Page({
         data: ajaxData.data['ERP-WX-TOKEN'],
         success: function () {
           wx.switchTab({
-            url: '/pages/stock/index/index'
+            url: '/pages/billing/index/index'
           });
         }
       });

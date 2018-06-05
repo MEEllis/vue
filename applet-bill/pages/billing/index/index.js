@@ -1,4 +1,4 @@
-// pages/billing/index/index.js
+
 Page({
 
   /**
