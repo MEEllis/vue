@@ -123,7 +123,7 @@ function getUserInfo() {
 
 function showErrorToast(msg) {
   wx.showToast({
-    title: msg || '网络异常',
+    title: msg || '服务君繁忙~',
     icon: 'none',
   })
 }

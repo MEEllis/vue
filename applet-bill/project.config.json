@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 21,
 			"list": [
 				{
 					"id": 0,
@@ -150,7 +150,19 @@
 					"id": 19,
 					"name": "billing/addGood",
 					"pathName": "pages/billing/addGood/addGood",
-					"query": "customerTelephone=15608631192&sectionId=72"
+					"query": "customerTelephone=15608631192&sectionId=72&goodsId=34"
+				},
+				{
+					"id": 20,
+					"name": "billing/goodDetail",
+					"pathName": "pages/billing/goodDetail/goodDetail",
+					"query": "storageId=18&sectionId=72&scanType=2&goodsId=1"
+				},
+				{
+					"id": -1,
+					"name": "billing/ruluImei",
+					"pathName": "pages/billing/ruluImei/ruluImei",
+					"query": "sectionId=11&delta=2"
 				}
 			]
 		}

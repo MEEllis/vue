@@ -26,7 +26,7 @@
 
   <view class="weui-flex c1">
     <view class="weui-flex__item ">
-      <view class='iconfont icon-luru'></view>
+      <view class='iconfont icon-luru' bindtap='tapLuru'></view>
       <view class=''>录串号</view>
     </view>
 
@@ -67,7 +67,7 @@
               折后单价：
             </view>
             <view class="weui-flex__item labv">
-              {{numberFr.formatNum(item.retailPrice,2)}}
+              {{numberFr.formatNum(item.discountedPrice,2)}}
             </view>
           </view>
           <view class="weui-flex ">
@@ -75,13 +75,13 @@
               数量：
             </view>
             <view class="weui-flex__item labv">
-              {{numberFr.formatNum(item.retailPrice,2)}}
+              {{numberFr.formatNum(item.goodsNumber)}}
             </view>
             <view class="weui-flex__item lab">
               折后金额：
             </view>
             <view class="weui-flex__item labv">
-              {{numberFr.formatNum(item.retailPrice,2)}}
+              {{numberFr.formatNum(item.discountedAmount,2)}}
             </view>
           </view>
           <view class="weui-flex ">
@@ -89,7 +89,7 @@
               备注：
             </view>
             <view class="weui-flex__item labv">
-              {{numberFr.stringNull(item.remark,2)}}
+              {{numberFr.stringNull(item.remark)}}
             </view>
 
           </view>
@@ -105,7 +105,7 @@
       </view>
       <!--这里是左滑按钮部分----start-->
       <view class="posit weui-flex" bindtap='tapDelGood'>
-        <view class="del weui-flex__item" data-addressid="{{item.address.ID}}" data-index="{{index}}" catchtap="delAddress">
+        <view class="del weui-flex__item" data-addressid="{{item.address.ID}}" data-index="{{index}}" catchtap="delGood">
           删除
         </view>
       </view>

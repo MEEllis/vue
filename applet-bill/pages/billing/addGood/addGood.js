@@ -1,6 +1,7 @@
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
 import reg from '../../../config/reg.js';
+import bill from '../../../services/bill.js';
 Page({
 
   /**
@@ -10,8 +11,7 @@ Page({
     sectionId: '',
     customerTelephone: '',
     goodsVo: [],
-    vipVo: null, //会员信息
-    delBtnWidth: 80//
+    delBtnWidth: 80,
   },
 
   /**
@@ -23,6 +23,7 @@ Page({
       customerTelephone,
       sectionId,
     });
+    bill.clearBillStorage();
     this.getVipVo();//加载会员信息
   },
 
@@ -37,7 +38,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getGoodsVo();
   },
   // 上一步
   tapPrevious: function (e) {
@@ -77,7 +78,10 @@ Page({
               modal();
             }
             else if (scanResultVo.type == 2) {
-              that.getImeiGoodsVoByImeiId(scanResultVo);
+              wx.navigateTo({
+                url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&storageId=${scanResultVo.storageId}&goodsId=${scanResultVo.goodsId}&goodsId=${scanResultVo.goodsId}&scanType=${scanResultVo.type}&delta=2`,
+              })
+
             }
             else if (scanResultVo.type == 3) {
               that.getNumberGoodsVoByGoodsId(scanResultVo);
@@ -105,42 +109,24 @@ Page({
       }
     })
   },
-  //匹配到串号商品(单个)
-  getImeiGoodsVoByImeiId: function ({ storageId, goodsId }) {
-    var that = this;
-    const { sectionId, goodsVo } = this.data;
-    util.request(
-      api.getImeiGoodsVoByImeiId,
-      {
-        sectionId,
-        storageId,
-        goodsId,
-      },
-    ).then(ajaxData => {
-      const { imeiGoodsVo } = ajaxData.data;
-      //检查串号商品是否重复
-      for (let i = 0; i < goodsVo.length; i++) {
-        const { goodsId, imeiId, giftList } = goodsVo[i];
-        if (imeiGoodsVo.goodsId == goodsId && imeiGoodsVo.imeiId == imeiId) {
-          util.showErrorToast(`商品：${imeiGoodsVo.goodsName}已录入，请重新输入!`);
-          return;
-        }
-        //检查串号赠品商品是否重复
-        if (Array.isArray(giftList)) {
-          for (let j = 0; j < giftList.length; j++) {
-            if (imeiGoodsVo.goodsId == giftList[j].goodsId && imeiGoodsVo.imeiId == giftList[j].imeiId) {
-              util.showErrorToast(`商品：${imeiGoodsVo.goodsName}已录入为赠品，请重新输入!`);
-              return;
-            }
-          }
-        }
-      }
-      imeiGoodsVo.discountRate = that.getDiscountRateByGoodsClassId(imeiGoodsVo)
-      goodsVo.push(imeiGoodsVo);
-      that.setData({
-        goodsVo,
-      });
+  //录串号
+  tapLuru: function (e) {
+    const { sectionId } = this.data;
+    wx.navigateTo({
+      url: `/pages/billing/ruluImei/ruluImei?sectionId=${sectionId}&delta=2`,
     })
+  },
+
+  delGood: function (e) {
+    const { index } = e.currentTarget.dataset;
+    bill.delGoodVoByIndex({ index })
+    this.getGoodsVo();
+  },
+  getGoodsVo: function () {
+    const goodsVo = bill.getStorageGoodsVo();
+    this.setData({
+      goodsVo,
+    });
   },
   //匹配到条码商品(单个)
   getNumberGoodsVoByGoodsId: function ({ storageId, goodsId }) {
@@ -171,21 +157,8 @@ Page({
   },
   // 获取会员信息
   getVipVo: function () {
-    var that = this;
     const { customerTelephone } = this.data;
-    if (reg.phone.test(tel)) {
-      util.request(
-        api.getVipVo,
-        {
-          customerTelephone,
-        },
-      ).then(res => {
-        const { vipVo } = res.data
-        that.setData({
-          vipVo,
-        });
-      })
-    }
+    bill.setStorageVipVo(customerTelephone)
   },
   //获取该商品的折扣率
   getDiscountRateByGoodsClassId: function ({ goodsClassId }) {
@@ -217,7 +190,6 @@ Page({
   },
   //手指刚放到屏幕触发
   touchS: function (e) {
-    console.log("touchS" + e);
     //判断是否只有一个触摸点
     if (e.touches.length == 1) {
       this.setData({
@@ -228,7 +200,6 @@ Page({
   },
   //触摸时触发，手指在屏幕上每移动一次，触发一次
   touchM: function (e) {
-    console.log("touchM:" + e);
     var that = this
     if (e.touches.length == 1) {
       //记录触摸点位置的X坐标
@@ -259,7 +230,6 @@ Page({
     }
   },
   touchE: function (e) {
-    console.log("touchE" + e);
     var that = this
     if (e.changedTouches.length == 1) {
       //手指移动结束后触摸点位置的X坐标
@@ -279,6 +249,4 @@ Page({
       });
     }
   }
-
-
 })

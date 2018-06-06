@@ -140,8 +140,6 @@ Page({
           customerName: vipVo.customerName,
           discountRate,
         });
-      }else{
-
       }
     })
 

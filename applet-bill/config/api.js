@@ -35,4 +35,5 @@ module.exports = {
   getNumberGoodsVoByGoodsId: NewApiRootUrl + 'common/getNumberGoodsVoByGoodsId', //零售开单通过商品id,仓库id查询唯一数量商品信息
   getNumberGoodsVoListByGoodsId: NewApiRootUrl + 'common/getNumberGoodsVoListByGoodsId', //零售开单通过商品id查询数量商品信息集合
   getScanResultVo: NewApiRootUrl + 'common/getScanResultVo', //    开单 / 零售开单扫描(串号|条码)获取扫描接口
+  getSimpleImeiGoodsVoPageList: NewApiRootUrl + 'common/getSimpleImeiGoodsVoPageList', //零售开单串号分页查询
 }

@@ -11,6 +11,8 @@
     "pages/billing/index/index",
     "pages/billing/newBilling/newBilling",
     "pages/billing/addGood/addGood",
+    "pages/billing/ruluImei/ruluImei",
+    "pages/billing/goodDetail/goodDetail",
     "pages/sales/index/index",
     "pages/sales/goodsVo/goodsVo",
     "pages/sales/installmentVo/installmentVo",
@@ -66,5 +68,5 @@
       }
     ]
   },
-  "debug": true
+  "debug": false
 }
