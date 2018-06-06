@@ -41,6 +41,9 @@ Page({
 
   },
 
+
+
+
   showInput: function () {
     this.setData({
       inputShowed: true
