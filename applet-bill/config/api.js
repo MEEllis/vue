@@ -1,5 +1,5 @@
 let NewApiRootUrl = ''
-//NewApiRootUrl = 'https://192.168.0.20/wxapi/'; // 后台联调的接口
+//NewApiRootUrl = 'http://192.168.0.62/wxapi/'; // 后台联调的接口
 //NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/'; // 提交测试的接口
 NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
 

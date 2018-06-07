@@ -79,9 +79,8 @@ Page({
             }
             else if (scanResultVo.type == 2) {
               wx.navigateTo({
-                url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&storageId=${scanResultVo.storageId}&goodsId=${scanResultVo.goodsId}&goodsId=${scanResultVo.goodsId}&scanType=${scanResultVo.type}&delta=2`,
+                url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&storageId=${scanResultVo.storageId}&goodsId=${scanResultVo.goodsId}&imeiId=${scanResultVo.imeiId}&scanType=${scanResultVo.type}&delta=2`,
               })
-
             }
             else if (scanResultVo.type == 3) {
               that.getNumberGoodsVoByGoodsId(scanResultVo);

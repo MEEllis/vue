@@ -13,7 +13,7 @@
     <view class="weui-flex table-body" wx:key="*this" wx:for="{{rankingSalesVoList}}">
       <view class=" weui-flex__item name">
         <image src="../../../images/index{{index}}.png" lazy-load='true'></image>
-        <text> {{item.sectionName}}
+        <text> {{item.employeeName}}
                       </text>
       </view>
       <view class="weui-flex__item tr ">
@@ -25,7 +25,7 @@
     <view class="weui-flex table-body" wx:key="*this" wx:for="{{rankingSalesVoList}}">
       <view class=" weui-flex__item name">
         <image src="../../../images/index{{index}}.png" lazy-load='true'></image>
-        <text> {{item.sectionName}}
+        <text> {{item.employeeName}}
                       </text>
       </view>
       <view class="weui-flex__item tr ">
@@ -168,7 +168,7 @@
             </view>
           </view>
         </scroll-view>
-
+        <view wx:else class='tc mt-20' style=''>当天没有营业款记录</view>
         <button style='margin:0 30rpx;' wx:if="{{receiptsVo!==null}}" type="default" bindtap='bindShrink'>{{isShrink===true?'点我显示完整营业款信息':'点我显示简版营业款信息'}}</button>
       </view>
       <view class="weui-tab__content" hidden="{{activeIndex != 1}}">

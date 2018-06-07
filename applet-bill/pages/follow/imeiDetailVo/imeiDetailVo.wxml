@@ -6,7 +6,7 @@
         串号：
       </view>
       <view class=" weui-flex__item desc">
-        {{imeiVo.imei}}
+        {{numberFr.stringNull(imeiVo.imei)}}
       </view>
     </view>
     <view class="weui-flex ">
@@ -18,7 +18,7 @@
       </view>
     </view>
     <view class="weui-flex ">
-      <view class=" weui-flex__item color1" style='text-align:right;'>
+      <view class=" weui-flex__item {{imeiVo.imStatus==1?'color1':'color5'}}" style='text-align:left;'>
         {{numberFr.stringNull(imeiVo.statusName)}}
       </view>
       <view class=" weui-flex__item desc">
@@ -26,13 +26,13 @@
       </view>
     </view>
   </view>
-  <view class='detail-body'>
+  <view class='detail-body' style='padding-bottom:20rpx;'>
     <view class='table mt-20' wx:for-items="{{imeiVo.goodsList}}" wx:key="*this">
       <view class='table-head'>
         <view class="weui-flex ">
           <text class='iconfont icon-shouji1'></text>
           <view class="weui-flex__item">
-            {{item.goodsName}}
+            {{numberFr.stringNull(item.goodsName)}}
           </view>
         </view>
         <view class="weui-flex mt-20">
@@ -48,13 +48,13 @@
               <text class='index'>{{idx+1}}</text> {{numberFr.stringNull(billsVoItem.inOutStockTypeName)}}
             </view>
             <view class="weui-flex__item tr">
-              {{billsVoItem.billsCode}}
+              {{numberFr.stringNull(billsVoItem.billsCode)}}
             </view>
           </view>
           <view class=' item-body'>
             <view class='weui-flex'>
               <view class="weui-flex__item">
-                单据日期：{{billsVoItem.billsDateStr}}
+                单据日期：{{numberFr.stringNull(billsVoItem.billsDateStr)}}
               </view>
               <view class="weui-flex__item color1">
                 金额：{{numberFr.formatNum(billsVoItem.price,2)}}

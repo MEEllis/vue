@@ -94,11 +94,17 @@ Page({
       pageSize,
     }).then(res => {
       let dataList = that.data.dataList.concat(res.data.dataList)
+      if (Array.isArray(dataList) && dataList.length===1){
+        wx.navigateTo({
+          url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&storageId=${scanResultVo.storageId}&goodsId=${scanResultVo.goodsId}&imeiId=${scanResultVo.imeiId}&scanType=${scanResultVo.type}&delta=2`,
+        })
+      }
       that.setData({
         dataList,
         curListData: res.data.dataList,
         loadingMore: false,
       });
+
     });
 
   }

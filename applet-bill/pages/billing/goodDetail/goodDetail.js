@@ -9,7 +9,7 @@ Page({
    */
   data: {
     sectionId: '',
-    storageId: '',
+    imeiId: '',
     goodsId: '',
     goodInfo: null,
     delta: 1,
@@ -19,13 +19,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    const { sectionId, storageId, goodsId, scanType, delta } = options;
+    const { sectionId, goodsId, imeiId, scanType, delta } = options;
     this.setData({
       sectionId,
-      storageId,
       goodsId,
-      delta
+      imeiId,
+      scanType,
+      delta,
     });
 
     if (scanType == 2) {
@@ -57,15 +57,13 @@ Page({
   //匹配到串号商品(单个)
   getImeiGoodsVoByImeiId: function () {
     var that = this;
-    const { sectionId, storageId, goodsId, delta } = this.data;
+    const { sectionId, imeiId, delta } = this.data;
     const goodsVo = bill.getStorageGoodsVo();
-
     util.request(
       api.getImeiGoodsVoByImeiId,
       {
         sectionId,
-        storageId,
-        goodsId,
+        imeiId,
       },
     ).then(ajaxData => {
 
