@@ -36,7 +36,7 @@
         <view class="weui-flex">
           <view class='color3 weui-flex__item title'>辅助串号：</view>
           <view class="weui-flex__item desc color2">
-            {{numberFr.stringNull(item.imei)}}
+            {{numberFr.stringNull(item.auxiliaryImei)}}
           </view>
         </view>
         <navigator url='/pages/follow/imeiDetailVo/imeiDetailVo?imeiId={{item.imeiId}}' class="weui-cell mt-20">

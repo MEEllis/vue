@@ -76,6 +76,11 @@ Page({
     this.setData({
       pageNumber: 1,
     });
+    const { queryKey} = this.data;
+    if (queryKey.length<5){
+      util.showErrorToast('请输入串号（右匹配，至少5位）~')
+      return;
+    }
     this.getImeiVoList();
   },
   bindScanCode: function () {

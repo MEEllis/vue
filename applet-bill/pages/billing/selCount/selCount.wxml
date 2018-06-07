@@ -1,0 +1,33 @@
+<view class="container" wx:if='{{dataList!==null &&dataList.length>1}}'>
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+
+  <view class='weui-flex ellipsis2 title'>
+    <text class='iconfont icon-shouji1'></text>{{numberFr.stringNull(dataList[0].goodsName)}}
+  </view>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <view class="my-stock">标价:{{numberFr.formatNum(dataList[0].retailPrice,2)}}</view>
+    </view>
+    <view class="weui-flex__item">
+      <view class="">库存:{{numberFr.formatNum(dataList[0].stockCount,2)}}</view>
+    </view>
+  </view>
+  <view class="weui-tab mt-20">
+    <scroll-view class="" scroll-y='true' style="height:{{scrollHeight}}px;">
+
+      <!-- 仓库列表 -->
+      <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&storageId={{meiItem.storageId}}&goodsId=={{meiItem.goodsId}}' class="storage-wrap" wx:for-item="meiItem" wx:for="{{dataList}}" wx:key="*this">
+        <view class="weui-flex ">
+          <view class="weui-flex__item">
+            <text>仓库:</text> {{numberFr.stringNull(meiItem.storageName)}}
+          </view>
+        </view>
+        <view class="weui-flex ">
+          <view class="weui-flex__item">
+            <text>库存:</text> {{numberFr.stringNull(meiItem.stockCount)}}
+          </view>
+        </view>
+      </navigator>
+    </scroll-view>
+  </view>
+</view>

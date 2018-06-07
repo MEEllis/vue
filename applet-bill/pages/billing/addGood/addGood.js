@@ -1,7 +1,7 @@
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
 import reg from '../../../config/reg.js';
-import bill from '../../../services/bill.js';
+
 Page({
 
   /**
@@ -11,6 +11,7 @@ Page({
     sectionId: '',
     customerTelephone: '',
     goodsVo: [],
+    vipVo: null,
     delBtnWidth: 80,
   },
 
@@ -23,7 +24,7 @@ Page({
       customerTelephone,
       sectionId,
     });
-    bill.clearBillStorage();
+
     this.getVipVo();//加载会员信息
   },
 
@@ -38,7 +39,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getGoodsVo();
+
   },
   // 上一步
   tapPrevious: function (e) {
@@ -79,7 +80,7 @@ Page({
             }
             else if (scanResultVo.type == 2) {
               wx.navigateTo({
-                url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&storageId=${scanResultVo.storageId}&goodsId=${scanResultVo.goodsId}&imeiId=${scanResultVo.imeiId}&scanType=${scanResultVo.type}&delta=2`,
+                url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${scanResultVo.goodsId}&imeiId=${scanResultVo.imeiId}&scanType=${scanResultVo.type}`,
               })
             }
             else if (scanResultVo.type == 3) {
@@ -104,6 +105,10 @@ Page({
       success: function (res) {
         if (res.tapIndex === 2) {
           that.tapScanCode()
+        } else if (res.tapIndex === 1) {
+          that.tapSelGood()
+        } else {
+          that.tapLuru()
         }
       }
     })
@@ -112,21 +117,31 @@ Page({
   tapLuru: function (e) {
     const { sectionId } = this.data;
     wx.navigateTo({
-      url: `/pages/billing/ruluImei/ruluImei?sectionId=${sectionId}&delta=2`,
+      url: `/pages/billing/ruluImei/ruluImei?sectionId=${sectionId}`,
+    })
+  },
+  //选商品
+  tapSelGood: function (e) {
+    const { sectionId } = this.data;
+    wx.navigateTo({
+      url: `/pages/billing/selGood/selGood?sectionId=${sectionId}`,
     })
   },
 
   delGood: function (e) {
     const { index } = e.currentTarget.dataset;
-    bill.delGoodVoByIndex({ index })
-    this.getGoodsVo();
+    const { goodsVo } = this.data;
+    if (Array.isArray(goodsVo)) {
+      goodsVo.splice(goodsVo.findIndex((value, indexs, arr) => {
+        return indexs == index;
+      }), 1)
+      this.setData({
+        goodsVo,
+      });
+    }
+
   },
-  getGoodsVo: function () {
-    const goodsVo = bill.getStorageGoodsVo();
-    this.setData({
-      goodsVo,
-    });
-  },
+
   //匹配到条码商品(单个)
   getNumberGoodsVoByGoodsId: function ({ storageId, goodsId }) {
     const { sectionId } = this.data;
@@ -156,8 +171,20 @@ Page({
   },
   // 获取会员信息
   getVipVo: function () {
+
+    var that = this;
     const { customerTelephone } = this.data;
-    bill.setStorageVipVo(customerTelephone)
+    util.request(
+      api.getVipVo,
+      {
+        customerTelephone,
+      },
+    ).then(res => {
+      const { vipVo } = res.data
+      that.setData({
+        vipVo,
+      });
+    })
   },
   //获取该商品的折扣率
   getDiscountRateByGoodsClassId: function ({ goodsClassId }) {

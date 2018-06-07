@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.8",
+	"libVersion": "2.0.9",
 	"appid": "wxdb08db3f99bd8425",
 	"projectname": "applet-bill",
 	"isGameTourist": false,
@@ -163,6 +163,12 @@
 					"name": "billing/ruluImei",
 					"pathName": "pages/billing/ruluImei/ruluImei",
 					"query": "sectionId=11&delta=2"
+				},
+				{
+					"id": -1,
+					"name": "billing/selGood",
+					"pathName": "pages/billing/selGood/selGood",
+					"query": "sectionId=72"
 				}
 			]
 		}

@@ -6,7 +6,7 @@
     <form class="weui-search-bar__form">
       <view class="weui-search-bar__box">
         <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-        <input type="text" confirm-type='search' focus='true' class="weui-search-bar__input" placeholder="请输入商品串号(末5位以上)" value="{{queryKey}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
+        <input type="text" confirm-type='search' focus='true' class="weui-search-bar__input" placeholder="商品名称、编码、品牌、型号、类别" value="{{queryKey}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
         <view class="weui-icon-clear" wx:if="{{queryKey.length > 0}}" bindtap="clearInput">
           <icon type="clear" size="14"></icon>
         </view>
@@ -18,9 +18,10 @@
     </form>
     <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消 </view>
   </view>
+
   <!-- 商品列表 -->
   <scroll-view scroll-y='true' hidden='{{dataList===null || dataList.length==1}}' class="list-wrap pt-20" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-    <navigator class='list-item mb-30'  wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="dataId" data-id="{{item.dataId}}" url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&goodsId={{item.goodsId}}&imeiId={{item.imeiId}}&scanType=2'>
+    <navigator class='list-item mb-30' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" url='{{item.url}}'>
       <view class='weui-flex ellipsis title'>
         <text class='iconfont icon-shouji1'></text> {{numberFr.stringNull(item.goodsName)}}
       </view>
@@ -28,15 +29,13 @@
       <view class='list-item-body'>
         <view class="weui-flex">
           <view class="weui-flex__item">
-            <view class="my-stock">串号:{{numberFr.stringNull(item.imei)}}</view>
+            <view class="my-stock">标价:{{numberFr.formatNum(item.retailPrice,2)}}</view>
           </view>
+  <view class="weui-flex__item">
+            <view class="">库存:{{numberFr.formatNum(item.stockCount,2)}}</view>
+          </view>
+        </view>
     
-        </view>
-        <view class="weui-flex lp">
-          <view class="weui-flex__item">
-            <view class="">辅助串号:{{numberFr.stringNull(item.auxiliaryImei)}}</view>
-          </view>
-        </view>
       </view>
     </navigator>
     <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>

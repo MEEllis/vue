@@ -28,7 +28,7 @@
       <view class='list-item-title'>
         <view class='weui-flex'>
           <text class='iconfont icon-fenqiyewu1'></text>
-          <text class='title'>{{item.businessName}}</text>
+          <text class='title'>{{numberFr.stringNull(item.businessName)}}</text>
         </view>
       </view>
 
@@ -51,14 +51,14 @@
         </view>
          <view class="weui-flex">
           <view class="weui-flex__item">
-            <view class="">合同号:{{item.contractNo}}</view>
+            <view class="">合同号:{{numberFr.stringNull(item.contractNo)}}</view>
           </view>
         </view>
       </view>
       <view class='list-item-footer'>
         <view class='clearfix'>
-          <text class='fl'>{{item.billsCode}}</text>
-          <text class='fr' style='margin-right:30rpx;'>{{item.billsDateStr}}</text>
+          <text class='fl'>{{numberFr.stringNull(item.billsCode)}}</text>
+          <text class='fr' style='margin-right:30rpx;'>{{numberFr.stringNull(item.billsDateStr)}}</text>
         </view>
       </view>
     </navigator>

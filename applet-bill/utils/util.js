@@ -26,7 +26,8 @@ function request(url, data = {}, method = "POST") {
       mask: true,
       icon: 'loading'
     })
- 
+    console.log(url)
+
     wx.request({
       url: url,
       data: data,
@@ -37,19 +38,34 @@ function request(url, data = {}, method = "POST") {
       },
       success: function (res) {
         wx.hideLoading()
-       
+
         if (res.statusCode == 200) {
           if (res.data.result == 1) {
             resolve(res.data);
           }
-          else if (res.data.result == -1){
+          // 未登录时（-1），先调用自动登录
+          else if (res.data.result == -1) {
+            util.request(
+              api.authAutoLogin,
+              {
+                code: code,
+                userInfo: JSON.stringify(userInfo),
+              }).then(ajaxData => {
+                wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
+                wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
+                wx.setStorageSync('companyList', ajaxData.data.companyList);
+              })
+
+          }
+          //自动登录失败（-15）
+          else if (res.data.result == -15) {
             wx.reLaunch({
               url: '/pages/login/login',
               success: (res) => {
-               
+
               }
             })
-          } 
+          }
           else {
             showErrorToast(res.data.desc)
             reject(res.data);
@@ -134,13 +150,13 @@ function getScrollHeight(subHeight) {
     wx.getSystemInfo({
       success: function (res) {
         let scrollHeight
-        if (Array.isArray(subHeight)){
-          scrollHeight=[]
-          for (let i = 0; i < subHeight.length;i++){
+        if (Array.isArray(subHeight)) {
+          scrollHeight = []
+          for (let i = 0; i < subHeight.length; i++) {
             //误差调控5
             scrollHeight.push(res.windowHeight - ((res.windowWidth / 750) * (subHeight[i] * 2)) + 5)
           }
-        }else{
+        } else {
           //误差调控5
           scrollHeight = res.windowHeight - ((res.windowWidth / 750) * (subHeight * 2)) + 5
         }

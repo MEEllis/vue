@@ -33,7 +33,7 @@ Page({
    */
   onReady: function () {
     const that = this;
-    util.getScrollHeight((56 +  10)).then((scrollHeight) => {
+    util.getScrollHeight((56 + 10)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -47,6 +47,9 @@ Page({
   onShow: function () {
 
   },
+
+
+
 
   showInput: function () {
     this.setData({
@@ -94,19 +97,37 @@ Page({
     const { sectionId, queryKey, pageNumber, pageSize } = this.data;
 
     const that = this;
-    util.request(api.getSimpleImeiGoodsVoPageList, {
+    util.request(api.getSimpleGoodsVoPageList, {
       sectionId,
       queryKey,
       pageNumber,
       pageSize,
     }).then(res => {
       let dataList = that.data.dataList.concat(res.data.dataList)
-      if (Array.isArray(dataList) && dataList.length===1){
-        const item = dataList[0];
-        wx.navigateTo({
-          url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&imeiId=${item.imeiId}&scanType=2&delta=2`,
-        })
-        return;
+      if (Array.isArray(dataList)) {
+        if (dataList.length === 1) {
+          const item = dataList[0];
+          if (item.ifManageImei == 1) {
+            wx.navigateTo({
+              url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&imeiId=${item.imeiId}&scanType=2`,
+            })
+          } else {
+            wx.navigateTo({
+              url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&storageId=${item.storageId}`,
+            })
+          }
+          return;
+        } else {
+          for (let i = 0; i < dataList.length; i++) {
+            const dataItem = dataList[i];
+            if (dataItem.ifManageImei == 1) {
+              dataItem.url = `/pages/billing/selImei/selImei?sectionId=${sectionId}&goodsId=${dataItem.goodsId}`;
+            } else {
+              dataItem.url = `/pages/billing/selCount/selCount?sectionId=${sectionId}&goodsId=${dataItem.goodsId}`;
+            }
+          }
+        }
+
       }
       that.setData({
         dataList,

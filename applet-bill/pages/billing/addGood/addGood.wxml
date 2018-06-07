@@ -30,7 +30,7 @@
       <view class=''>录串号</view>
     </view>
 
-    <view class="weui-flex__item " style='border-left: 1px solid #efeff4'>
+    <view class="weui-flex__item "  bindtap='tapSelGood' style='border-left: 1px solid #efeff4'>
       <view class='iconfont icon-sousuo'></view>
       <view class=''>选商品</view>
     </view>

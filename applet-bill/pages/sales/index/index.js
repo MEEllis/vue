@@ -214,23 +214,23 @@ Page({
     })
   },
   modalConfirm: function (e) {
-    const { activeIndex } = this.data;
-    if (activeIndex === 1) {
+
+    const { activeIndex, modalConfirmStartTime, modalConfirmEndTime } = this.data;
+
+    if (activeIndex == 1) {
       this.setData({
-        startTime2: this.data.modalConfirmStartTime,
-        endTime2: this.data.modalConfirmEndTime,
+        startTime2: modalConfirmStartTime,
+        endTime2: modalConfirmEndTime,
       })
       this.getMySalesStatistics();
-    } else if (activeIndex === 2) {
+    } else if (activeIndex == 2) {
       this.setData({
-        startTime3: this.data.modalConfirmStartTime,
-        endTime3: this.data.modalConfirmEndTime,
+        startTime3: modalConfirmStartTime,
+        endTime3: modalConfirmEndTime,
       })
+      this.getMyRankingStatistics();
     }
-
-
     this.thridModal.hide();
-
   },
   // 获取销量明细信息
   getMySalesStatistics: function () {

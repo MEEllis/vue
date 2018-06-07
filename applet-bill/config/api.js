@@ -36,4 +36,6 @@ module.exports = {
   getNumberGoodsVoListByGoodsId: NewApiRootUrl + 'common/getNumberGoodsVoListByGoodsId', //零售开单通过商品id查询数量商品信息集合
   getScanResultVo: NewApiRootUrl + 'common/getScanResultVo', //    开单 / 零售开单扫描(串号|条码)获取扫描接口
   getSimpleImeiGoodsVoPageList: NewApiRootUrl + 'common/getSimpleImeiGoodsVoPageList', //零售开单串号分页查询
+  getSimpleGoodsVoPageList: NewApiRootUrl + 'common/getSimpleGoodsVoPageList', // 零售开单选商品(预览)分页查询
+  getImeiGoodsMultiVoByGoodsId: NewApiRootUrl + 'common/getImeiGoodsMultiVoByGoodsId', // 通过商品id查询串号商品信息
 }

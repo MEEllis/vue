@@ -28,7 +28,7 @@
       <view class='list-item-title'>
         <view class='weui-flex'>
           <text class='iconfont icon-yewu'></text>
-          <text class='title'>{{item.businessName}}</text>
+          <text class='title'>{{numberFr.stringNull(item.businessName)}}</text>
         </view>
       </view>
 
@@ -46,20 +46,19 @@
             <view class="">佣金金额:{{numberFr.formatNum(item.commissionAmount,2)}}</view>
           </view>
           <view class="weui-flex__item">
-            <view class="">业务类别:{{item.businessClassName}}</view>
+            <view class="">业务类别:{{numberFr.stringNull(item.businessClassName)}}</view>
           </view>
         </view>
         <view class="weui-flex">
           <view class="weui-flex__item">
-            <view class="">业务号:{{item.businessNo}}</view>
+            <view class="">业务号:{{numberFr.stringNull(item.businessNo)}}</view>
           </view>
-
         </view>
       </view>
       <view class='list-item-footer'>
         <view class='clearfix'>
-          <text class='fl'>{{item.billsCode}}</text>
-          <text class='fr' style='margin-right:30rpx;'>{{item.billsDateStr}}</text>
+          <text class='fl'>{{numberFr.stringNull(item.billsCode)}}</text>
+          <text class='fr' style='margin-right:30rpx;'>{{numberFr.stringNull(item.billsDateStr)}}</text>
         </view>
       </view>
     </navigator>
@@ -79,7 +78,7 @@
         <view class='f1'>{{numberFr.formatNum((totalVo.totalAmount===undefined?0:totalVo.totalAmount),2)}}</view>
       </view>
       <view class="weui-flex__item tr aomout">
-        <view class='color3'>收款金额</view>
+        <view class='color3'>佣金金额</view>
         <view class='f1'>{{numberFr.formatNum((totalVo.totalCommissionAmount===undefined?0:totalVo.totalCommissionAmount),2)}}</view>
       </view>
     </view>
