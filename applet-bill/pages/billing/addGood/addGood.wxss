@@ -84,6 +84,9 @@ page {
 
 .good-item {
   background-color: #fff;
+}
+
+.good-body {
   position: relative;
 }
 
@@ -95,17 +98,57 @@ page {
   text-align: center;
   z-index: 1;
   right: 0;
-  bottom:0;
+  bottom: 0;
   color: #fff;
   align-items: center;
 }
-
 
 .good-item-wrap {
   padding: 30rpx 30rpx;
   z-index: 2;
   position: relative;
   background: #fff;
+}
+
+.gift-wrap {
+  padding: 30rpx 30rpx;
+}
+
+.gift-wrap::after {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e614";
+  position: absolute;
+  left: 0rpx;
+  top: -20rpx;
+  color: #ffaf23;
+  font-size: 80rpx;
+  display: inline-block;
+  transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg); /* IE 9 */
+  -moz-transform: rotate(-20deg); /* Firefox */
+  -webkit-transform: rotate(-20deg); /* Safari 和 Chrome */
+  -o-transform: rotate(-20deg); /* Opera */
+}
+
+
+.gift-con {
+  font-size: 28rpx;
+  padding-top: 10rpx;
+
+}
+
+.gift-lab {
+  text-align: right;
+  margin-right: 20rpx;
+  max-width: 160rpx;
+  color: #666;
+}
+
+.gift-val {
+  color: #333;
 }
 
 .good-list .good-name, .good-list .good-item-index {
@@ -137,6 +180,6 @@ page {
   margin-top: 30rpx;
 }
 
-.sz{
-  border-left: 1px solid #cccccc;
+.sz {
+  border-left: 1px solid #ccc;
 }

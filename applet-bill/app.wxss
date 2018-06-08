@@ -19,6 +19,7 @@ page {
   padding-bottom: 20rpx;
 }
 
+
 .mt-20 {
   margin-top: 20rpx;
 }
@@ -33,6 +34,10 @@ page {
 
 .mb-30 {
   margin-bottom: 30rpx;
+}
+
+.mr-15{
+    margin-right: 15rpx;
 }
 
 .color1 {

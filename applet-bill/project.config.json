@@ -156,7 +156,7 @@
 					"id": 20,
 					"name": "billing/goodDetail",
 					"pathName": "pages/billing/goodDetail/goodDetail",
-					"query": "storageId=18&sectionId=72&scanType=2&goodsId=1"
+					"query": "storageId=18&sectionId=72&ifManageImei=1&goodsId=1"
 				},
 				{
 					"id": -1,
@@ -168,6 +168,18 @@
 					"id": -1,
 					"name": "billing/selGood",
 					"pathName": "pages/billing/selGood/selGood",
+					"query": "sectionId=72"
+				},
+				{
+					"id": 23,
+					"name": "billing/selCount",
+					"pathName": "pages/billing/selCount/selCount",
+					"query": "sectionId=72"
+				},
+				{
+					"id": -1,
+					"name": "billing/selImei",
+					"pathName": "pages/billing/selImei/selImei",
 					"query": "sectionId=72"
 				}
 			]

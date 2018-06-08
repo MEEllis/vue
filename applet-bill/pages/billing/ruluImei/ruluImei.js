@@ -16,16 +16,23 @@ Page({
     loadingMore: true,
     scrollHeight: 0,
     sectionId: '',
+    isGift: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const { sectionId } = options;
+    const { sectionId, isGift } = options;
     this.setData({
-      sectionId,
+      sectionId: sectionId === undefined ? '' : sectionId,
+      isGift: isGift === undefined ? '' : isGift,
     });
+    if (isGift==1){
+      wx.setNavigationBarTitle({
+        title: '录入串号(赠品)'
+      })
+    }
   },
 
   /**
@@ -91,7 +98,7 @@ Page({
   },
 
   getDataList: function () {
-    const { sectionId, queryKey, pageNumber, pageSize } = this.data;
+    const { sectionId, queryKey, pageNumber, pageSize, isGift } = this.data;
 
     const that = this;
     util.request(api.getSimpleImeiGoodsVoPageList, {
@@ -104,7 +111,7 @@ Page({
       if (Array.isArray(dataList) && dataList.length===1){
         const item = dataList[0];
         wx.navigateTo({
-          url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&imeiId=${item.imeiId}&scanType=2&delta=2`,
+          url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&imeiId=${item.imeiId}&ifManageImei=1&isGift=${isGift}`,
         })
         return;
       }

@@ -43,7 +43,6 @@ Component({
  
 
   ready: function () {   
-
      this.animation = wx.createAnimation({
        duration: this.data.animationOption.duration,
       timingFunction: "linear",

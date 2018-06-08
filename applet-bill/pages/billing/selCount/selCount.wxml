@@ -1,33 +1,43 @@
 <view class="container" wx:if='{{dataList!==null &&dataList.length>1}}'>
   <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
 
-  <view class='weui-flex ellipsis2 title'>
-    <text class='iconfont icon-shouji1'></text>{{numberFr.stringNull(dataList[0].goodsName)}}
-  </view>
-  <view class="weui-flex">
-    <view class="weui-flex__item">
-      <view class="my-stock">标价:{{numberFr.formatNum(dataList[0].retailPrice,2)}}</view>
+  <view class='title-wrap'>
+    <view class='weui-flex  title'>
+      <text class='iconfont icon-shouji1'></text>{{numberFr.stringNull(dataList[0].goodsName)}}
     </view>
-    <view class="weui-flex__item">
-      <view class="">库存:{{numberFr.formatNum(dataList[0].stockCount,2)}}</view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <text class="color3 mr-15">标价:</text>
+        <text class="color1">{{numberFr.formatNum(dataList[0].retailPrice,2)}}</text>
+      </view>
+      <view class="weui-flex__item">
+        <text class="color3 mr-15">库存:</text>
+        <text class="color1">{{numberFr.formatNum(dataList[0].stockCount)}}</text>
+      </view>
     </view>
   </view>
   <view class="weui-tab mt-20">
-    <scroll-view class="" scroll-y='true' style="height:{{scrollHeight}}px;">
+    <!-- 仓库列表 -->
+    <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&storageId={{meiItem.storageId}}&goodsId=={{meiItem.goodsId}}&isGift=={{isGift}}' class="storage-wrap" wx:for-item="meiItem" wx:for="{{dataList}}" wx:key="*this">
+      <view class="weui-flex ">
 
-      <!-- 仓库列表 -->
-      <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&storageId={{meiItem.storageId}}&goodsId=={{meiItem.goodsId}}' class="storage-wrap" wx:for-item="meiItem" wx:for="{{dataList}}" wx:key="*this">
-        <view class="weui-flex ">
-          <view class="weui-flex__item">
-            <text>仓库:</text> {{numberFr.stringNull(meiItem.storageName)}}
-          </view>
+        <view class="weui-flex__item lab">
+          仓库:
         </view>
-        <view class="weui-flex ">
-          <view class="weui-flex__item">
-            <text>库存:</text> {{numberFr.stringNull(meiItem.stockCount)}}
-          </view>
+        <view class="weui-flex__item">
+          {{numberFr.stringNull(meiItem.storageName)}}
         </view>
-      </navigator>
-    </scroll-view>
+
+      </view>
+      <view class="weui-flex ">
+        <view class="weui-flex__item lab">
+          库存:
+        </view>
+        <view class="weui-flex__item color1">
+          {{numberFr.formatNum(meiItem.stockCount)}}
+        </view>
+
+      </view>
+    </navigator>
   </view>
 </view>

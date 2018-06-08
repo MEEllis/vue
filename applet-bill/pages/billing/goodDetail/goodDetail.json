@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "商品及售价"
+  "navigationBarTitleText": "商品及售价",
+  "usingComponents": {
+    "stepper": "/component/stepper/stepper"
+  }
 }

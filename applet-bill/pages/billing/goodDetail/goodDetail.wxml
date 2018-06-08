@@ -1,93 +1,97 @@
 <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
-<view class="container" hidden='{{goodInfo===null}}'>
-  <view class="weui-flex ">
+<view class="" hidden='{{goodInfo===null}}'>
+  <view class="weui-flex title">
     <view class="weui-flex__item">
       {{numberFr.stringNull(goodInfo.goodsName)}}
     </view>
   </view>
-  <view class="weui-flex ">
-    <view class="weui-flex__item">
-      串号:
+  <view class='detail-wrap'>
+    <view class="weui-flex p1" hidden='{{ifManageImei!=1}}'>
+      <view class="weui-flex__item">
+        串号:
+      </view>
+      <view class="weui-flex__item p2">
+        {{numberFr.stringNull(goodInfo.imei)}}
+      </view>
     </view>
-    <view class="weui-flex__item">
-      {{numberFr.stringNull(goodInfo.imei)}}
+
+    <view class="weui-flex "  hidden='{{ifManageImei!=1}}'>
+      <view class="weui-flex__item p1">
+        辅助串号:
+      </view>
+      <view class="weui-flex__item p2">
+        {{numberFr.stringNull(goodInfo.auxiliaryImei)}}
+      </view>
     </view>
+
+    <view class="weui-flex border-bottom">
+      <view class="weui-flex__item p1">
+        零售标价:
+      </view>
+      <view class="weui-flex__item p2">
+        {{numberFr.formatNum(goodInfo.retailPrice,2)}}元
+      </view>
+    </view>
+
+
+    <view class="weui-flex border-bottom"  hidden='{{isGift==1}}'>
+      <view class="weui-flex__item p1">
+        折扣率:
+      </view>
+      <view class="weui-flex__item p2">
+        {{numberFr.formatNum(goodInfo.discountRate,2)}}%
+      </view>
+    </view>
+
+    <view class="weui-flex border-bottom" hidden='{{isGift==1}}' >
+      <view class="weui-flex__item p1">
+        折后单价:
+      </view>
+      <view class="weui-flex__item p2">
+        <input class='txt-input-price' placeholder="点我添加折后单价" value="{{goodInfo.discountedPrice}}" bindinput="inputUnitPrice" />
+      </view>
+    </view>
+  
+    <view class="weui-flex border-bottom"  hidden='{{ifManageImei==1}}'>
+      <view class="weui-flex__item p1">
+        数量:
+      </view>
+      <view class="weui-flex__item p2">
+
+        <stepper class='fr' num="{{goodInfo.goodsNumber}}" bindchangeEvent='inputGoodsNumber'></stepper>    
+      </view>
+    </view>
+
+
+    <view class="weui-flex border-bottom" hidden='{{isGift==1}}' >
+      <view class="weui-flex__item p1">
+        折后金额:
+      </view>
+      <view class="weui-flex__item p2">
+        {{numberFr.formatNum(goodInfo.discountedAmount,2)}}元
+      </view>
+    </view>
+
+    <view class="weui-flex ">
+      <view class="weui-flex__item p1">
+        仓库:
+      </view>
+      <view class="weui-flex__item p2">
+        {{numberFr.stringNull(goodInfo.storageName)}}
+      </view>
+    </view>
+
+    <view class="weui-flex ">
+      <view class="weui-flex__item p2">
+        <input class='txt-input-remark' placeholder="点我添加备注" value="{{goodInfo.remark}}" bindinput="inputRemark" maxlength='200' />
+      </view>
+    </view>
+
+    <button class="ok mb-20" type="primary" bindtap='tapOk'>确定</button>
+    <button wx:if="{{isSee!=1}}"class="cancle mb-20" type="default" bindtap='tapCancle'>取消</button>
+    <button wx:else class="del mb-20" type="primary" bindtap='tapDel'>删除</button>
   </view>
 
-  <view class="weui-flex ">
-    <view class="weui-flex__item">
-      辅助串号:
-    </view>
-    <view class="weui-flex__item">
-      {{numberFr.stringNull(goodInfo.auxiliaryImei)}}
-    </view>
-  </view>
-
-  <view class="weui-flex ">
-    <view class="weui-flex__item">
-      零售标价:
-    </view>
-    <view class="weui-flex__item">
-      {{numberFr.formatNum(goodInfo.retailPrice,2)}}元
-    </view>
-  </view>
 
 
-  <view class="weui-flex ">
-    <view class="weui-flex__item">
-      折扣率:
-    </view>
-    <view class="weui-flex__item">
-      {{numberFr.formatNum(goodInfo.discountRate,2)}}%
-    </view>
-  </view>
-
-  <view class="weui-flex ">
-    <view class="weui-flex__item">
-      折后单价:
-    </view>
-    <view class="weui-flex__item">
-      <input class='txt-input' placeholder="请输入折后单价" value="{{numberFr.formatNum(goodInfo.discountedPrice,2)}}" bindinput="inputUnitPrice" />元
-    </view>
-  </view>
-
-  <view class="weui-flex " hidden='{{scanType==2}}'>
-    <view class="weui-flex__item">
-      数量:
-    </view>
-    <view class="weui-flex__item">
-      <input class='txt-input' placeholder="请输入数量" value="{{numberFr.formatNum(goodInfo.goodsNumber)}}" bindinput="inputGoodsNumber" />
-    </view>
-  </view>
-
-
-  <view class="weui-flex ">
-    <view class="weui-flex__item">
-      折后金额:
-    </view>
-    <view class="weui-flex__item">
-      {{numberFr.formatNum(goodInfo.discountedAmount,2)}}元
-    </view>
-  </view>
-
-  <view class="weui-flex ">
-    <view class="weui-flex__item">
-      仓库:
-    </view>
-    <view class="weui-flex__item">
-      {{numberFr.stringNull(goodInfo.storageName)}}
-    </view>
-  </view>
-
-  <view class="weui-flex ">
-    <view class="weui-flex__item">
-      备注:
-    </view>
-    <view class="weui-flex__item">
-      <input class='txt-input' placeholder="添加备注" value="{{goodInfo.remark}}" bindinput="inputRemark" maxlength='200' />
-    </view>
-  </view>
-
-  <button class="" type="primary" bindtap='tapOk'>确定</button>
-  <button class="" type="primary" bindtap='tapCancle'>取消</button>
 </view>

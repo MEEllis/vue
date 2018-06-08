@@ -13,6 +13,7 @@ Page({
     goodsVo: [],
     vipVo: null,
     delBtnWidth: 80,
+    curSelIndex:'',
   },
 
   /**
@@ -49,85 +50,22 @@ Page({
   },
   // 扫码
   tapScanCode: function () {
-    const that = this;
-    const { sectionId } = this.data;
-    wx.scanCode({
-      success: (res) => {
-        const { result } = res;
-        util.request(
-          api.getScanResultVo,
-          {
-            imeiId: result,
-            sectionId,
-          },
-        ).then(ajaxData => {
-          const { scanResultVo } = ajaxData.data;
-          const modal = () => {
-            wx.showModal({
-              title: '提示',
-              content: `无匹配库存串号或商品条码!扫码结果：${result}`,
-              showCancel: false,
-              confirmColor: '#476ec9',
-              success: function (res) {
-
-              }
-            })
-          }
-          if (scanResultVo !== null) {
-
-            if (scanResultVo.type == 1) {
-              modal();
-            }
-            else if (scanResultVo.type == 2) {
-              wx.navigateTo({
-                url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${scanResultVo.goodsId}&imeiId=${scanResultVo.imeiId}&scanType=${scanResultVo.type}`,
-              })
-            }
-            else if (scanResultVo.type == 3) {
-              that.getNumberGoodsVoByGoodsId(scanResultVo);
-            } else {
-              that.getNumberGoodsVoListByGoodsId(scanResultVo);
-            }
-          } else {
-            modal();
-          }
-
-
-        })
-
-      }
-    })
+    this.addShow(3);
   },
-  tapAddSheet: function () {
-    var that = this;
-    wx.showActionSheet({
-      itemList: ['录串号', '选商品', '扫串号/条码'],
-      success: function (res) {
-        if (res.tapIndex === 2) {
-          that.tapScanCode()
-        } else if (res.tapIndex === 1) {
-          that.tapSelGood()
-        } else {
-          that.tapLuru()
-        }
-      }
-    })
-  },
+
   //录串号
-  tapLuru: function (e) {
-    const { sectionId } = this.data;
-    wx.navigateTo({
-      url: `/pages/billing/ruluImei/ruluImei?sectionId=${sectionId}`,
-    })
+  tapLuru: function () {
+    this.addShow(1);
   },
   //选商品
-  tapSelGood: function (e) {
-    const { sectionId } = this.data;
-    wx.navigateTo({
-      url: `/pages/billing/selGood/selGood?sectionId=${sectionId}`,
-    })
+  tapSelGood: function () {
+    this.addShow(2);
   },
-
+  //添加商品
+  tapAddSheet: function () {
+    this.showSheet({ isGift:0})
+  },
+  //删除商品
   delGood: function (e) {
     const { index } = e.currentTarget.dataset;
     const { goodsVo } = this.data;
@@ -139,35 +77,89 @@ Page({
         goodsVo,
       });
     }
-
   },
-
-  //匹配到条码商品(单个)
-  getNumberGoodsVoByGoodsId: function ({ storageId, goodsId }) {
-    const { sectionId } = this.data;
-    util.request(
-      api.getNumberGoodsVoByGoodsId,
-      {
-        sectionId,
-        storageId,
-        goodsId,
-      },
-    ).then(ajaxData => {
-      console.log(ajaxData)
+  //添加赠品
+  tapAddGift: function (e) {
+    const { index } = e.currentTarget.dataset;
+    this.showSheet({ isGift: 1 })
+    this.setData({
+      curSelIndex: index,
     })
   },
-  //匹配到条码商品(多个)
-  getNumberGoodsVoListByGoodsId: function ({ goodsId }) {
-    const { sectionId } = this.data;
-    util.request(
-      api.getNumberGoodsVoListByGoodsId,
-      {
-        sectionId,
-        goodsId,
-      },
-    ).then(ajaxData => {
-
+  showSheet: function ({ isGift}) {
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['录串号', '选商品', '扫串号/条码'],
+      success: function (res) {
+        that.addShow(res.tapIndex + 1, isGift);
+      }
     })
+  },
+
+  addShow: function (flag, isGift) {
+    const { sectionId } = this.data;
+
+    if (flag == 1) {
+      //录串号
+      wx.navigateTo({
+        url: `/pages/billing/ruluImei/ruluImei?sectionId=${sectionId}&isGift=${isGift}`,
+      })
+    } else if (flag == 2) {
+      //选商品
+      wx.navigateTo({
+        url: `/pages/billing/selGood/selGood?sectionId=${sectionId}&isGift=${isGift}`,
+      })
+    } else {
+      //扫码
+      wx.scanCode({
+        success: (res) => {
+          const { result } = res;
+          util.request(
+            api.getScanResultVo,
+            {
+              imeiId: result,
+              sectionId,
+            },
+          ).then(ajaxData => {
+            const { scanResultVo } = ajaxData.data;
+            const modal = () => {
+              wx.showModal({
+                title: '提示',
+                content: `无匹配库存串号或商品条码!扫码结果：${result}`,
+                showCancel: false,
+                confirmColor: '#476ec9',
+                success: function (res) {
+
+                }
+              })
+            }
+            if (scanResultVo !== null) {
+
+              if (scanResultVo.type == 1) {
+                modal();
+              }
+              else if (scanResultVo.type == 2) {
+                wx.navigateTo({
+                  url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${scanResultVo.goodsId}&imeiId=${scanResultVo.imeiId}&ifManageImei=1&isGift=${isGift}`,
+                })
+              }
+              else if (scanResultVo.type == 3) {
+                wx.navigateTo({
+                  url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&storageId=${scanResultVo.storageId}&goodsId=${scanResultVo.goodsId}&ifManageImei=0&isGift=${isGift}`,
+                })
+              } else {
+                wx.navigateTo({
+                  url: `/pages/billing/selCount/selCount?sectionId=${sectionId}&storageId=${scanResultVo.storageId}&goodsId=${scanResultVo.goodsId}&isGift=${isGift}`,
+                })
+              }
+            } else {
+              modal();
+            }
+          })
+        }
+      })
+    }
+
   },
   // 获取会员信息
   getVipVo: function () {

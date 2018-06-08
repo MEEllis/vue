@@ -8,6 +8,7 @@ Page({
   data: {
     sectionId: '',
     goodsId: '',
+    isGift: '',
     dataList:[],
   },
 
@@ -15,11 +16,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const { sectionId, goodsId } = options;
+    const { sectionId, goodsId, isGift } = options;
     this.setData({
-      sectionId,
-      goodsId,
+      sectionId: sectionId === undefined ? '' : sectionId,
+      isGift: isGift === undefined ? '' : isGift,
+      goodsId: goodsId === undefined ? '' : goodsId,
     });
+    if (isGift == 1) {
+      wx.setNavigationBarTitle({
+        title: '选仓库(赠品)'
+      })
+    }
     this.getDataList()
   },
 

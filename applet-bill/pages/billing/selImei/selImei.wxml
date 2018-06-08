@@ -1,49 +1,55 @@
 <view class="container" hidden='{{imeiGoodsMultiVo===null}}'>
   <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
-
-
-
-
-    <view class='weui-flex ellipsis2 title'>
-          <text class='iconfont icon-shouji1'></text>{{numberFr.stringNull(imeiGoodsMultiVo.goodsName)}}
+  <view class='title-wrap'>
+    <view class='weui-flex  title'>
+      <text class='iconfont icon-shouji1'></text>{{numberFr.stringNull(imeiGoodsMultiVo.goodsName)}}
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <view class="my-stock">标价:{{numberFr.formatNum(imeiGoodsMultiVo.retailPrice,2)}}</view>
+        <text class="color3 mr-15">标价:</text>
+        <text class="color1">{{numberFr.formatNum(imeiGoodsMultiVo.retailPrice,2)}}</text>
       </view>
       <view class="weui-flex__item">
-        <view class="">库存:{{numberFr.formatNum(imeiGoodsMultiVo.stockCount,2)}}</view>
+        <text class="color3 mr-15">库存:</text>
+        <text class="color1">{{numberFr.formatNum(imeiGoodsMultiVo.stockCount)}}</text>
       </view>
     </view>
-    <view class="weui-tab mt-20">
-      <scroll-view class="" scroll-y='true' style="height:{{scrollHeight}}px;">
-        <!-- 部门列表 -->
-        <view class='section-item' wx:for-item="storageItem" wx:for="{{imeiGoodsMultiVo.storageImeiList}}" wx:for-index="storageIdx" wx:key="{{storageIdx}}" data-index="{{storageIdx}}">
-          <view class="weui-cell ">
-            <view class="weui-cell__bd">
-              <text class='iconfont icon-mendian'></text>{{numberFr.stringNull(storageItem.storageName)}}
-            </view>
-          </view>
-          <!-- 仓库列表 -->
-          <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&imeiId={{meiItem.imeiId}}&scanType=2' class="storage-wrap" wx:for-item="meiItem" wx:for="{{storageItem.imeiList}}" wx:key="*this">
-            <view class="weui-flex ">
-              <view class="weui-flex__item">
-                <text>串号:</text> {{numberFr.stringNull(meiItem.imei)}}
-              </view>
-            </view>
-            <view class="weui-flex ">
-              <view class="weui-flex__item">
-                <text>辅助串号:</text> {{numberFr.stringNull(meiItem.auxiliaryImei)}}
-              </view>
-            </view>
-            <view class="weui-flex ">
-              <view class="weui-flex__item">
-                <text>采购日期:</text> {{numberFr.stringNull(meiItem.purchaseDateStr)}}
-              </view>
-            </view>
-          </navigator>
+  </view>
+  <view class="weui-tab mt-20">
+    <!-- 部门列表 -->
+    <view wx:for-item="storageItem" wx:for="{{imeiGoodsMultiVo.storageImeiList}}" wx:for-index="storageIdx" wx:key="{{storageIdx}}" data-index="{{storageIdx}}">
+      <view class="weui-flex storage-title">
+        <view class="weui-flex__item">
+          <text class='iconfont icon-fa-bank'></text>{{numberFr.stringNull(storageItem.storageName)}}
         </view>
-
-      </scroll-view>
+      </view>
+      <!-- 仓库列表 -->
+      <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&imeiId={{meiItem.imeiId}}&ifManageImei=1&isGift={{isGift}}' class="storage-wrap" wx:for-item="meiItem" wx:for="{{storageItem.imeiList}}" wx:key="*this">
+        <view class="weui-flex ">
+          <view class="weui-flex__item lab">
+            串号:
+          </view>
+          <view class="weui-flex__item">
+            {{numberFr.stringNull(meiItem.imei)}}
+          </view>
+        </view>
+        <view class="weui-flex ">
+          <view class="weui-flex__item lab">
+            辅助串号:
+          </view>
+          <view class="weui-flex__item">
+            {{numberFr.stringNull(meiItem.auxiliaryImei)}}
+          </view>
+        </view>
+        <view class="weui-flex ">
+          <view class="weui-flex__item lab">
+            采购日期:
+          </view>
+          <view class="weui-flex__item">
+            {{numberFr.stringNull(meiItem.purchaseDateStr)}}
+          </view>
+        </view>
+      </navigator>
     </view>
   </view>
+</view>

@@ -30,7 +30,7 @@
       <view class=''>录串号</view>
     </view>
 
-    <view class="weui-flex__item "  bindtap='tapSelGood' style='border-left: 1px solid #efeff4'>
+    <view class="weui-flex__item " bindtap='tapSelGood' style='border-left: 1px solid #efeff4'>
       <view class='iconfont icon-sousuo'></view>
       <view class=''>选商品</view>
     </view>
@@ -52,49 +52,52 @@
   </view>
   <view class='good-list pb-20'>
     <view class='good-item  mb-20' wx:for-items="{{goodsVo}}" wx:key="*this">
-      <view class='good-item-wrap weui-flex' style="{{item.txtStyle}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
-        <text class='good-item-index'>{{index+1}}.</text>
-        <view class='good-item-con weui-flex__item'>
-          <view class='good-name pb-10'>{{item.goodsName}}</view>
-          <view class="weui-flex ">
-            <view class="weui-flex__item lab">
-              零售标价：
+      <view class='good-body'>
+        <view class='good-item-wrap ' style="{{item.txtStyle}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
+
+          <navigator url='{{item.url}}&goodIndex={{index}}' class='good-item-con '>
+            <view class='good-name pb-10'>{{index+1}}.{{item.goodsName}}</view>
+            <view class="weui-flex ">
+              <view class="weui-flex__item lab">
+                零售标价：
+              </view>
+              <view class="weui-flex__item labv">
+                {{numberFr.formatNum(item.retailPrice,2)}}
+              </view>
+              <view class="weui-flex__item lab">
+                折后单价：
+              </view>
+              <view class="weui-flex__item labv">
+                {{numberFr.formatNum(item.discountedPrice,2)}}
+              </view>
             </view>
-            <view class="weui-flex__item labv">
-              {{numberFr.formatNum(item.retailPrice,2)}}
+            <view class="weui-flex ">
+              <view class="weui-flex__item lab">
+                数量：
+              </view>
+              <view class="weui-flex__item labv">
+                {{numberFr.formatNum(item.goodsNumber)}}
+              </view>
+              <view class="weui-flex__item lab">
+                折后金额：
+              </view>
+              <view class="weui-flex__item labv">
+                {{numberFr.formatNum(item.discountedAmount,2)}}
+              </view>
             </view>
-            <view class="weui-flex__item lab">
-              折后单价：
-            </view>
-            <view class="weui-flex__item labv">
-              {{numberFr.formatNum(item.discountedPrice,2)}}
-            </view>
-          </view>
-          <view class="weui-flex ">
-            <view class="weui-flex__item lab">
-              数量：
-            </view>
-            <view class="weui-flex__item labv">
-              {{numberFr.formatNum(item.goodsNumber)}}
-            </view>
-            <view class="weui-flex__item lab">
-              折后金额：
-            </view>
-            <view class="weui-flex__item labv">
-              {{numberFr.formatNum(item.discountedAmount,2)}}
-            </view>
-          </view>
-          <view class="weui-flex ">
-            <view class="weui-flex__item lab">
-              备注：
-            </view>
-            <view class="weui-flex__item labv">
-              {{numberFr.stringNull(item.remark)}}
+            <view class="weui-flex ">
+              <view class="weui-flex__item lab">
+                备注：
+              </view>
+              <view class="weui-flex__item labv">
+                {{numberFr.stringNull(item.remark)}}
+              </view>
+
             </view>
 
-          </view>
+          </navigator>
           <view class="weui-flex add-gift">
-            <view class="weui-flex__item">
+            <view class="weui-flex__item" data-index='{{index}}' bindtap='tapAddGift'>
               添加赠品
             </view>
             <view class="weui-flex__item sz">
@@ -102,15 +105,42 @@
             </view>
           </view>
         </view>
-      </view>
-      <!--这里是左滑按钮部分----start-->
-      <view class="posit weui-flex" bindtap='tapDelGood'>
-        <view class="del weui-flex__item" data-addressid="{{item.address.ID}}" data-index="{{index}}" catchtap="delGood">
-          删除
+        <!--这里是左滑按钮部分----start-->
+        <view class="posit weui-flex" bindtap='tapDelGood'>
+          <view class="del weui-flex__item" data-addressid="{{item.address.ID}}" data-index="{{index}}" catchtap="delGood">
+            删除
+          </view>
         </view>
+        <!--这里是左滑按钮部分----end-->
       </view>
-      <!--这里是左滑按钮部分----end-->
+      <view class='gift-wrap border-top' wx:for-items="{{item.giftList}}" wx:key="*this" wx:for-index="idx" wx:for-item="itemName">
+        <navigator url='{{item.url}}&goodIndex={{index}}&giftIndex={{idx}}&isGift=1'>
+          <view class='weui-flex'>
+            <view class="weui-flex__item ">
+              {{idx+1}}.{{itemName.goodsName}}
+            </view>
+          </view>
+          <view class='gift-con'>
+            <view class='weui-flex'>
+              <view class="weui-flex__item gift-lab">
+                数量：
+              </view>
+              <view class="weui-flex__item gift-val">
+                {{numberFr.formatNum(itemName.goodsNumber)}}
+              </view>
+            </view>
+            <view class='weui-flex'>
+               <view class="weui-flex__item gift-lab">
+               备注：
+              </view>
+              <view class="weui-flex__item gift-val">
+                {{numberFr.stringNull(itemName.remark)}}
+              </view>
+            </view>
+          </view>
 
+        </navigator>
+      </view>
     </view>
   </view>
 </view>

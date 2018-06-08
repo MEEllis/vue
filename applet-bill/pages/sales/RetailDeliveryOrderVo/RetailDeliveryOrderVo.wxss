@@ -135,6 +135,25 @@
   position: relative;
 }
 
+.giftGoodsList-wrap::before {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e614";
+  position: absolute;
+  left: 0rpx;
+  top: -20rpx;
+  color: #ffaf23;
+  font-size: 80rpx;
+  display: inline-block;
+  transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg); /* IE 9 */
+  -moz-transform: rotate(-20deg); /* Firefox */
+  -webkit-transform: rotate(-20deg); /* Safari 和 Chrome */
+  -o-transform: rotate(-20deg); /* Opera */
+}
+
 .giftGoodsList-wrap .item-index:before {
   border-top: 1rpx dashed #e6e6e6;
 }

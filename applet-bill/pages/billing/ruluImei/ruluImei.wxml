@@ -19,22 +19,27 @@
     <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消 </view>
   </view>
   <!-- 商品列表 -->
-  <scroll-view scroll-y='true' hidden='{{dataList===null || dataList.length==1}}' class="list-wrap pt-20" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-    <navigator class='list-item mb-30'  wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="dataId" data-id="{{item.dataId}}" url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&goodsId={{item.goodsId}}&imeiId={{item.imeiId}}&scanType=2'>
-      <view class='weui-flex ellipsis title'>
+  <scroll-view scroll-y='true' hidden='{{dataList===null || dataList.length==1}}' class="list-wrap " style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+    <navigator class='list-item mb-30' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="dataId" url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&goodsId={{item.goodsId}}&imeiId={{item.imeiId}}&isGift={{isGift}}'>
+      <view class='weui-flex  title'>
         <text class='iconfont icon-shouji1'></text> {{numberFr.stringNull(item.goodsName)}}
       </view>
 
       <view class='list-item-body'>
         <view class="weui-flex">
-          <view class="weui-flex__item">
-            <view class="my-stock">串号:{{numberFr.stringNull(item.imei)}}</view>
+          <view class="weui-flex__item lab">
+            串号:
           </view>
-    
+          <view class="weui-flex__item">
+            {{numberFr.stringNull(item.imei)}}
+          </view>
         </view>
         <view class="weui-flex lp">
+          <view class="weui-flex__item lab">
+            辅助串号:
+          </view>
           <view class="weui-flex__item">
-            <view class="">辅助串号:{{numberFr.stringNull(item.auxiliaryImei)}}</view>
+            {{numberFr.stringNull(item.auxiliaryImei)}}
           </view>
         </view>
       </view>
