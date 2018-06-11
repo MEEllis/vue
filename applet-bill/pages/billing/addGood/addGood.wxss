@@ -103,6 +103,11 @@ page {
   align-items: center;
 }
 
+.posit .weui-flex__item {
+  height: 100%;
+  line-height: 368rpx;
+}
+
 .good-item-wrap {
   padding: 30rpx 30rpx;
   z-index: 2;
@@ -133,11 +138,9 @@ page {
   -o-transform: rotate(-20deg); /* Opera */
 }
 
-
 .gift-con {
   font-size: 28rpx;
   padding-top: 10rpx;
-
 }
 
 .gift-lab {
@@ -180,6 +183,41 @@ page {
   margin-top: 30rpx;
 }
 
+.add-gift .weui-flex__item {
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.add-gift .weui-flex__item.disable {
+  background-color: rgb(163, 188, 241);
+}
+
 .sz {
   border-left: 1px solid #ccc;
+}
+
+.sum-wrap {
+  height: 98rpx;
+  line-height: 98rpx;
+}
+
+.sum-wrap .pay {
+  background-color: #ffaf23 !important;
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 0 !important;
+  flex: 2;
+  line-height:98rpx;
+
+}
+
+.sum-wrap .aomout {
+  color: #ffaf23;
+  font-size: 40rpx;
+  flex: 4;
+}
+
+.sum-wrap .count {
+  flex: 3;
 }

@@ -169,6 +169,103 @@ function getScrollHeight(subHeight) {
   });
 }
 
+//获取 主页面的 层次，
+function getMainPage({ route }) {
+  const pageList = getCurrentPages();
+  let delta = 1;
+  let addPage = null;
+  for (let i = 0; i < pageList.length; i++) {
+    const pageItem = pageList[i]
+    if (pageItem.route === route) {
+      delta = (pageList.length - i - 1);
+      addPage = pageItem;
+      break;
+    }
+  }
+  return {
+    delta,
+    addPage
+  };
+}
+
+function accAdd(arg1, arg2) {
+  var r1, r2, m, c;
+  try {
+    r1 = arg1.toString().split(".")[1].length;
+  }
+  catch (e) {
+    r1 = 0;
+  }
+  try {
+    r2 = arg2.toString().split(".")[1].length;
+  }
+  catch (e) {
+    r2 = 0;
+  }
+  c = Math.abs(r1 - r2);
+  m = Math.pow(10, Math.max(r1, r2));
+  if (c > 0) {
+    var cm = Math.pow(10, c);
+    if (r1 > r2) {
+      arg1 = Number(arg1.toString().replace(".", ""));
+      arg2 = Number(arg2.toString().replace(".", "")) * cm;
+    } else {
+      arg1 = Number(arg1.toString().replace(".", "")) * cm;
+      arg2 = Number(arg2.toString().replace(".", ""));
+    }
+  } else {
+    arg1 = Number(arg1.toString().replace(".", ""));
+    arg2 = Number(arg2.toString().replace(".", ""));
+  }
+  return (arg1 + arg2) / m;
+}
+
+function accSub(arg1, arg2) {
+  var r1, r2, m, n;
+  try {
+    r1 = arg1.toString().split(".")[1].length;
+  }
+  catch (e) {
+    r1 = 0;
+  }
+  try {
+    r2 = arg2.toString().split(".")[1].length;
+  }
+  catch (e) {
+    r2 = 0;
+  }
+  m = Math.pow(10, Math.max(r1, r2)); //last modify by deeka //动态控制精度长度
+  n = (r1 >= r2) ? r1 : r2;
+  return ((arg1 * m - arg2 * m) / m).toFixed(n);
+}
+
+function accMul(arg1, arg2) {
+  var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
+  try {
+    m += s1.split(".")[1].length;
+  }
+  catch (e) {
+  }
+  try {
+    m += s2.split(".")[1].length;
+  }
+  catch (e) {
+  }
+  return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+}
+
+
+function accDiv(a, b) {
+  var c, d, e = 0,
+    f = 0;
+  try {
+    e = a.toString().split(".")[1].length;
+  } catch (g) { }
+  try {
+    f = b.toString().split(".")[1].length;
+  } catch (g) { }
+  return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), accMul(c / d, Math.pow(10, f - e));
+}
 
 module.exports = {
   formatTime,
@@ -178,4 +275,9 @@ module.exports = {
   login,
   getUserInfo,
   getScrollHeight,
+  getMainPage,
+  accAdd,
+  accSub,
+  accMul,
+  accDiv,
 }

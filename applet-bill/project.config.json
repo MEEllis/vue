@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 17,
 			"list": [
 				{
 					"id": 0,
@@ -181,6 +181,18 @@
 					"name": "billing/selImei",
 					"pathName": "pages/billing/selImei/selImei",
 					"query": "sectionId=72"
+				},
+				{
+					"id": -1,
+					"name": "billing/receiptMain",
+					"pathName": "pages/billing/receiptMain/receiptMain",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "billing/draftRetailOrderVo",
+					"pathName": "pages/billing/draftRetailOrderVo/draftRetailOrderVo",
+					"query": ""
 				}
 			]
 		}

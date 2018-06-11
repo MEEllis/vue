@@ -12,7 +12,7 @@
       <view class=''>删除本单</view>
     </view>
 
-    <view class="weui-flex__item ">
+    <view class="weui-flex__item" bindtap='tapSaveDraft'>
       <view class='iconfont icon-baocuncaogaodan'></view>
       <view class=''>存草稿</view>
     </view>
@@ -50,12 +50,12 @@
       <text class='iconfont icon-shibai1'></text> 添加商品
     </view>
   </view>
-  <view class='good-list pb-20'>
+  <scroll-view scroll-y='true' style="height:{{scrollHeight}}px;" class='good-list '>
     <view class='good-item  mb-20' wx:for-items="{{goodsVo}}" wx:key="*this">
       <view class='good-body'>
         <view class='good-item-wrap ' style="{{item.txtStyle}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
 
-          <navigator url='{{item.url}}&goodIndex={{index}}' class='good-item-con '>
+          <navigator url='{{item.url}}&goodIndex={{index}}&isGift={{item.isGift}}' class='good-item-con '>
             <view class='good-name pb-10'>{{index+1}}.{{item.goodsName}}</view>
             <view class="weui-flex ">
               <view class="weui-flex__item lab">
@@ -97,17 +97,17 @@
 
           </navigator>
           <view class="weui-flex add-gift">
-            <view class="weui-flex__item" data-index='{{index}}' bindtap='tapAddGift'>
+            <view class="weui-flex__item  {{item.isGift==1?'disable':''}}" data-isgift='{{item.isGift}}' data-index='{{index}}' bindtap='tapAddGift'>
               添加赠品
             </view>
-            <view class="weui-flex__item sz">
+            <view class="weui-flex__item sz {{item.isGift==1?'disable':''}}  {{item.giftList.length>0?'disable':''}}" data-isgift='{{item.isGift}}' data-index='{{index}}' data-len="{{item.giftList.length}}"  bindtap='tapSetGift'>
               设为赠品
             </view>
           </view>
         </view>
         <!--这里是左滑按钮部分----start-->
-        <view class="posit weui-flex" bindtap='tapDelGood'>
-          <view class="del weui-flex__item" data-addressid="{{item.address.ID}}" data-index="{{index}}" catchtap="delGood">
+        <view class="posit weui-flex">
+          <view class="del weui-flex__item" data-isgift='{{item.isGift}}' data-goodindex="{{index}}" catchtap="delGood">
             删除
           </view>
         </view>
@@ -130,8 +130,8 @@
               </view>
             </view>
             <view class='weui-flex'>
-               <view class="weui-flex__item gift-lab">
-               备注：
+              <view class="weui-flex__item gift-lab">
+                备注：
               </view>
               <view class="weui-flex__item gift-val">
                 {{numberFr.stringNull(itemName.remark)}}
@@ -142,5 +142,19 @@
         </navigator>
       </view>
     </view>
+  </scroll-view>
+  <view class="weui-flex sum-wrap">
+    <view class="weui-flex__item sum ">
+      合计
+    </view>
+    <view class="weui-flex__item tl aomout">
+      {{numberFr.formatNum(totalAmount,2)}}
+    </view>
+    <view class="weui-flex__item tc count">
+      共{{numberFr.formatNum(totalSum)}}件
+    </view>
+    <button type='defualt' class="weui-flex__item pay" bindtap='tapPay'>
+      收款
+    </button>
   </view>
 </view>

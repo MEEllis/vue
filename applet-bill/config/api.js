@@ -38,4 +38,9 @@ module.exports = {
   getSimpleImeiGoodsVoPageList: NewApiRootUrl + 'common/getSimpleImeiGoodsVoPageList', //零售开单串号分页查询
   getSimpleGoodsVoPageList: NewApiRootUrl + 'common/getSimpleGoodsVoPageList', // 零售开单选商品(预览)分页查询
   getImeiGoodsMultiVoByGoodsId: NewApiRootUrl + 'common/getImeiGoodsMultiVoByGoodsId', // 通过商品id查询串号商品信息
+  saveDraftRetailVo: NewApiRootUrl + 'common/saveDraftRetailVo', // 保存草稿单
+  getDraftRetailOrderVoPageList: NewApiRootUrl + 'common/getDraftRetailOrderVoPageList', // 零售草稿单
+  deleteDraftRetailOrderVo: NewApiRootUrl + 'common/deleteDraftRetailOrderVo', //  删除零售草稿单
+  getSectionAccountVoList: NewApiRootUrl + 'common/getSectionAccountVoList', // 获取部门可使用资金账户
+  saveAndPostDraftRetailVo: NewApiRootUrl + 'common/saveAndPostDraftRetailVo', // 保存草稿单并过账
 }

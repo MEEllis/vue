@@ -10,10 +10,13 @@ Page({
   data: {
     sectionId: '',
     customerTelephone: '',
+    totalAmount: 0,
+    totalSum: 0,
     goodsVo: [],
     vipVo: null,
     delBtnWidth: 80,
-    curSelIndex:'',
+    curSelIndex: '',
+    scrollHeight: 0,
   },
 
   /**
@@ -33,19 +36,125 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    const that = this;
+    util.getScrollHeight((52 + 60 + 50 + 4)).then((scrollHeight) => {
+      // 计算主体部分高度,单位为px
+      that.setData({
+        scrollHeight,
+      })
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const { goodsVo } = this.data
+    let totalAmount = 0;
+    let totalSum = 0;
+    if (Array.isArray(goodsVo)) {
+      for (let i = 0; i < goodsVo.length; i++) {
+        const goodsItem = goodsVo[i];
+        totalSum = util.accAdd(totalSum, goodsItem.goodsNumber)
+        if (goodsItem.isGift!=1){
+          totalAmount = util.accAdd(totalAmount, goodsItem.discountedAmount)
+        }
+        if (Array.isArray(goodsItem.giftList)) {
+          for (let j = 0; j < goodsItem.giftList.length; j++) {
+            const giftItem = goodsItem.giftList[i];
+            totalSum = util.accAdd(totalSum, giftItem.goodsNumber)
+          }
+        }
 
+      }
+    }
+    this.setData({
+      totalAmount,
+      totalSum,
+    })
   },
   // 上一步
   tapPrevious: function (e) {
     wx.navigateBack({
 
+    })
+  },
+  // 存草稿
+  tapSaveDraft: function (e) {
+    const { goodsVo, vipVo, sectionId, customerTelephone, totalAmount } = this.data;
+    if (Array.isArray(goodsVo)) {
+      if (goodsVo.length === 0) {
+        util.showErrorToast('请添加商品！')
+      } else {
+        const goodsDetailList = [];
+        const addItemFun = function (item) {
+          return {
+            "orderNo": item.orderNo,
+            "giftFlag": item.isGift,
+            "storageId": item.storageId,
+            "goodsId": item.goodsId,
+            "imeiId": item.imeiId,
+            "goodsNumber": item.goodsNumber,
+            "retailPrice": item.retailPrice,
+            "discountRate": item.discountRate,
+            "discountedPrice": item.discountedPrice,
+            "discountedAmount": item.discountedAmount,
+            "remark": item.remark
+          }
+        }
+        for (let i = 0; i < goodsVo.length; i++) {
+          const goodsItem = goodsVo[i];
+          goodsDetailList.push(addItemFun(goodsItem));
+          if (Array.isArray(goodsItem.giftList)) {
+            for (let j = 0; j < goodsItem.giftList.length; j++) {
+              const giftItem = goodsItem.giftList[i];
+              goodsDetailList.push(addItemFun(giftItem));
+            }
+          }
+
+        }
+
+        const order = {
+          "sectionId": sectionId,
+          "customerId": vipVo.customerId === undefined ? '' : vipVo.customerId,
+          "customerName": vipVo.customerName === undefined ? '' : vipVo.customerName,
+          "customerTelephone": customerTelephone,
+
+          "ignoredAmount": 0,
+          "totalAmount": totalAmount,
+          "totalPayAmount": 5000,
+          "shouldReceiveAmount": 5000,
+          "remark": "",
+          "goodsDetailList": goodsDetailList,
+          "paymentReceivedOrderVo": {
+            "detailList": [{
+              "accountId": "944",
+              "accountType": "1",
+              "amount": 5000
+            }]
+          }
+        };
+
+        util.request(
+          api.saveDraftRetailVo,
+          order
+        ).then(res => {
+          util.showErrorToast('保存草稿单成功！')
+          setTimeout(() => {
+            wx.switchTab({
+              url: '/pages/billing/index/index'
+            });
+          }, 1500)
+        })
+      }
+    } else {
+      util.showErrorToast('请添加商品！')
+    }
+  },
+  // 收款
+  tapPay: function (e) {
+    wx.navigateTo({
+      url: `/pages/billing/receiptMain/receiptMain`,
     })
   },
   // 扫码
@@ -63,30 +172,60 @@ Page({
   },
   //添加商品
   tapAddSheet: function () {
-    this.showSheet({ isGift:0})
+    this.showSheet({ isGift: 0 })
   },
   //删除商品
   delGood: function (e) {
-    const { index } = e.currentTarget.dataset;
+    const { goodIndex } = e.currentTarget.dataset;
+    this.delGoodCon({ goodIndex: goodIndex });
+  },
+  delGoodCon: function ({ goodIndex, giftIndex }) {
     const { goodsVo } = this.data;
     if (Array.isArray(goodsVo)) {
-      goodsVo.splice(goodsVo.findIndex((value, indexs, arr) => {
-        return indexs == index;
-      }), 1)
-      this.setData({
-        goodsVo,
-      });
+      const curGoodinfo = goodsVo[goodIndex];
+      if (curGoodinfo.isGift != 1 && giftIndex >= 0) {
+        const giftList = goodsVo[goodIndex].giftList;
+        if (Array.isArray(giftList)) {
+          giftList.splice(giftList.findIndex((value, indexs, arr) => {
+            return indexs == giftIndex;
+          }), 1)
+          goodsVo[goodIndex].giftList = giftList;
+        }
+      }
+      //商品
+      else {
+        goodsVo.splice(goodsVo.findIndex((value, indexs, arr) => {
+          return indexs == goodIndex;
+        }), 1)
+      }
     }
+    this.setData({
+      goodsVo,
+    });
   },
   //添加赠品
   tapAddGift: function (e) {
-    const { index } = e.currentTarget.dataset;
-    this.showSheet({ isGift: 1 })
-    this.setData({
-      curSelIndex: index,
-    })
+    const { index, isgift } = e.currentTarget.dataset;
+    if (isgift != 1 ) {
+      this.setData({
+        curSelIndex: index,
+      })
+      this.showSheet({ isGift: 1 })
+    }
   },
-  showSheet: function ({ isGift}) {
+  //设置赠品
+  tapSetGift: function (e) {
+    const { index, isgift, len} = e.currentTarget.dataset;
+    if (isgift != 1 || len>0) {
+      this.setData({
+        curSelIndex: index,
+      })
+      wx.navigateTo({
+        url: `/pages/billing/setGift/setGift`,
+      })
+    }
+  },
+  showSheet: function ({ isGift }) {
     var that = this;
     wx.showActionSheet({
       itemList: ['录串号', '选商品', '扫串号/条码'],
@@ -174,38 +313,11 @@ Page({
     ).then(res => {
       const { vipVo } = res.data
       that.setData({
-        vipVo,
+        vipVo: vipVo === null ? {} : vipVo,
       });
     })
   },
-  //获取该商品的折扣率
-  getDiscountRateByGoodsClassId: function ({ goodsClassId }) {
-    const { vipVo } = this.data;
-    if (vipVo === null) {
-      return 100;
-    } else {
-      const { defaultDiscountRate, goodsDiscountList } = vipVo;
-      if (Array.isArray(goodsDiscountList)) {
-        let discountRate = -1;
-        for (let i = 0; i < goodsDiscountList.length; i++) {
-          if (goodsClassId == goodsDiscountList[i].goodsClassId) {
-            discountRate = goodsDiscountList[i].discountRate;
-            break;
-          }
-        }
 
-        if (discountRate === -1) {
-          return defaultDiscountRate;
-        } else {
-          return discountRate;
-        }
-
-      } else {
-        return defaultDiscountRate;
-      }
-
-    }
-  },
   //手指刚放到屏幕触发
   touchS: function (e) {
     //判断是否只有一个触摸点

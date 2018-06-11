@@ -1,0 +1,50 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<view class="body-wrap">
+  <view class="weui-flex title">
+    <view class="weui-flex__item">
+      {{numberFr.formatNum(totalAmount,2)}}
+    </view>
+  </view>
+  <view class="weui-flex item border-bottom">
+    <view class="weui-flex__item color3">
+      积分抵现
+    </view>
+    <view class="weui-flex__item tr">
+      {{numberFr.formatNum(totalAmount,2)}}
+    </view>
+  </view>
+  <view class="weui-flex item border-bottom">
+    <view class="weui-flex__item color3">
+      抹零金额
+    </view>
+    <view class="weui-flex__item tr ">
+      <input class='txt-input-ignored' placeholder="点我抹零金额" value="{{ignoredAmount}}" bindinput="inputIgnoredAmount" />
+    </view>
+  </view>
+  <view class="weui-flex item  border-bottom">
+    <view class="weui-flex__item color3">
+      应收金额
+    </view>
+    <view class="weui-flex__item tr color1">
+      {{numberFr.formatNum(totalAmount,2)}}
+    </view>
+  </view>
+
+  <view class="weui-flex ">
+    <view class="weui-flex__item">
+      <textarea class='txt-input-remark' placeholder="点我添加备注" value="{{remark}}" bindinput="inputRemark" maxlength='200' />
+    </view>
+
+  </view>
+
+  <button class="weixin mb-20 mt-30" type="default" bindtap='tapweixin'>
+  <text class='iconfont icon-weixin1'></text>
+  <text class='wxlab'>微信扫码收款</text>
+  
+  </button>
+  <button class="zhifubao mb-20" type="default" bindtap='tapzhifubao'>
+   <text class='iconfont icon-zhifubao1'></text>
+  <text class='zflab'>支付宝扫码收款</text></button>
+  <button class="xianxia mb-20" type="default" bindtap='tapxianxia'>线下收款</button>
+  <button class="draft mb-20" type="default" bindtap='tapdraft'>仅存草稿</button>
+</view>

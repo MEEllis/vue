@@ -39,6 +39,7 @@ Page({
       isGift: isGift === undefined ? '' : isGift,
     });
     this.setDelta();
+    //查看状态
     if (isSee == 1) {
       const { addPage } = this.data;
       if (addPage != null) {
@@ -49,17 +50,18 @@ Page({
             this.setData({
               goodInfo: goodsVo[goodIndex].giftList[giftIndex]
             });
-          }else{
+          } else {
             //商品赠品
             this.setData({
               goodInfo: goodsVo[goodIndex]
             });
           }
-   
+
         }
       }
-
-    } else {
+    }
+    //添加状态
+    else {
       if (ifManageImei == 1) {
         this.getImeiGoodsVoByImeiId();
       } else {
@@ -145,13 +147,18 @@ Page({
     })
   },
   renderData: function (goodInfo) {
-    const { sectionId } = this.data;
+    const { sectionId, isGift } = this.data;
     goodInfo.discountRate = this.getDiscountRateByGoodsClassId(goodInfo);
-    goodInfo.discountedPrice = Number(goodInfo.retailPrice) * Number(goodInfo.discountRate) / 100;
+    goodInfo.discountedPrice = util.accDiv(util.accMul(goodInfo.retailPrice, goodInfo.discountRate),  100);
     goodInfo.discountedAmount = Number(goodInfo.discountedPrice);
     goodInfo.goodsNumber = 1;
     goodInfo.remark = '';
     goodInfo.giftList = [];
+    if (isGift == 1) {
+      goodInfo.isGift = 1;
+    } else {
+      goodInfo.isGift = 0;
+    }
 
     if (goodInfo.ifManageImei == 1) {
       goodInfo.url = `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${goodInfo.goodsId}&imeiId=${goodInfo.imeiId}&ifManageImei=1&isSee=1`;
@@ -247,7 +254,7 @@ Page({
           }
 
         } else {
-          return defaultDiscountRate;
+          return 100;
         }
       }
     } else {
@@ -275,7 +282,7 @@ Page({
             if (curSelIndex >= 0) {
               const curGoodInfo = goodsVo[curSelIndex];
               if (Array.isArray(curGoodInfo.giftList)) {
-                curGoodInfo.giftList.push(goodInfo)
+                curGoodInfo.giftList.push(goodInfo);
               }
               goodsVo[curSelIndex] = curGoodInfo;
             }
@@ -305,27 +312,20 @@ Page({
   },
 
   tapDel: function () {
-    const { delta } = this.data;
+    const { delta, addPage, goodIndex, giftIndex } = this.data;
+    if (addPage != null) {
+      addPage.delGoodCon({ goodIndex, giftIndex })
+    }
     wx.navigateBack({
       delta: Number(delta),
     })
   },
 
   setDelta: function () {
-    const pageList = getCurrentPages();
-    let delta = 1;
-    let addPage = null;
-    for (let i = 0; i < pageList.length; i++) {
-      const pageItem = pageList[i]
-      if (pageItem.route === 'pages/billing/addGood/addGood') {
-        delta = (pageList.length - i - 1);
-        addPage = pageItem;
-        break;
-      }
-    }
+    const mainPage = util.getMainPage({ route: 'pages/billing/addGood/addGood' })
     this.setData({
-      delta,
-      addPage
+      delta: mainPage.delta,
+      addPage: mainPage.addPage,
     });
   }
 })

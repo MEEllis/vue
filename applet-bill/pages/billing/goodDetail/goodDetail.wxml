@@ -83,7 +83,7 @@
 
     <view class="weui-flex ">
       <view class="weui-flex__item p2">
-        <input class='txt-input-remark' placeholder="点我添加备注" value="{{goodInfo.remark}}" bindinput="inputRemark" maxlength='200' />
+        <textarea class='txt-input-remark' placeholder="点我添加备注" value="{{goodInfo.remark}}" bindinput="inputRemark" maxlength='200' />
       </view>
     </view>
 
