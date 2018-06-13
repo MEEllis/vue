@@ -149,7 +149,7 @@ Page({
   renderData: function (goodInfo) {
     const { sectionId, isGift } = this.data;
     goodInfo.discountRate = this.getDiscountRateByGoodsClassId(goodInfo);
-    goodInfo.discountedPrice = util.accDiv(util.accMul(goodInfo.retailPrice, goodInfo.discountRate),  100);
+    goodInfo.discountedPrice = util.accDiv(util.accMul(goodInfo.retailPrice, goodInfo.discountRate), 100);
     goodInfo.discountedAmount = Number(goodInfo.discountedPrice);
     goodInfo.goodsNumber = 1;
     goodInfo.remark = '';
@@ -237,25 +237,30 @@ Page({
       if (vipVo === null) {
         return 100;
       } else {
-        const { defaultDiscountRate, goodsDiscountList } = vipVo;
-        if (Array.isArray(goodsDiscountList)) {
-          let discountRate = -1;
-          for (let i = 0; i < goodsDiscountList.length; i++) {
-            if (goodsClassId == goodsDiscountList[i].goodsClassId) {
-              discountRate = goodsDiscountList[i].discountRate;
-              break;
+        const { defaultDiscountRate, goodsDiscountList, status } = vipVo;
+        if (status == 0) {
+          if (Array.isArray(goodsDiscountList)) {
+            let discountRate = -1;
+            for (let i = 0; i < goodsDiscountList.length; i++) {
+              if (goodsClassId == goodsDiscountList[i].goodsClassId) {
+                discountRate = goodsDiscountList[i].discountRate;
+                break;
+              }
             }
-          }
 
-          if (discountRate === -1) {
-            return defaultDiscountRate;
+            if (discountRate === -1) {
+              return defaultDiscountRate;
+            } else {
+              return discountRate;
+            }
+
           } else {
-            return discountRate;
+            return 100;
           }
-
         } else {
           return 100;
         }
+
       }
     } else {
       return 100;

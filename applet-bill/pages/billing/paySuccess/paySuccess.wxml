@@ -1,0 +1,27 @@
+<view class="page">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <view class="weui-msg">
+    <view class="weui-msg__icon-area">
+      <icon type="success" size="93"></icon>
+    </view>
+    <view class="weui-msg__text-area">
+      <view class="weui-msg__title">收款成功</view>
+      <view class="weui-msg__desc"> {{numberFr.formatNum(totalPayAmount,2)}}</view>
+    </view>
+    <view class="weui-msg__opr-area">
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" bindtap='tapNew'>新开单</button>
+        <button class="weui-btn" type="default" bindtap='tapCur'>查看本单</button>
+        <button class="weui-btn" type="default" bindtap='tapIndex'>返回首页</button>
+      </view>
+    </view>
+    <view class="weui-msg__extra-area">
+      <view class="weui-footer">
+        <view class="weui-footer__links">
+          <navigator url="" class="weui-footer__link"></navigator>
+        </view>
+        <view class="weui-footer__text"></view>
+      </view>
+    </view>
+  </view>
+</view>

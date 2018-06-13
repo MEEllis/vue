@@ -18,13 +18,19 @@
     </form>
     <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">高级搜索 </view>
   </view>
-
+  <view class="weui-flex  cate-wrap">
+    <view data-index="{{index}}" class='weui-flex__item' wx:for="{{tabContent}}" wx:key="{{index}}">
+      <button  class="btn   {{activeIndex == index ? 'on' : ''}}" data-index="{{index}}" bindtap="tabContentClick">
+        {{item}}
+      </button>
+    </view>
+  </view>
   <view class="sel-time">
     查询时间:{{startTime==endTime?startTime:(startTime+'至'+endTime)}}
   </view>
   <!-- 商品列表 -->
   <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-    <navigator class='list-item mb-20' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" data-id="{{item.billsId}}" url="">
+    <navigator class='list-item mb-20' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" data-id="{{item.billsId}}" url="/pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo?billsId={{item.billsId}}">
       <view class='list-item-title'>
 
         <view class='weui-flex'>
@@ -53,4 +59,19 @@
     </navigator>
     <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
   </scroll-view>
+  <easy-modal id="thridModal" title="自定义查询时间" bind:confirmEvent="modalConfirm">
+    <view class='modal-content'>
+      <picker mode="date" value="{{modalConfirmStartTime}}" end="{{toDayDate}}" bindchange="bindDateStart">
+        <view class="picker ">
+          {{modalConfirmStartTime}}
+        </view>
+      </picker>
+      至
+      <picker mode="date" value="{{modalConfirmEndTime}}" end="{{toDayDate}}" bindchange="bindDateEnd">
+        <view class="picker ">
+          {{modalConfirmEndTime}}
+        </view>
+      </picker>
+    </view>
+  </easy-modal>
 </view>

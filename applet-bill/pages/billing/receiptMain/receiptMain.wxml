@@ -5,20 +5,23 @@
       {{numberFr.formatNum(totalAmount,2)}}
     </view>
   </view>
-  <view class="weui-flex item border-bottom">
+  <!-- -->
+  <navigator url='/pages/billing/vipScore/vipScore?integralDeductionAmount={{integralDeductionAmount}}' wx:if='{{vipVo.customerTelephone}}' class="weui-flex item border-bottom">
     <view class="weui-flex__item color3">
       积分抵现
     </view>
     <view class="weui-flex__item tr">
-      {{numberFr.formatNum(totalAmount,2)}}
+      <text wx:if="{{integralDeductionAmount==0}}">共{{vipVo.vipCardScore}}可抵 {{numberFr.formatNum(vipVo.vipCardScore/vipVo.deductionIntegral*vipVo.deductionAmount,2)}}元</text>
+      <text wx:else>{{integralDeductionAmount}}</text>
+      <text class='iconfont icon-shangyige'></text>
     </view>
-  </view>
+  </navigator>
   <view class="weui-flex item border-bottom">
     <view class="weui-flex__item color3">
       抹零金额
     </view>
     <view class="weui-flex__item tr ">
-      <input class='txt-input-ignored' placeholder="点我抹零金额" value="{{ignoredAmount}}" bindinput="inputIgnoredAmount" />
+      <input class='txt-input-ignored' type="digit" placeholder="点我抹零金额" value="{{ignoredAmount}}" bindinput="inputIgnoredAmount" />
     </view>
   </view>
   <view class="weui-flex item  border-bottom">
@@ -26,7 +29,7 @@
       应收金额
     </view>
     <view class="weui-flex__item tr color1">
-      {{numberFr.formatNum(totalAmount,2)}}
+      {{numberFr.formatNum(totalPayAmount,2)}}
     </view>
   </view>
 
@@ -37,14 +40,14 @@
 
   </view>
 
-  <button class="weixin mb-20 mt-30" type="default" bindtap='tapweixin'>
-  <text class='iconfont icon-weixin1'></text>
-  <text class='wxlab'>微信扫码收款</text>
-  
+  <button class="weixin mb-20 mt-30" type="default" data-paytype='wechat' bindtap='tapScanCode'>
+    <text class='iconfont icon-weixin1'></text>
+    <text class='wxlab'>微信扫码收款</text>
   </button>
-  <button class="zhifubao mb-20" type="default" bindtap='tapzhifubao'>
-   <text class='iconfont icon-zhifubao1'></text>
-  <text class='zflab'>支付宝扫码收款</text></button>
+  <button class="zhifubao mb-20" type="default" data-paytype='alipay' bindtap='tapScanCode'>
+    <text class='iconfont icon-zhifubao1'></text>
+    <text class='zflab'>支付宝扫码收款</text>
+  </button>
   <button class="xianxia mb-20" type="default" bindtap='tapxianxia'>线下收款</button>
   <button class="draft mb-20" type="default" bindtap='tapdraft'>仅存草稿</button>
 </view>

@@ -1,7 +1,7 @@
 let NewApiRootUrl = ''
 //NewApiRootUrl = 'http://192.168.0.62/wxapi/'; // 后台联调的接口
-//NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/'; // 提交测试的接口
-NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
+NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/'; // 提交测试的接口
+//NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
 
 
 module.exports = {
@@ -43,4 +43,5 @@ module.exports = {
   deleteDraftRetailOrderVo: NewApiRootUrl + 'common/deleteDraftRetailOrderVo', //  删除零售草稿单
   getSectionAccountVoList: NewApiRootUrl + 'common/getSectionAccountVoList', // 获取部门可使用资金账户
   saveAndPostDraftRetailVo: NewApiRootUrl + 'common/saveAndPostDraftRetailVo', // 保存草稿单并过账
+  getRetailDraftOrderVo: NewApiRootUrl + 'common/getRetailDraftOrderVo', // 查询草稿单
 }

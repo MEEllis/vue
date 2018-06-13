@@ -18,7 +18,7 @@
   </view>
   <view class="weui-tab mt-20">
     <!-- 仓库列表 -->
-    <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&storageId={{meiItem.storageId}}&goodsId=={{meiItem.goodsId}}&isGift=={{isGift}}' class="storage-wrap" wx:for-item="meiItem" wx:for="{{dataList}}" wx:key="*this">
+    <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&storageId={{meiItem.storageId}}&goodsId={{meiItem.goodsId}}&isGift={{isGift}}' class="storage-wrap" wx:for-item="meiItem" wx:for="{{dataList}}" wx:key="*this">
       <view class="weui-flex ">
 
         <view class="weui-flex__item lab">

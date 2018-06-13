@@ -54,16 +54,22 @@ Page({
   // 获取明细信息
   getDataList: function () {
     const _this = this;
-    const { sectionId, goodsId } = this.data;
+    const { sectionId, goodsId, isGift } = this.data;
 
     util.request(api.getNumberGoodsVoListByGoodsId, {
       sectionId,
       goodsId,
     }).then(res => {
-      const { dataList } = res.data
+      const { dataList } = res.data;
+
       _this.setData({
         dataList,
       });
+      if (dataList.length===1) {
+          wx.navigateTo({
+            url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&storageId=${dataList[0].storageId}&goodsId=${dataList[0].goodsId}&isGift=${isGift}`,
+          })
+      }
     });
   },
 

@@ -7,7 +7,7 @@
     </view>
     <view class="weui-flex__item ">
     </view>
-    <view class="weui-flex__item ">
+    <view class="weui-flex__item " bindtap='tapDelDraft'>
       <view class='iconfont icon-delete'></view>
       <view class=''>删除本单</view>
     </view>
@@ -16,7 +16,7 @@
       <view class='iconfont icon-baocuncaogaodan'></view>
       <view class=''>存草稿</view>
     </view>
-    <view class="weui-flex__item " bindtap=''>
+    <view class="weui-flex__item " bindtap='tapNewDraft'>
       <view class='iconfont icon-kaidan'></view>
       <view class=''>新开单</view>
     </view>
@@ -55,7 +55,7 @@
       <view class='good-body'>
         <view class='good-item-wrap ' style="{{item.txtStyle}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
 
-          <navigator url='{{item.url}}&goodIndex={{index}}&isGift={{item.isGift}}' class='good-item-con '>
+          <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{item.sectionIdd}}&goodsId={{item.goodsId}}&imeiId={{item.imeiId}}&storageId={{item.storageId}}&ifManageImei={{item.ifManageImei}}&isSee=1&goodIndex={{index}}&isGift={{item.isGift}}' class='good-item-con '>
             <view class='good-name pb-10'>{{index+1}}.{{item.goodsName}}</view>
             <view class="weui-flex ">
               <view class="weui-flex__item lab">

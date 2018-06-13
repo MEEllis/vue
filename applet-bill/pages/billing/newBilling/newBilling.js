@@ -1,13 +1,14 @@
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
 import reg from '../../../config/reg.js';
+import bill from '../../../services/bill.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ysUserInfo: {},//云盛用户信息
+ 
     sectionIndex: 0,
     sectionName: '',
     sectionId: '',
@@ -16,28 +17,32 @@ Page({
     customerName: '',
     discountRate: 10,
     vipVo: null,
+    billsId: '', //草稿单id
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.getysUserInfo();
+  onLoad: function(options) {
+    let {
+      billsId
+    } = options;
+    billsId = billsId === undefined ? '' : billsId,
+      this.setData({
+        billsId,
+      });
+    if (billsId != '') {
+      this.getRetailDraftOrderVo()
+    } else {
+      this.getysUserInfo();
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-  getysUserInfo: function (cb) {
+  getysUserInfo: function() {
     var that = this
     wx.getStorage({
       key: 'userInfo',
-      success: function (res) {
+      success: function(res) {
         that.setData({
-          ysUserInfo: res.data,
           sectionName: res.data.sectionName,
           sectionId: res.data.sectionId,
         });
@@ -46,46 +51,53 @@ Page({
     })
   },
 
-  getCompanyList: function (cb) {
+  getCompanyList: function() {
     var that = this;
-    const { ysUserInfo } = this.data;
+    const {
+      sectionId
+    } = this.data;
     util.request(
       api.getAccessSectionVoList,
     ).then(res => {
       let sectionIndex = 0;
-      let sectionName = '';
-      let sectionId = '';
       for (let i = 0; i < res.data.dataList.length; i++) {
-        if (ysUserInfo.sectionId == res.data.dataList[i].sectionId) {
+        if (sectionId == res.data.dataList[i].sectionId) {
           sectionIndex = i;
-          sectionName = res.data.dataList[i].name;
-          sectionId = res.data.dataList[i].sectionId;
           break;
         }
       }
       that.setData({
         sectionList: res.data.dataList,
         sectionIndex,
-        sectionName,
-        sectionId,
       });
     })
 
   },
-  bindPickerChange: function (e) {
+  bindPickerChange: function(e) {
     const that = this
     const index = e.detail.value;
-    const { name, sectionId } = this.data.sectionList[index]; // 这个id就是选中项的id
+    const {
+      name,
+      sectionId,
+      billsId,
+    } = this.data.sectionList[index]; // 这个id就是选中项的id
     this.setData({
       sectionIndex: index,
       sectionName: name,
       sectionId,
     });
+
+    if (billsId!=''){
+      util.showErrorToast('切换部门，会清空单据的明细信息！');
+    }
+    
   },
-  inputName: function (e) {
+  inputName: function(e) {
     const that = this;
     const tel = e.detail.value;
-    const { customerTelephone } = this.data;
+    const {
+      customerTelephone
+    } = this.data;
     if (tel.length >= 11) {
       if (reg.phone.test(tel)) {
         this.setData({
@@ -103,27 +115,35 @@ Page({
       customerTelephone: tel,
     });
   },
-  tapNext: function (e) {
-    const { customerTelephone, customerName, sectionId } = this.data;
+  tapNext: function(e) {
+    const {
+      customerTelephone,
+      customerName,
+      sectionId,
+      billsId,
+    } = this.data;
 
     if (sectionId.length === 0) {
       util.showErrorToast('请选择部门名称！');
       return;
     }
     wx.navigateTo({
-      url: `/pages/billing/addGood/addGood?customerTelephone=${customerTelephone}&sectionId=${sectionId}`,
+      url: `/pages/billing/addGood/addGood?customerTelephone=${customerTelephone}&sectionId=${sectionId}&customerName=${customerName}&billsId=${billsId}`,
     })
   },
-  getVipVo: function () {
+  getVipVo: function() {
     var that = this;
-    const { customerTelephone } = this.data;
+    const {
+      customerTelephone
+    } = this.data;
     util.request(
-      api.getVipVo,
-      {
+      api.getVipVo, {
         customerTelephone,
       },
     ).then(res => {
-      const { vipVo } = res.data
+      const {
+        vipVo
+      } = res.data
       that.setData({
         vipVo,
       });
@@ -144,5 +164,26 @@ Page({
     })
 
   },
-
+  getRetailDraftOrderVo: function() {
+    const {
+      billsId
+    } = this.data;
+    const that =this;
+    bill.getRetailDraftOrderVo(billsId).then(res => {
+      const {
+        orderVo
+      } = res.data;
+ 
+      that.setData({
+        sectionName: orderVo.sectionName,
+        sectionId: orderVo.sectionId,
+        customerTelephone: util.stringNull(orderVo.customerTelephone),
+        customerName: util.stringNull(orderVo.customerName),
+      });
+      if (util.stringNull(orderVo.customerTelephone).length == 11) {
+        that.getVipVo();
+      }
+      that.getCompanyList();
+    })
+  }
 })

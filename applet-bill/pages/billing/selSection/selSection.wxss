@@ -1,0 +1,19 @@
+.list-item{
+  background-color: #fff;
+}
+
+.icon-toast{
+  color: #46be8a;
+  font-size: 48rpx;
+  width: 1;
+  height: 1;
+  position: absolute;
+  right: 30rpx;
+}
+
+.list-item-title{
+  padding: 20rpx 30rpx;
+}
+.weui-flex{
+  align-items: center;
+}

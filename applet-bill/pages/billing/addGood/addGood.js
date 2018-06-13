@@ -1,6 +1,7 @@
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
 import reg from '../../../config/reg.js';
+import bill from '../../../services/bill.js';
 
 Page({
 
@@ -10,32 +11,48 @@ Page({
   data: {
     sectionId: '',
     customerTelephone: '',
+    customerName: '',
     totalAmount: 0,
     totalSum: 0,
     goodsVo: [],
-    vipVo: null,
+    vipVo: {},
     delBtnWidth: 80,
     curSelIndex: '',
     scrollHeight: 0,
+    billsId: '', //草稿单id
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    const { customerTelephone, sectionId } = options;
+  onLoad: function(options) {
+    let {
+      customerTelephone,
+      sectionId,
+      customerName,
+      billsId
+    } = options;
+    customerTelephone = customerTelephone === undefined ? '' : customerTelephone;
+    sectionId = sectionId === undefined ? '' : sectionId;
+    customerName = customerName === undefined ? '' : customerName;
+    billsId = billsId === undefined ? '' : billsId;
     this.setData({
       customerTelephone,
       sectionId,
+      customerName,
+      billsId,
     });
 
-    this.getVipVo();//加载会员信息
+    this.getVipVo(); //加载会员信息
+    if (billsId !== '') {
+      this.getRetailDraftOrderVo();
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
     const that = this;
     util.getScrollHeight((52 + 60 + 50 + 4)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
@@ -48,15 +65,17 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    const { goodsVo } = this.data
+  onShow: function() {
+    const {
+      goodsVo
+    } = this.data
     let totalAmount = 0;
     let totalSum = 0;
     if (Array.isArray(goodsVo)) {
       for (let i = 0; i < goodsVo.length; i++) {
         const goodsItem = goodsVo[i];
         totalSum = util.accAdd(totalSum, goodsItem.goodsNumber)
-        if (goodsItem.isGift!=1){
+        if (goodsItem.isGift != 1) {
           totalAmount = util.accAdd(totalAmount, goodsItem.discountedAmount)
         }
         if (Array.isArray(goodsItem.giftList)) {
@@ -74,23 +93,47 @@ Page({
     })
   },
   // 上一步
-  tapPrevious: function (e) {
+  tapPrevious: function(e) {
     wx.navigateBack({
 
     })
   },
   // 存草稿
-  tapSaveDraft: function (e) {
-    const { goodsVo, vipVo, sectionId, customerTelephone, totalAmount } = this.data;
+  tapSaveDraft: function(e) {
+    this.saveDraft((res) => {
+      setTimeout(() => {
+        wx.switchTab({
+          url: '/pages/billing/index/index'
+        });
+      }, 1500)
+    })
+  },
+  saveDraft: function(callBack) {
+    const {
+      goodsVo,
+      vipVo,
+      billsId,
+      sectionId,
+      customerTelephone,
+      totalAmount
+    } = this.data;
     if (Array.isArray(goodsVo)) {
       if (goodsVo.length === 0) {
         util.showErrorToast('请添加商品！')
       } else {
         const goodsDetailList = [];
-        const addItemFun = function (item) {
+        const addItemFun = function(item, goodIndex, giftIndex) {
+          let orderNo = '';
+          if (goodIndex >= 0) {
+            orderNo += (goodIndex + 1)
+          }
+
+          if (giftIndex >= 0) {
+            orderNo += '.' + (giftIndex + 1)
+          }
           return {
-            "orderNo": item.orderNo,
-            "giftFlag": item.isGift,
+            "orderNo": orderNo,
+            "giftFlag": item.isGift == 1 ? 1 : 0,
             "storageId": item.storageId,
             "goodsId": item.goodsId,
             "imeiId": item.imeiId,
@@ -104,83 +147,130 @@ Page({
         }
         for (let i = 0; i < goodsVo.length; i++) {
           const goodsItem = goodsVo[i];
-          goodsDetailList.push(addItemFun(goodsItem));
+          goodsDetailList.push(addItemFun(goodsItem, i));
           if (Array.isArray(goodsItem.giftList)) {
             for (let j = 0; j < goodsItem.giftList.length; j++) {
               const giftItem = goodsItem.giftList[i];
-              goodsDetailList.push(addItemFun(giftItem));
+              goodsDetailList.push(addItemFun(giftItem, i, j));
             }
           }
-
         }
 
-        const order = {
+        const order = JSON.stringify({
+          "billsId": billsId,
           "sectionId": sectionId,
-          "customerId": vipVo.customerId === undefined ? '' : vipVo.customerId,
-          "customerName": vipVo.customerName === undefined ? '' : vipVo.customerName,
+          "customerId": vipVo.customerId,
+          "customerName": vipVo.customerName,
           "customerTelephone": customerTelephone,
-
           "ignoredAmount": 0,
           "totalAmount": totalAmount,
-          "totalPayAmount": 5000,
-          "shouldReceiveAmount": 5000,
+          "totalPayAmount": totalAmount,
+          "shouldReceiveAmount": totalAmount,
           "remark": "",
           "goodsDetailList": goodsDetailList,
           "paymentReceivedOrderVo": {
-            "detailList": [{
-              "accountId": "944",
-              "accountType": "1",
-              "amount": 5000
-            }]
+            "detailList": []
           }
-        };
+        });
 
         util.request(
-          api.saveDraftRetailVo,
-          order
+          api.saveDraftRetailVo, {
+            order
+          }
         ).then(res => {
           util.showErrorToast('保存草稿单成功！')
-          setTimeout(() => {
-            wx.switchTab({
-              url: '/pages/billing/index/index'
-            });
-          }, 1500)
+          if (callBack) {
+            callBack(res)
+          }
         })
       }
     } else {
       util.showErrorToast('请添加商品！')
     }
   },
+  // 删除本单
+  tapDelDraft: function(e) {
+    const {
+      billsId,
+    } = this.data;
+    if (billsId != '') {
+      util.request(
+        api.deleteDraftRetailOrderVo, {
+          billsId
+        }
+      ).then(res => {
+        util.showErrorToast('删除草稿单成功！')
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/billing/index/index'
+          });
+        }, 1500)
+      })
+    } else {
+      util.showErrorToast('当前单据不是草稿单！')
+    }
+  },
+  tapNewDraft: function(e) {
+    const that = this;
+    wx.showModal({
+      title: '提示',
+      content: '您确定新开单吗？确定后，本单将存为草稿。',
+      success: function(res) {
+        if (res.confirm) {
+          that.saveDraft((res) => {
+            setTimeout(() => {
+              wx.switchTab({
+                url: '/pages/billing/newBilling/newBilling'
+              });
+            }, 1500)
+          })
+        } else if (res.cancel) {
+
+        }
+      }
+    })
+  },
   // 收款
-  tapPay: function (e) {
+  tapPay: function(e) {
     wx.navigateTo({
       url: `/pages/billing/receiptMain/receiptMain`,
     })
   },
   // 扫码
-  tapScanCode: function () {
-    this.addShow(3);
+  tapScanCode: function() {
+    this.addShow(3, 0);
   },
 
   //录串号
-  tapLuru: function () {
-    this.addShow(1);
+  tapLuru: function() {
+    this.addShow(1, 0);
   },
   //选商品
-  tapSelGood: function () {
-    this.addShow(2);
+  tapSelGood: function() {
+    this.addShow(2, 0);
   },
   //添加商品
-  tapAddSheet: function () {
-    this.showSheet({ isGift: 0 })
+  tapAddSheet: function() {
+    this.showSheet({
+      isGift: 0
+    })
   },
   //删除商品
-  delGood: function (e) {
-    const { goodIndex } = e.currentTarget.dataset;
-    this.delGoodCon({ goodIndex: goodIndex });
+  delGood: function(e) {
+    const {
+      goodindex
+    } = e.currentTarget.dataset;
+    this.delGoodCon({
+      goodIndex: goodindex
+    });
   },
-  delGoodCon: function ({ goodIndex, giftIndex }) {
-    const { goodsVo } = this.data;
+  delGoodCon: function({
+    goodIndex,
+    giftIndex
+  }) {
+    const {
+      goodsVo
+    } = this.data;
     if (Array.isArray(goodsVo)) {
       const curGoodinfo = goodsVo[goodIndex];
       if (curGoodinfo.isGift != 1 && giftIndex >= 0) {
@@ -204,19 +294,28 @@ Page({
     });
   },
   //添加赠品
-  tapAddGift: function (e) {
-    const { index, isgift } = e.currentTarget.dataset;
-    if (isgift != 1 ) {
+  tapAddGift: function(e) {
+    const {
+      index,
+      isgift
+    } = e.currentTarget.dataset;
+    if (isgift != 1) {
       this.setData({
         curSelIndex: index,
       })
-      this.showSheet({ isGift: 1 })
+      this.showSheet({
+        isGift: 1
+      })
     }
   },
   //设置赠品
-  tapSetGift: function (e) {
-    const { index, isgift, len} = e.currentTarget.dataset;
-    if (isgift != 1 || len>0) {
+  tapSetGift: function(e) {
+    const {
+      index,
+      isgift,
+      len
+    } = e.currentTarget.dataset;
+    if (isgift != 1 && len == 0) {
       this.setData({
         curSelIndex: index,
       })
@@ -225,18 +324,22 @@ Page({
       })
     }
   },
-  showSheet: function ({ isGift }) {
+  showSheet: function({
+    isGift
+  }) {
     var that = this;
     wx.showActionSheet({
       itemList: ['录串号', '选商品', '扫串号/条码'],
-      success: function (res) {
+      success: function(res) {
         that.addShow(res.tapIndex + 1, isGift);
       }
     })
   },
 
-  addShow: function (flag, isGift) {
-    const { sectionId } = this.data;
+  addShow: function(flag, isGift) {
+    const {
+      sectionId
+    } = this.data;
 
     if (flag == 1) {
       //录串号
@@ -252,22 +355,25 @@ Page({
       //扫码
       wx.scanCode({
         success: (res) => {
-          const { result } = res;
+          const {
+            result
+          } = res;
           util.request(
-            api.getScanResultVo,
-            {
+            api.getScanResultVo, {
               imeiId: result,
               sectionId,
             },
           ).then(ajaxData => {
-            const { scanResultVo } = ajaxData.data;
+            const {
+              scanResultVo
+            } = ajaxData.data;
             const modal = () => {
               wx.showModal({
                 title: '提示',
                 content: `无匹配库存串号或商品条码!扫码结果：${result}`,
                 showCancel: false,
                 confirmColor: '#476ec9',
-                success: function (res) {
+                success: function(res) {
 
                 }
               })
@@ -276,13 +382,11 @@ Page({
 
               if (scanResultVo.type == 1) {
                 modal();
-              }
-              else if (scanResultVo.type == 2) {
+              } else if (scanResultVo.type == 2) {
                 wx.navigateTo({
                   url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${scanResultVo.goodsId}&imeiId=${scanResultVo.imeiId}&ifManageImei=1&isGift=${isGift}`,
                 })
-              }
-              else if (scanResultVo.type == 3) {
+              } else if (scanResultVo.type == 3) {
                 wx.navigateTo({
                   url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&storageId=${scanResultVo.storageId}&goodsId=${scanResultVo.goodsId}&ifManageImei=0&isGift=${isGift}`,
                 })
@@ -300,26 +404,97 @@ Page({
     }
 
   },
-  // 获取会员信息
-  getVipVo: function () {
 
-    var that = this;
-    const { customerTelephone } = this.data;
-    util.request(
-      api.getVipVo,
-      {
-        customerTelephone,
-      },
-    ).then(res => {
-      const { vipVo } = res.data
-      that.setData({
-        vipVo: vipVo === null ? {} : vipVo,
-      });
+  getRetailDraftOrderVo: function() {
+    const {
+      billsId,
+      sectionId,
+      goodsVo,
+    } = this.data;
+    const that = this;
+    bill.getRetailDraftOrderVo(billsId).then(res => {
+      const {
+        orderVo
+      } = res.data;
+      //切换部门，不载入商品
+      if (sectionId == orderVo.sectionId) {
+        const {
+          goodsDetailList
+        } = orderVo;
+        if (Array.isArray(goodsDetailList)) {
+          for (let i = 0; i < goodsDetailList.length; i++) {
+            const goodsDetailItem = goodsDetailList[i];
+            if ((goodsDetailItem.orderNo% 1) == 0) {
+              goodsDetailItem.isGift = goodsDetailItem.giftFlag;
+              goodsVo.push(goodsDetailItem)
+            }
+          }
+          for (let i = 0; i < goodsDetailList.length; i++) {
+            const goodsDetailItem = goodsDetailList[i];
+            if ((goodsDetailItem.orderNo % 1) != 0) {
+              const orderNoArr = goodsDetailItem.orderNo.split(".");
+              goodsDetailItem.isGift = goodsDetailItem.giftFlag;
+              if (goodsVo[orderNoArr[0]]) {
+                goodsVo[orderNoArr[0]].push(goodsDetailItem)
+              }
+            }
+          }
+        }
+        that.setData({
+          goodsVo,
+        });
+      }
     })
+  },
+  // 获取会员信息
+  getVipVo: function() {
+    var that = this;
+    const {
+      customerTelephone,
+      customerName
+    } = this.data;
+    if (customerTelephone) {
+      util.request(
+        api.getVipVo, {
+          customerTelephone,
+        },
+      ).then(res => {
+        const {
+          vipVo
+        } = res.data
+        if (vipVo === null) {
+          that.setData({
+            vipVo: {
+              "customerName": customerName,
+              "customerTelephone": customerTelephone,
+            },
+          });
+        } else {
+          if (vipVo.status == 1) {
+            that.setData({
+              vipVo: {},
+            });
+          } else {
+            that.setData({
+              vipVo,
+            });
+          }
+        }
+
+      })
+    } else {
+      that.setData({
+        vipVo: {
+          "customerName": customerName,
+          "customerTelephone": customerTelephone,
+        },
+      });
+    }
+
   },
 
   //手指刚放到屏幕触发
-  touchS: function (e) {
+  touchS: function(e) {
     //判断是否只有一个触摸点
     if (e.touches.length == 1) {
       this.setData({
@@ -329,7 +504,7 @@ Page({
     }
   },
   //触摸时触发，手指在屏幕上每移动一次，触发一次
-  touchM: function (e) {
+  touchM: function(e) {
     var that = this
     if (e.touches.length == 1) {
       //记录触摸点位置的X坐标
@@ -339,9 +514,9 @@ Page({
       //delBtnWidth 为右侧按钮区域的宽度
       var delBtnWidth = that.data.delBtnWidth;
       var txtStyle = "";
-      if (disX == 0 || disX < 0) {//如果移动距离小于等于0，文本层位置不变
+      if (disX == 0 || disX < 0) { //如果移动距离小于等于0，文本层位置不变
         txtStyle = "left:0px";
-      } else if (disX > 0) {//移动距离大于0，文本层left值等于手指移动距离
+      } else if (disX > 0) { //移动距离大于0，文本层left值等于手指移动距离
         txtStyle = "left:-" + disX + "px";
         if (disX >= delBtnWidth) {
           //控制手指移动距离最大值为删除按钮的宽度
@@ -359,7 +534,7 @@ Page({
       });
     }
   },
-  touchE: function (e) {
+  touchE: function(e) {
     var that = this
     if (e.changedTouches.length == 1) {
       //手指移动结束后触摸点位置的X坐标

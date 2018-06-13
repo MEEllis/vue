@@ -28,11 +28,13 @@ Page({
       sectionId: sectionId === undefined ? '' : sectionId,
       isGift: isGift === undefined ? '' : isGift,
     });
+    
     if (isGift == 1) {
       wx.setNavigationBarTitle({
         title: '选商品(赠品)'
       })
     }
+    this.getDataList()
   },
 
   /**
@@ -88,16 +90,12 @@ Page({
   //关键字搜索
   searchSubmit: function () {
     const { queryKey } = this.data;
-    if (queryKey.length < 5) {
-      util.showErrorToast(`请输入商品串号(末5位以上)!`);
-    } else {
-      this.setData({
-        pageNumber: 1,
-        dataList: [],
-        curListData: [],
-      });
-      this.getDataList()
-    }
+    this.setData({
+      pageNumber: 1,
+      dataList: [],
+      curListData: [],
+    });
+    this.getDataList()
   },
 
   getDataList: function () {
@@ -116,11 +114,11 @@ Page({
           const item = dataList[0];
           if (item.ifManageImei == 1) {
             wx.navigateTo({
-              url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&imeiId=${item.imeiId}&ifManageImei=1&isGift==${isGift}`,
+              url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&imeiId=${item.imeiId}&ifManageImei=1&isGift=${isGift}`,
             })
           } else {
             wx.navigateTo({
-              url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&storageId=${item.storageId}&isGift==${isGift}`,
+              url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&storageId=${item.storageId}&isGift=${isGift}`,
             })
           }
           return;
@@ -128,9 +126,9 @@ Page({
           for (let i = 0; i < dataList.length; i++) {
             const dataItem = dataList[i];
             if (dataItem.ifManageImei == 1) {
-              dataItem.url = `/pages/billing/selImei/selImei?sectionId=${sectionId}&goodsId=${dataItem.goodsId}&isGift==${isGift}`;
+              dataItem.url = `/pages/billing/selImei/selImei?sectionId=${sectionId}&goodsId=${dataItem.goodsId}&isGift=${isGift}`;
             } else {
-              dataItem.url = `/pages/billing/selCount/selCount?sectionId=${sectionId}&goodsId=${dataItem.goodsId}&isGift==${isGift}`;
+              dataItem.url = `/pages/billing/selCount/selCount?sectionId=${sectionId}&goodsId=${dataItem.goodsId}&isGift=${isGift}`;
             }
           }
         }

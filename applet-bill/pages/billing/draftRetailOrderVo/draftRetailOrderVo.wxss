@@ -77,3 +77,40 @@
   height: 1px;
   border-top: 1px dotted #e6e6e6;
 }
+
+.modal-content picker {
+  display: inline-block;
+  border-bottom: 1rpx solid #e6e6e6;
+  padding: 20rpx 30rpx;
+}
+
+.modal-content {
+  padding: 30rpx;
+  text-align: center;
+}
+.good-item {
+  position: relative;
+}
+.good-item-wrap {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+}
+
+.posit {
+  position: absolute;
+  top: 0;
+  background-color: #e64340;
+  width: 80px;
+  text-align: center;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  align-items: center;
+}
+
+.posit .weui-flex__item {
+
+
+}

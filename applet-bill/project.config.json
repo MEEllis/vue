@@ -193,6 +193,42 @@
 					"name": "billing/draftRetailOrderVo",
 					"pathName": "pages/billing/draftRetailOrderVo/draftRetailOrderVo",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "billing/offlinePay",
+					"pathName": "pages/billing/offlinePay/offlinePay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "billing/vipScore",
+					"pathName": "pages/billing/vipScore/vipScore",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "billing/paySuccess",
+					"pathName": "pages/billing/paySuccess/paySuccess",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "billing/retailOrderVoSearch",
+					"pathName": "pages/billing/retailOrderVoSearch/retailOrderVoSearch",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "/billing/retailOrderVo",
+					"pathName": "pages/billing/retailOrderVo/retailOrderVo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "/billing/selSection",
+					"pathName": "pages/billing/selSection/selSection",
+					"query": ""
 				}
 			]
 		}

@@ -1,0 +1,36 @@
+page {
+  background-color: #fff;
+}
+
+.body-wrap {
+  padding-left: 30rpx;
+}
+
+.amount {
+  font-size: 40rpx;
+  color: #fe9f45;
+  text-align: right;
+}
+
+.weui-flex {
+  align-items: center;
+  padding-right: 30rpx;
+}
+
+.p1 {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.txt-input {
+  border: solid 1px #d9d9d9;
+  border-radius: 6rpx;
+  height: 60rpx;
+  width: 300rpx;
+  float: right;
+  text-align: right;
+}
+
+.btnBlue {
+  margin-right: 30rpx;
+}

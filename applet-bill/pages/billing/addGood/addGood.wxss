@@ -167,7 +167,7 @@ page {
 }
 
 .good-item .labv {
-  font-size: 32Rpx;
+  font-size: 32rpx;
   color: #333;
 }
 

@@ -1,0 +1,22 @@
+.weui-flex {
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+}
+
+.lab {
+  color: #666;
+}
+.btnBlue{
+  margin-top: 70rpx;
+
+  margin: 70rpx 30rpx 20rpx;
+}
+
+.txt-input {
+  border: solid 1px #d9d9d9;
+  border-radius: 6rpx;
+  height: 60rpx;
+  width: 300rpx;
+  float: right;
+  text-align: right;
+}
