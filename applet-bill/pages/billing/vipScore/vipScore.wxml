@@ -27,7 +27,9 @@
       抵现:
     </view>
     <view class="weui-flex__item fl">
-      <input class='txt-input tr' value="{{integralDeductionAmount}}" placeholder='请输入抵现金额' type='digit' bindinput="inputAmount" maxlength='20' />
+
+
+         <inputNum class='txt-input' num="{{integralDeductionAmount}}" placeholderC="请输入抵现金额" bindchangeEvent='inputAmount'></inputNum>
     </view>
   </view>
 

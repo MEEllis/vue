@@ -77,11 +77,16 @@ Page({
         totalSum = util.accAdd(totalSum, goodsItem.goodsNumber)
         if (goodsItem.isGift != 1) {
           totalAmount = util.accAdd(totalAmount, goodsItem.discountedAmount)
+        }else{
+          goodsItem.discountedPrice=0;
+          goodsItem.discountedAmount=0;
         }
         if (Array.isArray(goodsItem.giftList)) {
           for (let j = 0; j < goodsItem.giftList.length; j++) {
             const giftItem = goodsItem.giftList[i];
-            totalSum = util.accAdd(totalSum, giftItem.goodsNumber)
+            totalSum = util.accAdd(totalSum, giftItem.goodsNumber);
+            giftItem.discountedPrice = 0;
+            giftItem.discountedAmount = 0;
           }
         }
 
@@ -90,6 +95,7 @@ Page({
     this.setData({
       totalAmount,
       totalSum,
+      goodsVo,
     })
   },
   // 上一步
@@ -360,7 +366,7 @@ Page({
           } = res;
           util.request(
             api.getScanResultVo, {
-              imeiId: result,
+              queryKey: result,
               sectionId,
             },
           ).then(ajaxData => {
@@ -426,6 +432,7 @@ Page({
             const goodsDetailItem = goodsDetailList[i];
             if ((goodsDetailItem.orderNo% 1) == 0) {
               goodsDetailItem.isGift = goodsDetailItem.giftFlag;
+              goodsDetailItem.giftList = [];
               goodsVo.push(goodsDetailItem)
             }
           }
@@ -435,7 +442,7 @@ Page({
               const orderNoArr = goodsDetailItem.orderNo.split(".");
               goodsDetailItem.isGift = goodsDetailItem.giftFlag;
               if (goodsVo[orderNoArr[0]]) {
-                goodsVo[orderNoArr[0]].push(goodsDetailItem)
+                goodsVo[orderNoArr[0]].giftList.push(goodsDetailItem)
               }
             }
           }
@@ -443,6 +450,8 @@ Page({
         that.setData({
           goodsVo,
         });
+        
+        that.onShow();
       }
     })
   },

@@ -75,9 +75,8 @@ Page({
     this.setData({
       queryKey: "",
       inputShowed: false,
-      dataList: [],
-      curListData: [],
     });
+    this.searchSubmit();
   },
   clearInput: function () {
     this.setData({
@@ -110,38 +109,32 @@ Page({
     }).then(res => {
       let dataList = that.data.dataList.concat(res.data.dataList)
       if (Array.isArray(dataList)) {
-        if (dataList.length === 1) {
-          const item = dataList[0];
-          if (item.ifManageImei == 1) {
-            wx.navigateTo({
-              url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&imeiId=${item.imeiId}&ifManageImei=1&isGift=${isGift}`,
-            })
+
+        for (let i = 0; i < dataList.length; i++) {
+          const dataItem = dataList[i];
+          if (dataItem.ifManageImei == 1) {
+            dataItem.url = `/pages/billing/selImei/selImei?sectionId=${sectionId}&goodsId=${dataItem.goodsId}&isGift=${isGift}`;
           } else {
-            wx.navigateTo({
-              url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&storageId=${item.storageId}&isGift=${isGift}`,
-            })
-          }
-          return;
-        } else {
-          for (let i = 0; i < dataList.length; i++) {
-            const dataItem = dataList[i];
-            if (dataItem.ifManageImei == 1) {
-              dataItem.url = `/pages/billing/selImei/selImei?sectionId=${sectionId}&goodsId=${dataItem.goodsId}&isGift=${isGift}`;
-            } else {
-              dataItem.url = `/pages/billing/selCount/selCount?sectionId=${sectionId}&goodsId=${dataItem.goodsId}&isGift=${isGift}`;
-            }
+            dataItem.url = `/pages/billing/selCount/selCount?sectionId=${sectionId}&goodsId=${dataItem.goodsId}&isGift=${isGift}`;
           }
         }
-
+        that.setData({
+          dataList,
+          curListData: res.data.dataList,
+          loadingMore: false,
+        });
       }
-      that.setData({
-        dataList,
-        curListData: res.data.dataList,
-        loadingMore: false,
-      });
-
+      
     });
 
-  }
-
+  },
+  scrolltolower: function () {
+    if (this.data.curListData.length === 0) {
+      return;
+    }
+    this.setData({
+      pageNumber: this.data.pageNumber + 1,
+    });
+    this.getDataList();
+  },
 })

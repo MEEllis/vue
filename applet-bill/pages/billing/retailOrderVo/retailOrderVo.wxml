@@ -20,7 +20,7 @@
   </view>
   <view class="weui-flex  cate-wrap">
     <view data-index="{{index}}" class='weui-flex__item' wx:for="{{tabContent}}" wx:key="{{index}}">
-      <button  class="btn   {{activeIndex == index ? 'on' : ''}}" data-index="{{index}}" bindtap="tabContentClick">
+      <button class="btn   {{activeIndex == index ? 'on' : ''}}" data-index="{{index}}" bindtap="tabContentClick">
         {{item}}
       </button>
     </view>
@@ -53,7 +53,15 @@
       </view>
       <view class='list-item-footer'>
         <view class=''>
-          {{numberFr.stringNull(item.summary)}}
+          {{numberFr.stringNull(item.goodsName)}}
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item tl">
+            {{numberFr.formatNum(item.discountedPrice||'',2)}}
+          </view>
+          <view class="weui-flex__item tr">
+            x{{numberFr.formatNum(item.goodsNumber||'')}}
+          </view>
         </view>
       </view>
     </navigator>

@@ -32,14 +32,14 @@
     <view class="weui-flex">
       <text class='color3'>客户电话:</text>
       <view class=" weui-flex__item">
-        <input class='txt-input' type="number" focus placeholder="请输入(客户或会员)手机号码" value="{{customerTelephone}}" bindinput="inputName" maxlength='11' />
+        <input class='txt-input' type="number" focus placeholder="请输入(客户或会员)手机号码" value="{{customerTelephone}}" bindinput="inputTel" maxlength='11' />
       </view>
     </view>
     <view hidden='{{customerTelephone.length!==11}}' class="weui-flex">
       <text class='color3'>客户姓名:</text>
       <view class=" weui-flex__item">
         <text wx:if='{{vipVo!==null&&customerTelephone.length===11}}'>{{numberFr.stringNull(vipVo.customerName)}}</text>
-        <input class='txt-input' wx:else type="number" focus="true" placeholder="请输入客户姓名" value="{{customerName}}" />
+        <input class='txt-input' wx:else bindinput="inputName"   focus="true" placeholder="请输入客户姓名" value="{{customerName}}" />
       </view>
     </view>
     <view wx:if='{{vipVo!==null&&customerTelephone.length===11}}' class="weui-flex">

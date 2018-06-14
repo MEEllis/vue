@@ -21,7 +21,7 @@
       现金
     </view>
     <view class="weui-flex__item">
-      <input class='txt-input' value="{{dataVo[1][0].amount}}" type='digit' data-key="1" data-index="0" bindinput="inputAmount" maxlength='20' />
+      <inputNum class='txt-input' num="{{dataVo[1][0].amount}}" data-key="1" data-index="0" bindchangeEvent='inputAmount'></inputNum>
     </view>
   </view>
   <view class="weui-flex " wx:if="{{dataVo[2]}}">
@@ -34,7 +34,7 @@
       {{item.name}}
     </view>
     <view class="weui-flex__item">
-      <input class='txt-input' value="{{item.amount}}" data-key="2" data-index="{{index}}" type='digit' bindinput="inputAmount" maxlength='20' />
+      <inputNum class='txt-input' num="{{item.amount}}" data-key="2" data-index="{{index}}" bindchangeEvent='inputAmount'></inputNum>
     </view>
   </view>
 
@@ -48,7 +48,7 @@
       {{item.name}}
     </view>
     <view class="weui-flex__item">
-      <input class='txt-input' type='digit' value="{{item.amount}}" type='digit' data-key="5" data-index="{{index}}" bindinput="inputAmount" maxlength='20' />
+      <inputNum class='txt-input' num="{{item.amount}}" data-key="5" data-index="{{index}}" bindchangeEvent='inputAmount'></inputNum>
     </view>
   </view>
 
@@ -60,7 +60,7 @@
       支付宝(非系统扫码收款)
     </view>
     <view class="weui-flex__item">
-      <input class='txt-input' value="{{dataVo[4][0].amount}}" data-key="4" data-index="0" type='digit' bindinput="inputAmount" maxlength='20' />
+      <inputNum class='txt-input' num="{{dataVo[4][0].amount}}" data-key="4" data-index="0" bindchangeEvent='inputAmount'></inputNum>
     </view>
   </view>
 
@@ -69,7 +69,7 @@
       微信(非系统扫码收款)
     </view>
     <view class="weui-flex__item">
-      <input class='txt-input' value="{{dataVo[3][0].amount}}" data-key="3" data-index="0" type='digit' bindinput="inputAmount" maxlength='20' />
+      <inputNum class='txt-input' num="{{dataVo[3][0].amount}}" data-key="3" data-index="0" bindchangeEvent='inputAmount'></inputNum>
     </view>
   </view>
 

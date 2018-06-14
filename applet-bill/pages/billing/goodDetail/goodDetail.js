@@ -24,8 +24,18 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    const { sectionId, imeiId, ifManageImei, goodsId, storageId, isSee, goodIndex, giftIndex, isGift } = options;
+  onLoad: function(options) {
+    const {
+      sectionId,
+      imeiId,
+      ifManageImei,
+      goodsId,
+      storageId,
+      isSee,
+      goodIndex,
+      giftIndex,
+      isGift
+    } = options;
 
     this.setData({
       sectionId: sectionId === undefined ? '' : sectionId,
@@ -41,9 +51,13 @@ Page({
     this.setDelta();
     //查看状态
     if (isSee == 1) {
-      const { addPage } = this.data;
+      const {
+        addPage
+      } = this.data;
       if (addPage != null) {
-        const { goodsVo } = addPage.data;
+        const {
+          goodsVo
+        } = addPage.data;
         if (goodIndex != undefined) {
           //赠品
           if (giftIndex != undefined) {
@@ -78,36 +92,41 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   //匹配到串号商品(单个)
-  getImeiGoodsVoByImeiId: function () {
+  getImeiGoodsVoByImeiId: function() {
     var that = this;
-    const { sectionId, imeiId, delta } = this.data;
+    const {
+      sectionId,
+      imeiId,
+      delta
+    } = this.data;
     util.request(
-      api.getImeiGoodsVoByImeiId,
-      {
+      api.getImeiGoodsVoByImeiId, {
         sectionId,
         imeiId,
       },
     ).then(ajaxData => {
-      const { imeiGoodsVo } = ajaxData.data;
+      const {
+        imeiGoodsVo
+      } = ajaxData.data;
       if (imeiGoodsVo) {
         imeiGoodsVo.ifManageImei = 1;
       }
@@ -127,18 +146,24 @@ Page({
     })
   },
   //零售开单通过商品id,仓库id查询唯一数量商品信息
-  getNumberGoodsVoByGoodsId: function () {
+  getNumberGoodsVoByGoodsId: function() {
     var that = this;
-    const { sectionId, storageId, goodsId, delta } = this.data;
+    const {
+      sectionId,
+      storageId,
+      goodsId,
+      delta
+    } = this.data;
     util.request(
-      api.getNumberGoodsVoByGoodsId,
-      {
+      api.getNumberGoodsVoByGoodsId, {
         sectionId,
         storageId,
         goodsId,
       },
     ).then(ajaxData => {
-      const { numberGoodsVo } = ajaxData.data;
+      const {
+        numberGoodsVo
+      } = ajaxData.data;
       if (numberGoodsVo) {
         numberGoodsVo.ifManageImei = 0;
       }
@@ -146,10 +171,13 @@ Page({
 
     })
   },
-  renderData: function (goodInfo) {
-    const { sectionId, isGift } = this.data;
+  renderData: function(goodInfo) {
+    const {
+      sectionId,
+      isGift
+    } = this.data;
     goodInfo.discountRate = this.getDiscountRateByGoodsClassId(goodInfo);
-    goodInfo.discountedPrice = util.accDiv(util.accMul(goodInfo.retailPrice, goodInfo.discountRate), 100);
+    goodInfo.discountedPrice = Number(util.accDiv(util.accMul(goodInfo.retailPrice, goodInfo.discountRate), 100).toFixed(2));
     goodInfo.discountedAmount = Number(goodInfo.discountedPrice);
     goodInfo.goodsNumber = 1;
     goodInfo.remark = '';
@@ -159,30 +187,33 @@ Page({
     } else {
       goodInfo.isGift = 0;
     }
-
-    if (goodInfo.ifManageImei == 1) {
-      goodInfo.url = `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${goodInfo.goodsId}&imeiId=${goodInfo.imeiId}&ifManageImei=1&isSee=1`;
-    } else {
-      goodInfo.url = `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${goodInfo.goodsId}&storageId=${goodInfo.storageId}&ifManageImei=0&isSee=1`;
-    }
     //列表不存在录入商品
     this.setData({
       goodInfo,
     })
   },
-  inputUnitPrice: function (e) {
-    const { goodInfo } = this.data;
+  inputUnitPrice: function(e) {
+    const {
+      goodInfo
+    } = this.data;
+
+    const discountedPrice = e.detail.num;
     if (goodInfo) {
-      goodInfo.discountedPrice = e.detail.value;
-      goodInfo.discountedAmount = Number(goodInfo.discountedPrice) * Number(goodInfo.goodsNumber);
-      this.setData({
-        goodInfo,
-      });
+      goodInfo.discountedPrice = discountedPrice;
+      goodInfo.discountedAmount = Number(util.accMul(Number(goodInfo.discountedPrice), Number(goodInfo.goodsNumber)).toFixed(2));
+      if (goodInfo.retailPrice != 0) {
+        goodInfo.discountRate = Number(util.accMul(util.accDiv(goodInfo.discountedPrice, goodInfo.retailPrice), 100).toFixed(2));
+      }
     }
+    this.setData({
+      goodInfo,
+    });
 
   },
-  inputRemark: function (e) {
-    const { goodInfo } = this.data;
+  inputRemark: function(e) {
+    const {
+      goodInfo
+    } = this.data;
     if (goodInfo) {
       goodInfo.remark = e.detail.value;
       this.setData({
@@ -191,11 +222,16 @@ Page({
     }
 
   },
-  inputGoodsNumber: function (e) {
-    const { num } = e.detail
-    const { goodInfo } = this.data;
+  inputGoodsNumber: function(e) {
+    const {
+      num
+    } = e.detail
+    const {
+      goodInfo
+    } = this.data;
     if (goodInfo) {
       goodInfo.goodsNumber = num;
+      goodInfo.discountedAmount = Number(util.accMul(Number(goodInfo.discountedPrice), Number(goodInfo.goodsNumber)).toFixed(2));
       this.setData({
         goodInfo,
       });
@@ -204,13 +240,19 @@ Page({
   },
 
   //检查商品是否录入
-  checkGoodsVoItemIsExist: function (goodsVoItem) {
+  checkGoodsVoItemIsExist: function(goodsVoItem) {
     if (this.data.addPage != null) {
-      const { goodsVo } = this.data.addPage.data;
+      const {
+        goodsVo
+      } = this.data.addPage.data;
       if (Array.isArray(goodsVo)) {
         //检查串号商品是否重复
         for (let i = 0; i < goodsVo.length; i++) {
-          const { goodsId, imeiId, giftList } = goodsVo[i];
+          const {
+            goodsId,
+            imeiId,
+            giftList
+          } = goodsVo[i];
           if (goodsVoItem.goodsId == goodsId && goodsVoItem.imeiId == imeiId) {
             util.showErrorToast(`商品：${goodsVoItem.goodsName}已录入，请重新输入!`);
             return false;
@@ -230,14 +272,22 @@ Page({
     return goodsVoItem
   },
   //获取该商品的折扣率
-  getDiscountRateByGoodsClassId: function ({ goodsClassId }) {
+  getDiscountRateByGoodsClassId: function({
+    goodsClassId
+  }) {
     const addPage = this.data.addPage;
     if (addPage != null) {
-      const { vipVo } = addPage.data;
+      const {
+        vipVo
+      } = addPage.data;
       if (vipVo === null) {
         return 100;
       } else {
-        const { defaultDiscountRate, goodsDiscountList, status } = vipVo;
+        const {
+          defaultDiscountRate,
+          goodsDiscountList,
+          status
+        } = vipVo;
         if (status == 0) {
           if (Array.isArray(goodsDiscountList)) {
             let discountRate = -1;
@@ -266,10 +316,26 @@ Page({
       return 100;
     }
   },
-  tapOk: function () {
-    const { goodInfo, delta, addPage, isSee, goodIndex, giftIndex, isGift } = this.data;
+  tapOk: function() {
+    const {
+      goodInfo,
+      delta,
+      addPage,
+      isSee,
+      goodIndex,
+      giftIndex,
+      isGift
+    } = this.data;
     if (addPage != null) {
-      const { goodsVo, curSelIndex } = addPage.data;
+      if (goodInfo.discountedPrice === "" || goodInfo.discountedPrice === undefined || goodInfo.discountedPrice === null) {
+        util.showErrorToast(`请输入折后单价!`);
+        return;
+      }
+
+      const {
+        goodsVo,
+        curSelIndex
+      } = addPage.data;
       if (Array.isArray(goodsVo)) {
         //修改
         if (isSee == 1 && goodIndex != '') {
@@ -309,25 +375,37 @@ Page({
 
 
   },
-  tapCancle: function () {
-    const { delta } = this.data;
+  tapCancle: function() {
+    const {
+      delta
+    } = this.data;
     wx.navigateBack({
       delta: Number(delta),
     })
   },
 
-  tapDel: function () {
-    const { delta, addPage, goodIndex, giftIndex } = this.data;
+  tapDel: function() {
+    const {
+      delta,
+      addPage,
+      goodIndex,
+      giftIndex
+    } = this.data;
     if (addPage != null) {
-      addPage.delGoodCon({ goodIndex, giftIndex })
+      addPage.delGoodCon({
+        goodIndex,
+        giftIndex
+      })
     }
     wx.navigateBack({
       delta: Number(delta),
     })
   },
 
-  setDelta: function () {
-    const mainPage = util.getMainPage({ route: 'pages/billing/addGood/addGood' })
+  setDelta: function() {
+    const mainPage = util.getMainPage({
+      route: 'pages/billing/addGood/addGood'
+    })
     this.setData({
       delta: mainPage.delta,
       addPage: mainPage.addPage,

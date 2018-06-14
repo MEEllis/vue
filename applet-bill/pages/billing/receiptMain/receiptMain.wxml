@@ -6,7 +6,7 @@
     </view>
   </view>
   <!-- -->
-  <navigator url='/pages/billing/vipScore/vipScore?integralDeductionAmount={{integralDeductionAmount}}' wx:if='{{vipVo.customerTelephone}}' class="weui-flex item border-bottom">
+  <navigator url='/pages/billing/vipScore/vipScore?integralDeductionAmount={{integralDeductionAmount}}' wx:if='{{vipVo.customerId}}' class="weui-flex item border-bottom">
     <view class="weui-flex__item color3">
       积分抵现
     </view>
@@ -21,7 +21,10 @@
       抹零金额
     </view>
     <view class="weui-flex__item tr ">
-      <input class='txt-input-ignored' type="digit" placeholder="点我抹零金额" value="{{ignoredAmount}}" bindinput="inputIgnoredAmount" />
+
+      <inputNum class='txt-input-ignored' num="{{ignoredAmount}}" placeholderC="点我抹零金额" bindchangeEvent='inputIgnoredAmount'></inputNum>
+
+
     </view>
   </view>
   <view class="weui-flex item  border-bottom">

@@ -6,7 +6,7 @@
     <form class="weui-search-bar__form">
       <view class="weui-search-bar__box">
         <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-        <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder="商品类别/品牌/型号/商品名称/条码/串号" value="{{queryKey}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
+        <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder="增值服务名称" value="{{queryKey}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
         <view class="weui-icon-clear" wx:if="{{queryKey.length > 0}}" bindtap="clearInput">
           <icon type="clear" size="14"></icon>
         </view>

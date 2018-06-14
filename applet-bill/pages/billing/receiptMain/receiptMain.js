@@ -42,7 +42,7 @@ Page({
 
   inputIgnoredAmount: function (e) {
     this.setData({
-      ignoredAmount: e.detail.value,
+      ignoredAmount: e.detail.num,
     });
     this.summary();
   },
@@ -88,7 +88,7 @@ Page({
             }
           }
           bill.saveAndPostDraftRetailVo(saveData).then(() => {
-            wx.navigateTo({
+            wx.redirectTo({
               url: `/pages/billing/paySuccess/paySuccess?totalPayAmount=${totalPayAmount}&billsId=${res.data.billsId}`
             });
           })

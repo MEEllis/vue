@@ -106,6 +106,7 @@ Page({
     }).then(res => {
       _this.setData({
         dataList: res.data.dataList,
+        loadingMore:false,
       });
     });
   },

@@ -55,7 +55,7 @@
       <view class='good-body'>
         <view class='good-item-wrap ' style="{{item.txtStyle}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
 
-          <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{item.sectionIdd}}&goodsId={{item.goodsId}}&imeiId={{item.imeiId}}&storageId={{item.storageId}}&ifManageImei={{item.ifManageImei}}&isSee=1&goodIndex={{index}}&isGift={{item.isGift}}' class='good-item-con '>
+          <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&goodsId={{item.goodsId}}&imeiId={{item.imeiId}}&storageId={{item.storageId}}&ifManageImei={{item.ifManageImei}}&isSee=1&goodIndex={{index}}&isGift={{item.isGift}}' class='good-item-con '>
             <view class='good-name pb-10'>{{index+1}}.{{item.goodsName}}</view>
             <view class="weui-flex ">
               <view class="weui-flex__item lab">
@@ -114,7 +114,7 @@
         <!--这里是左滑按钮部分----end-->
       </view>
       <view class='gift-wrap border-top' wx:for-items="{{item.giftList}}" wx:key="*this" wx:for-index="idx" wx:for-item="itemName">
-        <navigator url='{{item.url}}&goodIndex={{index}}&giftIndex={{idx}}&isGift=1'>
+        <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&goodsId={{itemName.goodsId}}&imeiId={{itemName.imeiId}}&storageId={{itemName.storageId}}&ifManageImei={{itemName.ifManageImei}}&isSee=1&goodIndex={{index}}&giftIndex={{idx}}&isGift={{itemName.isGift}}'>
           <view class='weui-flex'>
             <view class="weui-flex__item ">
               {{idx+1}}.{{itemName.goodsName}}

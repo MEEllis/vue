@@ -18,6 +18,10 @@
         <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.models)}}</view>
       </view>
       <view class="weui-cell">
+        <view class="weui-cell__bd">颜色:</view>
+        <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.color)}}</view>
+      </view>
+      <view class="weui-cell">
         <view class="weui-cell__bd">配置:</view>
         <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.configure)}}</view>
       </view>

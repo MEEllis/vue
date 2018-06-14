@@ -1,5 +1,6 @@
 <view class="container">
   <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <import src="../../../template/pagination.wxml" />
   <!-- 搜索 -->
   <view class="weui-search-bar">
     <form class="weui-search-bar__form">
@@ -24,8 +25,8 @@
   </view>
 
   <!-- 商品列表 -->
-  <scroll-view  hidden="{{!inputShowed}}" scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-    <view class='list-item mb-30 ' wx:for-items="{{dataList}}" wx:key="*this" >
+  <scroll-view hidden="{{!inputShowed}}" scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+    <view class='list-item mb-30 ' wx:for-items="{{dataList}}" wx:key="*this">
       <view class='list-item-body'>
         <view class="weui-flex">
           <view class='weui-flex__item color3 title'>串号：</view>

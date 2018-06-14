@@ -7,6 +7,7 @@ Page({
    */
   data: {
     billsId: '',
+    remark: '',
     orderVo: {},
     totalCount:0,
     goodOn: true,
@@ -50,6 +51,7 @@ Page({
       _this.setData({
         orderVo: res.data.orderVo,
         totalCount,
+        remark: res.data.orderVo.remark,
       });
     });
   },
@@ -60,5 +62,22 @@ Page({
     const setObj = {}
     setObj[target] = !flagOn
     this.setData(setObj);
+  },
+  inputRemark: function (e) {
+    this.setData({
+      remark: e.detail.value,
+    });
+  },
+  tapUpdate: function (e) {
+    const {
+      billsId,
+      remark,
+    } = this.data;
+    util.request(api.updateRetailRemarkById, {
+      billsId,
+      remark,
+    }).then(res => {
+      util.showErrorToast('修改成功！')
+    });
   },
 })

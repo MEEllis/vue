@@ -62,7 +62,7 @@
 
 .list-item-footer {
   background-color: #f7f7f7;
-  padding: 20rpx;
+  padding: 20rpx 30rpx;
   color: #8c8c8c;
   font-size: 28rpx;
   position: relative;

@@ -1,4 +1,5 @@
-// pages/billing/paySuccess/paySuccess.js
+import util from '../../../utils/util.js';
+import api from '../../../config/api.js';
 Page({
 
   /**
@@ -33,7 +34,7 @@ Page({
     })
   },
   tapCur: function () {
-    const { billsId } = this;
+    const { billsId } = this.data;
     wx.redirectTo({
       url: `/pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo?billsId=${billsId}`
     })
@@ -41,6 +42,15 @@ Page({
   tapIndex: function () {
     wx.switchTab({
       url: '/pages/billing/index/index'
+    })
+  },
+  print:function(){
+    const { billsId } = this.data;
+    util.request(
+      api.print,
+      { billsId },
+    ).then(res => {
+      
     })
   },
 })

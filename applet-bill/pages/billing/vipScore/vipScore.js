@@ -60,7 +60,7 @@ Page({
   },
   inputAmount: function (e) {
     this.setData({
-      integralDeductionAmount: e.detail.value,
+      integralDeductionAmount: e.detail.num,
     });
   },
   tapOK: function () {

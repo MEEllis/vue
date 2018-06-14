@@ -35,7 +35,7 @@
       <view class="weui-flex">
         <text class="">单据备注</text>
         <view class="weui-flex__item">
-          <input class='remark' type="text" placeholder="单据备注" value="{{orderVo.remark}}" />
+          <input class='remark' type="text"  bindinput="inputRemark"  placeholder="单据备注" value="{{remark}}" />
         </view>
       </view>
       <view class="weui-flex">
@@ -668,7 +668,7 @@
       <button type="primary" class="weui-flex__item print">
         打印
       </button>
-      <button type="primary" class="weui-flex__item update">
+      <button type="primary" bindtap='tapUpdate' class="weui-flex__item update">
         保存修改
       </button>
     </view>

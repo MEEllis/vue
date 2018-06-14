@@ -1,4 +1,4 @@
-<view class="container" wx:if='{{dataList!==null &&dataList.length>1}}'>
+<view class="container" wx:if='{{dataList!==null}}'>
   <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
 
   <view class='title-wrap'>

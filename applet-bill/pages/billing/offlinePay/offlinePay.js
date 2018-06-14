@@ -44,7 +44,7 @@ Page({
   inputAmount: function (e) {
     const { key, index } = e.currentTarget.dataset;
     const { dataVo, totalPayAmount } = this.data;
-    const amount = e.detail.value;
+    const amount = e.detail.num;
 
     if (dataVo != null) {
       dataVo[key][index].amount = amount;
@@ -55,13 +55,13 @@ Page({
         for (let i = 0; i < dataList.length; i++) {
           const dataItem = dataList[i]
           if (dataItem.amount != undefined) {
-            sumAmount = util.accAdd(sumAmount, dataItem.amount)
+            sumAmount = Number(util.accAdd(sumAmount, dataItem.amount))
           }
         }
       }
       this.setData({
         dataVo,
-        debtAmount: util.accSub(totalPayAmount, sumAmount)
+        debtAmount: Number(util.accSub(totalPayAmount, sumAmount))
       });
     }
   },
@@ -126,7 +126,7 @@ Page({
         onlinePayFlag: 0,
       }
       bill.saveAndPostDraftRetailVo(saveData).then((res) => {
-        wx.navigateTo({
+        wx.redirectTo({
           url: `/pages/billing/paySuccess/paySuccess?totalPayAmount=${totalPayAmount}&billsId=${res.data.billsId}`
         });
       })

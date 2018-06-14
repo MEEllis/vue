@@ -22,13 +22,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    const { sectionId, isGift } = options;
+  onLoad: function(options) {
+    const {
+      sectionId,
+      isGift
+    } = options;
     this.setData({
       sectionId: sectionId === undefined ? '' : sectionId,
       isGift: isGift === undefined ? '' : isGift,
     });
-    if (isGift==1){
+    if (isGift == 1) {
       wx.setNavigationBarTitle({
         title: '录入串号(赠品)'
       })
@@ -38,9 +41,9 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
     const that = this;
-    util.getScrollHeight((56 +  10)).then((scrollHeight) => {
+    util.getScrollHeight((56 + 10)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -51,22 +54,22 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
-  showInput: function () {
+  showInput: function() {
     this.setData({
       inputShowed: true
     });
   },
 
-  inputTyping: function (e) {
+  inputTyping: function(e) {
     this.setData({
       queryKey: e.detail.value
     });
   },
-  hideInput: function () {
+  hideInput: function() {
     this.setData({
       queryKey: "",
       inputShowed: false,
@@ -74,7 +77,7 @@ Page({
       curListData: [],
     });
   },
-  clearInput: function () {
+  clearInput: function() {
     this.setData({
       queryKey: "",
       dataList: [],
@@ -83,8 +86,10 @@ Page({
 
   },
   //关键字搜索
-  searchSubmit: function () {
-    const { queryKey } = this.data;
+  searchSubmit: function() {
+    const {
+      queryKey
+    } = this.data;
     if (queryKey.length < 5) {
       util.showErrorToast(`请输入商品串号(末5位以上)!`);
     } else {
@@ -97,8 +102,14 @@ Page({
     }
   },
 
-  getDataList: function () {
-    const { sectionId, queryKey, pageNumber, pageSize, isGift } = this.data;
+  getDataList: function() {
+    const {
+      sectionId,
+      queryKey,
+      pageNumber,
+      pageSize,
+      isGift
+    } = this.data;
 
     const that = this;
     util.request(api.getSimpleImeiGoodsVoPageList, {
@@ -108,7 +119,7 @@ Page({
       pageSize,
     }).then(res => {
       let dataList = that.data.dataList.concat(res.data.dataList)
-      if (Array.isArray(dataList) && dataList.length===1){
+      if (Array.isArray(dataList) && dataList.length === 1) {
         const item = dataList[0];
         wx.navigateTo({
           url: `/pages/billing/goodDetail/goodDetail?sectionId=${sectionId}&goodsId=${item.goodsId}&imeiId=${item.imeiId}&ifManageImei=1&isGift=${isGift}`,
@@ -123,6 +134,14 @@ Page({
 
     });
 
-  }
-
+  },
+  scrolltolower: function() {
+    if (this.data.curListData.length === 0) {
+      return;
+    }
+    this.setData({
+      pageNumber: this.data.pageNumber + 1,
+    });
+    this.getDataList();
+  },
 })

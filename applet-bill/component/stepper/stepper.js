@@ -11,6 +11,10 @@ Component({
     maxNum: {
       type: Number,
       value: 9999999999,
+    },
+    minNum: {
+      type: Number,
+      value: 1,
     }
   },
 
@@ -24,8 +28,8 @@ Component({
   },
 
   ready: function () {
-    const { num, maxNum } = this.data;
-    let minusStatus = num <= 1 ? 'disabled' : 'normal';
+    const { num, minNum,maxNum } = this.data;
+    let minusStatus = num <= minNum ? 'disabled' : 'normal';
     let maxStatus = num >= maxNum ? 'disabled' : 'normal';
     // 将数值与状态写回  
     this.setData({
@@ -39,12 +43,12 @@ Component({
   methods: {
     /* 点击减号 */
     bindMinus: function () {
-      let { num, maxNum } = this.data;
+      let { num, maxNum, minNum } = this.data;
       // 如果大于1时，才可以减  
       if (num > 1) {
         num--;
         // 只有大于一件的时候，才能normal状态，否则disable状态  
-        let minusStatus = num <= 1 ? 'disabled' : 'normal';
+        let minusStatus = num <= minNum ? 'disabled' : 'normal';
         let maxStatus = num >= maxNum ? 'disabled' : 'normal';
         // 将数值与状态写回  
         this.setData({
@@ -58,12 +62,12 @@ Component({
     },
     /* 点击加号 */
     bindPlus: function () {
-      let { num, maxNum } = this.data;
+      let { num, maxNum, minNum } = this.data;
       // 如果小于最大值时，才可以加  
       if (num < maxNum) {
         num++;
         // 只有大于一件的时候，才能normal状态，否则disable状态  
-        let minusStatus = num < 1 ? 'disabled' : 'normal';
+        let minusStatus = num < minNum ? 'disabled' : 'normal';
         let maxStatus = num >= maxNum ? 'disabled' : 'normal';
         // 将数值与状态写回  
         this.setData({
@@ -77,9 +81,9 @@ Component({
     /* 输入框事件 */
     bindManual: function (e) {
       let inputNum = Number(e.detail.value);
-      const { num, maxNum } = this.data;
-      if (inputNum < num) {
-        inputNum = num;
+      const { minNum, maxNum } = this.data;
+      if (inputNum < minNum) {
+        inputNum = minNum;
       } else if (inputNum > maxNum) {
         inputNum = maxNum;
       }
@@ -87,7 +91,7 @@ Component({
       this.setData({
         num: inputNum,
       });
-      this.triggerEvent("changeEvent", { num });
+      this.triggerEvent("changeEvent", { num: inputNum });
     },
   },
 

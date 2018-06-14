@@ -7,8 +7,9 @@ Page({
    */
   data: {
     billsId: '',
+    remark: '',
     orderVo: {},
-    totalCount:0,
+    totalCount: 0,
     goodOn: true,
     operatorOn: true,
     addedServicesOn: true,
@@ -20,7 +21,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     const billsId = options.billsId;
     this.setData({
       billsId
@@ -28,7 +29,7 @@ Page({
     this.getDetail();
   },
   //拨打手机号
-  tapTel:function(e){
+  tapTel: function(e) {
     const tel = e.currentTarget.dataset.tel
     wx.makePhoneCall({
       phoneNumber: tel
@@ -36,9 +37,11 @@ Page({
   },
 
   // 获取明细
-  getDetail: function () {
+  getDetail: function() {
     const _this = this;
-    const { billsId } = this.data;
+    const {
+      billsId
+    } = this.data;
     util.request(api.getRetailDeliveryOrderVo, {
       billsId,
     }, 'GET').then(res => {
@@ -50,15 +53,33 @@ Page({
       _this.setData({
         orderVo: res.data.orderVo,
         totalCount,
+        remark: res.data.orderVo.remark,
       });
     });
   },
   //tap的显示/隐藏
-  tapList:function(e) {
+  tapList: function(e) {
     const target = e.currentTarget.dataset.target
     const flagOn = this.data[target];
-    const setObj={}
+    const setObj = {}
     setObj[target] = !flagOn
     this.setData(setObj);
+  },
+  inputRemark: function(e) {
+    this.setData({
+      remark: e.detail.value,
+    });
+  },
+  tapUpdate: function(e) {
+    const {
+      billsId,
+      remark,
+    } = this.data;
+    util.request(api.updateRetailRemarkById, {
+      billsId,
+      remark,
+    }).then(res => {
+      util.showErrorToast('修改成功！')
+    });
   },
 })

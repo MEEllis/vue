@@ -48,7 +48,8 @@
         折后单价:
       </view>
       <view class="weui-flex__item p2">
-        <input class='txt-input-price' placeholder="点我添加折后单价" value="{{goodInfo.discountedPrice}}" bindinput="inputUnitPrice" />
+        <inputNum class='txt-input-price' num="{{goodInfo.discountedPrice}}" bindchangeEvent='inputUnitPrice'  placeholderC="点我添加折后单价"></inputNum>    
+
       </view>
     </view>
   

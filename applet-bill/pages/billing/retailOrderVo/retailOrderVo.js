@@ -161,7 +161,7 @@ Page({
       goodsClassId,
       customerKey,
     } = this.data;
-    util.request(api.getDraftRetailOrderVoPageList, {
+    util.request(api.getRetailOrderVoPageList, {
       startTime,
       endTime,
       queryKey,

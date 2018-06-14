@@ -92,7 +92,7 @@ Page({
     }
     
   },
-  inputName: function(e) {
+  inputTel: function(e) {
     const that = this;
     const tel = e.detail.value;
     const {
@@ -115,6 +115,16 @@ Page({
       customerTelephone: tel,
     });
   },
+
+
+  inputName: function (e) {
+    const that = this;
+    const customerName = e.detail.value;
+  
+    this.setData({
+      customerName,
+    });
+  },
   tapNext: function(e) {
     const {
       customerTelephone,
@@ -126,6 +136,17 @@ Page({
     if (sectionId.length === 0) {
       util.showErrorToast('请选择部门名称！');
       return;
+    }
+
+    if (customerTelephone!=''){
+      if (!reg.phone.test(customerTelephone)) {
+        util.showErrorToast('请输入正确的手机号格式！');
+        return;
+      }
+      if (customerName=='') {
+        util.showErrorToast('请输入客户姓名！');
+        return;
+      }
     }
     wx.navigateTo({
       url: `/pages/billing/addGood/addGood?customerTelephone=${customerTelephone}&sectionId=${sectionId}&customerName=${customerName}&billsId=${billsId}`,

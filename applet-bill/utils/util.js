@@ -45,7 +45,7 @@ function request(url, data = {}, method = "POST") {
           }
           // 未登录时（-1），先调用自动登录
           else if (res.data.result == -1) {
-            util.request(
+           request(
               api.authAutoLogin, {
                 code: code,
                 userInfo: JSON.stringify(userInfo),
