@@ -7,46 +7,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '15116201365',
-    pwd: 'ys123456',
-    companyList: [],//公司列表
+    name: '',
+    pwd: '',
+    companyList: [], //公司列表
+    showOp: {
+      showName: 0,
+      showPwd: 0,
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
     this.thridModal = this.selectComponent("#thridModal");
   },
-  inputName: function (e) {
+  inputName: function(e) {
     this.setData({
       name: e.detail.value
     });
   },
 
-  inputPwd: function (e) {
+  inputPwd: function(e) {
     this.setData({
       pwd: e.detail.value
     });
   },
-
-  formSubmit: function (e) {
+  formSubmit: function(e) {
     const wxUserInfo = e.detail;
     const _this = this;
-    const { name, pwd } = this.data
+    const {
+      name,
+      pwd
+    } = this.data
 
-    util.login().then(({ code }) => {
+    util.login().then(({
+      code
+    }) => {
       if (code) {
         util.request(
-          api.authGetAccessCompanyList,
-          {
+          api.authGetAccessCompanyList, {
             userName: name,
             password: pwd
           }
@@ -61,7 +60,7 @@ Page({
             wx.setStorage({
               key: "companyList",
               data: ajaxData.data.companyList,
-              success: function () {
+              success: function() {
                 _this.thridModal.show();
               }
             });
@@ -71,18 +70,23 @@ Page({
       }
     })
   },
-  tapCompany: function (e) {
+  tapCompany: function(e) {
     // 用户已经同意小程序使用用户信息
     const companyId = e.currentTarget.dataset.id;
     this.login(companyId)
   },
   // 登录
-  login: function (companyId) {
-    const { name, pwd } = this.data;
-    user.loginByWeixin().then(({ code, userInfo }) => {
+  login: function(companyId) {
+    const {
+      name,
+      pwd
+    } = this.data;
+    user.loginByWeixin().then(({
+      code,
+      userInfo
+    }) => {
       return util.request(
-        api.authLogin,
-        {
+        api.authLogin, {
           userName: name,
           password: pwd,
           companyId,
@@ -95,12 +99,47 @@ Page({
       wx.setStorage({
         key: "token",
         data: ajaxData.data['ERP-WX-TOKEN'],
-        success: function () {
+        success: function() {
           wx.switchTab({
             url: '/pages/billing/index/index'
           });
         }
       });
     })
-  }
+  },
+  focusInput: function(e) {
+    const {
+      key
+    } = e.currentTarget.dataset;
+    this.isShowClear(key, 1)
+  },
+  blurInput: function(e) {
+    const {
+      key
+    } = e.currentTarget.dataset;
+    this.isShowClear(key, 0)
+  },
+  isShowClear(key, flag) {
+    const {
+      showOp
+    } = this.data;
+    showOp[key] = flag;
+    this.setData({
+      showOp,
+    })
+  },
+  tapClear: function(e) {
+    const {
+      key
+    } = e.currentTarget.dataset;
+    if (key == 'name') {
+      this.setData({
+        name: '',
+      })
+    } else {
+      this.setData({
+        pwd: '',
+      })
+    }
+  },
 })

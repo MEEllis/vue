@@ -1,7 +1,7 @@
 .weui-search-bar {
   height: 112rpx;
   padding: 20rpx 30rpx;
-  border-bottom:none;
+  border-bottom: none;
 }
 
 .weui-search-bar__form {
@@ -24,8 +24,9 @@
   left: 20rpx;
   top: 20rpx;
 }
+
 .weui-icon-clear {
-  padding:0;
+  padding: 0;
 }
 
 .weui-search-bar__label {
@@ -42,8 +43,13 @@
   line-height: 72rpx;
   margin-left: 20rpx;
 }
+
 .weui-icon-clear {
-  padding:20rpx 16rpx;
+  padding: 20rpx 16rpx;
+}
+
+.weui-navbar {
+  color: #666;
 }
 
 .weui-navbar__slider {
@@ -54,6 +60,6 @@
   color: #476ec9;
 }
 
-.weui-navbar{
-  border-bottom:none;
+.weui-navbar {
+  border-bottom: none;
 }

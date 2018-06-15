@@ -1,3 +1,5 @@
+import api from '../config/api.js';
+
 function formatTime(date, fmt = 'yyyy-MM-dd') {
   var o = {
     "M+": date.getMonth() + 1, //月份   
@@ -45,15 +47,24 @@ function request(url, data = {}, method = "POST") {
           }
           // 未登录时（-1），先调用自动登录
           else if (res.data.result == -1) {
-           request(
-              api.authAutoLogin, {
-                code: code,
-                userInfo: JSON.stringify(userInfo),
-              }).then(ajaxData => {
-              wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
-              wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
-              wx.setStorageSync('companyList', ajaxData.data.companyList);
+
+            util.login().then(({
+              code
+            }) => {
+              if (code) {
+                request(
+                  api.authAutoLogin, {
+                    code: code,
+                    userInfo: JSON.stringify(userInfo),
+                  }).then(ajaxData => {
+                    wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
+                    wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
+                    wx.setStorageSync('companyList', ajaxData.data.companyList);
+                  })
+              }
             })
+
+          
 
           }
           //自动登录失败（-15）

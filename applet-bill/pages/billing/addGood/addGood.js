@@ -44,9 +44,7 @@ Page({
     });
 
     this.getVipVo(); //加载会员信息
-    if (billsId !== '') {
-      this.getRetailDraftOrderVo();
-    }
+
   },
 
   /**
@@ -77,9 +75,9 @@ Page({
         totalSum = util.accAdd(totalSum, goodsItem.goodsNumber)
         if (goodsItem.isGift != 1) {
           totalAmount = util.accAdd(totalAmount, goodsItem.discountedAmount)
-        }else{
-          goodsItem.discountedPrice=0;
-          goodsItem.discountedAmount=0;
+        } else {
+          goodsItem.discountedPrice = 0;
+          goodsItem.discountedAmount = 0;
         }
         if (Array.isArray(goodsItem.giftList)) {
           for (let j = 0; j < goodsItem.giftList.length; j++) {
@@ -225,13 +223,15 @@ Page({
         if (res.confirm) {
           that.saveDraft((res) => {
             setTimeout(() => {
-              wx.switchTab({
+              wx.redirectTo({
                 url: '/pages/billing/newBilling/newBilling'
               });
             }, 1500)
           })
         } else if (res.cancel) {
-
+          wx.redirectTo({
+            url: '/pages/billing/newBilling/newBilling'
+          });
         }
       }
     })
@@ -416,6 +416,7 @@ Page({
       billsId,
       sectionId,
       goodsVo,
+      customerTelephone,
     } = this.data;
     const that = this;
     bill.getRetailDraftOrderVo(billsId).then(res => {
@@ -430,9 +431,14 @@ Page({
         if (Array.isArray(goodsDetailList)) {
           for (let i = 0; i < goodsDetailList.length; i++) {
             const goodsDetailItem = goodsDetailList[i];
-            if ((goodsDetailItem.orderNo% 1) == 0) {
+            if ((goodsDetailItem.orderNo % 1) == 0) {
               goodsDetailItem.isGift = goodsDetailItem.giftFlag;
               goodsDetailItem.giftList = [];
+              if (customerTelephone != orderVo.customerTelephone) {
+                goodsDetailItem.discountRate = that.getDiscountRateByGoodsClassId(goodsDetailItem)
+                goodInfo.discountedPrice = Number(util.accDiv(util.accMul(goodsDetailItem.retailPrice, goodsDetailItem.discountRate), 100).toFixed(2));
+                goodInfo.discountedAmount = Number(util.accMul(goodInfo.discountedPrice, goodInfo.goodsNumber));
+              }
               goodsVo.push(goodsDetailItem)
             }
           }
@@ -442,6 +448,11 @@ Page({
               const orderNoArr = goodsDetailItem.orderNo.split(".");
               goodsDetailItem.isGift = goodsDetailItem.giftFlag;
               if (goodsVo[orderNoArr[0]]) {
+                if (customerTelephone != orderVo.customerTelephone) {
+                  goodsDetailItem.discountRate = that.getDiscountRateByGoodsClassId(goodsDetailItem)
+                  goodInfo.discountedPrice = Number(util.accDiv(util.accMul(goodsDetailItem.retailPrice, goodsDetailItem.discountRate), 100).toFixed(2));
+                  goodInfo.discountedAmount = Number(util.accMul(goodInfo.discountedPrice, goodInfo.goodsNumber));
+                }
                 goodsVo[orderNoArr[0]].giftList.push(goodsDetailItem)
               }
             }
@@ -450,7 +461,7 @@ Page({
         that.setData({
           goodsVo,
         });
-        
+
         that.onShow();
       }
     })
@@ -460,7 +471,8 @@ Page({
     var that = this;
     const {
       customerTelephone,
-      customerName
+      customerName,
+      billsId,
     } = this.data;
     if (customerTelephone) {
       util.request(
@@ -490,6 +502,10 @@ Page({
           }
         }
 
+        if (billsId !== '') {
+          this.getRetailDraftOrderVo();
+        }
+
       })
     } else {
       that.setData({
@@ -501,7 +517,46 @@ Page({
     }
 
   },
+  //获取该商品的折扣率
+  getDiscountRateByGoodsClassId: function({
+    goodsClassId
+  }) {
+    const {
+      vipVo
+    } = this.data;
+    if (vipVo === null) {
+      return 100;
+    } else {
+      const {
+        defaultDiscountRate,
+        goodsDiscountList,
+        status
+      } = vipVo;
+      if (status == 0) {
+        if (Array.isArray(goodsDiscountList)) {
+          let discountRate = -1;
+          for (let i = 0; i < goodsDiscountList.length; i++) {
+            if (goodsClassId == goodsDiscountList[i].goodsClassId) {
+              discountRate = goodsDiscountList[i].discountRate;
+              break;
+            }
+          }
+          if (discountRate === -1) {
+            return defaultDiscountRate;
+          } else {
+            return discountRate;
+          }
 
+        } else {
+          return 100;
+        }
+      } else {
+        return 100;
+      }
+
+    }
+
+  },
   //手指刚放到屏幕触发
   touchS: function(e) {
     //判断是否只有一个触摸点

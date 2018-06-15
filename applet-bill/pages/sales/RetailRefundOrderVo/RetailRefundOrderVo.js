@@ -80,4 +80,13 @@ Page({
       util.showErrorToast('修改成功！')
     });
   },
+  tapPrint: function (e) {
+    const {
+      billsId,
+      totalAmount,
+    } = this.data;
+    wx.redirectTo({
+      url: `/pages/billing/paySuccess/paySuccess?totalPayAmount=${totalAmount}&billsId=${res.data.billsId}`
+    });
+  },
 })

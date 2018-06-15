@@ -3,11 +3,17 @@
     <image src="../../images/logo.png" lazy-load='true' class='logo' />
   </view>
   <form bindsubmit="formSubmit">
-    <view>
-      <input class='txt-input' type="number" focus placeholder="请输入手机号" value="{{name}}" bindinput="inputName" />
+    <view class='item'>
+      <input class='txt-input' data-key="showName" bindfocus='focusInput' bindblur='blurInput' type="number" focus placeholder="请输入手机号" value="{{name}}" bindinput="inputName" />
+      <view class='clear' hidden='{{showOp.showName==0}}' data-key="name" bindtap="tapClear">
+        <icon type="clear" size="20"></icon>
+      </view>
     </view>
-    <view>
-      <input class='txt-input' password='true' type="text" placeholder="请输入密码" value="{{pwd}}" bindinput="inputPwd" />
+    <view class='item'>
+      <input class='txt-input' data-key="showPwd" bindfocus='focusInput' bindblur='blurInput' password='true' type="text" placeholder="请输入密码" value="{{pwd}}" bindinput="inputPwd" />
+      <view class='clear' hidden='{{showOp.showPwd==0}}' data-key="pwd" bindtap="tapClear">
+        <icon type="clear" size="20"></icon>
+      </view>
     </view>
     <view>
 

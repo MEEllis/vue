@@ -20,9 +20,10 @@ form {
   padding-bottom: 15rpx;
   margin-top: 40rpx;
   font-size: 32rpx;
+  padding-right: 150rpx;
 }
 
-.txt-input:focus
+.txt-input:hover
 { 
   border-bottom-color: #FFAF23 !important;
 }
@@ -34,5 +35,16 @@ form {
 
 .login[disabled][type=primary] {
   background-color: rgba(71, 110, 201, 0.5) !important;
+}
+.item{
+  position: relative;
+}
+
+.clear{
+ padding: 10rpx 20rpx;
+  position: absolute;
+  top:0px;
+  right: 10rpx;
+  display: block;
 }
 

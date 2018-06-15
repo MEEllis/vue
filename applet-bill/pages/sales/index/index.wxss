@@ -1,20 +1,9 @@
 .weui-navbar {
-  color: #8c8c8c;
   font-size: 30rpx;
   background-color: #fff;
   border-top: 1rpx solid #d7d6dc;
 }
 
-.modal-content picker {
-  display: inline-block;
-  border-bottom: 1rpx solid #e6e6e6;
-  padding: 20rpx 30rpx;
-}
-
-.modal-content {
-  padding: 30rpx;
-  text-align: center;
-}
 
 .weui-navbar__item {
   line-height: 98rpx;

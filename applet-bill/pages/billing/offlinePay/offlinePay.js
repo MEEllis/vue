@@ -126,14 +126,10 @@ Page({
         onlinePayFlag: 0,
       }
       bill.saveAndPostDraftRetailVo(saveData).then((res) => {
-        wx.redirectTo({
+        wx.reLaunch({
           url: `/pages/billing/paySuccess/paySuccess?totalPayAmount=${totalPayAmount}&billsId=${res.data.billsId}`
         });
       })
-
-
-
-
     }
     else {
       util.showErrorToast('操作有误！')

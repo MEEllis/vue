@@ -29,13 +29,13 @@ Page({
   },
 
   tapNew: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/billing/newBilling/newBilling'
     })
   },
   tapCur: function () {
     const { billsId } = this.data;
-    wx.redirectTo({
+    wx.navigateTo({
       url: `/pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo?billsId=${billsId}`
     })
   },

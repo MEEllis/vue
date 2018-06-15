@@ -47,7 +47,15 @@ Page({
     }, 'GET').then(res => {
       let totalCount = 0;
       for (let i = 0; i < res.data.orderVo.goodsDetailList.length; i++) {
-        totalCount += Number(res.data.orderVo.goodsDetailList[i].goodsCount)
+        const goodsDetailItem = res.data.orderVo.goodsDetailList[i];
+        totalCount += Number(goodsDetailItem.goodsCount);
+        if (Array.isArray(goodsDetailItem.giftGoodsList)){
+          for (let j = 0; j < goodsDetailItem.giftGoodsList.length; j++) {
+            const giftDetailItem = goodsDetailItem.giftGoodsList[j];
+            totalCount += Number(giftDetailItem.goodsCount)
+          }
+        }
+       
       }
 
       _this.setData({
@@ -80,6 +88,15 @@ Page({
       remark,
     }).then(res => {
       util.showErrorToast('修改成功！')
+    });
+  },
+  tapPrint: function(e) {
+    const {
+      billsId,
+      totalAmount,
+    } = this.data;
+    wx.redirectTo({
+      url: `/pages/billing/paySuccess/paySuccess?totalPayAmount=${totalAmount}&billsId=${res.data.billsId}`
     });
   },
 })

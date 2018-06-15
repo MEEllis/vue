@@ -99,7 +99,16 @@ Page({
     }
 
   },
-
+  getSectionAccountVoList: function () {
+    const { sectionId } = this.data;
+    const that = this;
+    util.request(
+      api.getSectionAccountVoList,
+      { sectionId },
+    ).then(res => {
+        console.log(res)
+    })
+  },
   tapxianxia: function () {
     const { totalAmount, totalPayAmount, ignoredAmount, integralDeductionAmount } = this.data;
     wx.navigateTo({

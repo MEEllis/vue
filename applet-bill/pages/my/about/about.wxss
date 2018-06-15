@@ -12,6 +12,7 @@
 
 .weui-cell {
   font-size: 32rpx;
+  padding: 12px 15px;
 }
 
 .weui-cell:before {

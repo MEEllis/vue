@@ -13,8 +13,8 @@ Page({
     goodsId: '',
     storageId: '',
     isSee: '',
-    goodIndex: '', //商品索引
-    giftIndex: '', //赠品索引
+    goodIndex: '-1', //商品索引
+    giftIndex: '-1', //赠品索引
     isGift: '', //是否赠品
     delta: 1,
     addPage: null,
@@ -44,8 +44,8 @@ Page({
       imeiId: imeiId === undefined ? '' : imeiId,
       ifManageImei: ifManageImei === undefined ? '' : ifManageImei,
       isSee: isSee === undefined ? '' : isSee,
-      goodIndex: goodIndex === undefined ? '' : goodIndex,
-      giftIndex: giftIndex === undefined ? '' : giftIndex,
+      goodIndex: goodIndex === undefined ? '-1' : goodIndex,
+      giftIndex: giftIndex === undefined ? '-1' : giftIndex,
       isGift: isGift === undefined ? '' : isGift,
     });
     this.setDelta();
@@ -277,41 +277,9 @@ Page({
   }) {
     const addPage = this.data.addPage;
     if (addPage != null) {
-      const {
-        vipVo
-      } = addPage.data;
-      if (vipVo === null) {
-        return 100;
-      } else {
-        const {
-          defaultDiscountRate,
-          goodsDiscountList,
-          status
-        } = vipVo;
-        if (status == 0) {
-          if (Array.isArray(goodsDiscountList)) {
-            let discountRate = -1;
-            for (let i = 0; i < goodsDiscountList.length; i++) {
-              if (goodsClassId == goodsDiscountList[i].goodsClassId) {
-                discountRate = goodsDiscountList[i].discountRate;
-                break;
-              }
-            }
-
-            if (discountRate === -1) {
-              return defaultDiscountRate;
-            } else {
-              return discountRate;
-            }
-
-          } else {
-            return 100;
-          }
-        } else {
-          return 100;
-        }
-
-      }
+      return addPage.getDiscountRateByGoodsClassId({
+        goodsClassId
+      })
     } else {
       return 100;
     }
@@ -338,8 +306,8 @@ Page({
       } = addPage.data;
       if (Array.isArray(goodsVo)) {
         //修改
-        if (isSee == 1 && goodIndex != '') {
-          if (giftIndex != '') {
+        if (isSee == 1 && goodIndex >=0) {
+          if (giftIndex >=0) {
             goodsVo[goodIndex].giftList[giftIndex] = goodInfo;
           } else {
             goodsVo[goodIndex] = goodInfo;
@@ -394,7 +362,7 @@ Page({
     if (addPage != null) {
       addPage.delGoodCon({
         goodIndex,
-        giftIndex
+        giftIndex,
       })
     }
     wx.navigateBack({

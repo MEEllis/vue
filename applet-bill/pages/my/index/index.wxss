@@ -50,7 +50,10 @@
   border-radius: 0;
   font-size: 32rpx;
   color: #333;
+  line-height: 98rpx;
+  height: 98rpx;
 }
+
 
 .relogin::after {
   border: none !important;
