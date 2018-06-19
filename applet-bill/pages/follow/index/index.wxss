@@ -6,7 +6,7 @@ page {
   width: 72rpx;
   height: 72rpx;
   background-color: #fff;
-  border-radius: 12px;
+  border-radius: 12rpx;
   text-align: center;
   color: #666;
 }

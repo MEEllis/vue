@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "实时库存详细"
+  "navigationBarBackgroundColor": "#446CD4",
+  "navigationBarTitleText": "实时库存详细",
+  "navigationBarTextStyle": "white"
 }

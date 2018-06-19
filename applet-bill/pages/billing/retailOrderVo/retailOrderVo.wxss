@@ -1,1 +1,10 @@
 @import '../draftRetailOrderVo/draftRetailOrderVo.wxss';
+
+.p1 {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  flex: 2;
+}
+.info{
+  
+}

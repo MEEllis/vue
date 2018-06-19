@@ -21,6 +21,7 @@
 
 .icon-shouji1 {
   font-size: 48rpx;
+  color: #476ec9;
 }
 
 .list-item-body {

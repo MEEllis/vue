@@ -42,12 +42,16 @@
 }
 
 .table-wrap {
-  padding: 0 30rpx;
+  padding: 0 0rpx;
 }
 
 .table-wrap .weui-flex {
   align-items: center;
   padding: 0 30rpx;
+}
+.table{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
 }
 
 .table-head {
@@ -66,6 +70,7 @@
   -webkit-box-flex: 3;
   -webkit-flex: 3;
   flex: 3;
+  word-break:break-all;
 }
 
 .table .aomout {

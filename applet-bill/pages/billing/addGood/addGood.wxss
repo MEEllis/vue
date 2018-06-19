@@ -45,6 +45,7 @@ page {
   height: 536rpx;
   background-color: #fff;
   border-bottom: 1px solid #efeff4;
+  color: #333;
 }
 
 .c1 .weui-flex__item {
@@ -208,8 +209,7 @@ page {
   text-align: center;
   border-radius: 0 !important;
   flex: 2;
-  line-height:98rpx;
-
+  line-height: 98rpx;
 }
 
 .sum-wrap .aomout {
@@ -220,4 +220,32 @@ page {
 
 .sum-wrap .count {
   flex: 3;
+}
+
+.icon-luru:before {
+  color: #7bb0f1;
+}
+
+.icon-sousuo1:before {
+  color: #5dd7e6;
+}
+
+.icon-iconfontsaoyisao1:before {
+  color: #f84c58;
+}
+
+.banner-top .icon-shangyibu {
+  background-color: #7aa3f9;
+}
+
+.banner-top .icon-delete {
+  background-color: #78c4f4;
+}
+
+.banner-top .icon-baocuncaogaodan {
+  background-color: #90b3fd;
+}
+
+.banner-top .icon-kaidan {
+  background-color: #fd8643;
 }

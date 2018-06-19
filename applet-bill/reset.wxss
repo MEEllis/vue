@@ -50,16 +50,18 @@
 
 .weui-navbar {
   color: #666;
+  font-weight: 600;
+  border-bottom: none;
 }
 
 .weui-navbar__slider {
   background-color: #476ec9;
 }
 
-.weui-navbar__item.weui-bar__item_on {
-  color: #476ec9;
+.weui-navbar__item {
+  color: #666;
 }
 
-.weui-navbar {
-  border-bottom: none;
+.weui-navbar__item.weui-bar__item_on {
+  color: #476ec9;
 }

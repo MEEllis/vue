@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.9",
-	"appid": "wxdb08db3f99bd8425",
+	"appid": "wxbebb5fca8a3b9e3d",
 	"projectname": "applet-bill",
 	"isGameTourist": false,
 	"condition": {
@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 26,
 			"list": [
 				{
 					"id": 0,
@@ -48,19 +48,19 @@
 					"id": 2,
 					"name": "stock/sectionStockList",
 					"pathName": "pages/stock/sectionStockList/sectionStockList",
-					"query": "id=1"
+					"query": "id=33483"
 				},
 				{
 					"id": 3,
 					"name": "goodDetail/goodDetail",
 					"pathName": "pages/stock/goodDetail/goodDetail",
-					"query": "id=33505"
+					"query": "id=33483"
 				},
 				{
 					"id": 4,
 					"name": "goodImeiDetail/goodImeiDetail",
 					"pathName": "pages/stock/goodImeiDetail/goodImeiDetail",
-					"query": "goodsId=1&storageId=1&goodsName=Apple iphone x(A1865) 64 G深空灰色移动联通电信4G手机&goodsName=Apple iphone x(A1865) 64 G深空灰色移动联通电信4G手机&storageName=仓库一仓库一仓库一仓库一仓库一仓库一仓库一v&sectionName=部门一部门一部门一部门一部门一部门一部门一部门一部门一部门一部门一"
+					"query": "goodsId=33541&storageId=846&goodsName=Apple iphone x(A1865) 64 G深空灰色移动联通电信4G手机&goodsName=Apple iphone x(A1865) 64 G深空灰色移动联通电信4G手机&storageName=仓库一仓库一仓库一仓库一仓库一仓库一仓库一v&sectionName=部门一部门一部门一部门一部门一部门一部门一部门一部门一部门一部门一"
 				},
 				{
 					"id": 5,
@@ -108,7 +108,7 @@
 					"id": 12,
 					"name": "sales/RetailDeliveryOrderVo",
 					"pathName": "pages/sales/RetailDeliveryOrderVo/RetailDeliveryOrderVo",
-					"query": "billsId=1"
+					"query": "billsId=5933"
 				},
 				{
 					"id": -1,
@@ -129,10 +129,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 16,
 					"name": "follow/imeiDetailVo",
 					"pathName": "pages/follow/imeiDetailVo/imeiDetailVo",
-					"query": ""
+					"query": "imeiId=49408"
 				},
 				{
 					"id": -1,

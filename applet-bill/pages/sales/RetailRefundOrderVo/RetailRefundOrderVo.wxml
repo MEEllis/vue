@@ -41,7 +41,7 @@
       <view class="weui-flex">
         <text class="">单据备注</text>
         <view class="weui-flex__item">
-          <input class='remark' type="text" bindinput="inputRemark" placeholder="单据备注" value="{{remark}}" />
+          <input class='remark' type="text" bindinput="inputRemark" placeholder-class='placeholder' placeholder="单据备注" value="{{remark}}" />
         </view>
       </view>
       <view class="weui-flex">

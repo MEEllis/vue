@@ -16,7 +16,7 @@
         <view class="weui-search-bar__text">搜索</view>
       </label>
     </form>
-    <view class="weui-search-bar__cancel-btn" hidden='{{dataList.length===0}}' bindtap="bindScanCode">
+    <view class="weui-search-bar__cancel-btn" hidden='{{!inputShowed}}' bindtap="bindScanCode">
       <text class='iconfont icon-iconfontsaoyisao1'></text>
     </view>
   </view>

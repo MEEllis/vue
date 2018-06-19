@@ -35,7 +35,7 @@
       <view class="weui-flex">
         <text class="">单据备注</text>
         <view class="weui-flex__item">
-          <input class='remark' type="text" bindinput="inputRemark" placeholder="单据备注" value="{{remark}}" />
+          <input class='remark' type="text" bindinput="inputRemark" placeholder-class='placeholder' placeholder="单据备注" value="{{remark}}" />
         </view>
       </view>
       <view class="weui-flex">
@@ -607,7 +607,7 @@
             </view>
           </view>
 
-          <view class="weui-flex" wx:for-items="{{orderVo.postAccountList}}" wx:key="*this">
+          <view class="weui-flex" style='margin-left:30px;' wx:for-items="{{orderVo.postAccountList}}" wx:key="*this">
             <text class="">{{item.accountName}}</text>
             <view class="weui-flex__item tr">
               {{numberFr.formatNum(item.amount,2)}}
@@ -620,7 +620,7 @@
               {{numberFr.formatNum(orderVo.otherAccountAmount,2)}}
             </view>
           </view>
-          <view class="weui-flex" wx:for-items="{{orderVo.otherAccountList}}" wx:key="*this">
+          <view class="weui-flex" style='margin-left:30px;' wx:for-items="{{orderVo.otherAccountList}}" wx:key="*this">
             <text class="">{{item.accountName}}</text>
             <view class="weui-flex__item tr">
               {{numberFr.formatNum(item.amount,2)}}
@@ -659,12 +659,18 @@
 
   <view class="">
     <view class="weui-flex sum-wrap">
+
       <view class="weui-flex__item count">
-        <view class=''>合计:
-          <text class='color1'>{{numberFr.formatNum(orderVo.totalAmount,2)}}</text>
+        <view class='weui-flex'>
+          合计:
+          <view class="weui-flex__item p2">
+            <view class='color1 tl fw'>{{numberFr.formatNum(orderVo.totalAmount,2)}}</view>
+            <view class='color3 tl  c1'>共 {{numberFr.formatNum(totalCount)}} 件</view>
+          </view>
         </view>
-        <view class='color3'>共 {{numberFr.formatNum(totalCount)}} 件</view>
+
       </view>
+
       <button type="primary" bindtap='tapPrint' class="weui-flex__item print">
         打印
       </button>

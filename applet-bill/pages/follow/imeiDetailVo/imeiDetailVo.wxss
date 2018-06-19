@@ -41,12 +41,24 @@
   margin-right: 10rpx;
 }
 
-.outstock-item{
-  border-bottom: 1rpx solid #e6e6e6;
+.outstock-item {
+  position: relative;
 }
-.outstock-item:last-child{
-    border-bottom: 1rpx solid transparent;
+
+.outstock-item::before {
+  content: " ";
+  position: absolute;
+  right: -30rpx;
+  left: -30rpx;
+  height: 1px;
+  border-top: 1rpx solid #e6e6e6;
+  bottom: 0;
 }
+
+.outstock-item:last-child::before {
+  border-top: 1rpx solid transparent;
+}
+
 
 .table-body {
   padding: 0 30rpx;
@@ -65,7 +77,6 @@
   text-align: center;
 }
 
-
 .item-title {
   padding: 30rpx 0;
   position: relative;
@@ -79,11 +90,14 @@
   bottom: 0;
   height: 1px;
   color: #e6e6e6;
-  border-top: 1rpx dotted #e6e6e6;
+  border-top: 1rpx dashed #e6e6e6;
 }
 
-
+.item-body{
+  padding: 15rpx 0;
+}
 
 .item-body .weui-flex {
   padding: 10rpx 0;
 }
+

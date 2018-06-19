@@ -31,7 +31,7 @@
     </view>
 
     <view class="weui-flex__item " bindtap='tapSelGood' style='border-left: 1px solid #efeff4'>
-      <view class='iconfont icon-sousuo'></view>
+      <view class='iconfont icon-sousuo1'></view>
       <view class=''>选商品</view>
     </view>
 
@@ -39,7 +39,7 @@
   <view class="weui-flex saoma" bindtap='tapScanCode'>
     <view class="weui-flex__item">
       <view class='iconfont icon-iconfontsaoyisao1'></view>
-      <view class=''>扫串号/条码</view>
+      <view class='color2'>扫串号/条码</view>
     </view>
 
   </view>

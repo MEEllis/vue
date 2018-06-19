@@ -53,7 +53,7 @@
 }
 
 .list-item-title {
-  padding: 0 30rpx;
+  padding: 20rpx 30rpx;
 }
 
 .list-item-body {
@@ -75,7 +75,7 @@
   left: 0;
   top: 0;
   height: 1px;
-  border-top: 1px dotted #e6e6e6;
+  border-top: 1px dashed #e6e6e6;
 }
 
 

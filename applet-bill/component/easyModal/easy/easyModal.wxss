@@ -25,7 +25,12 @@
   border-bottom-right-radius: 10rpx;  
 }
 
-
+.modal-footer .btn{
+  border-right:1px solid #e5e5e5;
+}
+.modal-footer .btn:last-child{
+  border-right:none;
+}
  
 .btn{ 
   flex: 1; 

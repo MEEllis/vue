@@ -6,44 +6,46 @@
     </view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell pc">
-        <view class="weui-cell__bd">零售标价:</view>
-        <view class="weui-cell__ft">￥{{numberFr.formatNum(goodsVo.retailPrice,2)}}</view>
+        <view class="weui-cell__bd p1">零售标价:</view>
+        <view class="weui-cell__bd">{{numberFr.formatNum(goodsVo.retailPrice,2)}}</view>
       </view>
       <view class="weui-cell">
-        <view class="weui-cell__bd">品牌:</view>
-        <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.brandName)}}</view>
+        <view class="weui-cell__bd p1">品牌:</view>
+        <view class="weui-cell__bd">{{numberFr.stringNull(goodsVo.brandName)}}</view>
       </view>
       <view class="weui-cell">
-        <view class="weui-cell__bd">型号:</view>
-        <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.models)}}</view>
+        <view class="weui-cell__bd p1">型号:</view>
+        <view class="weui-cell__bd">{{numberFr.stringNull(goodsVo.models)}}</view>
       </view>
       <view class="weui-cell">
-        <view class="weui-cell__bd">颜色:</view>
-        <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.color)}}</view>
+        <view class="weui-cell__bd p1">颜色:</view>
+        <view class="weui-cell__bd">{{numberFr.stringNull(goodsVo.color)}}</view>
       </view>
       <view class="weui-cell">
-        <view class="weui-cell__bd">配置:</view>
-        <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.configure)}}</view>
+        <view class="weui-cell__bd p1">配置:</view>
+        <view class="weui-cell__bd">{{numberFr.stringNull(goodsVo.configure)}}</view>
       </view>
       <view class="weui-cell">
-        <view class="weui-cell__bd">商品编码:</view>
-        <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.code)}}</view>
+        <view class="weui-cell__bd p1">商品编码:</view>
+        <view class="weui-cell__bd">{{numberFr.stringNull(goodsVo.code)}}</view>
       </view>
       <view class="weui-cell">
-        <view class="weui-cell__bd">条码:</view>
-        <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.barcode)}}</view>
+        <view class="weui-cell__bd p1">条码:</view>
+        <view class="weui-cell__bd">{{numberFr.stringNull(goodsVo.barcode)}}</view>
       </view>
       <view class="weui-cell pc">
-        <view class="weui-cell__bd">商品备注:</view>
-        <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.remark)}}</view>
+        <view class="weui-cell__bd p1">商品备注:</view>
+        <view class="weui-cell__bd ">{{numberFr.stringNull(goodsVo.remark)}}</view>
+     
       </view>
       <view class="weui-cell">
-        <view class="weui-cell__bd">一级类别:</view>
-        <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.firstClassName)}}</view>
+        <view class="weui-cell__bd p1">一级类别:</view>
+        <view class="weui-cell__bd">{{numberFr.stringNull(goodsVo.firstClassName)}}</view>
+     
       </view>
       <view class="weui-cell">
-        <view class="weui-cell__bd">类别路径:</view>
-        <view class="weui-cell__ft">{{numberFr.stringNull(goodsVo.fullClassPath)}}</view>
+        <view class='weui-cell__bd p1'>类别路径:</view>
+        <view class="weui-cell__bd">{{numberFr.stringNull(goodsVo.fullClassPath)}}</view>
       </view>
     </view>
   </view>

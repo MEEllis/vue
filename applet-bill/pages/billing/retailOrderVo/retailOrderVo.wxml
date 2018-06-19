@@ -34,8 +34,8 @@
       <view class='list-item-title'>
 
         <view class='weui-flex'>
-          <view class="weui-flex__item tl">
-            <text class='title'>{{idx+1}}.{{numberFr.stringNull(item.customerName)}}:{{numberFr.stringNull(item.customerTelephone)}}</text>
+          <view class="weui-flex__item tl p1">
+            <text class='title color1'>{{numberFr.stringNull(item.billsCode)}}</text>
           </view>
           <view class="weui-flex__item tr">
             <text class='time'>{{numberFr.stringNull(item.latestSaveTime)}}</text>
@@ -46,6 +46,10 @@
         <view class="weui-flex">
           <view class="weui-flex__item">
             <view class="">{{numberFr.stringNull(item.sectionName)}}</view>
+            <view>
+              <text wx:if="{{item.customerTelephone}}" class='info'>{{numberFr.stringNull(item.customerName)}}:{{numberFr.stringNull(item.customerTelephone)}}</text>
+              <text wx:else class='info'>(无客户信息)</text>
+            </view>
             <view class="remark">{{numberFr.stringNull(item.remark)}}</view>
           </view>
           <text class='iconfont icon-shangyige'></text>
@@ -68,7 +72,7 @@
     <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
   </scroll-view>
   <easy-modal id="thridModal" title="自定义查询时间" bind:confirmEvent="modalConfirm">
-    <view class='modal-content'>
+    <view class='modal-content tc'>
       <picker mode="date" value="{{modalConfirmStartTime}}" end="{{toDayDate}}" bindchange="bindDateStart">
         <view class="picker ">
           {{modalConfirmStartTime}}

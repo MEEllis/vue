@@ -45,7 +45,8 @@
         <view class='outstock-item' wx:for-items="{{item.billsVoList}}" wx:for-item="billsVoItem" wx:key="*this" wx:for-index="idx">
           <view class='weui-flex item-title color1'>
             <view class="weui-flex__item">
-              <text class='index'>{{idx+1}}</text> {{numberFr.stringNull(billsVoItem.inOutStockTypeName)}}
+              <text class='index'>{{idx+1}}</text>
+              <text class='fw'>{{numberFr.stringNull(billsVoItem.inOutStockTypeName)}}</text>
             </view>
             <view class="weui-flex__item tr">
               {{numberFr.stringNull(billsVoItem.billsCode)}}
@@ -56,8 +57,9 @@
               <view class="weui-flex__item">
                 单据日期：{{numberFr.stringNull(billsVoItem.billsDateStr)}}
               </view>
-              <view class="weui-flex__item color1">
-                金额：{{numberFr.formatNum(billsVoItem.price,2)}}
+              <view class="weui-flex__item color1 ">
+                金额：
+                <text class='fw'>{{numberFr.formatNum(billsVoItem.price,2)}}</text>
               </view>
             </view>
             <view class='weui-flex'>

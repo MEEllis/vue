@@ -81,10 +81,11 @@ Page({
   clearInput: function () {
     this.setData({
       queryKey: "",
+      pageNumber: 1,
       dataList: [],
       curListData: [],
     });
-
+    this.getDataList()
   },
   //关键字搜索
   searchSubmit: function () {

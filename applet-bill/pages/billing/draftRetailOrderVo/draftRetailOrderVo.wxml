@@ -86,7 +86,7 @@
 
 
   <easy-modal id="thridModal" title="自定义查询时间" bind:confirmEvent="modalConfirm">
-    <view class='modal-content'>
+    <view class='modal-content tc'>
       <picker mode="date" value="{{modalConfirmStartTime}}" end="{{toDayDate}}" bindchange="bindDateStart">
         <view class="picker ">
           {{modalConfirmStartTime}}

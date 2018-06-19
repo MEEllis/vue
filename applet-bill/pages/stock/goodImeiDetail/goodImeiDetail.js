@@ -48,7 +48,7 @@ Page({
    */
   onReady: function () {
     const that = this;
-    util.getScrollHeight((52 + 50 + 50 + 8)).then((scrollHeight) => {
+    util.getScrollHeight((52 + 50 + 55 + 8)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,

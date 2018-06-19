@@ -6,7 +6,7 @@
   margin: 30rpx 30rpx;
   border-radius: 12rpx;
   font-size: 34rpx;
-  color: #999;
+  color: #333;
 }
 
 .img {
