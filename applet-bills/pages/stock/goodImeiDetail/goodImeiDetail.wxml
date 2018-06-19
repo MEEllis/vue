@@ -1,0 +1,56 @@
+<view class="container">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <import src="../../../template/pagination.wxml" />
+  <view class="list-item ">
+    <view class='weui-flex ellipsis2 title'>
+      {{goodsName}}
+    </view>
+  </view>
+
+  <view class="">
+    <!-- 部门列表 -->
+    <view class='section-wrap'>
+      <view class="weui-cell section-item">
+        <view class="weui-cell__bd ">
+          <text class='iconfont icon-mendian'></text>{{numberFr.stringEllipsis(sectionName)}}
+        </view>
+        <view class="weui-cell__ft color1"></view>
+      </view>
+      <!-- 仓库列表 -->
+      <view class="storage-wrap">
+        <view class="weui-cell storage-item">
+          <view class="weui-cell__bd">
+            <text class='iconfont icon-fa-bank'></text>{{numberFr.stringEllipsis(storageName,15)}}</view>
+          <view wx:if="{{records!=''}}" class="weui-cell__ft color1">{{numberFr.formatNum(records)}}</view>
+        </view>
+
+        <view class="weui-panel">
+          <scroll-view scroll-y='true' class="weui-panel__bd" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+
+            <view wx:for="{{dataList}}" wx:for-index="Idx" wx:key="{{Idx}}" data-index="{{Idx}}" class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg index">
+                {{Idx+1}}
+              </view>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg index-body">
+                <view class='index-body-item'>
+                  <view class='desc'>串号：</view>
+                  <view class='desc-value color2'>{{item.imei}}</view>
+                </view>
+                <view class='index-body-item'>
+                  <view class='desc'>辅助串号：</view>
+                  <view class='desc-value color2'>{{numberFr.stringNull(item.auxiliaryImei)}}</view>
+                </view>
+                <view class='index-body-item'>
+                  <view class='desc'>采购日期：</view>
+                  <view class='desc-value color1'>{{numberFr.stringNull(item.purchaseDateStr)}}</view>
+                </view>
+              </view>
+            </view>
+             <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,103 @@
+<view class="container">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <import src="../../../template/pagination.wxml" />
+  <!-- 搜索 -->
+  <view class="weui-search-bar">
+    <form class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder="手机号、客户姓名、会员卡号" value="{{queryKey}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
+        <view class="weui-icon-clear" wx:if="{{queryKey.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">搜索</view>
+      </label>
+    </form>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消 </view>
+  </view>
+  <view class="weui-flex  cate-wrap">
+    <view data-index="{{index}}" class='weui-flex__item' wx:for="{{tabContent}}" wx:key="{{index}}">
+      <button class="btn   {{activeIndex == index ? 'on' : ''}}" data-index="{{index}}" bindtap="tabContentClick">
+        {{item}}
+      </button>
+    </view>
+  </view>
+  <view class="sel-time">
+    查询时间:{{startTime==endTime?startTime:(startTime+'至'+endTime)}}
+  </view>
+  <!-- 商品列表 -->
+  <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+    <view class='good-item' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this">
+      <view class='good-item-wrap' style="{{item.txtStyle}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{idx}}">
+        <navigator class='list-item mb-20' url="/pages/billing/newBilling/newBilling?billsId={{item.billsId}}" data-index="{{index}}">
+          <view class='list-item-title'>
+            <view class='weui-flex'>
+              <view class="weui-flex__item tl">
+                {{idx+1}}
+                <text wx:if="{{item.customerTelephone}}" class='title'>.{{numberFr.stringNull(item.customerName)}}:{{numberFr.stringNull(item.customerTelephone)}}</text>
+                <text wx:else class='title'>(无客户信息)</text>
+              </view>
+              <view class="weui-flex__item tr">
+                <text class='time'>{{numberFr.stringNull(item.latestSaveTime)}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='list-item-body'>
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <view class="">{{numberFr.stringNull(item.sectionName)}}</view>
+                <view class="remark">{{numberFr.stringNull(item.remark)}}</view>
+              </view>
+              <text class='iconfont icon-shangyige'></text>
+            </view>
+          </view>
+          <view class='list-item-footer'>
+            <view class=''>
+              {{numberFr.stringNull(item.goodsName)}}
+            </view>
+            <view class="weui-flex">
+              <view class="weui-flex__item tl">
+                {{numberFr.formatNum(item.discountedPrice||'',2)}}
+              </view>
+              <view class="weui-flex__item tr">
+                x{{numberFr.formatNum(item.goodsNumber||'')}}
+              </view>
+            </view>
+          </view>
+
+        </navigator>
+      </view>
+
+      <!--这里是左滑按钮部分----start-->
+      <view class="posit weui-flex" data-goodindex="{{idx}}" data-billsid="{{item.billsId}}" bindtap="tapDelDraft">
+        <view class="del weui-flex__item">
+          删除
+        </view>
+      </view>
+      <!--这里是左滑按钮部分----end-->
+    </view>
+
+
+    <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+  </scroll-view>
+
+
+  <easy-modal id="thridModal" title="自定义查询时间" bind:confirmEvent="modalConfirm">
+    <view class='modal-content tc'>
+      <picker mode="date" value="{{modalConfirmStartTime}}" end="{{toDayDate}}" bindchange="bindDateStart">
+        <view class="picker ">
+          {{modalConfirmStartTime}}
+        </view>
+      </picker>
+      至
+      <picker mode="date" value="{{modalConfirmEndTime}}" end="{{toDayDate}}" bindchange="bindDateEnd">
+        <view class="picker ">
+          {{modalConfirmEndTime}}
+        </view>
+      </picker>
+    </view>
+  </easy-modal>
+</view>

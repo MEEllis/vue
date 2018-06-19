@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "请选择线下收款方式",
+  "usingComponents": {
+    "inputNum": "/component/inputNum/inputNum"
+  }
+}

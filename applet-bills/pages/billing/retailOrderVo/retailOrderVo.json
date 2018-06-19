@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "历史单据",
+  "usingComponents": {
+    "base-modal": "/component/easyModal/base/baseModal",
+    "easy-modal": "/component/easyModal/easy/easyModal"
+  }
+}

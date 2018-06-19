@@ -1,0 +1,101 @@
+<view class="container">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <navigator class='list-item  ' hidden='{{!goodsVo.dataId}}' data-id="{{goodsVo.dataId}}" url='/pages/stock/goodDetail/goodDetail?id={{goodsVo.dataId}}' data-ifManageImei="{{goodsVo.ifManageImei}}">
+    <view class='weui-flex ellipsis2 title'>
+      {{numberFr.stringNull(goodsVo.name)}}
+      <view class="weui-badge" hidden='{{goodsVo.ifManageImei==0}}'>串</view>
+      <text class="deatil">（查看详情）</text>
+    </view>
+
+    <view class='list-item-body'>
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <view>
+            <text class="color6">库存合计:</text>
+            <text class="other-stock fw">{{numberFr.formatNum(goodsVo.totalStockCount)}}</text>
+          </view>
+        </view>
+        <view class="weui-flex__item">
+          <view>
+            <text class="color6">零售标价:</text>
+            <text class="other-stock fw">{{numberFr.formatNum(goodsVo.retailPrice,2)}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+ 
+  </navigator>
+
+  <view class="weui-tab mt-20" hidden='{{!goodsVo.dataId}}'>
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title" wx:if="{{index===0}}">{{item}}{{numberFr.formatNum(goodsVo.ourStockCount)}}</view>
+          <view class="weui-navbar__title" wx:if="{{index===1}}">{{item}}{{numberFr.formatNum(goodsVo.otherStockCount)}}
+          </view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <scroll-view class="weui-tab__content" hidden="{{activeIndex != 0}}" scroll-y='true' style="height:{{scrollHeightTab1}}px;">
+        <!-- 部门列表 -->
+        <view class='section-item' wx:for-item="sectionItem" wx:for="{{goodsVo.ourSectionStockList}}" wx:for-index="sectionIdx" wx:key="{{sectionIdx}}" data-index="{{sectionIdx}}" data-code="{{sectionItem.sectionCode}}">
+          <view class="weui-cell ">
+            <view class="weui-cell__bd">
+              <text class='iconfont icon-mendian'></text>{{numberFr.stringNull(sectionItem.sectionName)}}
+            </view>
+            <view class="weui-cell__ft color1 fw">{{numberFr.formatNum(sectionItem.stockCount)}}</view>
+          </view>
+          <!-- 仓库列表 -->
+          <view class="storage-wrap" wx:for-item="storageItem" wx:for="{{sectionItem.storageStockList}}" wx:for-index="storageIdx" wx:key="{{storageIdx}}">
+            <view class="weui-cell " hover-class="{{goodsVo.ifManageImei==0? '' : 'weui-cell_active'}}" bindtap="tapDetailImei" data-storageId='{{storageItem.storageId}}' data-storageName='{{storageItem.storageName}}' data-sectionName='{{sectionItem.sectionName}}'>
+              <view class="weui-cell__bd">
+                <text class='iconfont icon-fa-bank'></text>{{numberFr.stringNull(storageItem.storageName)}}</view>
+              <view class="weui-cell__ft color1">{{numberFr.formatNum(storageItem.stockCount)}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <!-- 搜索 -->
+        <view class="weui-search-bar">
+          <form class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+              <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+              <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder="部门名称/部门编码" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
+              <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                <icon type="clear" size="14"></icon>
+              </view>
+            </view>
+            <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+              <icon class="weui-icon-search" type="search" size="14"></icon>
+              <view class="weui-search-bar__text">搜索</view>
+            </label>
+          </form>
+          <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消 </view>
+        </view>
+        <scroll-view scroll-y='true' style="height:{{scrollHeightTab2}}px;">
+          <!-- 部门列表 -->
+          <view class='section-item' wx:for-item="sectionItem" wx:for="{{goodsVo.otherSectionStockList}}" wx:for-index="sectionIdx" wx:key="{{sectionIdx}}" data-index="{{sectionIdx}}" data-code="{{sectionItem.sectionCode}}">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">
+                <text class='iconfont icon-mendian'></text>{{numberFr.stringNull(sectionItem.sectionName)}}
+              </view>
+              <view class="weui-cell__ft color1 fw">{{numberFr.formatNum(sectionItem.stockCount)}}</view>
+            </view>
+            <!-- 仓库列表 -->
+            <view class="storage-wrap" wx:for-item="storageItem" wx:for="{{sectionItem.storageStockList}}" wx:for-index="storageIdx" wx:key="{{storageIdx}}">
+              <view class="weui-cell " hover-class="{{goodsVo.ifManageImei==0? '' : 'weui-cell_active'}}" bindtap="tapDetailImei" data-storageId='{{storageItem.storageId}}' data-storageName='{{storageItem.storageName}}' data-sectionName='{{sectionItem.sectionName}}'>
+                <view class="weui-cell__bd">
+                  <text class='iconfont icon-fa-bank'></text>{{numberFr.stringNull(storageItem.storageName)}}</view>
+                <view class="weui-cell__ft color1">{{numberFr.formatNum(storageItem.stockCount)}}</view>
+              </view>
+            </view>
+          </view>
+
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>

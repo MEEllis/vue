@@ -1,0 +1,33 @@
+//js控制千分位
+function formatNum(num, n){
+  num = Number(num)
+  num = (num.toFixed(n));
+  var re = getRegExp('(-?\d+)(\d{3})');
+  while (re.test(num)) {
+    num = num.replace(re, "$1,$2");
+  }
+  return num;  
+}
+//字符串加...
+function stringEllipsis(str, n) {
+  n = Number(n||18)
+  if (str.length > n){
+    str = str.substring(0, n-1)+'...';
+  }
+  return str;
+}
+
+//处理字符串 null
+function stringNull(str) {
+  if (str===null) {
+    str = '';
+  }
+  return str;
+}
+
+module.exports = {
+  formatNum: formatNum,
+  stringEllipsis: stringEllipsis,
+  stringNull: stringNull
+}
+

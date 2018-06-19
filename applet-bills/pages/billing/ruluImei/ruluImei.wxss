@@ -1,0 +1,25 @@
+.list-item {
+  background-color: #fff;
+  padding: 30rpx;
+}
+
+.title {
+  font-size: 34rpx;
+  color: #333;
+  align-items: center;
+}
+
+.icon-shouji1 {
+  font-size: 48rpx;
+}
+
+.list-item-body {
+  color: #666;
+  font-size: 32rpx;
+}
+
+.lab {
+  max-width: 150rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}

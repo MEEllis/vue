@@ -1,0 +1,20 @@
+.logo-wrap {
+  margin: 0rpx auto;
+  text-align: center;
+  padding: 40rpx 0 50rpx 0;
+  background-color: #fff;
+}
+
+.logo {
+  width: 328rpx;
+  height: 184rpx;
+}	
+
+.weui-cell {
+  font-size: 32rpx;
+  padding: 12px 15px;
+}
+
+.weui-cell:before {
+  left: 30rpx;
+}

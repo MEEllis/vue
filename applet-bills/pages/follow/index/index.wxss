@@ -1,0 +1,52 @@
+page {
+  background-color: #fff;
+}
+
+.weui-search-bar__cancel-btn {
+  width: 72rpx;
+  height: 72rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  text-align: center;
+  color: #666;
+}
+
+.icon-iconfontsaoyisao1 {
+  font-size: 44rpx;
+}
+
+.scanCode-wrap {
+  background-color: #fff;
+}
+
+.scanCode {
+  width: 375rpx;
+  height: 376rpx;
+  margin: 0 auto;
+  display: block;
+  padding-top: 260rpx;
+}
+
+.list-item-body {
+  background-color: #fff;
+  padding: 20rpx 0rpx 0rpx 0rpx;
+}
+
+.list-item-body .weui-flex {
+  font-size: 32rpx;
+}
+
+.list-item-body .weui-cell {
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+}
+
+.list-item-body .title {
+  text-align: right;
+}
+
+.list-item-body .desc {
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+  flex: 3;
+}

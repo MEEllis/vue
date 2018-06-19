@@ -1,0 +1,18 @@
+.weui-flex {
+  background-color: #fff;
+  height: 320rpx;
+  align-items: center;
+  text-align: center;
+  margin: 30rpx 30rpx;
+  border-radius: 12rpx;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.img {
+  width: 150rpx;
+  height: 150rpx;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+}

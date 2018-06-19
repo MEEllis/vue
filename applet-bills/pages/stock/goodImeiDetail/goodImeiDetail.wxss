@@ -1,0 +1,135 @@
+.list-item {
+  background-color: #fff;
+  padding: 0rpx 30rpx;
+  border-top: 1rpx solid #d7d6dc;
+  border-bottom: 1rpx solid #e6e6e6;
+  overflow: hidden;
+}
+
+.title {
+  position: relative;
+  line-height: 50rpx;
+  font-size: 34rpx;
+  color: #333;
+  padding: 30rpx 0rpx 10rpx 0rpx;
+  margin-bottom: 10rpx;
+}
+
+.icon-fa-bank, .icon-mendian {
+  color: #4b7eeb;
+  font-size: 60rpx;
+  position: absolute;
+  top: -4rpx;
+  left: 30rpx;
+}
+
+.icon-fa-bank {
+  top: -8rpx;
+  color: #ffaf23;
+}
+
+.weui-cell {
+  line-height: 98rpx;
+  padding: 0rpx 30rpx;
+  background-color: #fff;
+}
+
+.weui-cell__bd {
+  padding-left: 80rpx;
+}
+
+.section-item {
+  position: relative;
+}
+
+.section-item:after {
+  content: " ";
+  position: absolute;
+  left: 30rpx;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  color: #e6e6e6;
+  border-top: 1rpx solid #e6e6e6;
+}
+
+.storage-item {
+  box-shadow: 0px 5rpx 20rpx 2rpx rgba(104, 141, 227, 0.2);
+}
+
+.weui-panel {
+  margin-top: 20rpx;
+}
+
+.weui-panel:before, .weui-panel:after {
+  border: none;
+}
+
+.weui-media-box {
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+.weui-media-box:before {
+  display: none;
+}
+
+.index {
+  margin-right: 58rpx;
+  margin-bottom: 30rpx;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 50%;
+  background-color: rgba(104, 141, 227, 0.2);
+  border: 8rpx solid #f0f3fc;
+}
+
+.index-body {
+  position: relative;
+  padding-left: 45rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.index-body:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  left: -18rpx;
+  top:-10px;
+  bottom: 20rpx;
+  width: 1px;
+  border-left: 1px solid #476ec9;
+}
+
+.index-body:after {
+  content: " ";
+  position: absolute;
+  left: -25rpx;
+  bottom: -5rpx;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  border: 1px solid #476ec9;
+}
+
+.index-body-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 28rpx;
+}
+
+.desc {
+  text-align: right;
+  color: #666;
+  display: inline-block;
+  width: 160rpx;
+}
+
+.desc-value {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  flex: 2;
+}

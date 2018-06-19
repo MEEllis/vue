@@ -1,0 +1,55 @@
+<view class="container" hidden='{{imeiGoodsMultiVo===null}}'>
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <view class='title-wrap'>
+    <view class='weui-flex  title'>
+      <text class='iconfont icon-shouji1'></text>{{numberFr.stringNull(imeiGoodsMultiVo.goodsName)}}
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <text class="color3 mr-15">标价:</text>
+        <text class="color1">{{numberFr.formatNum(imeiGoodsMultiVo.retailPrice,2)}}</text>
+      </view>
+      <view class="weui-flex__item">
+        <text class="color3 mr-15">库存:</text>
+        <text class="color1">{{numberFr.formatNum(imeiGoodsMultiVo.stockCount)}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="weui-tab mt-20">
+    <!-- 部门列表 -->
+    <view wx:for-item="storageItem" wx:for="{{imeiGoodsMultiVo.storageImeiList}}" wx:for-index="storageIdx" wx:key="{{storageIdx}}" data-index="{{storageIdx}}">
+      <view class="weui-flex storage-title">
+        <view class="weui-flex__item">
+          <text class='iconfont icon-fa-bank'></text>{{numberFr.stringNull(storageItem.storageName)}}
+        </view>
+      </view>
+      <!-- 仓库列表 -->
+      <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&imeiId={{meiItem.imeiId}}&ifManageImei=1&isGift={{isGift}}' class="storage-wrap" wx:for-item="meiItem" wx:for="{{storageItem.imeiList}}" wx:key="*this">
+        <view class="weui-flex ">
+          <view class="weui-flex__item lab">
+            串号:
+          </view>
+          <view class="weui-flex__item">
+            {{numberFr.stringNull(meiItem.imei)}}
+          </view>
+        </view>
+        <view class="weui-flex ">
+          <view class="weui-flex__item lab">
+            辅助串号:
+          </view>
+          <view class="weui-flex__item">
+            {{numberFr.stringNull(meiItem.auxiliaryImei)}}
+          </view>
+        </view>
+        <view class="weui-flex ">
+          <view class="weui-flex__item lab">
+            采购日期:
+          </view>
+          <view class="weui-flex__item">
+            {{numberFr.stringNull(meiItem.purchaseDateStr)}}
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

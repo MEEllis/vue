@@ -1,0 +1,46 @@
+.list-item {
+  background-color: #fff;
+  padding: 30rpx;
+  position: relative;
+}
+
+.list-item:before {
+  top: 0;
+  border-top: 1rpx solid #efeff4;
+}
+
+.list-item:after, .list-item:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  color: #efeff4;
+}
+
+.list-items:after {
+  bottom: 0;
+  border-bottom: 1rpx solid #efeff4;
+}
+
+.title {
+  font-size: 34rpx;
+  color: #333;
+  align-items: center;
+}
+
+.icon-shouji1 {
+  font-size: 48rpx;
+  color: #476ec9;
+}
+
+.list-item-body {
+  color: #666;
+  font-size: 32rpx;
+}
+
+.lab {
+  max-width: 150rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}

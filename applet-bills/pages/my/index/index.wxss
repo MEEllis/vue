@@ -1,0 +1,60 @@
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #476ec9;
+  height: 336rpx;
+  color: #fff;
+}
+
+.image-wrap {
+  width: 160rpx;
+  height: 160rpx;
+  margin-top: 20rpx;
+}
+
+.userinfo-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  margin-top: 20rpx;
+  font-size: 34rpx;
+}
+
+.ysUserinfo-nickname {
+  font-size: 28rpx;
+  color: #e6e6e6;
+}
+
+.icon-gongsi {
+  font-size: 48rpx;
+  color: #ffaf23;
+  margin-right: 20rpx;
+}
+
+.icon-guanyu {
+  font-size: 48rpx;
+  color: #476ec9;
+  margin-right: 20rpx;
+}
+
+.weui-cell:before {
+  left: 30rpx;
+}
+
+.relogin {
+  margin-top: 350rpx;
+  border-radius: 0;
+  font-size: 32rpx;
+  color: #333;
+  line-height: 98rpx;
+  height: 98rpx;
+}
+
+
+.relogin::after {
+  border: none !important;
+}

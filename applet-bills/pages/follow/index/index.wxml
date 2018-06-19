@@ -1,0 +1,51 @@
+<view class="container">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <import src="../../../template/pagination.wxml" />
+  <!-- 搜索 -->
+  <view class="weui-search-bar">
+    <form class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder="请输入串号（右匹配，至少5位）" value="{{queryKey}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
+        <view class="weui-icon-clear" wx:if="{{queryKey.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">搜索</view>
+      </label>
+    </form>
+    <view class="weui-search-bar__cancel-btn" hidden='{{!inputShowed}}' bindtap="bindScanCode">
+      <text class='iconfont icon-iconfontsaoyisao1'></text>
+    </view>
+  </view>
+  <view hidden="{{inputShowed}}" class='scanCode-wrap'>
+    <image bindtap='bindScanCode' src="../../../images/scanCode.png" lazy-load='true' class='scanCode' />
+  </view>
+
+  <!-- 商品列表 -->
+  <scroll-view hidden="{{!inputShowed}}" scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+    <view class='list-item mb-30 ' wx:for-items="{{dataList}}" wx:key="*this">
+      <view class='list-item-body'>
+        <view class="weui-flex">
+          <view class='weui-flex__item color3 title'>串号：</view>
+          <view class="weui-flex__item desc color2">
+            {{numberFr.stringNull(item.imei)}}
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class='color3 weui-flex__item title'>辅助串号：</view>
+          <view class="weui-flex__item desc color2">
+            {{numberFr.stringNull(item.auxiliaryImei)}}
+          </view>
+        </view>
+        <navigator url='/pages/follow/imeiDetailVo/imeiDetailVo?imeiId={{item.imeiId}}' class="weui-cell mt-20">
+          <view class="weui-cell__bd {{item.imStatus==1?'color1':'color5'}}">{{numberFr.stringNull(item.statusName)}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+      </view>
+    </view>
+    <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+  </scroll-view>
+</view>

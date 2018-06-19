@@ -1,0 +1,10 @@
+
+.weui-flex {
+  padding: 30rpx;
+  background-color: #fff;
+}
+
+.ok {
+  background-color: rgba(71, 110, 201, 1) !important;
+  margin: 30rpx;
+}

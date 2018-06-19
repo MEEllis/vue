@@ -1,0 +1,49 @@
+<view class="container">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <import src="../../../template/pagination.wxml" />
+  <!-- 搜索 -->
+  <view class="weui-search-bar">
+    <form class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" confirm-type='search' focus='true' class="weui-search-bar__input" placeholder="请输入商品串号(末5位以上)" value="{{queryKey}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
+        <view class="weui-icon-clear" wx:if="{{queryKey.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">搜索</view>
+      </label>
+    </form>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消 </view>
+  </view>
+  <!-- 商品列表 -->
+  <scroll-view scroll-y='true' hidden='{{dataList===null || dataList.length==1}}' class="list-wrap " style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+    <navigator class='list-item mb-30' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="dataId" url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&goodsId={{item.goodsId}}&imeiId={{item.imeiId}}&ifManageImei=1&isGift={{isGift}}'>
+      <view class='weui-flex  title'>
+        <text class='iconfont icon-shouji1'></text> {{numberFr.stringNull(item.goodsName)}}
+      </view>
+
+      <view class='list-item-body'>
+        <view class="weui-flex">
+          <view class="weui-flex__item lab">
+            串号:
+          </view>
+          <view class="weui-flex__item">
+            {{numberFr.stringNull(item.imei)}}
+          </view>
+        </view>
+        <view class="weui-flex lp">
+          <view class="weui-flex__item lab">
+            辅助串号:
+          </view>
+          <view class="weui-flex__item">
+            {{numberFr.stringNull(item.auxiliaryImei)}}
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+  </scroll-view>
+</view>

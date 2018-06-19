@@ -1,0 +1,67 @@
+page {
+  background-color: #fff;
+}
+
+.body-wrap {
+  padding: 30rpx;
+}
+
+.title {
+  font-size: 60rpx;
+  text-align: center;
+  padding: 30rpx;
+}
+
+.item {
+  line-height: 90rpx;
+}
+
+.txt-input-ignored {
+  height: 70rpx;
+  width: 440rpx;
+  float: right;
+  position: relative;
+  top: 5rpx;
+}
+
+.txt-input-remark {
+  width: 100%;
+  height: 150rpx;
+  padding: 20rpx 0rpx;
+}
+
+.weixin {
+  background-color: #09bb07 !important;
+  color: #fff !important;
+  font-size: 36rpx;
+}
+
+.icon-weixin1 {
+  font-size: 54rpx;
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  top: -20rpx;
+}
+
+.wxlab {
+  margin-left: 65rpx;
+}
+
+.zhifubao {
+  background-color: #0c81de !important;
+  color: #fff !important;
+  font-size: 36rpx;
+}
+
+.icon-zhifubao1 {
+  font-size: 50rpx;
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  top: -20rpx;
+}
+
+.zflab {
+  margin-left: 75rpx;
+}

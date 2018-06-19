@@ -1,0 +1,11 @@
+@import '../draftRetailOrderVo/draftRetailOrderVo.wxss';
+
+.p1 {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  flex: 2;
+}
+.list-item-title {
+    padding: 20rpx 30rpx;
+  border-bottom:1px solid #e6e6e6;
+}

@@ -1,0 +1,77 @@
+.weui-search-bar {
+  height: 112rpx;
+  padding: 20rpx 30rpx;
+  border-bottom: none;
+}
+
+.weui-search-bar__form {
+  border-radius: 12rpx;
+  border: none;
+}
+
+.weui-search-bar__input {
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 28rpx;
+}
+
+.weui-search-bar__box {
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+}
+
+.weui-icon-search_in-box {
+  left: 20rpx;
+  top: 20rpx;
+}
+
+.weui-icon-clear {
+  padding: 0;
+}
+
+.weui-search-bar__label {
+  border-radius: 12rpx;
+  line-height: 72rpx;
+  height: 72rpx;
+}
+
+.weui-search-bar__text {
+  font-size: 28rpx;
+}
+
+.weui-search-bar__cancel-btn {
+  line-height: 72rpx;
+  margin-left: 20rpx;
+}
+
+.weui-icon-clear {
+  padding: 20rpx 16rpx;
+}
+
+.weui-navbar {
+  color: #666;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.weui-navbar__slider {
+  background-color: #476ec9;
+}
+
+.weui-navbar__item {
+  color: #666;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #476ec9;
+}
+
+.weui-msg__title {
+  color: #46be8a;
+  font-size: 36rpx;
+}
+
+.weui-msg__desc {
+  color: #333;
+  font-size: 60rpx;
+}

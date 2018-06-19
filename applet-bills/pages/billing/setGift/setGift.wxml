@@ -1,0 +1,11 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<view class="container">
+  <scroll-view scroll-y='true' class="list-wrap " style="height:{{scrollHeight}}px;" class='list-wrap'>
+    <view class="weui-flex border-top border-bottom mb-20" hidden='{{index==curSelIndex||item.isGift==1}}' wx:for-items="{{goodsVo}}" wx:key="*this" data-index='{{index}}' bindtap='tapSelGift'>
+      <view class="weui-flex__item">
+        {{numberFr.stringNull(item.goodsName)}}
+      </view>
+    </view>
+  </scroll-view>
+  <button class="ok mb-20" type="primary" bindtap='tapSelGift' data-index='-1'>设本商品为独立赠品</button>
+</view>

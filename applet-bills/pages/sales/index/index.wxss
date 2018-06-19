@@ -1,0 +1,214 @@
+.weui-navbar {
+  font-size: 30rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #d7d6dc;
+}
+
+.weui-navbar__item {
+  line-height: 98rpx;
+  padding: 0rpx;
+  height: 98rpx;
+}
+
+.cate-wrap {
+  background-color: #fff;
+  white-space: nowrap;
+  padding: 20rpx 30rpx;
+  border-top: 4px solid #efeff4;
+}
+
+.cate-wrap button {
+  font-size: 26rpx;
+  border: none;
+  background-color: #efeff4;
+  border-radius: 6rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  padding: 0;
+  margin-right: 20rpx;
+}
+
+.cate-wrap button:last-child {
+  margin-right: 0;
+}
+
+.cate-wrap button.on {
+  background-color: rgba(71, 110, 201, 0.15);
+}
+
+.cate-wrap button::after {
+  border: none !important;
+}
+
+.table-wrap {
+  padding: 0 0rpx;
+}
+
+.table-wrap .weui-flex {
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+.table {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.table-head {
+  height: 150rpx;
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 12rpx 12rpx 0px 0px;
+}
+
+.table-head .name {
+  font-size: 34rpx;
+}
+
+.table .name {
+  font-size: 34rpx;
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+  flex: 3;
+  word-break: break-all;
+}
+
+.table .aomout {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  flex: 2;
+}
+
+.table-body {
+  background-color: #fff;
+  position: relative;
+  color: #666;
+  font-size: 32rpx;
+}
+
+.table-body::after {
+  content: " ";
+  position: absolute;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: 0;
+  height: 1px;
+  color: #e6e6e6;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.table .table-body:last-child:after {
+  border-bottom: 1rpx solid transparent;
+}
+
+.table-body .weui-flex__item {
+  padding: 22rpx 0;
+}
+
+.f1 {
+  font-size: 40rpx;
+}
+
+.detail-list {
+  background-color: #fff;
+  font-size: 32rpx;
+}
+
+.detail-list .tap {
+  padding: 20rpx 30rpx 20rpx 0rpx;
+}
+
+.detail-list .weui-cells .weui-cell::before {
+  left: 30rpx;
+}
+
+.tap .weui-cell__bd {
+  border-left-width: 16rpx;
+  border-left-style: solid;
+  font-size: 34rpx;
+  padding-left: 10rpx;
+  color: #1a1a1a;
+}
+
+.weui-cells_after-title .weui-cell__bd {
+  color: #333;
+}
+
+.operating-receipt .tap .weui-cell__bd {
+  border-left-color: #476ec9;
+}
+
+.operating-pay .tap .weui-cell__bd {
+  border-left-color: #46be8a;
+}
+
+.operating-other .tap .weui-cell__bd {
+  border-left-color: #ffaf23;
+}
+
+.operating-arrear .tap .weui-cell__bd {
+  border-left-color: #e94f4f;
+}
+
+.tab-cotent3 .table-head {
+  height: 98rpx;
+}
+
+.tab-cotent3 image {
+  width: 64rpx;
+  height: 64rpx;
+  float: left;
+}
+
+.tab-cotent3 .active {
+  display: inline-block;
+  border-bottom: 1px solid #fff;
+}
+
+.tab-cotent3 .table .name {
+  -webkit-box-flex: 4;
+  -webkit-flex: 4;
+  flex: 4;
+}
+
+.shrink-wrap {
+  animation: fadeIn 0.8s linear;
+}
+
+.rank-wrap {
+  font-size: 28rpx;
+  height: 78rpx;
+  color: #666;
+  border-radius: 0px 0px 12px 12px;
+  align-items: center;
+}
+
+.rank-goods {
+  background-image: linear-gradient(110deg, rgba(133, 147, 250, 0.12) 0%, rgba(181, 136, 247, 0.12) 100%);
+}
+
+.icon-laba {
+  color: rgba(236, 198, 132, 1);
+  font-size: 48rpx;
+  margin-right: 20rpx;
+}
+
+.table1 .table-head {
+  background-image: linear-gradient(110deg, #5480f1 0%, #2d65f4 100%);
+}
+
+.table2 .table-head {
+  background-image: linear-gradient(110deg, #8593fa 0%, #b588f7 100%);
+}
+
+.table3 .table-head {
+  background-image: linear-gradient(110deg, #ffaa31 0%, #ff7b02 100%);
+}
+
+.table4 .table-head {
+  background-image: linear-gradient(110deg, #b960e0 0%, #7327fe 100%);
+}
+
+.table5 .table-head {
+  background-image: linear-gradient(110deg, #fab77b 0%, #fc76b3 100%);
+}

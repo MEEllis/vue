@@ -1,0 +1,63 @@
+.container {
+  background-color: #fff;
+}
+
+.title-wrap {
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+}
+
+.title {
+  font-size: 34rpx;
+  color: #333;
+  align-items: center;
+}
+
+.icon-fa-bank {
+  font-size: 60rpx;
+  color: #ffaf23;
+  margin-right: 20rpx;
+}
+
+.icon-shouji1 {
+  font-size: 48rpx;
+  color: #476ec9;
+}
+
+.list-item-body {
+  color: #666;
+  font-size: 32rpx;
+}
+
+.lab {
+  max-width: 150rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}
+
+.storage-wrap {
+  position: relative;
+  padding: 20rpx 30rpx;
+}
+
+.storage-wrap:before {
+  top: 0;
+  border-top: 1rpx solid #efeff4;
+}
+
+.storage-wrap:before {
+  content: " ";
+  position: absolute;
+  left: 30rpx;
+  right: 0rpx;
+  height: 1px;
+  color: #efeff4;
+}
+
+.storage-title {
+  align-items: center;
+  background-color: #efeff4;
+  padding-left: 30rpx;
+  font-size: 32rpx;
+  color: #333;
+}

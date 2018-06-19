@@ -1,0 +1,86 @@
+<view class="container">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <import src="../../../template/pagination.wxml" />
+  <!-- 搜索 -->
+  <view class="weui-search-bar">
+    <form class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder="业务类别/业务名称" value="{{queryKey}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
+        <view class="weui-icon-clear" wx:if="{{queryKey.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">搜索</view>
+      </label>
+    </form>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消 </view>
+  </view>
+  <view class="sel-time">
+    查询时间:{{startTime==endTime?startTime:(startTime+'至'+endTime)}}
+  </view>
+
+  <!-- 商品列表 -->
+  <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+    <navigator class='list-item' wx:for-items="{{dataList}}" wx:for-index="idx" wx:key="*this" data-id="{{item.billsId}}" url="/pages/sales/{{(item.billsType==45?'RetailDeliveryOrderVo/RetailDeliveryOrderVo':'RetailRefundOrderVo/RetailRefundOrderVo')}}?billsId={{item.billsId}}">
+      <view class='list-item-title'>
+        <view class='weui-flex'>
+          <text class='iconfont icon-yewu'></text>
+          <text class='title'>{{numberFr.stringNull(item.businessName)}}</text>
+        </view>
+      </view>
+
+      <view class='list-item-body'>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="my-stock">数量:{{numberFr.formatNum(item.businessCount)}}</view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="other-stock">收款金额:{{numberFr.formatNum(item.receivedAmount,2)}}</view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="">佣金金额:{{numberFr.formatNum(item.commissionAmount,2)}}</view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="">业务类别:{{numberFr.stringNull(item.businessClassName)}}</view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="">业务号:{{numberFr.stringNull(item.businessNo)}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='list-item-footer'>
+        <view class='clearfix'>
+          <text class='fl'>{{numberFr.stringNull(item.billsCode)}}</text>
+          <text class='fr' style='margin-right:30rpx;'>{{numberFr.stringNull(item.billsDateStr)}}</text>
+        </view>
+      </view>
+    </navigator>
+    <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+  </scroll-view>
+  <view class="">
+    <view class="weui-flex sum-wrap">
+      <view class="weui-flex__item sum ">
+        合计
+      </view>
+      <view class="weui-flex__item tr count">
+        <view class='color3'>数量</view>
+        <view class='f1'>{{numberFr.formatNum((totalVo.totalCount===undefined?0:totalVo.totalCount))}}</view>
+      </view>
+      <view class="weui-flex__item tr aomout">
+        <view class='color3'>收款金额</view>
+        <view class='f1'>{{numberFr.formatNum((totalVo.totalAmount===undefined?0:totalVo.totalAmount),2)}}</view>
+      </view>
+      <view class="weui-flex__item tr aomout">
+        <view class='color3'>佣金金额</view>
+        <view class='f1'>{{numberFr.formatNum((totalVo.totalCommissionAmount===undefined?0:totalVo.totalCommissionAmount),2)}}</view>
+      </view>
+    </view>
+  </view>
+</view>

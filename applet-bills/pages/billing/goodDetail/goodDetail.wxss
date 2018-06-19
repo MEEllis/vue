@@ -1,0 +1,65 @@
+page {
+  background-color: #fff;
+}
+
+.title {
+  font-size: 36rpx;
+  color: #333;
+  padding: 20rpx 90rpx;
+  text-align: center;
+  font-weight: 600;
+}
+
+.detail-wrap {
+  padding: 0rpx 30rpx;
+  font-size: 32rpx;
+}
+
+.detail-wrap .weui-flex {
+  line-height: 98rpx;
+  align-items: center;
+}
+
+.p1 {
+  color: #666;
+}
+
+.p2 {
+  color: #333;
+  text-align: right;
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+  flex: 3;
+}
+
+.txt-input-price {
+  height: 70rpx;
+  width: 440rpx;
+  float: right;
+  font-weight: 600;
+  font-size: 50rpx;
+}
+
+.txt-input-remark {
+  width: 100%;
+  height: 150rpx;
+  padding: 20rpx 0rpx;
+  text-align: left;
+}
+
+.txt-input-number {
+  width: 80rpx;
+  height: 52rpx;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  float: right;
+  text-align: center;
+}
+
+.ok {
+  background-color: rgba(71, 110, 201, 1) !important;
+}
+
+.del {
+  background-color: #ff3b30 !important;
+}

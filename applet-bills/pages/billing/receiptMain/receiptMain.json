@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "收款结算",
+  "usingComponents": {
+    "inputNum": "/component/inputNum/inputNum"
+  }
+}

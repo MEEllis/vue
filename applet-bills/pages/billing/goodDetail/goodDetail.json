@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商品及售价",
+  "usingComponents": {
+    "stepper": "/component/stepper/stepper",
+    "inputNum": "/component/inputNum/inputNum"
+  }
+}

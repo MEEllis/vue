@@ -1,0 +1,1 @@
+<input type="digit" class='num' placeholder="{{placeholderC}}" bindchange="changeManual" value="{{num}}" bindinput="bindManual" maxlength='20'/>

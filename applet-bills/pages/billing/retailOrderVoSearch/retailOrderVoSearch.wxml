@@ -1,0 +1,32 @@
+<view class="container">
+  <navigator url="/pages/billing/selSection/selSection?sectionId={{sectionId}}" class='weui-flex border-top'>
+    <view class="weui-flex__item tl">
+      门店
+    </view>
+    <view class="weui-flex__item tr">
+      {{sectionName==""?'全部':sectionName}}
+    </view>
+      <text class='iconfont icon-shangyige'></text>
+  </navigator>
+  <navigator url="/pages/billing/selGoodsClass/selGoodsClass?goodsClassId={{goodsClassId}}" class='weui-flex'>
+    <view class="weui-flex__item tl">
+      商品类别
+    </view>
+    <view class="weui-flex__item tr">
+      {{goodsClassName==""?'全部':goodsClassName}}
+    </view>
+     <text class='iconfont icon-shangyige'></text>
+  </navigator>
+
+  <view class='weui-flex border-top'>
+    <view class="weui-flex__item tl">
+      客户
+    </view>
+    <view class="weui-flex__item ">
+      <input class='txt-input' placeholder="姓名、手机号、会员卡号" value="{{customerKey}}" bindinput="inputcustomerKey" />
+    </view>
+  </view>
+
+  <button style='' class='btnBlue' type="default" bindtap="tapOk">查询</button>
+  <button class='' type="default" bindtap="tapReset">重置</button>
+</view>

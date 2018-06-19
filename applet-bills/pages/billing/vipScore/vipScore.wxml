@@ -1,0 +1,37 @@
+<view class="container" wx:if='{{vipVo.customerTelephone}}' >
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <view class="weui-flex border-top">
+    <view class="weui-flex__item lab">
+      抵现规则：{{vipVo.deductionIntegral}}积分兑换{{vipVo.deductionAmount}}元
+    </view>
+  </view>
+  <view class="weui-flex border-top">
+    <view class="weui-flex__item lab">
+      可抵现积分:
+    </view>
+    <view class="weui-flex__item tr">
+      {{numberFr.formatNum(vipVo.vipCardScore)}}
+    </view>
+  </view>
+  <view class="weui-flex border-top">
+    <view class="weui-flex__item lab">
+      可抵现:
+    </view>
+    <view class="weui-flex__item tr">
+      {{numberFr.formatNum(sAmount,2)}}
+    </view>
+  </view>
+
+  <view class="weui-flex mt-20">
+    <view class="weui-flex__item lab">
+      抵现:
+    </view>
+    <view class="weui-flex__item fl">
+
+
+         <inputNum class='txt-input' num="{{integralDeductionAmount}}" placeholderC="请输入抵现金额" bindchangeEvent='inputAmount'></inputNum>
+    </view>
+  </view>
+
+  <button class="btnBlue" type="default" bindtap='tapOK'>确定抵扣 {{numberFr.formatNum(integralDeductionAmount,2)}}</button>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "积分抵现",
+  "usingComponents": {
+    "inputNum": "/component/inputNum/inputNum"
+  }
+}

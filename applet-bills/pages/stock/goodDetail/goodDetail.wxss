@@ -1,0 +1,50 @@
+.list-item {
+  background-color: #fff;
+  padding: 0rpx 30rpx;
+  border-top: 1rpx solid #d9d9d9;
+}
+
+.title {
+  position: relative;
+  font-size: 34rpx;
+  color: #333;
+  padding: 30rpx 0rpx 30rpx 0rpx;
+  font-weight: 600;
+}
+
+.weui-cell {
+  font-size: 32rpx;
+  padding-right: 0rpx;
+  padding-left: 0rpx;
+}
+
+.weui-cell:before {
+  border-top: none;
+}
+
+.weui-cell:first-child {
+  line-height: 90rpx;
+}
+
+.pc:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1rpx solid #e6e6e6;
+  color: #e6e6e6;
+}
+
+.weui-cell__bd.p1 {
+  color: #666;
+  max-width: 150rpx;
+  text-align: left;
+}
+
+.weui-cell__bd {
+  color: #333;
+  text-align: right;
+  word-break: break-all;
+}

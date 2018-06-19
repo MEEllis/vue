@@ -1,0 +1,78 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<view class="body-wrap">
+  <view class="weui-flex title p1 border-bottom ">
+    <view class="weui-flex__item">
+      应收金额
+    </view>
+    <view class="weui-flex__item amount">
+      {{numberFr.formatNum(totalPayAmount,2)}}
+    </view>
+  </view>
+  <view class="weui-flex title p1 border-bottom ">
+    <view class="weui-flex__item">
+      欠款金额
+    </view>
+    <view class="weui-flex__item amount">
+      {{numberFr.formatNum(debtAmount,2)}}
+    </view>
+  </view>
+  <view class="weui-flex  p1 border-bottom" wx:if="{{dataVo[1]}}">
+    <view class="weui-flex__item ">
+      现金
+    </view>
+    <view class="weui-flex__item">
+      <inputNum class='txt-input' num="{{dataVo[1][0].amount}}" data-key="1" data-index="0" bindchangeEvent='inputAmount'></inputNum>
+    </view>
+  </view>
+  <view class="weui-flex " wx:if="{{dataVo[2]}}">
+    <view class="weui-flex__item color3">
+      POS
+    </view>
+  </view>
+  <view class="weui-flex mb-20" style='margin-left:60rpx;' wx:if="{{dataVo[2]}}" wx:for-items="{{dataVo[2]}}" wx:key="*this">
+    <view class="weui-flex__item">
+      {{item.name}}
+    </view>
+    <view class="weui-flex__item">
+      <inputNum class='txt-input' num="{{item.amount}}" data-key="2" data-index="{{index}}" bindchangeEvent='inputAmount'></inputNum>
+    </view>
+  </view>
+
+  <view class="weui-flex  border-top mt-20" wx:if="{{dataVo[5]}}">
+    <view class="weui-flex__item color3">
+      其他账户
+    </view>
+  </view>
+  <view class="weui-flex mb-20" style='margin-left:60rpx;' wx:if="{{dataVo[5]}}" wx:for-items="{{dataVo[5]}}" wx:key="*this">
+    <view class="weui-flex__item">
+      {{item.name}}
+    </view>
+    <view class="weui-flex__item">
+      <inputNum class='txt-input' num="{{item.amount}}" data-key="5" data-index="{{index}}" bindchangeEvent='inputAmount'></inputNum>
+    </view>
+  </view>
+
+
+
+
+  <view class="weui-flex p1 border-top mt-20" wx:if="{{dataVo[4]}}">
+    <view class="weui-flex__item">
+      支付宝<text class='y1'>(非系统扫码收款)</text>
+    </view>
+    <view class="weui-flex__item">
+      <inputNum class='txt-input' num="{{dataVo[4][0].amount}}" data-key="4" data-index="0" bindchangeEvent='inputAmount'></inputNum>
+    </view>
+  </view>
+
+  <view class="weui-flex  p1 border-top" wx:if="{{dataVo[3]}}">
+    <view class="weui-flex__item">
+      微信<text class='y1'>(非系统扫码收款)</text>
+    </view>
+    <view class="weui-flex__item">
+      <inputNum class='txt-input' num="{{dataVo[3][0].amount}}" data-key="3" data-index="0" bindchangeEvent='inputAmount'></inputNum>
+    </view>
+  </view>
+
+  <button wx:if="{{debtAmount==0}}" class="btnBlue mb-20 mt-20" type="default" bindtap='tapOk'>确认收款</button>
+  <button disabled wx:else class="btnBlue mb-20 mt-20" type="default" bindtap='tapOk'>确认收款</button>
+</view>
