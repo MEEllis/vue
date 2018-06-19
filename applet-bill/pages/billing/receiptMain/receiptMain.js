@@ -1,4 +1,5 @@
 import util from '../../../utils/util.js';
+import api from '../../../config/api.js';
 import bill from '../../../services/bill.js';
 Page({
 
@@ -17,6 +18,7 @@ Page({
     delta: 1,
     sectionId: '',
     vipVo: {},
+    dataVo: null,
   },
 
   /**
@@ -24,6 +26,7 @@ Page({
    */
   onLoad: function (options) {
     this.setDelta();
+    this.getSectionAccountVoList()
   },
 
   /**
@@ -70,6 +73,10 @@ Page({
     const { sectionId, addPage, ignoredAmount, totalAmount, remark, totalPayAmount, integralDeductionAmount} = this.data;
     if (addPage != null) {
       const { vipVo, goodsVo } = addPage.data;
+      if (Number(totalPayAmount)===0){
+        util.showErrorToast('应收为0时应该不能用扫码收款!')
+        return;
+      }
       //扫码
       wx.scanCode({
         success: (res) => {
@@ -106,7 +113,24 @@ Page({
       api.getSectionAccountVoList,
       { sectionId },
     ).then(res => {
-        console.log(res)
+ 
+        const { dataList } = res.data;
+        const returnObj = {};
+        if (Array.isArray(dataList)) {
+          for (let i = 0; i < dataList.length; i++) {
+            const dataItem = dataList[i];
+            if (dataItem.status == 0) {
+              if (returnObj[dataItem.accountType] === undefined) {
+                returnObj[dataItem.accountType] = [];
+              }
+              dataItem.amount = '';
+              returnObj[dataItem.accountType].push(dataItem)
+            }
+          }
+        }
+        that.setData({
+          dataVo: returnObj,
+        }) 
     })
   },
   tapxianxia: function () {

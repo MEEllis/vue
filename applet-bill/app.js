@@ -21,15 +21,7 @@ App({
         wx.setStorageSync('companyList', ajaxData.data.companyList);
       })
     },res => {
-      setTimeout(()=>{
-        //如果没有登录，就去登录页面
-        wx.reLaunch({
-          url: '/pages/login/login',
-          success: (res) => {
-            console.log(res)
-          }
-        })
-      },50)
+
     }
     ).catch(() => {
 

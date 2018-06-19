@@ -683,12 +683,17 @@
 
   <view class="">
     <view class="weui-flex sum-wrap">
+
       <view class="weui-flex__item count">
-        <view class=''>合计:
-          <text class='color1'>{{numberFr.formatNum(orderVo.shouldRefundTotalAmount,2)}}</text>
+        <view class='weui-flex'>
+          合计:
+          <view class="weui-flex__item p2">
+            <view class='color1 tl fw'>{{numberFr.formatNum(orderVo.shouldRefundTotalAmount,2)}}</view>
+            <view class='color3 tl  c1'>共 {{numberFr.formatNum(totalCount)}} 件</view>
+          </view>
         </view>
-        <view class='color3'>共 {{numberFr.formatNum(totalCount)}} 件</view>
       </view>
+
       <button type="primary" bindtap='tapPrint' class="weui-flex__item print">
         打印
       </button>

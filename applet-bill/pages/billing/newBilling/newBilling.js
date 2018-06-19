@@ -61,9 +61,17 @@ Page({
     ).then(res => {
       let sectionIndex = 0;
       for (let i = 0; i < res.data.dataList.length; i++) {
-        if (sectionId == res.data.dataList[i].sectionId) {
+        const dataItem=res.data.dataList[i];
+        if (sectionId == dataItem.sectionId) {
           sectionIndex = i;
           break;
+        }
+        if (i == res.data.dataList.length-1){
+          sectionIndex = i;
+          that.setData({
+            sectionName: dataItem.name,
+            sectionId: dataItem.sectionId,
+          });
         }
       }
       that.setData({

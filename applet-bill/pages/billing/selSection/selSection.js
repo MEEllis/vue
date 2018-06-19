@@ -11,6 +11,7 @@ Page({
     inputShowed: false,
     queryKey: "",
     dataList: [],
+    dataSource:[],
     scrollHeight: 0,
     sectionId: '',
     addPage: null,
@@ -69,14 +70,24 @@ Page({
   },
   //关键字搜索
   searchSubmit: function() {
-    this.setData({
-      dataList: [],
-    });
-    this.getGoodsList()
+    const {
+      dataSource,
+      queryKey
+    } = this.data;
+    if (Array.isArray(dataSource)){
+      const dataList = dataSource.filter(data => {
+        if (String(data.code).toLowerCase().indexOf(queryKey.toLowerCase()) > -1 || String(data.name).toLowerCase().indexOf(queryKey.toLowerCase()) > -1) {
+          return true;
+        }
+      });
+      this.setData({
+        dataList,
+      });
+    }
   },
   //
   tapSel: function(e) {
-    
+
     const {
       id,
       name
@@ -86,7 +97,7 @@ Page({
     } = this.data;
     if (addPage != null) {
       addPage.setData({
-        sectionId:id,
+        sectionId: id,
         sectionName: name,
       })
     }
@@ -109,6 +120,7 @@ Page({
       }
       _this.setData({
         dataList: res.data.dataList,
+        dataSource: res.data.dataList,
       });
     });
   },

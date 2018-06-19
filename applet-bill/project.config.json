@@ -8,8 +8,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.9",
-	"appid": "wxbebb5fca8a3b9e3d",
+	"libVersion": "2.1.0",
+	"appid": "wxdb08db3f99bd8425",
 	"projectname": "applet-bill",
 	"isGameTourist": false,
 	"condition": {
@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 26,
+			"current": 17,
 			"list": [
 				{
 					"id": 0,

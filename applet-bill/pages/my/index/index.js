@@ -72,13 +72,16 @@ Page({
     var that = this
     var index = e.detail.value;
     var companyId = this.data.companyList[index].id; // 这个id就是选中项的id
-
-    util.request(
-      api.changeLoginCompany,
-      {
-        companyId,
-      },
-    ).then(ajaxData => {
+    user.loginByWeixin().then(({ code, userInfo }) => {
+      return util.request(
+        api.changeLoginCompany,
+        {
+          code: code,
+          companyId,
+          userInfo: JSON.stringify(userInfo),
+        },
+      )
+    }).then(ajaxData => {
       that.setData({
         companyList: ajaxData.data.companyList,
         success: function () {
@@ -90,7 +93,7 @@ Page({
         data: ajaxData.data.employeeVo,
         success: function () {
           that.getysUserInfo();
-          appInstance.globalData.isChangeCompany=true;
+          appInstance.globalData.isChangeCompany = true;
         }
       });
       wx.setStorage({
@@ -99,6 +102,8 @@ Page({
       });
 
     })
+ 
+
   },
   relogin: function (e) {
     try {
