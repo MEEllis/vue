@@ -43,7 +43,7 @@ form {
 .clear{
  padding: 10rpx 20rpx;
   position: absolute;
-  top:0px;
+  top:-12rpx;
   right: 10rpx;
   display: block;
 }

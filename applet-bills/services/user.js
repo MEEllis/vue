@@ -2,27 +2,6 @@
  * 用户相关服务
  */
 import util from '../utils/util.js'
-import api from '../config/api.js'
-
-/**
- * 调用微信登录
- */
-function loginByWeixin() {
-
-  let code = null;
-  return new Promise(function (resolve, reject) {
-    return util.login().then((res) => {
-      code = res.code;
-      return util.getUserInfo();
-    }).then((userInfo) => {
-      resolve({ code, userInfo});
-    }).catch((err) => {
-      reject(err);
-    })
-  });
-}
-
-
 
 /**
  * 判断用户是否登录
@@ -45,7 +24,6 @@ function checkLogin() {
 
 
 module.exports = {
-  loginByWeixin,
   checkLogin,
 };
 

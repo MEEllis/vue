@@ -262,7 +262,7 @@
               </view>
             </view>
             <view class="weui-flex">
-              <text class="">佣金金额</text>
+              <text class="fw">佣金金额</text>
               <view class="weui-flex__item tr fw">
                 {{numberFr.formatNum(item.commissionAmount,2)}}
               </view>
@@ -695,7 +695,7 @@
       </view>
 
       <button type="primary" bindtap='tapPrint' class="weui-flex__item print">
-        打印
+        云打印
       </button>
       <button type="primary" bindtap='tapUpdate' class="weui-flex__item update">
         保存修改

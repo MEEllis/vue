@@ -93,10 +93,10 @@ Page({
   tapPrint: function(e) {
     const {
       billsId,
-      totalAmount,
+      orderVo,
     } = this.data;
     wx.redirectTo({
-      url: `/pages/billing/paySuccess/paySuccess?totalPayAmount=${totalAmount}&billsId=${res.data.billsId}`
+      url: `/pages/billing/paySuccess/paySuccess?totalPayAmount=${orderVo.totalAmount}&billsId=${billsId}`
     });
   },
 })

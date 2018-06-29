@@ -5,9 +5,11 @@ App({
   //生命周期函数--监听小程序初始化 (desc:当小程序初始化完成时，会触发 onLaunch（全局只触发一次）)
   onLaunch: function () {
     const _this=this;
+    console.log("==============onLaunch")
     //获取用户的登录信息
     user.checkLogin().then(res => {
-      user.loginByWeixin().then(({ code, userInfo }) => {
+      console.log("==============获取用户的登录信息")
+      util.loginByWeixin().then(({ code, userInfo }) => {
         return util.request(
           api.authAutoLogin,
           {
@@ -21,12 +23,15 @@ App({
         wx.setStorageSync('companyList', ajaxData.data.companyList);
       })
     },res => {
-      wx.reLaunch({
-        url: '/pages/login/login',
-        success: (res) => {
+      console.log("==============login")
+      setTimeout(function(){
+        wx.reLaunch({
+          url: '/pages/login/login',
+          success: (res) => {
 
-        }
-      })
+          }
+        })
+      },50)
     }
     ).catch(() => {
 

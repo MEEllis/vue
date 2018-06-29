@@ -1,6 +1,5 @@
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
-import user from '../../../services/user.js';
 var appInstance = getApp()
 
 Page({
@@ -73,7 +72,7 @@ Page({
     var that = this
     var index = e.detail.value;
     var companyId = this.data.companyList[index].id; // 这个id就是选中项的id
-    user.loginByWeixin().then(({ code, userInfo }) => {
+    util.loginByWeixin().then(({ code, userInfo }) => {
       return util.request(
         api.changeLoginCompany,
         {

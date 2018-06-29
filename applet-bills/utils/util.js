@@ -1,5 +1,7 @@
 import api from '../config/api.js';
 
+
+
 function formatTime(date, fmt = 'yyyy-MM-dd') {
   var o = {
     "M+": date.getMonth() + 1, //月份   
@@ -35,7 +37,7 @@ function request(url, data = {}, method = "POST") {
       data: data,
       method: method,
       header: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'content-type': 'application/x-www-form-urlencoded',
         'ERP-WX-TOKEN': wx.getStorageSync('token')
       },
       success: function(res) {
@@ -48,24 +50,17 @@ function request(url, data = {}, method = "POST") {
           // 未登录时（-1），先调用自动登录
           else if (res.data.result == -1) {
             console.log(res.data)
-            util.login().then(({
-              code
-            }) => {
-              if (code) {
-                request(
-                  api.authAutoLogin, {
-                    code: code,
-                    userInfo: JSON.stringify(userInfo),
-                  }).then(ajaxData => {
-                    wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
-                    wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
-                    wx.setStorageSync('companyList', ajaxData.data.companyList);
-                  })
-              }
+            loginByWeixin().then(({ code, userInfo }) => {
+              return request(
+                api.authAutoLogin, {
+                  code: code,
+                  userInfo: JSON.stringify(userInfo),
+                })
+            }).then(ajaxData => {
+              wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
+              wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
+              wx.setStorageSync('companyList', ajaxData.data.companyList);
             })
-
-          
-
           }
           //自动登录失败（-15）
           else if (res.data.result == -15) {
@@ -81,7 +76,7 @@ function request(url, data = {}, method = "POST") {
             reject(res.data);
           }
         } else {
-          showErrorToast()
+          showErrorToast('操作异常！')
           reject(res.errMsg);
         }
 
@@ -108,6 +103,25 @@ function checkSession() {
       fail: function() {
         reject(false);
       }
+    })
+  });
+}
+
+/**
+ * 调用微信登录
+ */
+function loginByWeixin() {
+
+  let code = null;
+  return new Promise(function (resolve, reject) {
+
+    return login().then((res) => {
+      code = res.code;
+      return getUserInfo();
+    }).then((userInfo) => {
+      resolve({ code, userInfo });
+    }).catch((err) => {
+      reject(err);
     })
   });
 }
@@ -287,6 +301,7 @@ module.exports = {
   request,
   showErrorToast,
   checkSession,
+  loginByWeixin,
   login,
   getUserInfo,
   getScrollHeight,

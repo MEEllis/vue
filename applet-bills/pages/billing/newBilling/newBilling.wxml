@@ -22,7 +22,7 @@
       <view class="weui-cell__bd">客户信息</view>
       <view wx:if='{{vipVo!==null&&customerTelephone.length===11}}' class="weui-cell__ft desc">
         <text wx:if='{{vipVo.status==1}}'>该会员已禁用,不享有相应会员类型服务</text>
-        <text class='color1' wx:if='{{vipVo.status==0}}'>该会员享受部分商品{{discountRate}}折优惠</text>
+        <text class='color1' wx:else hidden='{{discountRate==10}}'>该会员享受部分商品{{discountRate}}折优惠</text>
       </view>
     </view>
   </view>

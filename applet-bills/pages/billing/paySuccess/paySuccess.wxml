@@ -2,11 +2,14 @@
   <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
   <view class="weui-msg">
     <view class="weui-msg__icon-area">
-      <icon type="success" size="45"></icon>
+      <icon type="success" size="62"></icon>
     </view>
     <view class="weui-msg__text-area">
       <view class="weui-msg__title">收款成功</view>
       <view class="weui-msg__desc"> {{numberFr.formatNum(totalPayAmount,2)}}</view>
+    </view>
+    <view class="weui-msg__text-area" style='font-size:14px;'>
+    {{message}}
     </view>
     <view class="weui-msg__opr-area">
       <view class="weui-btn-area">

@@ -8,8 +8,10 @@
     <view class="weui-flex__item ">
     </view>
     <view class="weui-flex__item " bindtap='tapDelDraft'>
-      <view class='iconfont icon-delete'></view>
-      <view class=''>删除本单</view>
+      <view hidden='{{billsId==""}}'>
+        <view class='iconfont icon-delete'></view>
+        <view class=''>删除本单</view>
+      </view>
     </view>
 
     <view class="weui-flex__item" bindtap='tapSaveDraft'>

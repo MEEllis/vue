@@ -8,6 +8,8 @@ Page({
   data: {
     totalPayAmount: 0,
     billsId: '',
+    success:null,
+    message: '',
   },
 
   /**
@@ -19,6 +21,7 @@ Page({
       totalPayAmount,
       billsId,
     });
+    this.print()
   },
 
   /**
@@ -50,7 +53,11 @@ Page({
       api.print,
       { billsId },
     ).then(res => {
-      
+      const { message, success } = res.data
+      this.setData({
+        message,
+        success,
+      });
     })
   },
 })

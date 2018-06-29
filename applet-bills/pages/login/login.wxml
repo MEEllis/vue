@@ -17,7 +17,7 @@
     </view>
     <view>
 
-      <!-- 15116201365 ys123456 -->
+      <!-- 15116201365 123456  18963943990 123456 -->
       <button open-type="getUserInfo" wx:if="{{name.length>0&&pwd.length>0}}" class="login " type="primary" bindgetuserinfo="formSubmit">登录</button>
       <button open-type="getUserInfo" disabled wx:else class="login" type="primary" bindgetuserinfo="formSubmit">登录</button>
     </view>

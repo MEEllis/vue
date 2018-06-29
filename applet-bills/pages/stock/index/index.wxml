@@ -42,7 +42,7 @@
         </view>
         <view class="weui-flex lp">
           <view class="weui-flex__item">
-            <view class="">零售标价:￥{{numberFr.formatNum(item.retailPrice,2)}}</view>
+            <view class="">零售标价:{{numberFr.formatNum(item.retailPrice,2)}}</view>
           </view>
           <view class="weui-flex__item">
             <view class="">一级类别:{{numberFr.stringNull(item.firstClassName)}}</view>

@@ -87,8 +87,10 @@ Page({
     const {
       name,
       sectionId,
-      billsId,
     } = this.data.sectionList[index]; // 这个id就是选中项的id
+    const {
+      billsId,
+    } = this.data;
     this.setData({
       sectionIndex: index,
       sectionName: name,

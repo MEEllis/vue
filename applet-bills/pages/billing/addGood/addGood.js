@@ -229,9 +229,7 @@ Page({
             }, 1500)
           })
         } else if (res.cancel) {
-          wx.redirectTo({
-            url: '/pages/billing/newBilling/newBilling'
-          });
+      
         }
       }
     })

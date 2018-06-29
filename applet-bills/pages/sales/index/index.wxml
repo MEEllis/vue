@@ -63,7 +63,8 @@
             <text class='iconfont icon-shangyige'></text>
           </view>
         </view>
-        <scroll-view scroll-y='true' class='mb-20' style="height:{{scrollHeightTab1}}px;" wx:if="{{receiptsVo!==null}}">
+        <scroll-view scroll-y='true' class='shink-wrap' style="height:{{scrollHeightTab1}}px;" wx:if="{{receiptsVo!==null}}">
+         <view hidden='{{isShrink===true}}' class='shrink-wrap'>
           <view class='detail-list mt-20 operating-receipt '>
             <view class="weui-flex tap">
               <view class="weui-cell__bd">营业收入</view>
@@ -85,8 +86,8 @@
               </view>
             </view>
           </view>
-          <view hidden='{{isShrink===true}}' class='shrink-wrap'>
-            <view class='detail-list mt-20 operating-pay '>
+          </view>
+              <view class='detail-list mt-20 operating-pay '>
               <view class="weui-flex tap">
                 <view class="weui-cell__bd">营业收款</view>
                 <view class="tr color4 fw">{{numberFr.formatNum(receiptsVo.operatingPayAmount,2)}}</view>
@@ -131,6 +132,7 @@
                 <view class="tr color2">{{numberFr.formatNum(receiptsVo.wechatAmount,2)}}</view>
               </view>
             </view>
+          <view hidden='{{isShrink===true}}' class='shrink-wrap'>
             <view class='detail-list mt-20 operating-other '>
               <view class="weui-flex tap">
                 <view class="weui-cell__bd">其他优惠或抵扣</view>
@@ -167,9 +169,13 @@
               <view class="tr color4 fw">{{numberFr.formatNum(receiptsVo.arrearAmount,2)}}</view>
             </view>
           </view>
+          <view class='p3'>
+            <button class='btn-shrink' type="default" bindtap='bindShrink'>{{isShrink===true?'点我显示完整营业款信息':'点我显示简版营业款信息'}}</button>
+          </view>
         </scroll-view>
         <view wx:else class='tc mt-20' style=''>当天没有营业款记录</view>
-        <button style='margin:0 30rpx;' wx:if="{{receiptsVo!==null}}" type="default" bindtap='bindShrink'>{{isShrink===true?'点我显示完整营业款信息':'点我显示简版营业款信息'}}</button>
+
+
       </view>
       <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
         <view class="weui-flex  cate-wrap">

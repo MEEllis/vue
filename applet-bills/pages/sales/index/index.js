@@ -73,7 +73,7 @@ Page({
   onReady: function () {
     var that = this;
 
-    util.getScrollHeight([50 + 54 + 46 + 10 + 10, 50 + 54 + 35 + 10]).then((scrollHeight) => {
+    util.getScrollHeight([50 + 54 , 50 + 54 + 35 + 10]).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeightTab1: scrollHeight[0],

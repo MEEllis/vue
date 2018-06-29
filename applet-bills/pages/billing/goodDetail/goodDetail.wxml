@@ -6,7 +6,7 @@
     </view>
   </view>
   <view class='detail-wrap'>
-    <view class="weui-flex p1" hidden='{{ifManageImei!=1}}'>
+    <view class="weui-flex border-bottom p1" hidden='{{ifManageImei!=1}}'>
       <view class="weui-flex__item">
         串号:
       </view>
@@ -15,7 +15,7 @@
       </view>
     </view>
 
-    <view class="weui-flex "  hidden='{{ifManageImei!=1}}'>
+    <view class="weui-flex border-bottom"  hidden='{{ifManageImei!=1}}'>
       <view class="weui-flex__item p1">
         辅助串号:
       </view>

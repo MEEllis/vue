@@ -26,7 +26,7 @@
       <!-- 仓库列表 -->
       <navigator url='/pages/billing/goodDetail/goodDetail?sectionId={{sectionId}}&imeiId={{meiItem.imeiId}}&ifManageImei=1&isGift={{isGift}}' class="storage-wrap" wx:for-item="meiItem" wx:for="{{storageItem.imeiList}}" wx:key="*this">
         <view class="weui-flex ">
-          <view class="weui-flex__item lab">
+          <view class="weui-flex__item lab color3">
             串号:
           </view>
           <view class="weui-flex__item">
@@ -34,7 +34,7 @@
           </view>
         </view>
         <view class="weui-flex ">
-          <view class="weui-flex__item lab">
+          <view class="weui-flex__item lab color3">
             辅助串号:
           </view>
           <view class="weui-flex__item">
@@ -42,10 +42,10 @@
           </view>
         </view>
         <view class="weui-flex ">
-          <view class="weui-flex__item lab">
+          <view class="weui-flex__item lab color3">
             采购日期:
           </view>
-          <view class="weui-flex__item">
+          <view class="weui-flex__item color3">
             {{numberFr.stringNull(meiItem.purchaseDateStr)}}
           </view>
         </view>

@@ -1,6 +1,5 @@
 import util from '../../utils/util.js';
 import api from '../../config/api.js';
-import user from '../../services/user.js';
 
 Page({
   /**
@@ -83,7 +82,7 @@ Page({
       name,
       pwd
     } = this.data;
-    user.loginByWeixin().then(({
+    util.loginByWeixin().then(({
       code,
       userInfo
     }) => {
