@@ -1,7 +1,0 @@
-
-
-<view class="intro">有tabbar，windowHeight: {{ height }}</view>
-<view class="intro">结果正确</view>
-<navigator url="/sub/sub">
-    <button>点击进入子页面查看windowHeight</button>
-</navigator>
