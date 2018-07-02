@@ -1,0 +1,117 @@
+header{
+    padding: 20px 20px 10px;
+    box-shadow: 0px 11px 10px -6px #E7EAEC;
+}
+.form-inline{
+    margin-top: 10px;
+}
+#amendModal .modal-content>.modal-body{
+    min-height: 100px;
+    padding-top: 20px;
+    overflow: inherit;
+}
+#amendModal .form-inline .modal{
+    overflow: inherit;
+}
+#amendModal .form-inline .modal-body{
+    overflow: hidden;
+}
+#card,.navBtn .btn,#search,#reset{
+    padding: 6px 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+#card:hover,.navBtn .btn:hover,#search:hover,#reset:hover{
+    border: 1px solid #0099FF;
+}
+.navBtn{
+    padding: 20px;
+}
+.navBtn .btn{
+    margin-right: 10px;
+}
+.wfkdiv,.yfkdiv{
+    display: inline-block;
+    position: relative;
+    width: 145px;
+}
+.wfkdiv:hover .wfkbtn,.yfkdiv:hover .yfkbtn{
+    display: block;
+}
+.navBtn>div>.btn{
+    position: relative;
+}
+.navBtn>div>.btn>i{
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    color: #0099FF;
+}
+.navBtn>div>div{
+    display: none;
+    position: absolute;
+    z-index: 9999;
+}
+.navBtn>div>div>.btn{
+    float: left;
+    width: 132px;
+}
+.modal .modal-header{
+    background-color: rgb(0, 153, 255);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px 5px 0 0;
+}
+#search{
+    background-color: rgba(81, 132, 240, 1);
+    color: #fff;
+    border: 0;
+    margin-right: 10px;
+}
+#search:hover{
+    background-color: rgba(0, 102, 255, 1);
+}
+.gridwarp{
+    padding: 0 20px;
+}
+#mkCardPileModal .ui-jqgrid-view,#mkCardPileModal .ui-jqgrid-hdiv,#mkCardPileModal .ui-jqgrid-bdiv,#mkCardPileModal .ui-jqgrid {
+    width: 563px!important;
+}
+#mkCardPileModal .ui-jqgrid-bdiv{
+    height: 148px!important;
+}
+.w-148 {
+    width: 148px!important;
+}
+.modal-ipt {
+    height: 28px;
+    border: 1px solid #CFCFCF;
+    margin-right: 14px;
+    padding: 0 5px;
+}
+.tp-info>p{
+    margin-bottom: 10px;
+}
+.tp-info>p>span {
+    display: inline-block;
+    min-width: 100px;
+    text-align: right;
+}
+.tp-info>div{
+    position: relative;
+    margin-bottom: 10px;
+}
+.tp-info>div>span{
+    display: inline-block;
+    min-width: 100px;
+    text-align: right;
+}
+.inpbox{
+    position: absolute;
+    right: 46px;
+    top: 0px;
+    width: 149px;
+}
+.typeNamePiles,.inpbox .showComboBox .btn{
+    height: 30px;
+}

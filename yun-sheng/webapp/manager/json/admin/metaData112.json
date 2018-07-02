@@ -1,0 +1,15 @@
+{"rows":[
+{"metaName":"采购订单","blocId":"0000","metaSearch":"0","metaAdd":"1","metaUpdate":"1","metaDelete":"1","metaGuo":"1","metaHong":"1","metaFa":"1","metaShen":"0","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"},
+{"metaName":"采购入库","blocId":"0002","metaSearch":"0","metaAdd":"1","metaUpdate":"1","metaDelete":"1","metaGuo":"1","metaHong":"1","metaFa":"1","metaShen":"1","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"},
+{"metaName":"采购退货","blocId":"0003","metaSearch":"0","metaAdd":"1","metaUpdate":"0","metaDelete":"1","metaGuo":"1","metaHong":"1","metaFa":"1","metaShen":"1","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"},
+{"metaName":"采购换货","blocId":"0004","metaSearch":"1","metaAdd":"1","metaUpdate":"1","metaDelete":"0","metaGuo":"1","metaHong":"1","metaFa":"1","metaShen":"0","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"},
+{"metaName":"获赠单","blocId":"0005","metaSearch":"0","metaAdd":"1","metaUpdate":"1","metaDelete":"1","metaGuo":"0","metaHong":"1","metaFa":"1","metaShen":"1","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"},
+{"metaName":"供应商报价单","blocId":"0006","metaSearch":"1","metaAdd":"0","metaUpdate":"1","metaDelete":"1","metaGuo":"1","metaHong":"1","metaFa":"1","metaShen":"0","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"},
+{"metaName":"供应商返利单","blocId":"0007","metaSearch":"1","metaAdd":"1","metaUpdate":"0","metaDelete":"1","metaGuo":"1","metaHong":"1","metaFa":"1","metaShen":"1","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"},
+{"metaName":"受托入库单","blocId":"0008","metaSearch":"0","metaAdd":"0","metaUpdate":"1","metaDelete":"1","metaGuo":"0","metaHong":"1","metaFa":"1","metaShen":"1","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"},
+{"metaName":"受托退货单","blocId":"0009","metaSearch":"1","metaAdd":"0","metaUpdate":"1","metaDelete":"1","metaGuo":"1","metaHong":"1","metaFa":"1","metaShen":"1","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"},
+{"metaName":"受托调价单","blocId":"0000","metaSearch":"0","metaAdd":"1","metaUpdate":"1","metaDelete":"1","metaGuo":"1","metaHong":"1","metaFa":"1","metaShen":"1","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"},
+{"metaName":"受托结算单","blocId":"0000","metaSearch":"1","metaAdd":"1","metaUpdate":"0","metaDelete":"1","metaGuo":"0","metaHong":"1","metaFa":"1","metaShen":"0","metaMoneySee":"0","metaMoneyUpdate":"0","clientSee":"0"}
+]}
+
+

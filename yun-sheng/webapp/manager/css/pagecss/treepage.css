@@ -1,0 +1,58 @@
+body{padding: 20px;}
+
+#employeesAdmin .grp_tree{width: 800px;}
+#employeesAdmin .grp_info{ margin-left:820px;}
+.grp_tree,.modaltree{margin-top: 20px; width: 600px;float: left;border-radius:5px ; border: 1px solid #D5D5D5;border-top:0px ;margin-bottom:30px;}
+.modaltree{border: 0px;}
+.grp_tree ul{margin: 0px;}
+.grp_tree ul li{border-top: 1px solid #d5d5d5; background-color:#fff ;min-height: 40px; line-height: 40px; padding-left: 15px;}
+.grp_tree ul li.hidechild>.hideul{display: none;}
+.grp_tree ul li.showchild>.showul{display: none;}
+.grp_tree ul li>a.noshow>i{color: #fff;}
+.grp_li{margin-top: 20px; width: 600px;float: left;border-radius:5px ; border: 1px solid #D5D5D5;border-top:0px ;margin-bottom:30px;}
+.grp_li ul{margin: 0px;}
+.grp_li ul li{border-top: 1px solid #d5d5d5; background-color:#fff ;min-height: 40px; line-height: 40px; padding-left: 15px;}
+.grp_li ul li.hidechild>.hideul{display: none;}
+.grp_li ul li.showchild>.showul{display: none;}
+.grp_li ul li>a.noshow>i{color: #fff;}
+.grp_li ul li>span.eventbox{height: 40px; line-height: 40px;margin-right:20px;display: none;}
+.grp_li ul li.hover{background-color: #c8daea;}
+.grp_li ul li.select{background-color: #d7ecff;}
+.grp_li ul li.hover>span.eventbox{display: block;}
+.grp_li ul li.hover>a.noshow>i{color: #c8daea;}
+.grp_li ul li.select>a.noshow>i{color: #d7ecff;}
+
+.grp_li ul li>span.eventbox>a{padding: 5px;}
+/*.grp_tree li ul{display: none;}*/
+.grp_tree ul li>a{margin-right: 10px;font-size: 14px; color: #555;}
+.grp_tree ul li>a>i{font-size: 14px; color: #555;}
+.grp_tree ul li>a{height: 40px; line-height: 40px; display:inline-block ;margin-left: 20px;}
+.grp_tree ul li  li>a{height: 40px; line-height: 40px; display:inline-block ;margin-left: 40px;}
+.grp_tree ul li  li  li>a{height: 40px; line-height: 40px; display:inline-block ;margin-left: 60px;}
+.grp_tree ul li li  li   li>a{height: 40px; line-height: 40px; display:inline-block ;margin-left: 80px;}
+.grp_tree ul li li  li   li>a{height: 40px; line-height: 40px; display:inline-block ;margin-left: 100px;}
+.grp_tree ul li li  li  li   li>a{height: 40px; line-height: 40px; display:inline-block ;margin-left: 120px;}
+.grp_tree ul li li  li  li  li   li>a{height: 40px; line-height: 40px; display:inline-block ;margin-left: 140px;}
+.grp_tree ul li li  li  li  li  li   li>a{height: 40px; line-height: 40px; display:inline-block ;margin-left: 160px;}
+.grp_tree ul li>span.eventbox{height: 40px; line-height: 40px;margin-right:20px;display: none;}
+.grp_tree ul li.hover{background-color: #c8daea;}
+.grp_tree ul li.select{background-color: #d7ecff;}
+.grp_tree ul li.hover>span.eventbox{display: block;}
+.grp_tree ul li.hover>a.noshow>i{color: #c8daea;}
+.grp_tree ul li.select>a.noshow>i{color: #d7ecff;}
+
+.grp_tree ul li>span.eventbox>a{padding: 5px;}
+
+.functionList .list-group .list-group-item{height: 55px;}
+.functionList .list-group .list-group-item>div{height: 34px;line-height: 34px;}
+.functionList .list-group .list-group-item>div>label{margin-left:10px;margin-bottom: 0px;}
+.grp_info .list-group .list-group-item .txt{display: inline-block; width: 120px; text-align: right; margin-right: 5px;}
+.grp_tree{margin-top: 20px; width: 600px;float: left;}
+.grp_info,.functionList{margin-top: 20px; margin-left:620px;}
+.inputbox {padding-top: 20px;}
+.inputbox .row {margin-bottom: 20px;}
+.inputbox>div>div>.box_text {float: left;width: 150px;height: 35px;line-height: 35px;text-align: right;}
+.inputbox>div>div>.box_input {display: block;margin-left: 150px;height: 35px;line-height: 35px;}
+#iconbox span{ display: inline-block; margin-left: 10px; cursor: pointer;}
+#iconbox span>i{font-size: 20px;}
+#iconbox span.select{color: red;}

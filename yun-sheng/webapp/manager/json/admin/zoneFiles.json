@@ -1,0 +1,15 @@
+{"rows":[
+{"areaCoding":"","areaName":"东北","topArea":"中国","tierCoding":"100001","topTierCoding":"1","ifUpstage":"1","ifDisable":"0","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""},
+{"areaCoding":"","areaName":"华中","topArea":"中国","tierCoding":"100002","topTierCoding":"1","ifUpstage":"1","ifDisable":"1","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""},
+{"areaCoding":"","areaName":"华南","topArea":"中国","tierCoding":"100003","topTierCoding":"1","ifUpstage":"1","ifDisable":"0","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""},
+{"areaCoding":"","areaName":"华北","topArea":"中国","tierCoding":"100004","topTierCoding":"1","ifUpstage":"1","ifDisable":"0","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""},
+{"areaCoding":"","areaName":"西北","topArea":"中国","tierCoding":"100005","topTierCoding":"1","ifUpstage":"1","ifDisable":"1","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""},
+{"areaCoding":"","areaName":"哈尔滨","topArea":"东北","tierCoding":"10000100001","topTierCoding":"100001","ifUpstage":"1","ifDisable":"0","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""},
+{"areaCoding":"","areaName":"武汉","topArea":"华中","tierCoding":"10000200001","topTierCoding":"100002","ifUpstage":"1","ifDisable":"1","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""},
+{"areaCoding":"","areaName":"广东","topArea":"华南","tierCoding":"10000300001","topTierCoding":"100003","ifUpstage":"1","ifDisable":"1","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""},
+{"areaCoding":"","areaName":"广州","topArea":"华东","tierCoding":"1000030000100001","topTierCoding":"10000300001","ifUpstage":"0","ifDisable":"","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""},
+{"areaCoding":"","areaName":"广州","topArea":"华东","tierCoding":"1000030000100001","topTierCoding":"10000300001","ifUpstage":"0","ifDisable":"","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""},
+{"areaCoding":"","areaName":"广州","topArea":"华东","tierCoding":"1000030000100001","topTierCoding":"10000300001","ifUpstage":"0","ifDisable":"","remark":"","newPeople":"","newTime":"","modifier":"","newModifier":""}
+]}
+
+

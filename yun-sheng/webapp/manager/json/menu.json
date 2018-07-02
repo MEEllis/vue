@@ -1,0 +1,40 @@
+{"menulist":[{"menuText":"系统设置","iconCode":"&#xe622;","menuPage":"","name":"systemSet","childmenu":[
+                                                                                 
+                                                                                     {"menuText":"模块管理 ","name":"ModolueAdmin","href":"html/BasicData/ModolueAdmin.html","id":"1"},
+                                                                                      {"menuText":"功能管理 ","name":"FunctionAdmin","href":"html/BasicData/FunctionAdmin.html","id":"2"},
+                                                                 					 {"menuText":"角色管理 ","name":"rolesAdmin","href":"","id":"3"},                                                      
+                                                                                     {"menuText":"组织架构 ","name":"GRP_Frame","href":"html/BasicData/GRP_Frame.html","id":"4"},
+                                                                                     {"menuText":"功能模块 ","name":"modalFunction","href":"baidu.com","id":"5"},
+                                                                 					 {"menuText":"员工档案 ","name":"staffRecord","href":"baidu.com","id":"6"},
+                                                                 					 {"menuText":"集团参数 ","name":"groupParameter","href":"baidu.com","id":"7"},
+                                                                 					 {"menuText":"公司参数 ","name":"companyParameter","href":"baidu.com","id":"8"},
+                                                                 					 {"menuText":"收入属性 ","name":"incomeAttribute","href":"baidu.com","id":"9"}
+                                                                 					 
+                                                                                     
+                                                                                     ]
+},
+{"menuText":"基础资料","iconCode":"&#xe622;","menuPage":"","name":"basicData","childmenu":[
+                                                                                     {"menuText":"部门属性 ","name":"DeptAttr","href":"baidu.com","id":"10"},
+                                                                                     {"menuText":"资金账户","name":"moneystork","href":"baidu.com","id":"11"},
+                                                                                     {"menuText":"仓库属性 ","name":"storkAttr","href":"baidu.com","id":"12"},
+                                                                                     {"menuText":"组织架构 ","name":"GRP_Frame","href":"baidu.com","id":"13"}
+                                                                                     ]
+},{"menuText":"采购","iconCode":"&#xe622;","menuPage":"","name":"purchase","childmenu":[
+
+                                                                             
+
+                                                                              {"menuText":"采购订单 ","name":"PUR_Bills","href":"html/threeThModel/PUR_Bills.html","id":"14"},
+ 	                                                                          {"menuText":"新增修改采购订单 ","name":"PUR_Billsadd","href":"html/threeThModel/PUR_Billsadd.html","id":"114"},
+                                                                              {"menuText":"组织架构 ","name":"GRP_Frame","href":"baidu.com","id":"15"},
+                                                                              {"menuText":"组织架构 ","name":"GRP_Frame","href":"baidu.com","id":"16"},
+                                                                              {"menuText":"组织架构 ","name":"GRP_Frame","href":"baidu.com","id":"17"},
+                                                                              {"menuText":"组织架构 ","name":"GRP_Frame","href":"baidu.com","id":"18"}
+                                                                              ]
+},{"menuText":"资料","iconCode":"&#xe622;","menuPage":"","name":"basicData","childmenu":[
+                                                                                       {"menuText":"组织架构 ","name":"GRP_Frame","href":"baidu.com","id":"19"},
+                                                                                       {"menuText":"组织架构 ","name":"GRP_Frame","href":"baidu.com","id":"20"},
+                                                                                       {"menuText":"组织架构 ","name":"GRP_Frame","href":"baidu.com","id":"21"},
+                                                                                       {"menuText":"组织架构 ","name":"GRP_Frame","href":"baidu.com","id":"22"},
+                                                                                       {"menuText":"组织架构 ","name":"GRP_Frame","href":"baidu.com","id":"23"}
+                                                                                       ] }
+] }

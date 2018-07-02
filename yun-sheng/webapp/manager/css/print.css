@@ -1,0 +1,24 @@
+/*打印样式*/
+table-bordered{
+    word-break: break-all;
+    word-wrap:break-word;
+}
+.table-bordered td,
+.table-bordered th{
+    border-color:#000 !important;
+}
+td,
+th,
+span,
+label{
+    color:#000 !important;
+}
+
+/*
+td,
+th{
+    font-size: 5mm !important;
+}
+*/
+
+

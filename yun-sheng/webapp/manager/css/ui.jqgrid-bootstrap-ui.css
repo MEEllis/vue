@@ -1,0 +1,39 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 16, 2015, 10:24:01 AM
+    Author     : tony
+*/
+
+.ui-jqgrid tr.jqgrow td { height: 38px; font-size:16px ;line-height: 38px; border-color:#d5d5d5 ;}
+.ui-jqgrid .ui-pg-input,.ui-jqgrid .ui-jqgrid-toppager .ui-pg-input { height:30px }
+.ui-state-hover
+{
+    border: .15em solid;
+	border-color: inherit;
+
+}
+.ui-jqdialog .ui-jqdialog-titlebar  {
+	height:40px;
+	border-color: inherit;
+}
+
+.ui-jqdialog-content input.FormElement {
+    padding: 0.25em;
+}
+
+.fm-button {
+    height:30px;
+}
+#nData, #pData { height:20px; width:18px; }
+
+
+.ui-jqgrid .ui-jqgrid-htable .ui-th-div {
+    height: 40px;font-size:16px ;line-height: 38px;
+    margin-top: 5px;
+}
+.ui-jqgrid .ui-grid-ico-sort {top:10px}
+.ui-jqgrid .ui-jqgrid-bdiv {overflow-x: hidden;}

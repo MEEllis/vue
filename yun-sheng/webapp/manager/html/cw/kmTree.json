@@ -1,0 +1,22 @@
+[   
+	{"id":1, "pId":0, "name":"会计科目", "iconSkin":"prt"},   
+	{"id":11, "pId":1, "name":"资产", "iconSkin":"prt"},
+	{"id":111, "pId":11, "name":"短期借款", "iconSkin":"leaf"},
+	{"id":112, "pId":11, "name":"应付票据", "iconSkin":"leaf"},
+	{"id":113, "pId":11, "name":"应付账款", "iconSkin":"leaf"},
+	{"id":114, "pId":11, "name":"预收账款", "iconSkin":"leaf"},
+	{"id":115, "pId":11, "name":"应付职工薪酬", "iconSkin":"prt"},
+	{"id":1151, "pId":115, "name":"应付职工工资", "iconSkin":"leaf"},
+	{"id":1152, "pId":115, "name":"应付奖金", "iconSkin":"leaf"},
+	{"id":1153, "pId":115, "name":"应付福利费", "iconSkin":"leaf"},
+	{"id":1154, "pId":115, "name":"应付社会保障", "iconSkin":"leaf"},
+	{"id":1155, "pId":115, "name":"应付住房公积金", "iconSkin":"leaf"},
+	{"id":1156, "pId":115, "name":"应付公会经费", "iconSkin":"leaf"},
+	{"id":1157, "pId":115, "name":"应付教育经费", "iconSkin":"leaf"},
+	{"id":1158, "pId":115, "name":"非货币性福利", "iconSkin":"leaf"},
+	{"id":1159, "pId":115, "name":"辞退福利", "iconSkin":"leaf"},
+	{"id":11510, "pId":115, "name":"其他应付", "iconSkin":"leaf"},
+	{"id":12, "pId":1, "name":"权益", "iconSkin":"prt"},   
+	{"id":13, "pId":1, "name":"成本", "iconSkin":"prt"},   
+	{"id":14, "pId":1, "name":"损益", "iconSkin":"prt"}  
+]

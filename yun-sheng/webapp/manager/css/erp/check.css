@@ -1,0 +1,7 @@
+
+.checkCss {display: inline-block; width:82%;}
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 171px;
+    padding-left: 0px;
+}
+

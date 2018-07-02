@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+    <!-- 定义函数的版本 -->
+    <tlib-version>1.0</tlib-version>
+    <short-name>el</short-name>
+       
+    <!-- 定义顶一个函数 -->
+    <function>
+        <!-- 函数描述 -->
+        <description>合计列表字段</description>
+        <!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>sumByField</name>
+        <!-- 定义函数处理类 -->
+        <function-class>com.zx.soft.util.ListStatistics</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            String sumByField(java.util.List,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${el:sumByField(userList,age)}</example>
+    </function>
+    
+    
+    <!-- 定义顶一个函数  贺达  -->
+    <function>
+        <!-- 函数描述 -->
+        <description>合计列表字段</description>
+        <!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>sumByFields</name>
+        <!-- 定义函数处理类 -->
+        <function-class>com.zx.soft.util.ListStatistics</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            String sumByFields(java.util.List,java.lang.String,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${el:sumByFields(userList,name,age)}</example>
+    </function>
+    
+    <!-- 定义顶一个函数2 -->
+    <function>
+        <!-- 函数描述 -->
+        <description>合计列表字段</description>
+        <!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>sumByField2</name>
+        <!-- 定义函数处理类 -->
+        <function-class>com.zx.soft.util.ListStatistics</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            String sumByField2(java.util.List,java.lang.String,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${el:sumByField2(userList,age,type)}</example>
+    </function> 
+    
+    <!-- 定义顶一个函数3 -->
+    <function>
+        <!-- 函数描述 -->
+        <description>合计列表字段 转成大写数字</description>
+        <!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>sumDoubleToChinaCN</name>
+        <!-- 定义函数处理类 -->
+        <function-class>com.zx.soft.util.ListStatistics</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            String sumDoubleToChinaCN(java.util.List,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${sumDoubleToChinaCN(userList, money)}</example>
+    </function> 
+    
+      <!-- 定义顶一个函数4  heda-->
+    <function>
+        <!-- 函数描述 -->
+        <description>数字转化成大写</description>
+        <!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>numberToCN</name>
+        <!-- 定义函数处理类 -->
+        <function-class>com.zx.soft.util.ListStatistics</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            String numberToCN(java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${numberToCN(money)}</example>
+    </function> 
+</taglib>

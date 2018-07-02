@@ -1,0 +1,35 @@
+@charset "utf-8";
+/*  erp 历史单据详情   */
+.pageBill{
+  //单据头部
+  .pageBillForm{
+    padding-top: 10px;
+    margin-bottom: 14px;
+    box-shadow: 0px 11px 10px -6px #E7EAEC;
+    .form-group{
+      padding-right:0px;
+      padding-left:0px;
+    }
+
+    .rightMap{
+      top: 2px;
+      right: 250px;
+      display: flex;
+    }
+  }
+  //单据末部
+  .pageBillBottom{
+    .form-group{
+      input{
+        width: 130px;
+      }
+      label{
+        display: inline-block;
+        width: 100px;
+      }
+    }
+
+  }
+}
+
+

@@ -1,0 +1,50 @@
+/*common_page*/
+html,body{
+	margin: 0;
+	padding: 0;
+}
+
+.content{
+	border: 1px solid #cfcfcf;
+    margin: 21px 15px;
+    width: 98%;
+}
+
+.content1{
+	width: 100%;
+	height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+/*common_navButton*/
+.btn-grp{
+	background-image: url(../../images/btnboxbg.png);
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+}
+
+.bn{
+	width: 78px;
+	height: 28px;
+    line-height: 30px;
+	text-align: center;
+	display: inline-block;
+	padding: 0px 10px;
+	border-right: 1px solid #cfcfcf;
+	text-decoration: none;
+	color: #666666;
+	cursor: pointer;
+	border: none;
+    margin-right: -2px;
+    background-image: url(../../images/btnboxbg.png);
+}
+
+/*common_middle(description)*/
+.description{
+	height: 39px;
+	padding-top: 20px;
+	padding-left: 20px;
+	
+}

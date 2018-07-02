@@ -1,0 +1,168 @@
+
+/*闅愯棌椤甸潰鐨勬粴鍔ㄦ潯*/
+html , body{
+	overflow-x: hidden;
+	width: 100%;	
+}
+
+html{
+	height: 100%;	
+}
+.nav-tabs {
+          border-bottom: none;
+       }
+.nav-self>li{		
+    float: left;
+    margin-bottom: -1px;
+}
+.nav > li > a {
+    padding: 8px 10px;
+}
+      #myTab a{
+        	color: #000;
+    font-family: "microsoft sans serif";
+    font-weight: 600;
+      }
+.nav-self > li > a {
+    line-height: 1.42857143;
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+    border-bottom-color: transparent;
+    background-color: #eaeaea;
+}
+.nav-self > li.active > a, .nav-self > li.active > a:hover, .nav-self > li.active > a:focus {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+  
+}
+.toggle_card{
+	padding-top: 10px;
+    border-left: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+}
+.well{
+	    border-radius: 0px;
+}
+.top_info{
+	padding-left: 20px;
+}
+.top_info .row{
+	margin-top: 10px;
+}
+.top_info .row input[type=text],
+.top_info .row select{
+	width: 148px;
+	height: 30px;
+	border:1px solid #CFCFCF;
+}
+.top_info .row input.dateInput{
+	width: 128px;
+}
+.top_info .func_btns{
+	width: 100%;
+    margin-top: 20px;
+    text-align: center;
+          
+ }
+.top_info label {
+    width: 102px;
+    text-align: right;
+}
+.top_info label.sign {
+    width: 8px;
+    height: 2px;
+    display: inline;
+          vertical-align: middle;
+  
+}
+.tz{
+	margin-right: 18px;
+}
+.btn-xs{
+	width: 58px;
+    height: 30px;
+    border: 1px solid #cfcfcf;
+	background-color: #619ad2;
+	color: #FFFFFF;
+	font-family: "microsoft sans serif";
+}
+.row{
+	margin-right: 0px;
+}
+.top_info .form-group 
+{
+	margin-right: 20px;
+}
+.left{
+    width: 15%;
+	float: left;
+	margin-top: 32px;
+      }
+      .details {
+    width: 85%;
+    float: left;
+}
+
+.details .right{
+	height: 40px;
+}
+.details .right input{
+   width: 148px;
+   height: 28px;
+   border: 1px solid #cfcfcf;
+   margin-right: 10px;
+}
+.details .right button{
+	width: 56px;
+	height: 28px;
+	border: 1px solid #cfcfcf;
+	background-color: #619ad2;
+	border-radius: 3px;
+	color: #FFFFFF;
+}
+.top_info .row input[type=checkbox]{
+	vertical-align: middle;
+}
+   .top_info .row label{
+	display: inline-block;
+    margin-right: 8px;
+    width: 121px;
+    text-align: right;
+}
+
+
+/*容器*/
+.well{
+	padding:0px;
+    margin: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/*头部菜单背景*/
+.btnHundred {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	background-image: url(../../../images/btnboxbg.png);
+}
+
+.gridBody{
+	padding: 20px;
+	padding-top:0px;
+	padding-bottom:0px;
+	background-color: white;
+}
+
+/*头部菜单*/
+.btnHundred button {
+	background-image: url(../../../images/btnboxbg.png);
+	text-align: left;
+	border: 0;
+}
+.btnHundred .btn {
+	padding: 5px 12px;
+}

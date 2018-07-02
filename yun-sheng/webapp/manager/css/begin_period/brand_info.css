@@ -1,0 +1,40 @@
+/*brand_info.html*/
+
+/*description——inner*/
+.description>p{
+	display: inline-block;
+	margin-right: 39px;
+}
+
+/*导入模态框*/
+.file_ipt{
+	width: 58px;
+    height: 28px;
+    display: inline-block;
+    opacity: 0; 
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.file_container{
+	width: 58px;
+    height: 28px;
+    display: inline-block;
+    border-radius: 3px;
+    background-color: #89aec7;
+    color: #ffffff;
+	position: relative;
+	text-align: center;
+    line-height: 28px;
+}
+
+.des_file{
+	outline: none;
+    width: 298px;
+    height: 28px;
+    text-indent: 1em;
+    border: 1px solid #cfcfcf;
+    margin-left: 10px;
+    margin-right: 20px;
+}

@@ -1,0 +1,9 @@
+{"rows":[
+{"serviceName":"1001","limitTime":"1","serviceLimit":"执信","limitCount":"","serviceCount":"1001","prePrince":"3","feeContinue":"0","initialOverTime":"1","chOrNot":"1","expend":"","remark":"","stopUse":"0"},
+{"serviceName":"1001","limitTime":"0","serviceLimit":"执信","limitCount":"1","serviceCount":"1001","prePrince":"4","feeContinue":"0","initialOverTime":"0","chOrNot":"","expend":"","remark":"","stopUse":"0"},
+{"serviceName":"1001","limitTime":"","serviceLimit":"执信","limitCount":"1","serviceCount":"1001","prePrince":"5","feeContinue":"0","initialOverTime":"0","chOrNot":"1","expend":"","remark":"","stopUse":"0"},
+{"serviceName":"1001","limitTime":"","serviceLimit":"执信","limitCount":"","serviceCount":"1001","prePrince":"6","feeContinue":"1","initialOverTime":"1","chOrNot":"","expend":"1","remark":"","stopUse":"1"},
+{"serviceName":"1001","limitTime":"","serviceLimit":"执信","limitCount":"","serviceCount":"1001","prePrince":"7","feeContinue":"0","initialOverTime":"0","chOrNot":"","expend":"","remark":"","stopUse":"0"}
+]}
+
+

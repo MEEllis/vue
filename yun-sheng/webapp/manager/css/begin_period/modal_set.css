@@ -1,0 +1,32 @@
+ 
+/*自定义模态框样式*/
+.modal-content{
+	border-radius: 0;
+	
+}
+
+.modal-header{
+	height: 40px;
+	background-color: #4e78a1;
+	color: #FFFFFF;
+	
+}
+
+.add,.modify{
+	font-size: 14px;
+}
+
+.modal-footer{
+    height: 70px;
+    text-align: center;
+}
+
+.w-148{
+	width: 148px;	
+}
+
+.modal-ipt{
+	height: 28px;
+	border: 1px solid #CFCFCF;
+	margin-right: 14px;
+}

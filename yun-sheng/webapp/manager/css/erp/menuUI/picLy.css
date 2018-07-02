@@ -1,0 +1,60 @@
+*{margin:0;padding:0;}
+body{font:16px/1.5em Tahoma, sans-serif;background: #F6F6F6;font-size: 14px;}
+a{text-decoration: none;color: #000;font-size: 14px;cursor:pointer;}
+.wrap {min-width: 1131px;}
+
+/*右边 列表*/
+div.main {width: 300px;float: right;margin-top: 20px;margin-right: 5px;}
+div.main .jichu,div.main .baobiao {width: 100%;border: 1px solid gainsboro;clear:both;margin-bottom: 20px;}
+div.main .jichu .jTop,div.main .baobiao .bTop {width: 100%;height: 40px;line-height: 40px;background: #4f6e92;color: white;padding-left: 10px;}
+div.main .jichu .jLeft,div.main .baobiao .bLeft {width: 50%;float: left;}
+div.main .jichu .jRight,div.main .baobiao .bRight {width: 49%;float: right;}
+div.main a {display:inline-block;margin-left: 10px;text-decoration: none;height: 35px;line-height: 35px;color: #000;font-size: 14px;width: 140px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+/*div.main .jichu .jLeft,div.main .jichu .jRight,div.main .baobiao .bLeft,div.main .baobiao .bRight {display: flex;flex-direction: column;flex-wrap: nowrap;justify-content: space-around;align-items: baseline;}*/
+.borderR {border-right: 1px solid #cfcfcf;}
+.borderL {border-left: 1px solid #cfcfcf;}
+
+/*左边 图标*/
+.picLeft {margin-top: 80px;margin-left: 10%;/*margin-right: 5%;*/float: left;width: 60%;}
+.picLeft .tubiao {width: 160px;/*height: 80px;*/text-align: center;}
+.picLeft .vaccume {width: 90px;/*height: 80px;*/text-align: center;}
+.picLeft .pdTB{padding-top:8px;padding-bottom:8px}
+
+/*弹出层样式开始*/
+.modal-header{background-color: #4e78a1;height: 40px;padding: 10px;color: #fff;}
+
+.aTubiao:hover {color: #699de8;}
+.picLeft .jiantou {/*margin: 0 4%;*/width: 45px;height: 15px;}
+.picLeft .jiantou img {margin-top: 33px;}
+.jiantouV {height:80px;margin: 18px 0;width: 160px;text-align: center;}
+/*.jiantouV img {margin-bottom: 18px;}*/
+/*清除浮动*/
+/*.first,.second,.third,.four,.five {overflow: hidden;}*/
+a:link,a:visited,a:hover {text-decoration: none;}
+.first,.second,.third,.four,.five,.six,.seven {height:80px;display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-between;align-items: baseline;}
+
+/*下拉按钮样式调整*/
+.btn-group > .btn { padding: 0px 4px;background-color: #eeefef;border-color: #d8d8d8;line-height: 12px;}
+.btn-group {top: -52px;right: -45px;}
+
+@media screen and (max-width: 1920px) {
+    .picLeft {
+        margin-left:11%;
+    }
+}
+@media screen and (max-width: 1366px) {
+    .picLeft {
+        margin-left:8%;
+    }
+}
+@media screen and (max-width: 1280px) {
+    .picLeft {
+        margin-left:6%;
+    }
+}
+
+
+
+
+
+

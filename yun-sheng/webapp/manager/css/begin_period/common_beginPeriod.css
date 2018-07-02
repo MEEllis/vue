@@ -1,0 +1,162 @@
+/*common_page*/
+html,body{
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.content{
+    margin: 21px 15px;
+    width: 98%;
+}
+
+.content1{
+	width: 100%;
+	height: auto;
+    overflow: hidden;
+}
+
+/*common_navButton*/
+.btn-grp{
+	background-image: url(../../images/btnboxbg.png);
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+}
+
+.bn{
+	height: 28px;
+    line-height: 30px;
+	text-align: center;
+	display: inline-block;
+	padding: 0px 10px;
+	border-right: 1px solid #cfcfcf;
+	text-decoration: none;
+	color: #666666;
+	cursor: pointer;
+	border: none;
+    margin-right: -2px;
+    background-image: url(../../images/btnboxbg.png);
+     
+}
+
+.btn-chage{
+   color:#23527c;	
+}
+/*common_middle(description)*/
+.description{
+	width: 100%;
+	height: 40px;
+	padding-top: 20px;
+	padding-left: 20px;
+	
+}
+
+.description>p{
+	display: inline-block;
+	margin-right: 39px;
+}
+
+/*common_middle(search_info)*/
+.search_info{
+    background-color: #f5f5f5;
+	width: 100%;
+    height: 69px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.gridTop{
+    border: 1px solid #e3e3e3;
+    margin-bottom:10px;
+    border-radius: 3px;
+}
+
+.search_info>p{
+	display: inline-block; 	
+	margin-right: 20px;
+}
+
+.ipt_text{
+	width: 148px;
+	height: 28px;
+	border: 1px solid #CFCFCF;
+	outline: none;
+	text-indent: 0.5em;
+	margin-right: 10px;
+}
+
+
+/*导入模态框*/
+.file_ipt{
+	width: 58px;
+    height: 28px;
+    display: inline-block;
+    opacity: 0; 
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.file_container,.search_maybe,.choose_search,.ipt-data{
+	width: 58px;
+    height: 28px;
+    display: inline-block;
+    border:1px solid transparent;
+    border-radius: 3px;
+    background-color: #89aec7;
+    color: #ffffff;
+	position: relative;
+	text-align: center;
+    line-height: 28px;
+    
+    
+}
+
+.des_file,.choose_ipt,.chose_method,.chose_stock{
+	outline: none;
+    width: 298px;
+    height: 28px;
+    text-indent: 1em;
+    border: 1px solid #cfcfcf;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+a{
+	text-decoration:none;
+}
+a:link{
+	text-decoration:none;
+}
+a:visited{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:none;
+}
+a:active{
+	text-decoration:none;
+}
+.ui-jqgrid .ui-jqgrid-htable .ui-th-div {
+   text-align:center;	
+   height:auto;
+}
+
+/*表格表头（th）*/
+th {
+  font-weight:bold;	
+}
+
+/*查询按钮*/
+.search_maybe:hover{
+   cursor:pointer;	
+   color:#fff;
+   box-shadow:0px 0px 8px #888;
+   background-color:#336666;
+   border:1px solid transparent;
+}
+
+.btn-group a{
+   color:#333;	
+}

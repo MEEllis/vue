@@ -1,0 +1,81 @@
+{
+	"result": 1,
+	"desc": "查询成功",
+	"data": {
+	"rows": [{
+		"attrs": {},
+		"code": "qx_admin",
+		"companyId": -1,
+		"createTime": 1468035797000,
+		"createTimeString": "2016-07-09",
+		"createUid": 1,
+		"groupId": 8888888,
+		"id": 4,
+		"parentId":0,
+		"ifAdmin": true,
+		"name": "测试",
+		"remark": "测试",
+		"status": true,
+		"updateTime": 1468294997000,
+		"updateTimeString": "2016-07-12",
+		"updateUid": 2
+	}, {
+		"attrs": {},
+		"code": "qx_a1_admin",
+		"companyId": 2,
+		"createTime": 1468036101000,
+		"createTimeString": "2016-07-09",
+		"createUid": 1,
+		"groupId": 8888888,
+		"id": 5,
+		"parentId":4,
+		"ifAdmin": true,
+		"name": "测试1",
+		"remark": "测试2",
+		"status": true
+	}, {
+		"attrs": {},
+		"code": "G_B",
+		"companyId": 15,
+		"createTime": 1468049453000,
+		"createTimeString": "2016-07-09",
+		"createUid": 1,
+		"groupId": 8888888,
+		"id": 6,
+		"parentId":0,
+		"ifAdmin": true,
+		"name": "测试2",
+		"status": true
+	}, {
+		"attrs": {},
+		"code": "97979",
+		"companyId": 2323232,
+		"createTime": 1469778393000,
+		"createTimeString": "2016-07-29",
+		"createUid": 6,
+		"groupId": 883287,
+		"id": 61,
+		"parentId":0,
+		"ifAdmin": true,
+		"name": "测试4",
+		"remark": "测试测试",
+		"status": true
+	}, {
+		"attrs": {},
+		"code": "super_admin",
+		"companyId": -1,
+		"createTime": 1468035094000,
+		"createTimeString": "2016-07-09",
+		"createUid": 1,
+		"groupId": -1,
+		"id": 3,
+		"parentId":5,
+		"ifAdmin": true,
+		"name": "测试5",
+		"remark": "测试测试4",
+		"status": true
+	}]
+},
+	"status": true,
+	"total": 1
+}

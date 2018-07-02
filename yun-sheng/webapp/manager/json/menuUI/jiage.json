@@ -1,0 +1,46 @@
+{"result":[{
+		"information":[{
+			"left":[
+				{"id":"01","name":"往来单位","src":"/manager/authority/contactInfo/toContact"},
+				{"id":"02","name":"部门名称","src":"/manager/authority/sectionInfo/toSection"},
+				{"id":"03","name":"仓库名称","src":"/manager/authority/storageInfo/toStorage"}
+			],
+			"right":[
+				{"id":"05","name":"员工档案","src":"/manager/authority/employeeInfo/toEmployee"},
+				{"id":"06","name":"商品档案","src":"/manager/beginning/goodsname/toPage"},
+				{"id":"07","name":"资金账户","src":"/manager/beginning/account/toPage"}
+			]
+		}],
+		"statement":[{
+			"left":[
+				{"id":"11","name":"商品价格查询","src":""},
+				{"id":"12","name":"零售明细","src":""},
+				{"id":"13","name":"零售统计","src":""},
+				{"id":"14","name":"销售明细","src":""},
+				{"id":"15","name":"销售统计","src":""}
+			],
+			"right":[
+				{"id":"19","name":"现存量","src":""},
+				{"id":"20","name":"串号状态表","src":""},
+				{"id":"21","name":"串号跟踪","src":""},
+				{"id":"22","name":"往来账务明细","src":""},
+				{"id":"23","name":"往来账务统计","src":""}
+			]
+		}]
+	}]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

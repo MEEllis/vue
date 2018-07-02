@@ -1,0 +1,25 @@
+
+settleAccount2 , th , td{
+text-align: center;
+}
+
+#settleAccount1 .tools{
+width: 100%;height: 30px;padding: 5px;
+}
+.info1{
+width: 200px;margin: 0 auto;margin-top: 20px;margin-bottom: 20px;
+}
+.onlineInfo{
+width: 100%;border: 1px solid #cccccc;color: red;
+}
+.mainInfo{
+width: 80%;margin: 0 auto;margin-top: 20px;margin-bottom: 20px;
+}
+.tools{font-size: 13px;}
+.modal-header {
+    background-color: #426d97;
+    color: white;
+}
+.close {
+	color: white;
+	}

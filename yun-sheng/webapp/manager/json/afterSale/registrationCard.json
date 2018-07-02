@@ -1,0 +1,8 @@
+{"rows":[
+    {"deliveryDo":"","id":"10001","serverNumber":"FW10020001","serverName":"服务名称"
+    	,"upDate":"2016-7-26","peploe":"检测人","fs":"20","fx":"4","serverName1":"服务名称99","serverName2":"服务名称88","serverName3":"77服务名称","serverName4":"66服务名称","serverName5":"55服务名称"
+    		,"serverName6":"44服务名称","serverName7":"33服务名称","fwu":"售前","zeng1":"3","zeng2":"6"},   
+    	 {"deliveryDo":"","id":"10002","serverNumber":"FW100203451","serverName":"服务名称"
+    	    	,"upDate":"2016-7-26","peploe":"检测人","fs":"12","fx":"5","serverName1":"服务名称99","serverName2":"服务名称88","serverName3":"77服务名称","serverName4":"66服务名称","serverName5":"55服务名称","serverName6":"44服务名称"
+    	    		,"serverName7":"33服务名称","fwu":"售后","zeng1":"3","zeng2":"5"}  
+]}

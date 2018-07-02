@@ -1,0 +1,139 @@
+@charset "utf-8";
+/*  erp 凭证打印   */
+
+.proofPrint {
+  .modal-header{
+    background-color: #4e78a1;
+    height: 40px;
+    padding: 10px;
+    color: #fff;
+  }
+
+  #model-body {
+    padding: 2rem 2rem 2rem 6rem;
+  }
+
+  .radioInput {
+    width: 3rem !important;
+  }
+
+  .change form div {
+    margin: 1rem 2rem 0 2rem;
+  }
+
+  .change form label {
+    width: 10rem;
+    text-align: right;
+    margin-right: 3rem;
+  }
+
+  .change form label:nth-child(2),.change form label:nth-child(3) {
+    width: 5rem;
+    text-align: left;
+    margin-right: 4.5rem;
+    margin-left: -1.7rem;
+  }
+
+  .change form input {
+    width: 14.5rem;
+  }
+
+  .change form div input.textLeft {
+    width: 1rem;
+  }
+
+  .change form select {
+    width: 14.5rem;
+  }
+
+  .change form input[type="number"] {
+    width: 10rem !important;
+    margin-right: 5px;
+    padding-left: 5px;
+  }
+
+  .change form input[type="checkbox"] {
+    width: 1rem !important;
+    margin: 0 10px;
+    padding-left: 5px;
+  }
+
+  .change form select {
+    width: 10rem !important;
+    padding-left: 5px;
+  }
+
+  .btmRadio {
+    margin-left: 4rem !important;
+  }
+
+  .btmRadio input[type="text"] {
+    width: 6rem;
+  }
+
+  input[name="numFirst"] {
+    margin-left: 8px;
+  }
+
+  .tab {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .tab div {
+        border-radius: 5px;
+        padding: 7px 30px;
+        color: #666;
+        background-color: #eee;
+        display: inline-block;
+        cursor: pointer;
+  }
+
+  .tab div:hover:not(.active) {
+    opacity: 0.4;
+  }
+
+  .tab div.active {
+    background-color: #618def !important;
+    color: #fff !important;
+  }
+
+  /*
+  .tab div.active::before {
+    content: "√";
+    font-family: sans-serif;
+    color: #fff;
+    font-size: 1.5rem;
+    padding-right: 5px;
+  }
+  */
+
+  .content {
+    margin: 20px 0 10px;
+  }
+
+  .input_rt {
+    margin-right: 5px;
+  }
+
+  .input_lt {
+    border: 0 !important;
+    background-color: transparent !important;
+  }
+
+  .pageNum {
+    width: 20% !important;
+    float: none !important;
+    font-size: 12px;
+  }
+
+  .pageNum + span {
+    font-size: 12px;
+    padding-left: 5px;
+  }
+
+  .form-group label {
+    width: 70px;
+  }
+
+}

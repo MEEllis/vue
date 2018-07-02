@@ -1,0 +1,9 @@
+.changeMargin{
+	padding:10px 0 10px 20px;
+}
+.ui-th-column.ui-th-ltr{
+	text-align: center;
+}
+.tableWrap{
+	margin-top:20px;
+}

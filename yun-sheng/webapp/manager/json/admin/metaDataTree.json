@@ -1,0 +1,24 @@
+[   
+	{"id":11, "pId":1, "name":"采购","iconSkin":"prt"},
+	{"id":111, "pId":11, "name":"单据","iconSkin":"leaf"},
+	{"id":112, "pId":11, "name":"报表"},
+	
+	{"id":12, "pId":1, "name":"仓储","iconSkin":"prt"},
+	{"id":121, "pId":12, "name":"单据","iconSkin":"leaf"},
+	{"id":122, "pId":12, "name":"报表","iconSkin":"leaf"},
+	
+	{"id":13, "pId":1, "name":"零售","iconSkin":"prt"},
+	{"id":131, "pId":13, "name":"单据","iconSkin":"leaf"},
+	{"id":132, "pId":13, "name":"报表","iconSkin":"leaf"},
+	{"id":133, "pId":13, "name":"功能","iconSkin":"leaf"},
+	
+	{"id":14, "pId":1, "name":"销售","iconSkin":"prt"},
+	{"id":141, "pId":14, "name":"单据","iconSkin":"leaf"},
+	{"id":142, "pId":14, "name":"报表","iconSkin":"leaf"},
+	{"id":143, "pId":14, "name":"功能","iconSkin":"leaf"},
+	
+	{"id":15, "pId":1, "name":"基础权限","iconSkin":"prt"},
+	{"id":151, "pId":15, "name":"价格控制","iconSkin":"leaf"},
+	{"id":1511, "pId":15, "name":"访问限制","iconSkin":"leaf"}
+	
+]

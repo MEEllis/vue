@@ -1,0 +1,240 @@
+{
+    "jqmodel": [
+	    { 
+	    	"name": "attrs",
+            "width": "20",
+            "index": "attrs",
+            "hidden":true,
+            "align": "center",
+            "id": "0",
+            "label":"属性"
+            
+	    },
+        {
+            "name": "id",
+            "width": "75",
+            "index": "id",
+            "hidden":true,        
+            "align": "center",
+            "id": "1",
+            "label":"部门属性ID"
+            
+        },
+        {
+            "name": "groupId",
+            "width": "200",
+            "index": "groupId",
+            "align": "center",
+            "id": "2",
+            "label":"集团ID "
+        },
+        {
+            "name": "companyId",
+            "width": "100",
+            "index": "companyId",
+            "id": "3",
+            "align": "center",
+            "label":"公司ID "
+        },
+        {
+            "name": "code",
+            "width": "150",
+            "index": "code",
+            "sorttype": "string",
+            "align": "center",
+            "id": "4",
+            "label":"部门属性编码 "
+        },
+        {
+            "name": "name",
+            "width": "150",
+            "index": "name",
+            "sorttype": "string",
+            "align": "center",
+            "id": "5",
+            "label":"部门属性名称 "
+        },
+        {
+            "name": "status",
+            "width": "200",
+            "index": "status",
+            "align": "center",
+            "id": "7",
+            "label":"启用标志 "
+        },
+        {
+            "name": "remark",
+            "width": "150",
+            "index": "remark",
+            "sorttype": "string",
+            "align": "center",
+            "id": "8",
+             "label":"备注 "
+        },
+        {
+            "name": "createUid",
+            "width": "120",
+            "index": "createUid",
+            "sorttype": "number",
+            "align": "center",
+            "id": "9",
+             "label":"新增人ID "
+        },
+        {
+            "name": "createTimeString",
+            "width": "200",
+            "index": "createTimeString",
+            "sorttype": "date",
+            "formatter": "date",
+            "sorttype": "date",
+            "id": "10",
+            "align": "center",
+            "label":"新增时间 "
+        },
+        {
+            "name": "updateUid",
+            "width": "120",
+            "index": "updateUid",
+            "sorttype": "number",
+            "id": "11",
+            "align": "center",
+            "label":"修改人ID "
+        },
+        {
+            "name": "updateTimeString",
+            "width": "200",
+            "index": "updateTimeString",
+            "sorttype": "date",
+            "formatter": "date",
+            "sorttype": "date",
+            "id": "12",
+            "align": "center",
+            "label":"修改时间 "
+        }
+    ]
+    ,
+     "jqsubGridColModel": [
+	    { 
+	    	"name": "attrs",
+            "width": "20",
+            "index": "attrs",
+            "hidden":true,
+            "align": "center",
+            "id": "0",
+            "label":"属性"
+            
+	    },
+        {
+            "name": "id",
+            "width": "75",
+            "index": "id",
+            "hidden":true,        
+            "align": "center",
+            "id": "1",
+            "label":"角色ID"
+            
+        },
+        {
+            "name": "groupId",
+            "width": "200",
+            "index": "groupId",
+            "align": "center",
+            "id": "2",
+            "label":"集团ID "
+        },
+        {
+            "name": "companyId",
+            "width": "100",
+            "index": "companyId",
+            "id": "3",
+            "align": "center",
+            "label":"公司ID "
+        },
+        {
+            "name": "code",
+            "width": "200",
+            "index": "code",
+            "sorttype": "string",
+            "align": "center",
+            "id": "4",
+            "label":"角色编码 "
+        },
+        {
+            "name": "name",
+            "width": "150",
+            "index": "name",
+            "sorttype": "string",
+            "align": "center",
+            "id": "5",
+            "label":"角色名称 "
+        },
+        {
+            "name": "ifAdmin",
+            "width": "150",
+            "index": "ifAdmin",
+            "align": "center",
+            "id": "6",
+            "label":"是否管理员 "
+        },
+        {
+            "name": "status",
+            "width": "200",
+            "index": "status",
+            "align": "center",
+            "id": "7",
+            "label":"启用标志 "
+        },
+        {
+            "name": "remark",
+            "width": "100",
+            "index": "remark",
+            "sorttype": "string",
+            "align": "center",
+            "id": "8",
+             "label":"备注 "
+        },
+        {
+            "name": "createUid",
+            "width": "100",
+            "index": "createUid",
+            "sorttype": "number",
+            "align": "center",
+            "id": "9",
+             "label":"新增人ID "
+        },
+        {
+            "name": "createTimeString",
+            "width": "120",
+            "index": "createTimeString",
+            "sorttype": "date",
+            "formatter": "date",
+            "sorttype": "date",
+            "id": "10",
+            "align": "center",
+            "label":"新增时间 "
+        },
+        {
+            "name": "updateUid",
+            "width": "120",
+            "index": "updateUid",
+            "sorttype": "number",
+            "id": "11",
+            "align": "center",
+            "label":"修改人ID "
+        },
+        {
+            "name": "updateTimeString",
+            "width": "120",
+            "index": "updateTimeString",
+            "sorttype": "date",
+            "formatter": "date",
+            "sorttype": "date",
+            "id": "12",
+            "align": "center",
+            "label":"修改时间 "
+        }
+    ]
+}
+
+ 
+

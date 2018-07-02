@@ -1,0 +1,5 @@
+{"rows":[
+{"adjust_time":"2016-09-20","adjust_type":"采购入库单","account_id":"CGRK201609200031","account_name":"华为P9移动版","sum":"21000","verify":"0","verify_sum":"11000","notverify_sum":"10000","remark":""},
+{"adjust_time":"2016-09-20","adjust_type":"采购入库单","account_id":"CGRK201609200031","account_name":"华为mate8电信版","sum":"6500","verify":"0","verify_sum":"6500","notverify_sum":"6500","remark":""},
+{"adjust_time":"2016-09-20","adjust_type":"采购入库单","account_id":"CGRK201609200031","account_name":"华为P8青春靓丽版","sum":"990","verify":"0","verify_sum":"990","notverify_sum":"990","remark":""}
+]}

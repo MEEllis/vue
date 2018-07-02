@@ -1,0 +1,115 @@
+
+/*隐藏页面的滚动条*/
+html , body{
+	overflow-x: hidden;
+	width: 100%;
+	height: auto;	
+}
+
+.gridTools{
+	padding: 15px;
+	padding-bottom: 0px;
+	padding-top: 5px;
+}
+
+.gridTop{
+	padding: 15px;
+	padding-bottom: 0px;
+}
+
+.gridBody{
+	padding: 15px;
+	padding-top: 5px;
+}
+.gridDetail{
+	padding: 15px;
+	padding-top: 5px;
+	padding-bottom: 30px;
+}
+
+.formBtn{
+	float: left;	
+	width: 360px;
+}
+.formBtn .input-group{
+	padding-right: 30px;
+}
+.formBtnSM{
+	float: left;	
+	width: 200px;
+}
+
+#topForm{
+	padding: 5px;
+	padding-left: 10px;
+	padding-top: 20px;
+}
+
+#bottomForm{
+	padding-top: 12px;
+}
+#bottomForm .col-sm-5{
+	padding-left: 0px;padding-right: 0px;
+}
+.switchDIV{
+	position: absolute;;
+	right: 32px;
+	top:-10px;	
+}
+#filterParamModalDialog  .col-sm-4{
+	padding-left: 0px;padding-right: 0px;
+}
+#filterParamModalDialog  .col-sm-6{
+	padding-left: 0px;padding-right: 0px;
+}
+
+.gridBottom{
+	/*background-color: #f8f8f8;*/
+	padding-bottom: 30px;
+}
+
+.gridType{
+	float: left;
+
+	padding-top: 12px;
+}
+.gridFloat{
+	float: left;
+}
+.billsTypeTitle{
+	text-align: center;width: 100%;font-size: 25px;font-weight: bold;
+}
+.filterParamForm{
+	padding: 5px;padding-top: 20px;
+}
+.dialogHeight{
+	width: 880px;
+}
+
+.btnHundred {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	background-image: url(../../../images/btnboxbg.png);
+}
+
+.gridTools .btn-group>button {
+	background-image: url(../../../images/btnboxbg.png);
+	text-align: left;
+	border: 0;
+}
+
+.gridTools .btn {
+	padding: 5px 12px;
+}
+.gridTools .navbar-btn {
+	margin-top: 0px;
+	
+}
+.formBtn .col-sm-8{
+    height: 50px;
+}
+.select2-container .select2-selection--single {
+    height: 35px;
+}

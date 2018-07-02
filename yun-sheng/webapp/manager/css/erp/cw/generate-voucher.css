@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+.stepList{
+	width:600px;
+	margin:20px auto;
+	background:#8D98A3;
+	border-radius:8px;
+	height:30px;
+	overflow:hidden;
+}
+.stepList li{
+	float:left;
+	width:200px;
+	height:30px;
+	line-height:30px;
+	font-size:16px;
+	color:#fff;
+	text-align:center;
+	list-style: none;
+}
+.nowStep{
+	border-radius:8px 0 0 8px;
+	background:#5788B8;
+}
+.nowStep:after{
+	content: '';
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-left: 30px solid #5788B8;
+    float: right;
+    margin-right: -45px;
+}
+
+.stepBox{
+	width:40%;
+	margin:0 auto 25px;
+	text-align:center;
+}
+.stepBox .btn{
+	background:#6098CF;
+	color:#fff;
+}
+.queryContainer{
+	margin:20px 0;
+}
+
+.ui-jqgrid .ui-jqgrid-htable .ui-th-div {
+    height: 22px;
+    display: inine-block;
+    line-height: 22px;
+    text-align: center;
+}
+

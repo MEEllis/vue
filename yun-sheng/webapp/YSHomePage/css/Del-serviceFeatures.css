@@ -1,0 +1,42 @@
+#delsf{
+    margin: 50px auto;
+}
+#delsf hr{
+    width: 100px;
+    height: 1px;
+    margin:0 auto;
+    background: #b4b4b4;
+}
+#delsf p{
+    color: #b4b4b4;
+}
+#Rleft{
+    padding: 15px 0;
+    position: relative;
+    float: left;
+}
+.Rleft img{
+    position: relative;
+}
+#Rright{
+    padding: 10px 0;
+    float: left;
+}
+#Rright li{
+    margin: 10px 0;
+    font-size: 12pt;
+}
+#Rright li:nth-child(1){
+    margin-top:0 ;
+}
+#Rright li:nth-child(6){
+    margin-bottom: 0;
+}
+#Rright li a{
+    text-decoration: none;
+    font-size: 11pt;
+    color: #000;
+}
+#delsfImg{
+    width: 100%;
+}

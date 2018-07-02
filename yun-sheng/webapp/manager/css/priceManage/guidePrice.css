@@ -1,0 +1,174 @@
+	.topInput{
+				margin-top:20px;
+			}
+			.ztree li span.button{
+				width:0;
+				height:0;
+			}
+			p{
+				font-family: "Microsoft Yahei";
+				font-size:20px;
+				font-weight: bold;
+			}
+			.ui-th-ltr{
+				text-align: center;
+			}
+			@media (min-width: 768px) {
+						.model-dialog1 {
+							width: 900px;
+							margin: 30px auto;
+						}
+						.model-dialog2 {
+							width: 700px;
+							margin: 30px auto;
+						}
+						.model-dialog3 {
+							width: 400px;
+							margin: 30px auto;
+						}
+				}
+			.changeTop{
+				margin-top:5px;
+			}
+			
+.changePadding{
+		padding-top:7px;
+		font-size:14px;
+		font-weight:bold;
+	
+	}
+.table th, .table td { 
+text-align: center; 
+height:38px;
+line-height:38px;
+}
+
+.changeMargin{
+    margin-top:15px;
+}
+
+/*头部样式*/
+.btn-group>button{
+	background-image:url(../../images/btnboxbg.png);
+    text-align: left;
+    border: 0;
+}
+.btnHundred{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	background-image:url(../../images/btnboxbg.png);
+	}
+/*修改后的头部样式*/
+ .well{
+ 	padding: 0;
+    min-width: 1175px !important;
+ }
+ .Zpercent{
+    width: 25%;
+    float: left;
+}
+.Zpercent1{
+    margin-left: 10px;
+    width: 50%;
+}
+.container-fluid{
+	padding-right: 0px;
+    padding-left: 0;
+	width: 90%;
+    margin: 0;
+}
+/*验证调整样式*/
+/*.rightMap{
+	text-align: right;
+    width: 80px;
+    height: 200px;
+    float: right;
+    position: relative;
+    top: -105px;
+    right: 5px;
+}*/
+.overflAuto {overflow: auto;}
+.box_text2{
+	min-width: 100px;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+}
+.inputbox>div>div>.box_input {
+    display: block;
+    margin-left: 100px;
+    height: 30px;
+    line-height: 30px;
+}
+.input-group{width: 55%;}
+.form-control2 {
+    display: block;
+    min-width: 120px;
+    width: 100%;
+    height: 32px;
+    padding: 4px 8px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+/*中间部分的样式修改*/
+.contentWrap {
+    border:1px solid #ccc;
+    overflow:hidden;
+}
+.contentLeft{
+    float:left;
+    border-top:1px solid #ccc;
+    border-right:1px solid #ccc;
+    padding:10px;
+    margin-right:40px;
+    min-height:573px;
+     margin-top:40px;
+     width:250px;
+}
+.contentLeft>p{
+    margin-top:20px;
+}
+.contentRight{
+    overflow:hidden;
+    margin-top:40px;
+}
+.contentRight>.Zpercent{
+    margin-bottom:10px;
+}
+.contentRight>div:nth-child(2){
+   
+    clear:both;
+}
+.guideBottom {
+    border:1px solid #ccc;
+    border-top:0;
+    height:70px;
+    padding-top:20px;
+}
+/*印章定位*/
+img.showState {
+    position:absolute;
+    bottom: -10px;
+    right: 5px;
+}
+.obsolete{
+    position:absolute;
+    bottom: -10px;
+    right: 85px;
+}
+.well{
+    position:relative;
+}

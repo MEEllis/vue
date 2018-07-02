@@ -1,0 +1,25 @@
+{
+	"page": 1,
+	"pageSize": 10,
+	"records": 4,
+	"rows": [{
+		"operate":"+ &nbsp; -",
+		"storageId":"武汉",
+		"goodsId":"iphone8",
+		"goodsNumber":"100",
+		"price":"3333",
+		"amount":"20000.00",
+		"remark":"无"	
+	},
+	{
+		"operate":"+ &nbsp; -",
+		"storageId":"武汉",
+		"goodsId":"iphone8",
+		"goodsNumber":"100",
+		"price":"3333",
+		"amount":"20000.00",
+		"remark":"无"
+	}
+	],
+	"total": 1
+}

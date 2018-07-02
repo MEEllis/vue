@@ -1,0 +1,178 @@
+a:hover{
+	text-decoration:none;
+	color:green;
+}
+.quickselect{
+	width: 100%;
+	height: 50px;
+	padding-top: 10px;
+	padding-left: 19px;
+}
+
+.quickselect .qick-ipt{
+	width: 200px;
+    min-width: 200px;
+    height:28px;
+    min-height: 28px;
+    border: 1px solid #e3e3e3;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.find-out{
+	display: inline-block;
+	width: 58px;
+	height: 26px;
+	border: 1px solid #305172 ;
+	background-color: #305172;
+	color: #FFFFFF;
+	text-align: center;
+	border-radius: 3px;
+	line-height: 26px;
+}
+.content1{
+	border-bottom: none;
+}
+.content2 {
+    margin-top: 0px;
+    height:80%;
+    min-height: 554px;
+    overflow: hidden;
+}
+
+.content2>div{
+	float: left;
+	border-radius: 4px;
+}
+
+/*树结构*/
+.left-tree{
+	width: 11.038%;
+	height:88%;
+    min-height: 544px;
+    margin-right: 1.18%;
+    border-top: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+}
+
+
+/*表结构*/
+.right-table{
+	width: 87.782%;
+	min-height: 544px;
+	/*border-left: 1px solid #cfcfcf;*/
+}
+
+
+/*批量制卡*/
+.w-148{
+	width: 148px!important;
+}
+
+/*按钮组*/
+.content>.btn-grp .bn{
+	width: 92px;
+}
+
+/*发卡页面*/
+.pd-t{
+	width: 100%;
+	padding-top: 10px;
+	
+}
+
+.pd-l{
+	width: 100%;
+	padding-left: 20px;
+}
+.content>.content2>.top1{
+	width: 100%;
+	height: 168px;
+	background-color: #f4f7fb;
+
+}
+
+.content>.content2>.top2{
+	width: 100%;
+    height: 168px;
+    border-top:1px solid #e3e3e3;
+   
+}
+
+.tt{
+	width: 100%;
+	height: 39px;
+	background-color: #FFFFFF;
+}
+
+.ct{
+	width: 100%;
+	height: 128px;
+	background-color: #FFFFFF;
+}
+
+.top3{
+	width: 100%;
+	height: 48px;
+	border-top: 1px solid #e3e3e3;
+	background-color: #FFFFFF;
+}
+
+.content2>.top1  p,.content2>.top2  p,.content2>.top3  p{  
+	margin-bottom: 10px;
+}
+.content2>.top1  input,.content2>.top2  input,.content2>.top3  input{ 
+    width: 148px;	
+} 
+
+.content2>.top1  select,.content2>.top2  select,.content2>.top3  select{ 
+    width: 148px;
+    height: 28px;	
+    border: 1px solid #CFCFCF;
+}
+/*换卡模态框*/
+#chgeCardModal .modal-body span{
+  display:inline-block;
+  width:100px;
+  text-align:right;	
+	
+}
+
+#chgeCardModal .modal-body input,#newCard{
+  width:148px;
+  height:28px;
+  border:1px solid #cfcfcf;	
+	
+}
+.gridTools{
+	/*padding: 15px;*/
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+.btnHundred {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	background-image: url(../../images/btnboxbg.png);
+}
+
+.gridTools .btn {
+    padding: 5px 12px;
+}
+.gridTools .navbar-btn {
+	margin-top: 0px;
+	
+}
+.gridTools .btn-group button {
+    background-image: url(../../images/btnboxbg.png);
+    text-align: left;
+    border: 0;
+}
+.dropdown-menu button{
+    width: 100%;
+    background: #fff;
+    border: none;
+ 	
+}

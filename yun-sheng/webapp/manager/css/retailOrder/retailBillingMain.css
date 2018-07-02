@@ -1,0 +1,400 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Microsoft Yahei";
+}
+p{
+    margin: 0;
+}
+ul li{
+    list-style: none;
+}
+button{
+    outline: none!important;
+}
+.width25{
+    width: 25%;
+    height: 40px;
+    float: left;
+}
+.widthFull{
+    width: 100%;
+}
+.clear{
+    clear: both;
+}
+.tableborder0 tr td{
+    border: 0!important;
+}
+.fl{
+    float: left;
+}
+.btnHundred{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    background-image: url(../../images/btnboxbg.png);
+    border: 1px solid #ddd;
+}
+.btn-group>button {
+    background-image: url(../../images/btnboxbg.png);
+    text-align: left;
+    border: 0;
+}
+.well{
+	overflow: auto;
+}
+.header{
+	
+}
+.headerCon{
+	min-width:1400px;
+}
+.rb_header{
+    width: 93%;
+    font-size: 11pt;
+    display:inline-block;
+}
+.rb_header_right{
+    width:6%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+.rb_header label{
+    color: #333333;
+    text-align: right;
+    width: 100%;
+    line-height: 34px;
+    margin-bottom: 0;
+}
+#redSign{
+	display:none;
+}
+.rb_body{
+    width: 100%;
+    max-height: 330px;
+}
+.smBtn{
+    position: relative;
+    padding: 0 4px;
+    vertical-align: bottom;
+    /*left: -30px;*/
+}
+#rb_table{
+	min-width:1300px;
+}
+.rb_add,.rb_del{
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+.rb_del{}
+/*bootsrap样式更改*/
+.modal-header {
+    background: #4E78A1;
+}
+.modal-title {
+    color: #fff;
+}
+/*table样式*/
+.table{
+    text-align: center;
+}
+.table thead{
+    background: #F4F7FB;
+}
+.table tbody tr td{
+    padding: 0;
+    vertical-align: middle;
+}
+.table input{
+    max-width: 100px;
+    min-height: 20px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+.table_bottom tr td{
+    height: 38px;
+}
+.tip{
+    color: red;
+    font-weight: bold;
+}
+.mainL{
+    width: 70%;
+    float: left;
+    min-width: 1020px;
+    margin-right: 1%;
+    margin-bottom:100px;
+}
+.mainR{
+    width: 28%;
+    float: left;
+    margin-bottom:100px;
+}
+.mainL input{
+    width: 130px;
+    height: 30px;
+    margin: 5px 0;
+}
+.shuru{
+    color: #7BBDF5;
+    font-size: 11pt;
+}
+#rb_superInput{
+    border: 1px solid #7BBDF5;
+    outline: none;
+    width:350px;
+    display: inline-block;
+    margin-bottom:20px;
+}
+.rb_controller label{
+    width: 100px;
+    text-align: right;
+}
+.rb_controller input{
+    display: inline-block;
+}
+#settleBtn{
+    position: absolute;
+    left: -27px;
+    top: -1px;
+    padding: 0 4px;
+}
+#remarks{
+    width: 604px;
+}
+#promotionScheme{
+    margin: 3px;
+}
+/*赠品框*/
+#rb_gift_option{
+    width: 300px;
+    height: 34px;
+    margin: 30px auto;
+    display: block;
+}
+.btnCon button{
+    padding: 4px 40px;
+    border-radius: 100px;
+}
+/*商品名称*/
+.rb_proName_con_left{
+    width: 200px;
+    height: 400px;
+    margin-left: 1%;
+    overflow: auto;
+}
+.rb_proName_con_mid{
+    width: 720px;
+    height: 400px;
+    margin: 0 5px;
+    overflow-y: auto;
+}
+.rb_proName_con_right{
+    width: 200px;
+    height: 400px;
+    overflow-y: auto;
+}
+.rb_proName_title{
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.rb_proNum{
+	width:50px;
+}
+.rb_proPrice{
+	width:70px;
+}
+.rb_bPrice{
+	width:80px;
+}
+.rb_discountRate{
+	width:67px;
+}
+.rb_discountPrice{
+	width:80px;
+}
+/*第三方券*/
+#rb_voucher{
+    width: 98%;
+    margin: 1%;
+}
+.rb_voucher_add,.rb_voucher_del{
+    cursor: pointer;
+}
+.rb_voucher{
+	width:70px;
+}
+/*分期框*/
+.stages{
+    cursor:pointer;
+}
+#rb_stages{
+    width: 98%;
+    margin: 1%;
+}
+.rb_stages_opt{
+	width:100px;
+}
+/*结算框*/
+.settleTitle2{
+    margin:5px 1%
+}
+#table_settle{
+    width: 98%;
+    margin: 0 1%;
+}
+.settleTitle3{
+    margin: 5px 1%
+}
+.width300{
+    width: 100%;
+    height: 30px!important;
+    max-width: 300px!important;
+}
+.width100{
+    width:88px;
+    height: 30px!important;
+}
+/*pos弹框*/
+#table_pos tr td{
+    text-align: center;
+}
+/*促销方案*/
+#table_promotion{
+    margin: 1%;
+    width: 98%;
+}
+/*方案*/
+#table_programme{
+    margin: 1%;
+    width: 98%;
+}
+/*按钮组*/
+.rb_buttons{
+    width: 84px;
+    background: #fff;
+    position: absolute;
+    border: 1px solid #aaa;
+    display: none;
+}
+.rb_buttons button{
+    width:70px;
+    border-radius: 5px;
+    display: block;
+    margin: 5px;
+}
+/*会员卡号*/
+.rb_card_number_con{
+    position: absolute;
+    background: #fff;
+    display: none;
+}
+/*商品信息*/
+.rb_commodity_con{
+    position: absolute;
+    background: #fff;
+    display: none;
+}
+.rb_tbody{
+    overflow: auto;
+}
+/*客户信息*/
+.rb_block{
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #CFCFCF;
+}
+.rb_title{
+    background: #F4F7FB;
+    height: 40px;
+    line-height: 40px;
+    padding:0 20px;
+}
+#rb_customerInfo{
+    margin:10px 20px;
+}
+#rb_customerInfo tr td{
+    padding: 7px 0;
+}
+#rb_proNameL tbody tr,#table_addSerPro tbody tr,#rb_proNameR tbody tr{
+	height:30px;
+	cursor:default;
+}
+#addSerPro_PageCon{
+	text-align: center;
+    padding: 5px 0;
+}
+#addSerProCurr{
+	width: 30px;
+    text-align: center;
+    height: 22px;
+}
+#addSerProPrev,#addSerProNext{
+	margin:0 5px;
+}
+/*客户信息弹框*/
+#table_customInfo{
+    width: 98%;
+    margin: 1%;
+}
+#table_customInfo input{
+    max-width: 100%;
+}
+.vip ul{
+    margin: 0;
+    padding: 0;
+}
+.vip ul li{
+    display: inline-block;
+    width: 33%;
+    margin: 5px 0;
+}
+.vipLabel{
+    height: 34px;
+    line-height: 34px;
+    min-width: 70px;
+    margin-left: 10%;
+}
+#customerNameChe{
+	display: inline-block!important;
+    width: 60%;
+    vertical-align: top;
+}
+#customerName{
+	width:100%;
+}
+#customerTelChe{
+	display: inline-block!important;
+    width: 60%;
+    vertical-align: top;
+}
+#customerTel{
+	width:100%;
+}
+.customerNameChe{
+	display: inline-block!important;
+    width: 60%!important;
+    vertical-align: top;
+}
+.vip input{
+    /*display: inline-block!important;
+    width: 60%;*/
+}
+.modal-body{
+	max-height:500px;
+}
+#billNum{
+	min-width:200px;
+}
+
+
+
+
+
+
+

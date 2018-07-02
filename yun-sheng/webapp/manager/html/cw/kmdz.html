@@ -1,0 +1,78 @@
+
+		         <div class="modal-header">
+		            <button type="button" class="close" 
+		               data-dismiss="modal" aria-hidden="true">
+		                  &times;
+		            </button>
+		            <h4 class="modal-title" id="myModalLabel">
+	                         科目对照
+	            </h4>
+	         </div>
+	         <div class="modal-body">
+	            <div class="jqGrid_wrapper">
+					<table id="kmdzb"></table> 
+				</div>
+	        </div>
+		<script type="text/javascript">
+			$(function() {
+				var grid = $("#kmdzb").jqGrid(
+				      {
+				        datatype : "local",
+				        colNames : [ '序号', '科目编号', '科目名称', '科目编号', '科目名称'],
+				        colModel : [ 
+				                     {name : 'id',index : 'id',align:'center',sorttype:"int",width:50}, 
+				                     {name : 'kmbh1',index : 'kmbh1',align:'center',width:150}, 
+				                     {name : 'kmmc1',index : 'kmmc1',align:'center',width:150}, 
+				                     {name : 'kmbh2',index : 'kmbh2',align:'center',width:150}, 
+				                     {name : 'kmmc2',index : 'kmmc2',align:'center',width:150}
+				                   ],
+				        rowNum : 20000,
+				        sortname : 'id',
+				        styleUI: 'Bootstrap',//设置jqgrid的全局样式为bootstrap样式  
+				        viewrecords : true,
+				        sortorder : "asc",
+				        height : '100%',
+				        caption : ""
+				      });
+				$("#kmdzb").jqGrid('setGroupHeaders', 
+						{ 
+							useColSpanStyle: true, 
+							groupHeaders:[ 
+								{
+									startColumnName: 'kmbh1', 
+									numberOfColumns: 2, 
+									titleText: '2015'
+								}, 
+								{
+									startColumnName: 'kmbh2', 
+									numberOfColumns: 2, 
+									titleText: '2016'
+								} ] 
+						});
+				var data = {"id":1,"kmbh1":13,"kmmc1":"货币资金","kmbh2":13,"kmmc2":"货币资金"};
+				
+				var tableData = [];
+				for(var i=0;i<100;i++){
+					var newData = clone(data);
+					newData.id=i+1;
+					tableData.push(newData);
+				}
+				for(var i=0;i<=tableData.length;i++){
+					$("#kmdzb").jqGrid('addRowData',i+1,tableData[i]);
+				} 
+				function clone(obj){  
+				    function Fn(){}  
+				    Fn.prototype = obj;  
+				    var o = new Fn();  
+				    for(var a in o){  
+				        if(typeof o[a] == "object") {  
+				            o[a] = clone(o[a]);  
+				        }  
+				    }  
+				    return o;  
+				}
+				$("#kmdzb").setGridHeight($(window).height()*0.6 - 40);
+				
+			});
+			
+		</script>

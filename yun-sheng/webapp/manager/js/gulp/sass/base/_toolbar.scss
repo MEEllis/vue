@@ -1,0 +1,131 @@
+@charset "utf-8";
+/*按钮组 组件样式 start*/
+#AUTH>button{
+  display: none;
+}
+
+.btn-group-left{
+  float: left;
+}
+.btn-group-right{
+  float: right;
+}
+
+.e-btn{
+  display:inline-block;
+  color:#666666;
+}
+.e-btn.e-btn-left .iconfont{
+  margin-right: 8px;
+  color:#5184f0;
+}
+.e-btn.e-btn-left{
+  margin-right: 10px;
+  border:1px solid #ccc;
+  background:#fff;
+  border-radius: 4px;
+  padding: 4px 12px;
+}
+
+.e-btn.e-btn-left:hover
+{
+  background:#fff;
+  color:#5184f0;
+  border:1px solid #5184f0;
+}
+.e-btn.e-btn-left:hover .iconfont{
+  color:#5184f0;
+}
+.e-btn.e-btn-left:active{
+  background:#fff;
+  color:#274d9e;
+  border:1px solid #274d9e;
+}
+.e-btn.e-btn-left:active .iconfont{
+  color:#274d9e;
+}
+.e-btn.e-btn-left:disabled{
+  border:1px solid #ccc;
+  color: #ccc;
+  background: #fff;
+}
+
+.e-btn.e-btn-left[disabled] .iconfont{
+  color: #ccc;
+  background: #fff;
+}
+
+/*保存修改样式*/
+.e-btn.e-btn-left[data-key="update"]{
+  background:#5184f0;
+  color:#fff;
+  border:1px solid #5184f0;
+}
+.e-btn.e-btn-left[data-key="update"]:hover
+{
+  background:#4472d3;
+  color:#fff;
+  border:1px solid #5184f0;
+}
+
+.e-btn.e-btn-left[data-key="update"] .iconfont{
+  color:#fff;
+}
+
+.e-btn.e-btn-left[data-key="update"]:hover .iconfont{
+  color:#fff;
+}
+
+.e-btn.e-btn-left[data-key="update"]:disabled{
+  background:#ccc;
+  color:#fff;
+  border:1px solid #ccc;
+}
+.e-btn.e-btn-left[data-key="update"]:disabled .iconfont{
+  color:#fff;
+  background:transparent;
+}
+
+.e-btn.e-btn-left[data-key="update"]:active{
+  background:#274d9e;
+  color:#fff;
+  border:1px solid #274d9e;
+}
+
+.e-btn.e-btn-left[data-key="update"]:active .iconfont{
+  color:#fff;
+}
+
+.e-btn.btn-link{
+  border-radius: 20px;
+  padding: 3px 12px;
+  color:#5184f0;
+  cursor: pointer;
+  text-decoration: underline;
+  background: none;
+}
+.e-btn.btn-link:hover{
+  color:#274d9e;
+}
+.e-btn.btn-link:disabled{
+  color:#999999;
+}
+.e-btn.btn-link[data-key='history']{
+  color:#fff;
+  background:#5184f0;
+}
+.e-btn.btn-link[data-key='history']:hover{
+  color:#fff;
+  background:#4472d3;
+}
+.e-btn.btn-link[data-key='history']:active{
+  color:#fff;
+  background:#274d9e;
+}
+.e-btn.btn-link[data-key='history']:disabled{
+  background:#ccc;
+  color:#fff;
+}
+
+
+/*按钮组 组件样式 end */

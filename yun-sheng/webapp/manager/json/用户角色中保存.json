@@ -1,0 +1,73 @@
+{
+	"uidId": "133",
+	"roles": [{
+		"checked": true,
+		"remark": "undefined",
+		"roleId": "26"
+	},
+	{
+		"checked": true,
+		"remark": "undefined",
+		"roleId": "24"
+	},
+	{
+		"checked": true,
+		"remark": "undefined",
+		"roleId": "25"
+	},
+	{
+		"checked": false,
+		"remark": "",
+		"roleId": "27"
+	},
+	{
+		"checked": false,
+		"remark": "",
+		"roleId": "47"
+	},
+	{
+		"checked": false,
+		"remark": "",
+		"roleId": "48"
+	},
+	{
+		"checked": true,
+		"remark": "undefined",
+		"roleId": "2"
+	},
+	{
+		"checked": true,
+		"remark": "undefined",
+		"roleId": "3"
+	},
+	{
+		"checked": true,
+		"remark": "undefined",
+		"roleId": "4"
+	},
+	{
+		"checked": false,
+		"remark": "",
+		"roleId": "41"
+	},
+	{
+		"checked": false,
+		"remark": "",
+		"roleId": "45"
+	},
+	{
+		"checked": false,
+		"remark": "",
+		"roleId": "43"
+	},
+	{
+		"checked": false,
+		"remark": "",
+		"roleId": "44"
+	},
+	{
+		"checked": false,
+		"remark": "",
+		"roleId": "46"
+	}]
+}

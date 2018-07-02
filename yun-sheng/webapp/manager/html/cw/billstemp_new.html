@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>模块管理</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-select.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/cw/zTreeStyle/zTreeStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/skins/all.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagecss/treepage.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/ui.jqgrid.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/ui.jqgrid-bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/ui.jqgrid-bootstrap-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/zxsaas_plus.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagecss/bills.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/Input2select/input2select.0.2.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/font-awesome-ie7.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/nanoscroller.css"/>
+    <script src="../../js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery.query.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/base/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/cw/jquery.ztree.all-3.5.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/bootstrap-select.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/icheck.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery.datetimepicker.full.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/zxsaas_plus.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery.jqGrid.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/curdmodal.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/Input2select/input2select.0.2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery.nanoscroller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/pagejs/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src=" ../../js/cw/subject/model-subject-compare.js" type="text/javascript" charset="utf-8"></script>
+    <script src="subject-management.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function () {
+            var maxnum = 0;//默认表格计数器
+            var d_tr = $(".inputboxtable tbody tr:last-child");//获取表格默认模板
+            $(".inputboxtable tbody tr").remove();//删除当前table中的内容
+            maxnum = creattr(d_tr, maxnum, 10);//初始化表格
+            $(document).on("click", ".inputboxtable tbody tr:last-child ", function (event) {//点击表格最后一行的，在一次增加10行表格
+                maxnum = creattr(d_tr, maxnum, 10);//根据计数器创建表格
+//                SubAss();
+            });
+            $(document).on("click", ".btnbox .pull-right", function () {//隐藏页面搜索条件
+                $(this).toggleClass("hideinputbox");//切换隐藏按钮的状态
+                $(this).parents(".searchbox").find(".inputbox").toggle();////切换搜索条件框的隐藏和显示
+            });
+            $(document).on("click", ".inputboxtable .Amountbox", function (event) {// 当鼠标移动到主表中的需要输入的表格，显示input窗口
+                if ($(this).closest('tr').children('td').eq(1).find('input').val() != ''&&$(this).closest('tr').children('td').eq(2).find('input').val()!='') {//摘要不为空时允许输入
+                    $(this).find("div").hide();
+                    $(this).find("input").show();
+                    $(this).find("input").focus();
+                    event.stopPropagation();
+                }else{
+//                    alert('摘要或科目为空')
+                }
+            });
+            $(document).on('click','.zxsaastable tbody tr td', function () {
+                if ($(this).closest('tr').children('td').eq(1).find('input').val()== ''){//              tr摘要为空时复制此前最近行摘要值
+                    var arr = $(this).closest('tr').prevAll('tr');
+                    for (var i = 0; i <= arr.length; i++) {//逆向遍历此前所有行
+                        if (arr.eq(i).find('td').eq(1).find('input').val() != '') {//当遇到存在值的行时break
+                            var newVal = arr.eq(i).find('td').eq(1).find('input').val();//取值当前行
+                            for (var j = 0; j <= i; j++) {
+                                arr.eq(j).find('td').eq(1).find('input').val(newVal);//当前行至上一个存在值的摘要之间的摘要格赋值
+                                $(this).closest('tr').children('td').eq(1).find('input').val(newVal);//当前行摘要赋值
+                            }
+                            break;
+                        }
+                    }
+                }
+            });
+            //表格输入框回车切换方法
+            $(document).on('keyup','.inputboxtable input:text', function (e) {
+                var key = e.which;
+                if (key == 13) {
+                    $(this).closest('td').next().find('input').prev('div').hide();
+                    $(this).closest('td').next().find('input').show();
+                    e.preventDefault();
+                    var nxtIdx = $('input:text').index(this) + 1;
+                    $(":input:text:eq(" + nxtIdx + ")").focus();
+                }
+            });
+//            focusShift();
+//            function focusShift(){
+//                var $inp = $('input:text');
+//                $inp.bind('keyup', function (e) {
+//                    var key = e.which;
+//                    if (key == 13) {
+//                        $(this).closest('td').next().find('input').prev('div').hide();
+//                        $(this).closest('td').next().find('input').show();
+//                        e.preventDefault();
+//                        var nxtIdx = $inp.index(this) + 1;
+//                        $(":input:text:eq(" + nxtIdx + ")").focus();
+//                    }
+//                });
+//            }
+
+            //附单
+            $('#elseData').keyup(function (event) {
+                $(this).val($(this).val().toString().replace(/\b(0+)/gi,""));//去掉数字前面的0
+            });
+//            浏览点击
+            $('#browse').click(function () {
+                $(".brobox").remove();
+                var _this = $(this);
+                var src = _this.data('src');
+                var valin = _this.data("valin"); //选择后选择值存储的控件name
+                var namecol = _this.data("namecol"); //json数组中的显示字段名
+                var valcol = _this.data("valcol"); //json数组中的传输值字段名
+                var keyword = $(this).prev('input').val();
+                $('body').append("<div class=\"brobox\"><table class=\"broboxtable zxsaastable\"><thead><tr><td>序号</td><td>栏目</td></tr></thead><tbody></tbody>\n</table></div>");
+                $.getJSON(src, {
+                    keyword: keyword
+                }, function (r) {
+                    $.each(r.data.rows, function (i, item) {
+                        for (var key in item) {
+                            if($('.broboxtable').children('tbody').find('tr').length>=5){
+                                break;
+                            }else{
+                                $('.broboxtable').children('tbody').append('<tr><td>' + key + '</td><td>' + item[key] + '</td></tr>');
+                            }
+                        }
+                    });
+                });
+                var _this_t = $(this).prev('input').offset().top;
+                var _this_l = $(this).prev('input').offset().left;
+                var _this_h = $(this).prev('input').height();
+                $('.brobox').css({
+                    'top': _this_t + _this_h+10,
+                    'left': _this_l
+                });
+                $('.zxsaastable').css('background','#fff');
+                $(this).focusout(function () {
+                    $(".brobox").remove();
+                });
+            });
+
+            $(document).on('keyup','.input2selectbox', function (event) {
+                if($(this).find('input').val()==''&&event.keyCode!=13){
+                    $('.SubAssbox').remove();
+                }else if($(this).find('input').val()!=''&&event.keyCode!=13){
+                    //keyup事件做模糊搜索
+                    $(".SubAssbox").remove();
+                    var _this=$(this).find('input');
+                    var src=_this.data('src');
+                    var valin = _this.data("valin"); //选择后选择值存储的控件name
+                    var namecol = _this.data("namecol"); //json数组中的显示字段名
+                    var valcol = _this.data("valcol"); //json数组中的传输值字段名
+                    var keyword=_this.val();
+                    $('body').append("<div class=\"SubAssbox\"><table class=\"SubAssboxtable zxsaastable\"><thead><tr><td>序号</td><td>栏目</td></tr></thead><tbody></tbody>\n</table></div>");
+                    $.getJSON(src,{
+                        keyword:keyword
+                    }, function (r) {
+//                        $.each(r.data.rows, function(i, item) {
+//                            for(var key in item)
+//                            {
+//                                if($('.SubAssboxtable').children('tbody').find('tr').length>=8){//需要显示出来的条目数
+//                                    break;
+//                                }else{
+//                                    $('.SubAssboxtable').children('tbody').append('<tr><td>'+key+'</td><td>'+ item[key]+'</td></tr>');
+//                                    console.log(item.md+'+'+item.md1);
+//                                }
+//                            }
+//                        });
+//                        for(var i=0;i<=8;i++){
+//                            console.log(r.data.rows[i])
+//                        }
+//                        console.log(r.data.rows[2])//第一行的id
+                    });
+                    var _this_t=$(this).find('input').offset().top;
+                    var _this_l=$(this).find('input').offset().left;
+                    var _this_h=$(this).find('input').height();
+                    $('.SubAssbox').css({
+                        'top':_this_t+_this_h,
+                        'left':_this_l
+                    });
+                    $('.zxsaastable').css('background','#fff');
+                    $(this).focusout(function () {
+                        $(".SubAssbox").remove();
+                    });
+                }else if(event.keyCode==13){
+                    //保存录入信息并关闭弹出框
+                    $(this).blur();
+                    $('.SubAssbox').remove();
+                }
+            });
+
+//            摘要
+            var _this_zhaiyao;
+            $(document).on("click", ".input2table .icon-search", function () {//弹出全部选择窗口
+                _this_zhaiyao = $(this);
+                $("#maxselect .modal-title").text("常用摘要参照");
+                loadingmodal();
+                $("#maxselect").modal("show");
+                //弹出框双击事件
+                $('#accountTable tbody tr').dblclick(function () {
+                    var dbTxt = $(this).children('td').eq(2).text();
+                    $("#maxselect").modal("hide");
+                    _this_zhaiyao.prev('input').val(dbTxt);
+                });
+            });
+//            科目、辅助项
+            var _this_Sub;
+            var permit = false;//是否存在辅助项
+            $('.inputboxtable').on('click','tbody tr td:nth-child(3) i', function () {//科目
+                _this_Sub =$(this).parent().find('input');
+                $("#myModelSub").modal("show");
+                $('#SubTable tbody tr').dblclick(function () {
+                    var dbTxt = $(this).children('td').eq(4).text();
+                    $("#myModelSub").modal("hide");
+                    _this_Sub.val(dbTxt);
+                    permit = true;
+                    if (permit) {
+                        $("#myModelAss").modal("show");
+                        $('#AssTable tbody tr').dblclick(function () {
+                            var dbTxt = $(this).children('td').eq(1).text();
+                            $("#myModelAss").modal("hide");
+                            _this_Sub.closest('td').next('td').find('input').val(dbTxt);
+                        });
+                    }
+                });
+            });
+            var _this_Ass;
+            $('.inputboxtable').on('click','tbody tr td:nth-child(4) i', function () {//辅助
+                _this_Ass = $(this);
+                if ($(this).closest('td').prev().find('input').val() != '') {
+                    $("#myModelAss").modal("show");
+                    $('#AssTable tbody tr').dblclick(function () {
+                        var dbTxt = $(this).children('td').eq(2).text();
+                        $("#myModelAss").modal("hide");
+                        _this_Ass.val(dbTxt);
+                    });
+                } else {
+                    alert('科目为空')
+                }
+            });
+            //            辅助项隐藏与显示
+            function AssShow() {
+                $('.headbox thead tr th:eq(3)').show();
+                $('.inputboxtable tbody tr td:nth-child(4)').show();
+            }
+            function AssHide() {
+                $('.headbox thead tr th:eq(3)').hide();
+                $('.inputboxtable tbody tr td:nth-child(4)').hide();
+            }
+            $('.Amountbox').keydown(function(){//借贷框按钮限制
+                return GetInput();
+            });
+            //数字键盘
+            function GetInput(){//屏蔽非数字和非退格符
+                var k = event.keyCode;   //48-57是大键盘的数字键，96-105是小键盘的数字键，8是退格符←，110是小键盘小数点，32是空格键
+                if ((k <= 57 && k >= 48) || (k <= 105 && k >= 96) || (k== 110)||(k==109)||(k==189)||(k==8)||(k==32)){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            //借贷框录入时清除对方val，当输入空格键时交换val
+            $(document).on('keyup','.Debit input', function () {
+                if(event.keyCode==32&&event.keyCode!=13&&$(this).closest('td').next().find('input').val()==''){//当按下空格非回车且对方input值为空时，把自己的值赋值给对方，自己值为空
+                    var _thisValLeft=$(this).val();
+                    $(this).val('');
+                    formatint($(this).closest('td').next().find('input').val(Number(_thisValLeft)));
+                }else if(event.keyCode==32&&event.keyCode!=13&&$(this).closest('td').next().find('input').val()!=''){//当按下空格非回车且对面值不为空时拿取对方值，对方值为空
+                    var _thisValRight=$(this).closest('td').next().find('input').val();
+                    $(this).closest('td').next().find('input').val('');
+                    formatint($(this).val(_thisValRight));
+                    formatint($(this).closest('td').next().find('input').val(''));
+                }else if(event.keyCode==13){
+                    //..解决回车键焦点切换冲突
+                }else if(event.keyCode==109||event.keyCode==189){//允许小键盘‘-’键，松开按键时不管其在哪里出现一律删除并且在此数字前添加‘-’
+                    $(this).val('-'+$(this).val().replaceAll('-',''));
+                    formatint($(this).closest('td').next().find('input').val(''));//对方值为空
+                }else{
+                    $(this).closest('td').next().find('input').val('');
+                    formatint($(this).closest('td').next().find('input'));
+                }
+            });
+            $(document).on('keyup','.Credit input', function () {
+                if(event.keyCode==32&&event.keyCode!=13&&$(this).closest('td').prev().find('input').val()==''){
+                    var _thisValLeft=$(this).val();
+                    $(this).val('');
+                    formatint($(this).closest('td').prev().find('input').val(Number(_thisValLeft)));
+                }else if(event.keyCode==32&&event.keyCode!=13&&$(this).closest('td').prev().find('input').val()!=''){
+                    var _thisValRight=$(this).closest('td').prev().find('input').val();
+                    $(this).closest('td').prev().find('input').val('');
+                    formatint($(this).val(_thisValRight));
+                    formatint($(this).closest('td').prev().find('input').val(''))
+                }else if(event.keyCode==13){
+                    //..解决回车键焦点切换冲突
+                }else if(event.keyCode==109||event.keyCode==189){
+                    $(this).val('-'+$(this).val().replaceAll('-',''));
+                    formatint($(this).closest('td').prev().find('input').val(''));
+                }else{
+                    $(this).closest('td').prev().find('input').val('');
+                    formatint($(this).closest('td').prev().find('input'));
+                }
+            });
+
+            $(document).on("focusout", ".Amountbox input", function () {//借贷框 当input控件失去焦点的时候
+                formatint($(this));//格式化当前控件的值 到金额中
+                var newval,nArr;
+                if($(this).val().indexOf('-')!=-1){//借贷框中存在负号，倒数第三位数字后面添加小数点，数前添加‘-’，赋值给此input
+//                    var txt='';
+//                    for(var p=0;p<$(this).prev().find('font').length;p++){//遍历font，将每个font中的值放入txt中拼接成txt
+//                        txt+=$(this).prev().find('font').eq(p).text();
+//                    }
+//                    newval=txt.replace(/\s/g, "");//去掉字段前的空格符
+//                    nArr=newval.toString().split('');
+//                    nArr.splice(newval.toString().length-2,0,'.');
+//                    $(this).val('-'+nArr.join(''));
+                    if($(this).val()==-0){
+                        $(this).val('')
+                    }else{
+                        var zhi=$(this).val();
+                        zhi=zhi.slice(1,zhi.length+1);
+                        $(this).val('-'+Number(Math.round(Number(zhi)*100)/100).toFixed(2));
+//                        console.log(Number(Math.round(Number($(this).val())*100)/100).toFixed(2))
+                    }
+                }else if($(this).val()==0){//当此input框值为0时失去焦点后赋值为空
+                    $(this).val('')
+                }else if($(this).val()=='-0'){
+                    $(this).val('')
+                }
+                else{
+//                    var txt='';
+//                    for(var p=0;p<$(this).prev().find('font').length;p++){
+//                        txt+=$(this).prev().find('font').eq(p).text();
+//                    }
+//                    newval=txt.replace(/\s/g, "");
+//                    nArr=newval.toString().split('');
+//                    nArr.splice(newval.toString().length-2,0,'.');
+//                    $(this).val(nArr.join(''));
+
+//                    $(this).val(Number($(this).val()).toFixed(2))
+                    $(this).val(Number(Math.round(Number($(this).val())*100)/100).toFixed(2))
+                }
+                if($(this).val().indexOf('N')>=0){
+                    alert('错误！请重新填写');
+                    $(this).val('');
+                    $(this).focus();
+                    $(this).closest('td').next().find('div').css('display','inline');
+                }else{
+                    $(this).parents("td").find("div").show();
+                    $(this).parents("td").find("input").hide();
+                    //计算列汇总开始
+                    var CreditSum = 0;//初始化借方合计变量
+                    var DebitSum = 0;//初始化贷方合计变量
+                    $.each($(this).parents(".grp_table").find(".inputboxtable tr"), function (i, item) {//循环需要输入的表格
+                        var Creditval = $(item).find("td.Credit>input").val();//获取借方值
+                        CreditSum = CreditSum + Number(Creditval);//借方值累加进借方合计
+                        var Debitval = $(item).find("td.Debit>input").val();//获取贷方值
+                        DebitSum = DebitSum + Number(Debitval);//贷方值累加进贷方合计
+                        if (Creditval == "" && Debitval == "") {
+                            $(item).addClass("noinput");//如果借方值和贷方值 都为空  标识该行为空行
+                        } else {
+                            $(".noinput").removeClass("noinput");//清除之前所有的空行标识
+                            $(item).addClass("oninput");//如果借方表格和贷方表格有一个不为空   标识该行为非空行
+                        }
+                    });
+                    if (CreditSum != DebitSum) {//如果借方合计不等于贷方合计，及合计账目不平
+                        var nexttrval = CreditSum - DebitSum;//计算合计差额值
+                        if (nexttrval < 0) {//如果差额值小于0
+                            $(this).parents(".inputboxtable").find("tr.noinput").eq(0).find("td.Credit input").val(0 - Number(Math.round(Number(nexttrval)*100)/100).toFixed(2));//获取到第一个没有输入值得行中  查找借方输入框并把差额值填入
+                            formatint($(this).parents(".inputboxtable").find("tr.noinput").eq(0).find("td.Credit input"));//格式化差额值
+                            $(this).parents(".grp_table").find(".footbox tr>td.CreditSum input").val(Number(Math.round(Number(DebitSum)*100)/100).toFixed(2));//给借方合计输入框赋值 ，
+//                            console.log(Number(Math.round(Number(DebitSum)*100)/100).toFixed(2));
+                            formatint($(this).parents(".grp_table").find(".footbox tr>td.CreditSum input"));//格式化合计值
+                            $(this).parents(".grp_table").find(".footbox tr>td.DebitSum input").val(Number(Math.round(Number(DebitSum)*100)/100).toFixed(2));//给贷方合计输入框赋值 ，
+//                            console.log(Number(Math.round(Number(DebitSum)*100)/100).toFixed(2))
+                            formatint($(this).parents(".grp_table").find(".footbox tr>td.DebitSum input"));// 格式化合计值
+                        } else {
+                            $(this).parents(".inputboxtable").find("tr.noinput").eq(0).find("td.Debit input").val(Number(Math.round(Number(nexttrval)*100)/100).toFixed(2));//获取到第一个没有输入值得行中  查找贷方输入框并把差额值填入
+                            formatint($(this).parents(".inputboxtable").find("tr.noinput").eq(0).find("td.Debit input"));//格式化差额值
+                            $(this).parents(".grp_table").find(".footbox tr>td.CreditSum input").val(Number(Math.round(Number(CreditSum)*100)/100).toFixed(2));//给借方合计输入框赋值 ，
+//                            console.log(Number(Math.round(Number(CreditSum)*100)/100).toFixed(2))
+                            formatint($(this).parents(".grp_table").find(".footbox tr>td.CreditSum input"));// 格式化合计值
+                            $(this).parents(".grp_table").find(".footbox tr>td.DebitSum input").val(Number(Math.round(Number(CreditSum)*100)/100).toFixed(2));//给贷方合计输入框赋值 ，
+//                            console.log(Number(Math.round(Number(CreditSum)*100)/100).toFixed(2))
+                            formatint($(this).parents(".grp_table").find(".footbox tr>td.DebitSum input"));// 格式化合计值
+                        }
+                    }
+                    //计算列汇总结束
+                    //                font框多余0处理
+//                    for(var j=0;j<$(this).prev('div').find('font').length;j++){
+//                        if($(this).prev('div').find('font').eq(j).text()!=0){
+//                            break
+//                        }else{
+//                            $(this).prev('div').find('font').eq(j).html('&nbsp;')
+//                        }
+//                    }
+                }
+            });
+
+
+            $(".inputboxtable").on("click", "tr>td:first-child", function (event) {
+                $(this).parents("tbody").find("tr").removeClass("clicktr");
+                $(this).parents("tr").addClass("clicktr");
+                var l = $(".clicktr").offset().left + 40;
+                var t = $(".clicktr").offset().top + 20;
+                $(".rowsclick").css({"left": l + "px", "top": t + "px"});
+                $(".rowsclick").show();
+                if ($(".clicktr").index() == $(this).parents("tbody").find("tr").size()) {
+                    maxnum = creattr(d_tr, maxnum, 10);//根据计数器创建表格
+                }
+                event.stopPropagation();
+                return false;
+            });
+            $(".rowsclick").on("click", "a.add", function () {
+                clicktr_a.addtr(d_tr, maxnum);//增行
+                maxnum++;
+            });
+            $(".rowsclick").on("click", "a.copy", function () {
+                clicktr_a.copytr($(".clicktr"));//复制
+                maxnum++
+            });
+            $(".rowsclick").on("click", "a.del", function () {
+                clicktr_a.deltr($(".clicktr"));//删除
+                maxnum--
+            });
+            $(".rowsclick").on("click", "a.inster", function () {
+                clicktr_a.instertr($(".clicktr"), d_tr);//插入
+                maxnum++
+            });
+        });
+
+        function PrefixInteger(num, length) {//字段左补齐，填充字母a
+            return (Array(length).join('a') + num).slice(-length);
+        }
+        function formatint(obj) {//金额数字格式化
+            var val = $(obj).val();//获取当前对象的值
+            if(val.toString().indexOf('-')>=0){
+                $(obj).closest('td').find('font').css('color','red');//字体变红
+                val=Number(val.replace('-',''));
+            }else{
+                $(obj).closest('td').find('font').css('color','#000');
+            }
+            //四舍五入保留两位小数
+//            var numArr = Number(val).toFixed(2).split('');
+            var numArr = Number(Math.round(Number(val)*100)/100).toFixed(2).split('');
+            numArr.splice(-3, 1);
+            val = numArr.join('');
+            val = PrefixInteger(val, 11);//按11位左填充a
+            var valArr = val.split("");//将字段按字符分割为数组
+            for (var i = 0; i < 11; i++) {//遍历数组
+                if (valArr[10 - i] == "a") {//如果数组值为填充值
+                    $(obj).parents("td").find("div>font").eq(10 - i).html("&nbsp;");//给填制font填入空格
+                } else {
+                    $(obj).parents("td").find("div>font").eq(10 - i).text(valArr[10 - i]);//给填制font填入当前下标的值
+                }
+            }
+            for(var q=0;q<$(obj).parents("td").find("div>font").length;q++){//     在数据格式化完成后将数字前面多余的0去掉
+                if($(obj).parents("td").find("div>font").eq(q).text()!=0){
+                    break;
+                }else{
+                    $(obj).parents("td").find("div>font").eq(q).html("&nbsp;");
+                }
+            }
+
+        }
+
+        function creattr(tr, maxnum, num) {//创建表格方法
+            for (var i = 1; i < num + 1; i++) {//循环10次  每次创建10行
+                maxnum++;
+                $(".inputboxtable tbody").append(tr.clone());//在表格中填充行的克隆
+                $(".inputboxtable tbody tr:last-child td:first-child").text(maxnum);//修改序号列的值
+                $(".inputboxtable tbody tr:last-child").find("input[ name='zy']").autCompleteTable({//初始化表格中input2autocompettable插件
+                    thead: '<thead><tr><th>序号</th><th>店名</th></tr></thead>\n',//给插件传入表头
+                    tbody: '<tr><td>{{xh}}</td><td>{{md}}</td></tr>\n',//给插件传入行模板
+                    parentbox: $(".grp_table .nano"),
+                    ontrclick: function (obj, self, valself) {//重置插件的tr点击方法
+//				console.log(obj);
+//				console.log(self);
+//				console.log(valself);
+                    }
+                });
+            }
+
+            $(".nano").nanoScroller();//初始化滑款插件
+            return maxnum;
+        }
+        function loadingmodal() {
+            $.getJSON("kntree.json", function (r) {
+                var setting = {
+                    data: {
+                        simpleData: {
+                            enable: true
+                        }
+                    }
+                };
+                $.fn.zTree.init($("#accountTree"), setting, r.data.rows);
+            });
+        }
+        var clicktr_a = (function () {
+            var addtr = function (d_tr, maxnum) {//增行
+                creattr(d_tr, maxnum, 1);
+            };
+            var deltr = function (tr) {
+                var tbody = tr.parents("tbody");
+                tr.remove();
+                serialize(tbody);
+            };
+            var copytr = function (tr) {
+                tr.after(tr.clone());
+                serialize(tr.parents("tbody"));
+            };
+            var instertr = function (tr, d_tr) {//插行
+                tr.before($(".inputboxtable tbody tr:last-child").clone());
+                serialize(tr.parents("tbody"));
+            };
+            var serialize = function (tbody) {
+                $.each(tbody.find("tr"), function (i, item) {
+                    $(item).find("td").eq(0).text(i + 1);
+                });
+            };
+            return {
+                addtr: addtr,
+                deltr: deltr,
+                copytr: copytr,
+                instertr: instertr
+            }
+        })();
+
+    </script>
+</head>
+<body>
+<div class="searchbox">
+    <div class="btnbox clearfix ">
+        <a class="save">保存</a>
+
+        <a class="pull-right"><i class="iconfont icon-xia"></i><i class="iconfont icon-shang"></i></a>
+    </div>
+
+    <div class="inputbox">
+
+        <form class="form">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-2" style="width:262px;">
+                        <div class="input-group">
+                            <span class="input-group-addon input-group-title" id="basic-addon1"> 凭证字号：</span>
+                            <input id="proof" type="text" class="form-control" placeholder="类别" aria-describedby="basic-addon1"
+                                   name="djbh" maxlength="2" style="width: 80px;">
+                            <button id="browse" type="button" data-src="listtable.json" data-valin="zyid" data-namecol="md" data-valcol="id"></button>
+                        </div>
+                    </div>
+                    <div class="col-xs-2" style="position: relative;left:-60px;">
+                        <div class="input-group">
+                            <!--<span class="input-group-addon input-group-title" id="basic-addon1"> 凭证编号：</span>-->
+                            <input type="text" class="form-control" placeholder="凭证编号" aria-describedby="basic-addon1"
+                                   name="cgy">
+                        </div>
+                    </div>
+                    <div class="col-xs-3 ">
+                        <div class="input-group">
+                            <span class="input-group-addon input-group-title" id="basic-addon1"> 制单日期：</span>
+                            <input type="text" class="form-control timebox" placeholder="制单日期"
+                                   aria-describedby="basic-addon1" name="gys">
+                        </div>
+                    </div>
+                    <div class="col-xs-3 ">
+                        <div class="input-group">
+                            <span class="input-group-addon input-group-title" id="basic-addon1"> 附单据数：</span>
+                            <input id="elseData" type="number" class="form-control" placeholder="附单据数" aria-describedby="basic-addon1"
+                                   name="djbh">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="grp_table" style="border: 1px solid #cfcfcf;">
+
+    <table class="zxsaastable headbox" style="width:auto ;">
+        <thead>
+        <tr>
+            <th rowspan="2" style="width: 50px;">序号</th>
+            <th rowspan="2" style="width: 150px;"><font class="red">*</font>摘要</th>
+            <th rowspan="2" style="width: 250px;">科目名称</th>
+            <th rowspan="2" style="width: 250px;">辅助项</th>
+            <th style="width: 232px;">借方</th>
+            <th style="width: 232px;">贷方</th>
+
+        </tr>
+        <tr>
+            <th class="Amountbox">
+                <font>亿</font>
+                <font>千</font>
+                <font class="blueline">百</font>
+                <font>十</font>
+                <font>万</font>
+                <font class="blueline">千</font>
+                <font>百</font>
+                <font>十</font>
+                <font class="redline">元</font>
+                <font>角</font>
+                <font class="lastline">分</font>
+
+            </th>
+            <th class="Amountbox">
+                <font>亿</font>
+                <font>千</font>
+                <font class="blueline">百</font>
+                <font>十</font>
+                <font>万</font>
+                <font class="blueline">千</font>
+                <font>百</font>
+                <font>十</font>
+                <font class="redline">元</font>
+                <font>角</font>
+                <font class="lastline">分</font>
+            </th>
+
+        </tr>
+        </thead>
+    </table>
+    <div class=" nano" style="height: 500px;">
+        <div class="nano-content">
+            <table class="zxsaastable inputboxtable" style="width:auto ;">
+                <tbody>
+                <tr>
+                    <td style="width: 50px;">1</td>
+                    <td style="width: 150px;">
+                        <input type="text" name="zy" data-autocompletetablesrc="listtable.json" data-type="table"
+                               data-valin="zyid" data-namecol="md" data-valcol="id"/>
+                        <input type="hidden" name="zyid" id="aid" value=""/>
+                    </td>
+                    <td style="width: 250px;"><input type="text" name="hsjr" data-src="listtable.json" data-valin="zyid" data-namecol="md" data-valcol="id"/></td>
+                    <td style="width: 250px;"><input type="text" name="hsjr" data-src="listtable.json"/></td>
+                    <td class="Amountbox Debit" style="width: 232px;">
+                        <div>
+                            <font>&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font class="blueline">&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font class="blueline">&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font class="redline">&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font class="lastline">&nbsp;</font>
+                        </div>
+                        <input type="text" name="je" maxlength="11"/></td>
+                    <td class="Amountbox Credit" style="width:232px;">
+                        <div>
+                            <font>&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font class="blueline">&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font class="blueline">&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font class="redline">&nbsp;</font>
+                            <font>&nbsp;</font>
+                            <font class="lastline">&nbsp;</font>
+                        </div>
+                        <input type="text" name="zkl" maxlength="11"/></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <table class="zxsaastable footbox" style="width:auto ;">
+            <tfoot>
+            <tr>
+                <td style="width: 50px;">合计</td>
+                <td colspan="3" style="width: 650px;" class="Capital">
+                </td>
+                <td class="DebitSum Amountbox" style="width: 232px;">
+                    <div>
+                        <font>&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font class="blueline">&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font class="blueline">&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font class="redline">&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font class="lastline">&nbsp;</font>
+                    </div>
+                    <input type="hidden" name="zkl" maxlength="11"/>
+                </td>
+                <td class="CreditSum Amountbox" style="width:232px;">
+                    <div>
+                        <font>&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font class="blueline">&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font class="blueline">&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font class="redline">&nbsp;</font>
+                        <font>&nbsp;</font>
+                        <font class="lastline">&nbsp;</font>
+                    </div>
+                    <input type="hidden" name="zkl" maxlength="11"/>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+
+    </div>
+</div>
+
+<div class="container-fluid mt20 footer">
+    <form class="form">
+        <div class="row">
+            <div class="col-xs-3 ">
+                <div class="input-group">
+                    <span class="input-group-addon input-group-title" id="basic-addon1"> 记账人：</span>
+                    <input type="text" class="form-control" placeholder="记账人" aria-describedby="basic-addon1"
+                           name="fkfs">
+                </div>
+            </div>
+            <div class="col-xs-3 ">
+                <div class="input-group">
+                    <span class="input-group-addon input-group-title" id="basic-addon1"> 审核人：</span>
+                    <input type="text" class="form-control" placeholder="审核人" aria-describedby="basic-addon1"
+                           name="yfje">
+                </div>
+            </div>
+            <div class="col-xs-3 ">
+                <div class="input-group">
+                    <span class="input-group-addon input-group-title" id="basic-addon1"> 出纳：</span>
+                    <input type="text" class="form-control" placeholder="出纳" aria-describedby="basic-addon1"
+                           name="wfje">
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="input-group">
+                    <span class="input-group-addon input-group-title" id="basic-addon1"> 制单人：</span>
+                    <input type="text" class="form-control" placeholder="制单人" aria-describedby="basic-addon1"
+                           name="zdzk">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal fade addbox" id="maxselect">
+    <div class="modal-dialog" style="width: 80%;">
+        <div class="modal-content">
+            <form id="menuAdminForm" class="form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">
+
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!--查询类别：<select>
+                                    </select>-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="container" style="width:100%;">
+                                <div class="searchNav">
+                                    <label for="searchType" style="font-size: 18px">查询类别:</label>
+                                    <input id="searchType" type="text"/><span class="downAngel"></span>
+                                    <input type="text" style="font-size: 20px;margin:3px;"/>
+                                    <input class="fil" type="button" value="过滤"/>
+                                    <input class="filNav" type="button" value="栏目"/>
+                                </div>
+                                <div style="float: left;width:200px;">
+                                    <div class="left_tree">
+                                        <ul id="accountTree" class="ztree"></ul>
+                                    </div>
+                                </div>
+                                <div style="float: left;width:80%;">
+                                    <!--会计科目-->
+                                    <div class="details">
+                                        <!--表格-->
+                                        <div class="jqGrid_wrapper">
+                                            <table id="accountTable"></table>
+                                            <div id="pager"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary addbutton">
+                        保存
+                    </button>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--科目-->
+<div class="modal fade addbox" id="myModelSub">
+    <div class="modal-dialog" style="width: 80%;">
+        <div class="modal-content">
+            <form id="menuAdminForm1" class="form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!--查询类别：<select>
+                                    </select>-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="container" style="width:100%;">
+                                <div class="searchNav">
+                                    <label for="searchType1" style="font-size: 18px">查询类别:</label>
+                                    <input id="searchType1" type="text"/><span class="downAngel"></span>
+                                    <input type="text" style="font-size: 20px;margin:3px;"/>
+                                    <input class="fil" type="button" value="过滤"/>
+                                    <input class="filNav" type="button" value="栏目"/>
+                                </div>
+                                <div style="float: left;width:200px;">
+                                    <div class="left_tree">
+                                        <ul id="accountTreeSub" class="ztree"></ul>
+                                    </div>
+                                </div>
+                                <div style="float: left;width:80%;">
+                                    <!--会计科目-->
+                                    <div class="details">
+                                        <!--表格-->
+                                        <div class="jqGrid_wrapper">
+                                            <table id="SubTable"></table>
+                                            <div id="SubPager"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary addbutton">
+                        保存
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--辅助项-->
+<div class="modal fade addbox" id="myModelAss">
+    <div class="modal-dialog" style="width: 80%;">
+        <div class="modal-content">
+            <form id="menuAdminForm2" class="form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!--查询类别：<select>
+                                    </select>-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="container" style="width:100%;">
+                                <div class="searchNav">
+                                    <label for="searchType2" style="font-size: 18px">查询类别:</label>
+                                    <input id="searchType2" type="text"/><span class="downAngel"></span>
+                                    <input type="text" style="font-size: 20px;margin:3px;"/>
+                                    <input class="fil" type="button" value="过滤"/>
+                                    <input class="filNav" type="button" value="栏目"/>
+                                </div>
+                                <div style="float: left;width:200px;">
+                                    <div class="left_tree">
+                                        <ul id="accountTreeAss" class="ztree"></ul>
+                                    </div>
+                                </div>
+                                <div style="float: left;width:80%;">
+                                    <!--会计科目-->
+                                    <div class="details">
+                                        <!--表格-->
+                                        <div class="jqGrid_wrapper">
+                                            <table id="AssTable"></table>
+                                            <div id="AssPager"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary addbutton">
+                        保存
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="rowsclick">
+    <a class="btn btn-primary btn-sm add">增行</a><a class="btn btn-primary btn-sm inster">插行</a><a
+        class="btn btn-primary btn-sm copy">复制行</a><a class="btn btn-primary btn-sm del">删行</a>
+</div>
+<div class="zxsaaspage"><a>上一页</a><a>1</a><a class="active">2</a><a>3</a><a>4</a><a>1</a><a>1</a></div>
+</body>
+
+</html>

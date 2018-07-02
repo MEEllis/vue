@@ -1,0 +1,45 @@
+@charset "utf-8";
+/*串号icon*/
+.ifManageImeiIcon {
+  position: relative;
+}
+.ifManageImeiIcon:before{
+  content: "\4E32";
+  background-color: #199ed8;
+}
+.ifManageImeiIcon,
+.valuationMethodsIcon2,
+.valuationMethodsIcon1,
+.valuationMethodsIcon3{
+  position: relative;
+}
+.valuationMethodsIcon2:before{
+  content: "\79fb";
+  background-color: #FEC58F;
+}
+.valuationMethodsIcon1:before{
+  content: "\4e2a";
+  background-color: #5184F0;
+}
+/*特*/
+.valuationMethodsIcon3:before{
+  content: "\7279";
+  background-color: #FEC58F;
+}
+.ifManageImeiIcon:before,
+.valuationMethodsIcon2:before,
+.valuationMethodsIcon1:before,
+.valuationMethodsIcon3:before{
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+  line-height: 25px;
+  margin-right: 5px;
+  position: absolute;
+  left: 1px;
+  top: 4px;
+  font-size: 12px;
+}

@@ -1,0 +1,5 @@
+{"rows":[
+      {"deliveryId":"100101","billsNumber":"DJ1001001","export":"调出部门","fold":"调入部门","zonge":"2000","addPeople":"新增人","addDate":"2016-10-15","shipmentsPeople":"发货人","shipmentsDate":"2016-10-16","commodity":"商品名称","number":"2001001","remark":"备注备注","rejectionYY":"拒收原因","verify":"0"},  
+      {"deliveryId":"100101","billsNumber":"DJ1001001","export":"调出部门","fold":"调入部门","zonge":"2000","addPeople":"新增人","addDate":"2016-10-15","shipmentsPeople":"发货人","shipmentsDate":"2016-10-16","commodity":"商品名称","number":"2001001","remark":"备注备注","rejectionYY":"拒收原因","verify":"1"},  
+      {"deliveryId":"100101","billsNumber":"DJ1001001","export":"调出部门","fold":"调入部门","zonge":"2000","addPeople":"新增人","addDate":"2016-10-15","shipmentsPeople":"发货人","shipmentsDate":"2016-10-16","commodity":"商品名称","number":"2001001","remark":"备注备注这是备注","rejectionYY":"拒收原因","verify":"0"}
+ ]}

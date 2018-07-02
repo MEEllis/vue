@@ -1,0 +1,430 @@
+/*typemanager.html addCardType.html*/
+html,body{
+	margin: 0;
+	padding: 0;
+}
+
+.content{
+	border: 1px solid #cfcfcf;
+    margin: 21px 15px;
+    width: 98%;
+}
+
+.content1{
+	width: 100%;
+	height: auto;
+	/*height:385px;*/
+    overflow: hidden;
+   /* border-bottom: 1px solid #cfcfcf;*/
+}
+
+.btn-grp{
+	background-image: url(../../images/btnboxbg.png);
+	/*height: 30px;*/
+	line-height: 30px;
+	text-align: left;
+}
+
+.bn{
+	height: 28px;
+    line-height: 30px;
+	text-align: center;
+	display: inline-block;
+	padding: 0px 10px;
+	border-right: 1px solid #cfcfcf;
+	text-decoration: none;
+	color: #666666;
+	cursor: pointer;
+	border: none;
+    margin-right: -2px;
+    background-image: url(../../images/btnboxbg.png);
+}
+
+.sortselect{
+	height: 50px;
+    width: 100%;
+    padding-top: 18px;
+    padding-left: 19px;
+    vertical-align: middle;
+}
+
+.slct{
+	width: 138px;
+    height: 26px;
+    vertical-align: top;
+    margin-top: -6px;
+    background: url(../../images/pull.png) 97% 39% no-repeat;
+    border: 1px solid #CFCFCF;
+}
+/*参数详情*/
+.content2{
+	width: 100%;
+    margin-top: 20px;
+}
+
+.pacontent{
+	height: auto;
+    overflow: hidden;
+}
+
+.phead{
+	height: auto;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+.phead>li{
+	float: left;
+    width: 76px;
+    height: 31px;
+    border: 1px solid #cfcfcf;
+    text-align: center;
+    text-indent: -2px;
+    border-bottom: none;
+    border-left: none;
+}
+.pabody{
+	width: 100%;
+    height: 342px;
+	position: relative;
+    
+}
+
+.pabody>div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 1px solid #cfcfcf;
+}
+/*积分设置*/
+.score-set>.tp{
+    height: 92px;
+  /* // overflow: hidden;*/
+    padding-top: 9px;
+    padding-left: 19px;
+    padding-bottom: 17px;
+}
+
+.score-set>div{
+	width: 100%;
+	
+}
+
+.score-set>.tp>div{
+	float: left;
+	height: auto;
+    overflow: hidden;
+}
+
+
+
+.score-set>.tp>div.score-crash{
+	width: 250px;
+    height: 60px;
+    margin-left: 39px;
+    margin-top: 4px;
+}
+
+.score-tt{
+    display: inline-block;
+    width: 67px;
+    height: 30px;
+}
+.cxgoods{
+	width: 200px;
+	margin-bottom: 10px;
+}
+
+input[type=checkbox]{
+	margin-right: 6px;
+    vertical-align: top;
+    margin-top: 9px;
+}
+
+label{
+	font-weight: normal;
+}
+/*
+input[type=text]{
+	width: 50px;
+	height: 28px;
+    margin-left: 8px;
+    margin-right: 20px;
+    border: 1px solid #cfcfcf;
+}*/
+#togglingFormZK .row input[type=text]{
+	 width: 128px;
+     border: 1px solid #cfcfcf;
+ }
+.btm{
+   height: 247px;
+   min-height:247px;
+}
+
+.btm>p{
+    width: 166px;
+    height: 30px;
+    margin-left: 19px;
+}
+
+
+/*折扣设置*/
+.buget-set>.tp{
+	height: 92px;
+	padding-left: 19px;
+    padding-top: 9px;
+}
+
+.buget-set>.tp>p{
+	margin-bottom: 10px;
+}
+
+.buget-set>.tp>.zkprince,.buget-set>.tp>.zkvalue{
+	display:inline-block;
+	margin-bottom: 17px;
+}
+
+p.prince>select{
+	width: 148px;
+	height: 28px;
+	border: 1px solid #CFCFCF;
+	background: url(../../images/pull.png) 97% 39% no-repeat;
+}
+
+input[type="radio"]{
+	margin-right: 6px;
+}
+
+.zkprince>label{
+	margin-right: 19px;
+}
+
+
+/*升级设置*/
+.update-set>.top{
+    height: 92px;
+}
+.update-set{
+	padding-top: 9px;
+	padding-left: 19px;
+}
+.update-set .btm>div{
+	
+}
+.kind{
+	height: auto;
+    overflow: hidden;
+}
+.ud>p,.cksnot>p{
+	display: inline-block;
+	
+}
+.kind select{
+	width: 138px;
+    height: 26px;
+    background: url(../../images/pull.png) 97% 39% no-repeat;
+    margin-right: 20px;
+    border: 1px solid #CFCFCF;
+}
+
+.update-set p{
+	margin-bottom: 10px;
+}
+
+.upgrade>p{
+	display: inline-block;
+}
+
+/*增值服务*/
+.service-tt{
+	width: 100%;
+    height: 247px;
+    min-height:247px;
+    padding-top:10px;
+}
+
+.service-tt>p{
+	margin-left: 19px;
+    margin-bottom: 5px;
+}
+/*添加active*/
+.active{
+	background: none;
+}
+.f5{
+	background-color: #F5F5F5;
+}
+p{
+	margin: 0;
+}
+
+.btn-grp>a{
+	text-decoration: none;
+	text-decoration: none;
+    color: #666;
+    display: inline-block;
+    height: 28px;
+    line-height: 31px;
+    margin-left: 14px;
+}
+
+.btn-grp>a:hover{
+	border: 1px solid #CFCFCF;
+}
+
+/*addCardType*/
+.top2{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	padding-left: 19px;
+	padding-top: 9px;
+}
+.top2>div{
+	width: 100%;
+    height: 32px;
+    line-height: 29px;
+    margin-bottom: 10px;
+}
+.slct1{
+	width: 148px;
+    height: 28px;
+    background: url(../../images/pull.png) 97% 39% no-repeat;
+    border: 1px solid #CFCFCF;
+    margin-left: 4px;
+    margin-right: 20px;
+}
+
+.div-two input{
+	width: 148px;
+	height: 28px;
+	border: 1px solid #CFCFCF;
+}
+
+.top2 input[type=checkbox]{
+	vertical-align: top;
+    margin-top: 9px;
+}
+
+.top2 .ipt{
+	width: 148px;
+	height: 28px;
+}
+/*增值服务页*/
+.gl{
+    width: 100%;
+    height: 50px;
+    padding-left: 19px;
+    padding-top: 10px;
+}
+
+.gl>p>input{
+	width: 148px;
+	border:1px solid #cfcfcf;
+}
+
+.tble{
+   height: 688px;
+ }
+ 
+/*自定义模态框样式*/
+.modal-content{
+	border-radius: 0;
+	
+}
+
+.modal-header{
+	height: 40px;
+	background-color: #4e78a1;
+	color: #FFFFFF;
+	
+}
+
+.add,.modify{
+	font-size: 14px;
+}
+
+.modal-footer{
+    height: 70px;
+    text-align: center;
+}
+
+.w-148{
+	width: 148px;	
+}
+
+.modal-ipt{
+	height: 28px;
+	border: 1px solid #CFCFCF;
+	margin-right: 14px;
+}
+
+.tp-info>p{
+	margin-bottom: 10px;
+}
+
+.tp-info span{
+	 
+    margin-right: 5px;
+  
+}
+
+.span-title{
+	display: inline-block;
+    width: 72px;
+    height: 24px;
+	  text-align: right;
+}
+
+/*商品资料表格*/
+.tranLeft,.right-body{
+	float: left;
+}
+
+.tranLeft{
+	width: 200px;
+    margin-top: 25px;
+}
+
+.right-body{
+	margin-top: 25px;
+    width: 639px;
+    height: 400px;
+    border: 1px solid #cfcfcf;
+}
+
+#goodsch .ui-jqgrid-view,#goodsch .ui-jqgrid-hdiv,#goodsch .ui-jqgrid-bdiv{
+	 width: 630px!important;
+}   
+
+#gridpagerTranGoods{
+	width: 600px!important;
+}
+
+/*表格checkbox*/
+.ui-jqgrid .cbox{
+	display:inline-block;
+    margin-right: 0px;
+    vertical-align: middle;
+    margin-top: 0px;
+}
+capation,th{text-align:center;}
+
+  .tp select,
+  .tp input[type=text],
+ .top input[type=text],
+.top2 input[type=text]{
+  width:148px;
+  height:28px;
+  border:1px solid #cfcfcf;	
+	
+}
+
+.btn-grp .btn{
+	padding:0px;
+	border:none;
+}
+th{
+   font-weight:bold;
+}

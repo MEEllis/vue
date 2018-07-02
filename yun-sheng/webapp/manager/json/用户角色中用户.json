@@ -1,0 +1,35 @@
+[{
+	"nodes": [{
+		"myNodeId": 136,
+		"text": "员工属性"
+	},
+	{
+		"myNodeId": 133,
+		"text": "模块管理"
+	},
+	{
+		"myNodeId": 134,
+		"text": "功能管理"
+	},
+	{
+		"myNodeId": 137,
+		"text": "区域管理"
+	},
+	{
+		"myNodeId": 135,
+		"text": "员工表新增"
+	},
+	{
+		"myNodeId": 142,
+		"text": "用户角色"
+	},
+	{
+		"myNodeId": 10,
+		"text": "角色管理"
+	},
+	{
+		"myNodeId": 12,
+		"text": "功能模块"
+	}]
+
+}]

@@ -1,0 +1,15 @@
+{"rows":[
+{"metaName":"采购订单","blocId":"0000"},
+{"metaName":"采购入库","blocId":"0002"},
+{"metaName":"采购退货","blocId":"0003"},
+{"metaName":"采购换货","blocId":"0004"},
+{"metaName":"获赠单","blocId":"0005"},
+{"metaName":"供应商报价单","blocId":"0006"},
+{"metaName":"供应商返利单","blocId":"0007"},
+{"metaName":"受托入库单","blocId":"0008"},
+{"metaName":"受托退货单","blocId":"0009"},
+{"metaName":"受托调价单","blocId":"0000"},
+{"metaName":"受托结算单","blocId":"0000"}
+]}
+
+

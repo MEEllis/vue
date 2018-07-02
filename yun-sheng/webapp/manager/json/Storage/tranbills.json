@@ -1,0 +1,6 @@
+{"rows":[
+    {"billsID":"CG100100","billsDate":"2016-5-20","billsSection":"技术部","billsAgent":"风萧萧","billsWang":"阿里巴巴","billsMoney":"52700","breakMoney":"52000","addPeople":"风新","addDate":"2016-5-21","postingPeople":"风过帐","postingDate":"2016-5-22","remark":"这是备注1，备注住"}, 
+    {"billsID":"CG200100","billsDate":"2016-5-20","billsSection":"技术部","billsAgent":"风萧萧","billsWang":"阿里巴巴","billsMoney":"52700","breakMoney":"52000","addPeople":"风新","addDate":"2016-5-21","postingPeople":"风过帐","postingDate":"2016-5-22","remark":"这是备注2，备注住"}, 
+    {"billsID":"CG300100","billsDate":"2016-5-20","billsSection":"技术部","billsAgent":"风萧萧","billsWang":"阿里巴巴","billsMoney":"52700","breakMoney":"52000","addPeople":"风新","addDate":"2016-5-21","postingPeople":"风过帐","postingDate":"2016-5-22","remark":"这是备注1，备注住"}, 
+    {"billsID":"CG400100","billsDate":"2016-5-20","billsSection":"技术部","billsAgent":"风萧萧","billsWang":"阿里巴巴","billsMoney":"52700","breakMoney":"52000","addPeople":"风新","addDate":"2016-5-21","postingPeople":"风过帐","postingDate":"2016-5-22","remark":"这是备注1，备注住"}
+ ]}

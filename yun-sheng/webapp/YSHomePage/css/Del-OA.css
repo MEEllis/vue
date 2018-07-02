@@ -1,0 +1,30 @@
+#crm{
+    margin: 50px 0;
+}
+#crmtl{
+    padding: 0 35px;
+}
+#crmtl p{
+    text-align: left;
+    font-size: 15pt;
+    font-weight: bold;
+}
+#crmtl span{
+    font-size: 11pt;
+}
+#crmtr img{
+    width: 100%;
+}
+.crmdownimg{
+    margin: 15px 0;
+}
+.crmdownimg img{
+    width: 100%;
+}
+.crmdownimg p{
+    text-align: left;
+    font-weight: bold;
+}
+.crmdownimg span{
+    font-size: 11pt;
+}

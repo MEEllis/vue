@@ -1,0 +1,142 @@
+*{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration: none;
+}
+a:visited{
+	color: #AAAAAA;
+}
+a:hover{
+	color:#551A8B;
+	cursor: pointer;
+}
+img{
+	border: 0;
+}
+html,body{
+	height:100%;
+	overflow: hidden;
+}
+
+body{
+	position: relative;
+	
+}
+
+#container{
+	height:100%;
+	width:100%;
+	position: absolute;
+	top:0;
+	left: 0;
+	background: url('../../images/bg.png') no-repeat;
+	background-size:100% 100%;
+	overflow: auto;
+}
+#content{
+	width: 500px;
+	height: 380px;
+	margin: 180px auto;
+	
+}
+#logo{
+	width: 84px;
+	height: 88px;
+}
+
+#subcontent{
+	position:relative;
+}
+#input-area{
+	width:380px;
+	height:168px;
+	background-color:#F1F1F1;
+	position:absolute;
+	left:30px;
+	top:138px;
+	border: 1px solid #CCCCCC;  
+	border-radius: 12px;
+}
+#sbm-login{
+	width:224px;
+	height:46px;
+	background-color:#F1F1F1;
+	position:absolute;
+	left:104px;
+	top:332px;
+	border: 1px solid #CCCCCC;  
+	border-radius: 12px;
+	font-family: Times, TimesNR, 'New Century Schoolbook',
+     Georgia, 'New York';
+    color:#AAAAAA;
+    font-size: 20px;
+	
+}
+#sbm-login:hover,#sbm-login:focus{
+   width:222px;
+   height:44px;
+   font-size: 18px;
+}
+
+#user{
+	width:345px;
+    border-bottom:1px solid #CCCCCC;
+    position:absolute;
+    left: 20px;
+    top: 20px;
+}
+#secret{
+	 width:345px;
+     border-bottom:1px solid #CCCCCC;
+     position:absolute;
+     left: 20px;
+     top: 64px;
+}
+#username{
+    border: none;
+    height: 30px;
+    font-size: 20px;
+    background-color: #F1F1F1;
+    outline: none;
+    background: transparent;
+    text-indent: 1em;
+}
+input:-webkit-autofill {-webkit-box-shadow: 0 0 0px 1000px #F1F1F1 inset;}
+#password{
+    border: none;
+    height: 30px;
+    font-size: 20px;
+    background: #F1F1F1;
+  
+    outline: none;
+    text-indent: 1em;
+    
+}
+#lengend img{height: 88px; width: 71px;float: left;}
+#sys-name{
+	height: 88px; 
+	line-height: 88px;
+	display: inline-block;
+	font-family: 微软雅黑;
+	font-weight: bold;
+	color:#2963b2;
+	font-size: 28px;
+
+
+}
+#mesg-pwd{
+	position: absolute;
+	left: 33px;
+	top: 132px;
+	color: #AAAAAA;
+}
+#rmb{
+	margin-right:2px;
+}
+#fgt{
+	position: relative;
+	left: 160px;
+}
+

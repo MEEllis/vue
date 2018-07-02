@@ -1,0 +1,25 @@
+BasicData--基础资料
+Borrow--借欠
+Commission--提成
+Purchase--采购
+
+Retail-零售
+Sales--促销
+Storage--仓储
+Dist--分销
+MoneyFrom--资金往来
+Service--售后
+Member--会员
+SMS-- 短信
+FixedAssets--固定资产
+Salary--薪资
+
+
+
+
+
+
+//文件命名请使用驼峰标准  文件名首字母大写
+//页面引用js css 请存放至/webapp/manager  对应的目录 引用方式${basePath}/目录名/文件名
+
+

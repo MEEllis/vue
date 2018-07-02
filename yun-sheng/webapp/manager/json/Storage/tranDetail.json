@@ -1,0 +1,5 @@
+{"rows":[
+     {"depId":"1001","detailName":"仓库名称","spmcName":"商品名称","number":"10","price":"100.00","money":"200","discountLV":"2%","discountJE":"2","zhehuo":"150","hansuiD":"4","hansuiJ":"6","suilv":"1%","suie":"6","remark":"备注"}, 
+     {"depId":"1002","detailName":"仓库名称","spmcName":"商品名称","number":"10","price":"100.00","money":"200","discountLV":"2%","discountJE":"2","zhehuo":"150","hansuiD":"4","hansuiJ":"6","suilv":"1%","suie":"6","remark":"备注"}, 
+     {"depId":"1003","detailName":"仓库名称","spmcName":"商品名称","number":"10","price":"100.00","money":"200","discountLV":"2%","discountJE":"2","zhehuo":"150","hansuiD":"4","hansuiJ":"6","suilv":"1%","suie":"6","remark":"备注"}
+ ]}

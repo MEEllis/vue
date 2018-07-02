@@ -1,0 +1,52 @@
+{"result":[{
+		"information":[{
+			"left":[
+				{"id":"01","name":"往来单位","src":"/manager/authority/contactInfo/toContact"},
+				{"id":"02","name":"部门名称","src":"/manager/authority/sectionInfo/toSection"},
+				{"id":"03","name":"仓库名称","src":"/manager/authority/storageInfo/toStorage"}
+			],
+			"right":[
+				{"id":"05","name":"员工档案","src":"/manager/authority/employeeInfo/toEmployee"},
+				{"id":"06","name":"商品档案","src":"/manager/beginning/goodsname/toPage"},
+				{"id":"07","name":"资金账户","src":"/manager/beginning/account/toPage"}
+			]
+		}],
+		"statement":[{
+			"left":[
+				{"id":"11","name":"经营历程","src":"/manager/reportCenter/businessProcess/businessProcess"},
+				{"id":"12","name":"采购订单执行情况","src":"/manager/purchase/order"},
+				{"id":"13","name":"采购明细表","src":"/manager/reportCenter/purchase/purchaseDetail"},
+				{"id":"14","name":"采购统计表","src":""},
+				{"id":"15","name":"受托明细表","src":""},
+				{"id":"16","name":"受托统计表","src":""},
+				{"id":"17","name":"受托商品调价明细","src":"/manager/funds/beEntrustChangePrice"},
+				{"id":"18","name":"受托结算明细","src":"/manager/funds/beEntrustSettlement"}
+			],
+			"right":[
+				{"id":"19","name":"现存量","src":""},
+				{"id":"20","name":"受托现存量","src":"/manager/beginning/stock/toStPage"},
+				{"id":"21","name":"串号状态表","src":""},
+				{"id":"22","name":"串号跟踪","src":""},
+				{"id":"23","name":"账户收支明细","src":""},
+				{"id":"24","name":"账户收支统计","src":""},
+				{"id":"25","name":"付款明细表","src":"/manager/funds/payment/initPayment"},
+				{"id":"25","name":"收款明细表","src":"/manager/funds/payment/initPayee"}
+			]
+		}]
+	}]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

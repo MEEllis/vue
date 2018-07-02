@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!-- 
+      startBalance.html
+      <期初余额>
+      
+      Created by LyNnJeR on 2017-01-11.
+      Copyright 2017 LyNnJeR. All rights reserved.
+ -->
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE ; chrome=1" />
+		<link rel="stylesheet" type="text/css" href="../../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/skins/all.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap-select.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pagecss/treepage.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/jquery.datetimepicker.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/ui.jqgrid-bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/market/public.css" />
+		<title>期初余额</title>
+		<style type="text/css">
+			.ui-jqgrid .ui-jqgrid-htable .ui-th-div {text-align: center;}
+			.model-dialog3 {width: 600px;}
+			.model-dialog4 {width: 800px;}
+			.model-dialog5 {width: 1100px;}
+			.qcMain {margin: 30px 0px 30px 200px;}
+			.qcMain p {height: 30px;}
+			.left {width: 15%;float: left;margin-top: 32px;}
+			.left_tree {height: 450px;overflow: auto;}
+			.details .right {height: 40px;}
+			.details {width: 85%;float: left;}
+			#gbox_jqGrid_trialBalance {width: 537px;float: left;}
+			#gbox_jqGrid_trialBalanceRight {width: 518px;float: left;}
+			#gview_jqGrid_trialBalance .ui-jqgrid-bdiv{overflow-x: hidden;}
+		</style>
+	</head>
+
+	<body>
+		<div class="well">
+			<div class="btn-group btnHundred" role="group">
+				<button type="button" class="btn btn-default" data-eventname="save">保存</button>
+				<button type="button" class="btn btn-default trialBalance" data-eventname="inquire" data-toggle="modal" data-target="">试算平衡</button>
+				<button type="button" class="btn btn-default checkingModal">期初对账</button>
+				<!--<button type="button" class="btn btn-default" data-eventname='exportTablename'>导入</button>
+				<button type="button" class="btn btn-default">导出</button>-->
+				<div class="btn-group">
+				    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				     	打印
+				      <span class="caret"></span>
+				    </button>
+				    <ul class="dropdown-menu" role="menu">
+				      <li><a href="#">打印设置</a></li>
+				      <li><a href="#">打印预览</a></li>
+				      <li><a href="#">打印</a></li>
+				    </ul>
+				</div>
+				<button type="button" class="btn btn-default refresh" data-eventname="refresh">刷新</button>
+				<!--<button type="button" class="btn btn-default">退出</button>-->
+			</div>
+			<form id="inquire_option">
+				<div class="inputbox container-fluid clearfix">
+					<div class="row">
+						<div class="Zpercent form-group">
+							<span for="" class="box_text2">业务部门：</span>
+							<div class="input-group">
+			          <input type="text"  class="form-control" name="ywUnitName" id="ywUnitName"  readonly="readonly" >
+			          <input type="hidden"  name="contactsunitId" id="contactsunitId" >
+					      <span class="input-group-btn" style="border: 1px solid #CECECE;">
+					        <button class="btn btn-default" type="button" data-toggle="modal" onclick="sectionModal(this,1);" id="contactunitBtn">
+					        	<span class="glyphicon glyphicon-plus"></span>
+					        </button>
+					      </span>
+					    </div>
+						</div>
+						<div class="Zpercent form-group">
+							<span for="" class="box_text2">会计年度：</span>
+							<div class="col-sm-8">
+								<div class="input-group">
+									<select class="form-control">
+									  <option>2000</option>
+									  <option>2001</option>
+									  <option>2002</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="Zpercent form-group">
+							<span for="" class="box_text2">快速定位：</span>
+							<div class="col-sm-8">
+								<div class="input-group">
+									<input type="text" class="form-control" id="searchText" placeholder="科目编码+科目名称">
+								</div>
+							</div>
+						</div>
+						<div class="Zpercent form-group">
+							<span for="" class="box_text2" style="float: right;">单位：元</span>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!-------------------------------------表格开始----------------------------------------->
+		<div class="tablebox retailDetailTable">
+			<div class="grid-wrap table-main" style="margin-top:10px">
+				<table id="jqGrid_balance" class="zxsaastable"></table>
+				<div id="jqGridPager"></div>
+			</div>
+		</div>
+		<!-------------------------------------表格结束----------------------------------------->
+		
+		<!-- 辅助核算期初弹出窗-->
+		<div class="modal fade" id="assistModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog model-dialog4">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							辅助核算期初
+						</h4>
+					</div>
+					<div class="modal-body" id="model-body">
+							<div class="tip">
+								<a data-toggle="modal" class='sumAddQuit' style="cursor:pointer;">汇总并退出</a>
+								<span class="show" style="margin: 5px 0;"></span>
+							</div>
+								<div class="tablebox retailDetailTable">
+									<div class="grid-wrap" style="margin-top:10px">
+										<table id="jqGrid_assist" class="zxsaastable">
+										</table>
+										<div id="jqGridPager_assist"></div>
+									</div>
+								</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		<!-- 试算平衡弹出窗-->
+		<div class="modal fade" id="trialBalanceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog model-dialog5">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							试算平衡
+						</h4>
+					</div>
+					<div class="modal-body" id="model-body">
+							<div class="btn-group btnHundred" role="group">
+								<button type="button" class="btn btn-default" data-eventname="">导出</button>
+								<div class="btn-group">
+								    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								     	打印
+								      <span class="caret"></span>
+								    </button>
+								    <ul class="dropdown-menu" role="menu">
+								      <li><a href="#">打印设置</a></li>
+								      <li><a href="#">打印预览</a></li>
+								      <li><a href="#">打印</a></li>
+								    </ul>
+								</div>
+							</div>
+							<div class="tip">
+								<span class="show" style="margin: 5px 0;"></span>
+							</div>
+								<div class="tablebox retailDetailTable">
+									<div class="grid-wrap" style="margin-top:10px">
+										<table id="jqGrid_trialBalance" class="zxsaastable" style="width: 537px;float: left;"></table>
+										<div id="jqGridPager_trialBalance"></div>
+										<table id="jqGrid_trialBalanceRight" class="zxsaastable" style="width: 518px;float: left;"></table>
+										<div id="jqGridPager_trialBalanceRight"></div>
+									</div>
+								</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		<!-- 期初对账弹出窗-->
+		<div class="modal fade" id="checkingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog model-dialog3">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							期初对账
+						</h4>
+					</div>
+					<div class="modal-body" id="model-body">
+							<div class="tip">
+								<span class="qcTime" style="margin: 5px 0;"></span>
+							</div>
+							<div class="qcMain">
+								<p class="p1"><span></span><span>科目上下级</span></p>
+								<p class="p2"><span></span><span>期初+发生=期末</span></p>
+								<p class="p3"><span></span><span>科目期初与辅助期初</span></p>
+								<p class="p4"><span></span><span>辅助期初与往来明细</span></p>
+							</div>	
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary checking">对账</button>
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		<!--往来单位模态框-->
+		<div class="modal fade" id="unitModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 900px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							往来单位选择
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<div class="left">
+								<div class="left_tree">
+									<ul id="unitTreeData" class="ztree"></ul>
+								</div>
+							</div>
+							<!--展示列表开始-->
+							<div class="details">
+							   <div class="right">
+									<input type="text" placeholder="编码、名称、助记码模糊搜索" id="unitRemCode" style="width:200px;"/>
+								</div>
+								<!--表格-->
+								<div class="jqGrid_wrap">
+									<table id="unitModalGrid" class="zxsaastable"></table>
+									<div id="unitGridpager"></div>
+								</div>
+							</div>
+							<!--展示列表结束-->
+						</div>
+		
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+		</div>
+		
+		<!-- 部门名称模态框 -->
+		<div class="modal fade" id="sectionModal" tabindex="-1" role="dialog" aria-labelledby="mySection" aria-hidden="true">
+			<div class="modal-dialog tree-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							部门选择
+						</h4>
+					</div>
+					<div class="modal-body tree-body">
+						<ul id="sectionTreeData" class="ztree"></ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--职员模态框-->
+		<div class="modal fade" id="managerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog model-dialog3">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+						<h4 class="modal-title" id="myModalLabel">职员选择</h4>
+					</div>
+					<div class="modal-body" id="model-body">
+						<div class="showTab">
+							<div class="current change">
+								<div class="tablebox retailDetailTable">
+									<div class="grid-wrap" style="margin-top: 10px">
+										<table id="managerModalGrid" class="zxsaastable"></table>
+										<div id="managerGridpager"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" data-dismiss="modal" >关闭</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		
+	</body>
+	<script src="../../js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/jquery-form.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/jquery.jqGrid.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/jquery.datetimepicker.full.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/grid.locale-cn.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/zxsaas_plus.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/commonjs/xr.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/cw/startBalance.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+	</script>
+
+</html>

@@ -1,0 +1,5 @@
+{"rows":[
+   {"metaName":"","blocId":"1001","entrepot":"仓库名称","commodity":"商品名称","numberPlus":"10","univalence":"20","money":"100","remark":"备注","numberModel":"0","loanData":"2016-2-10","lanCommodity":"借出商品信息","loanNumber":"20","loanCH":"JC200010001"},   
+   {"metaName":"","blocId":"1001","entrepot":"仓库名称","commodity":"商品名称","numberPlus":"10","univalence":"20","money":"100","remark":"备注","numberModel":"1","loanData":"2016-2-10","lanCommodity":"借出商品信息","loanNumber":"22","loanCH":"JC200010001"},   
+   {"metaName":"","blocId":"1001","entrepot":"仓库名称","commodity":"商品名称","numberPlus":"10","univalence":"20","money":"100","remark":"备注","numberModel":"0","loanData":"2016-2-10","lanCommodity":"借出商品信息","loanNumber":"23","loanCH":"JC200010001"}
+]}

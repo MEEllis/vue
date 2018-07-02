@@ -1,0 +1,29 @@
+{
+	"page": 1,
+	"pageSize": 10,
+	"records": 4,
+	"rows": [{
+		"dealerTypeId":"A",
+		"pointId":"武汉",
+		"clienteleId":"张三",
+		"commodityId":"A1000003467",
+		"goodsId":"iphone7",
+		"pfPrice":"20.00",
+		"lowPfPrice":"18.00",
+		"recentlyAmend":"张三",
+		"recentlyTime":"2016-8-22"
+	},
+	{
+		"dealerTypeId":"A",
+		"pointId":"武汉",
+		"clienteleId":"张三",
+		"commodityId":"A1000003467",
+		"goodsId":"iphone7",
+		"pfPrice":"20.00",
+		"lowPfPrice":"18.00",
+		"recentlyAmend":"张三",
+		"recentlyTime":"2016-8-22"
+	}
+	],
+	"total": 1
+}

@@ -1,0 +1,9 @@
+{"rows":[
+       {"deliveryDo":"","deliveryId":"1001","ckmc":"仓库名称","spmc":"商品名称","xkcNum":"10","number":"2001","numberPu":"20101","allotDan":"200","allotZong":"500","remark":"商品备注","numberModel":"1"},         
+       {"deliveryDo":"","deliveryId":"1001","ckmc":"仓库名称","spmc":"手机名称","xkcNum":"10","number":"2001","numberPu":"20101","allotDan":"200","allotZong":"500","remark":"商品备注","numberModel":"0"},         
+       {"deliveryDo":"","deliveryId":"1001","ckmc":"仓库名称","spmc":"商品名称","xkcNum":"10","number":"2001","numberPu":"20101","allotDan":"200","allotZong":"500","remark":"商品备注","numberModel":"0"},
+       {"deliveryDo":"","deliveryId":"1001","ckmc":"仓库名称","spmc":"手机名称","xkcNum":"10","number":"2001","numberPu":"20101","allotDan":"200","allotZong":"500","remark":"商品备注","numberModel":"0"},         
+       {"deliveryDo":"","deliveryId":"1001","ckmc":"仓库名称","spmc":"商品名称","xkcNum":"10","number":"2001","numberPu":"20101","allotDan":"200","allotZong":"500","remark":"商品备注","numberModel":"0"} 
+
+       
+]}

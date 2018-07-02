@@ -1,0 +1,307 @@
+{
+    "jqmodel": [
+	    { 
+	    	"name": "attrs",
+            "width": "20",
+            "index": "attrs",
+            "hidden":true,
+            "align": "center",
+            "id": "0",
+            "label":"属性"
+            
+	    },
+        {
+            "name": "id",
+            "width": "75",
+            "index": "id",
+            "key":true,
+            "hidden":true,        
+            "align": "center",
+            "id": "1",
+            "label":"模块ID"
+            
+        },
+        {
+            "name": "resourceTypeId",
+            "width": "200",
+            "index": "resourceTypeId",
+            "align": "center",
+            "id": "2",
+            "label":"模块类别ID "
+        },
+        {
+            "name": "name",
+            "width": "100",
+            "index": "name",
+            "sorttype": "string",
+            "id": "3",
+            "align": "center",
+            "label":"模块名称 "
+        },
+        {
+            "name": "menuText",
+            "width": "100",
+            "index": "menuText",
+            "sorttype": "string",
+            "align": "center",
+            "id": "4",
+            "label":"菜单文字 "
+        },
+        {
+            "name": "resourceFlagId",
+            "width": "150",
+            "index": "resourceFlagId",
+            "sorttype": "number",
+            "align": "center",
+            "id": "5",
+            "label":"模块标识ID "
+        },
+        {
+            "name": "iconCode",
+            "width": "150",
+            "index": "iconCode",
+            "sorttype": "string",
+            "align": "center",
+            "id": "6",
+            "label":"模块图标 "
+        },
+        {
+            "name": "menuPage",
+            "width": "300",
+            "index": "menuPage",
+            "sorttype": "string",
+            "align": "center",
+            "id": "7",
+            "label":"主模块流程图页面地址 "
+        },
+        {
+            "name": "url",
+            "width": "150",
+            "index": "url",
+            "sorttype": "string",
+            "align": "center",
+            "id": "8",
+            "label":"模块url "
+        },
+        {
+            "name": "parentId",
+            "width": "150",
+            "index": "parentId",
+            "sorttype": "parentId",
+            "align": "parentId",
+            "id": "9",
+            "label":"父模块ID "
+        },
+        {
+            "name": "status",
+            "width": "200",
+            "index": "status",
+            "align": "center",
+            "id": "10",
+            "label":"启用标志 "
+        },
+        {
+            "name": "remark",
+            "width": "100",
+            "index": "remark",
+            "sorttype": "string",
+            "align": "center",
+            "id": "11",
+             "label":"备注 "
+        },
+        {
+            "name": "createUid",
+            "width": "100",
+            "index": "createUid",
+            "sorttype": "number",
+            "align": "center",
+            "id": "12",
+             "label":"新增人ID "
+        },
+        {
+            "name": "createTimeString",
+            "width": "120",
+            "index": "createTimeString",
+            "sorttype": "date",
+            "formatter": "date",
+            "sorttype": "date",
+            "id": "13",
+            "align": "center",
+            "label":"新增时间 "
+        },
+        {
+            "name": "updateUid",
+            "width": "120",
+            "index": "updateUid",
+            "sorttype": "number",
+            "id": "14",
+            "align": "center",
+            "label":"修改人ID "
+        },
+        {
+            "name": "updateTimeString",
+            "width": "120",
+            "index": "updateTimeString",
+            "sorttype": "date",
+            "formatter": "date",
+            "sorttype": "date",
+            "id": "15",
+            "align": "center",
+            "label":"修改时间 "
+        }
+    ],
+       "jqsubGridColModel": [
+	    	 	    { 
+	    	"name": "attrs",
+            "width": "20",
+            "index": "attrs",
+            "hidden":true,
+            "align": "center",
+            "id": "0",
+            "label":"属性"
+            
+	    },
+        {
+            "name": "id",
+            "width": "75",
+            "index": "id",
+            "hidden":true,        
+            "align": "center",
+            "id": "1",
+            "label":"模块ID"
+            
+        },
+        {
+            "name": "resourceTypeId",
+            "width": "100",
+            "index": "resourceTypeId",
+            "align": "center",
+            "id": "2",
+            "label":"模块类别ID "
+        },
+        {
+            "name": "name",
+            "width": "100",
+            "index": "name",
+            "sorttype": "string",
+            "id": "3",
+            "align": "center",
+            "label":"模块名称 "
+        },
+        {
+            "name": "menuText",
+            "width": "100",
+            "index": "menuText",
+            "sorttype": "string",
+            "align": "center",
+            "id": "4",
+            "label":"菜单文字 "
+        },
+        {
+            "name": "resourceFlagId",
+            "width": "150",
+            "index": "resourceFlagId",
+            "sorttype": "number",
+            "align": "center",
+            "id": "5",
+            "label":"模块标识ID "
+        },
+        {
+            "name": "iconCode",
+            "width": "150",
+            "index": "iconCode",
+            "sorttype": "string",
+            "align": "center",
+            "id": "6",
+            "label":"模块图标 "
+        },
+        {
+            "name": "menuPage",
+            "width": "200",
+            "index": "menuPage",
+            "sorttype": "string",
+            "align": "center",
+            "id": "7",
+            "label":"主模块流程图页面地址 "
+        },
+        {
+            "name": "url",
+            "width": "200",
+            "index": "url",
+            "sorttype": "string",
+            "align": "center",
+            "id": "8",
+            "label":"模块url "
+        },
+        {
+            "name": "parentId",
+            "width": "100",
+            "index": "parentId",
+            "sorttype": "parentId",
+            "align": "parentId",
+            "id": "9",
+            "label":"父模块ID "
+        },
+        {
+            "name": "status",
+            "width": "150",
+            "index": "status",
+            "align": "center",
+            "id": "10",
+            "label":"启用标志 "
+        },
+        {
+            "name": "remark",
+            "width": "100",
+            "index": "remark",
+            "sorttype": "string",
+            "align": "center",
+            "id": "11",
+             "label":"备注 "
+        },
+       {
+            "name": "createUid",
+            "width": "100",
+            "index": "createUid",
+            "sorttype": "number",
+            "align": "center",
+            "id": "12",
+             "label":"新增人ID "
+        },
+        {
+            "name": "createTimeString",
+            "width": "120",
+            "index": "createTimeString",
+            "sorttype": "date",
+            "formatter": "date",
+            "sorttype": "date",
+            "id": "13",
+            "align": "center",
+            "label":"新增时间 "
+        },
+        {
+            "name": "updateUid",
+            "width": "150",
+            "index": "updateUid",
+            "sorttype": "number",
+            "id": "14",
+            "align": "center",
+            "label":"修改人ID "
+        },
+        {
+            "name": "updateTimeString",
+            "width": "150",
+            "index": "updateTimeString",
+            "sorttype": "date",
+            "formatter": "date",
+            "sorttype": "date",
+            "id": "15",
+            "align": "center",
+            "label":"修改时间 "
+        }
+    ]
+    
+}
+
+ 
+

@@ -1,0 +1,133 @@
+
+<div class="modal-header">
+    <button type="button" class="close" 
+       data-dismiss="modal" aria-hidden="true">
+          &times;
+    </button>
+    <h4 class="modal-title" id="myModalLabel">
+                 	集团引入
+    </h4>
+ </div>
+ <div class="modal-body">
+ 	<div class="query-area">
+		<form class="form-inline" role="form">
+		   <div class="form-group">
+		      	<label for="cxlbs" class="form-label query-lable">查询类别：</label>
+			    <select class="form-control" id="cxlbs">
+				  <option>科目类型1</option>
+				  <option>科目类型2</option>
+				  <option>科目类型3</option>
+				  <option>科目类型4</option>
+				  <option>科目类型5</option>
+				</select>
+		   </div>
+		   <div class="form-group">
+		      	<input type="text" class="form-control" id="cxlb">
+		   </div>
+		   	<div class="form-group">
+		      	<button type="button" class="btn btn-primary btn-sm" id="gl">过滤</button>
+			    	<button type="button" class="btn btn-primary btn-sm" id="gl">栏目</button>
+		   </div>
+		</form>
+	</div>
+ 	<div class="left_tree">
+		<ul id="jtyrTree" class="ztree"></ul>
+	</div>
+	<div class="details">
+        <div class="jqGrid_wrapper">
+			<table id="jtyr"></table> 
+		</div>
+    </div>
+</div>
+<div class="modal-footer">
+ 	<div class="text-center">
+        <button type="button" class="btn btn-primary" >确定</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+    </div>
+ </div>
+		<script type="text/javascript">
+			$(function() {
+				var setting = {  
+			        data: {
+						simpleData: {
+							enable: true,
+							idKey: "id",
+							pIdKey: "pId",
+							rootPId: 0
+						}
+					}
+			    };  
+  
+				var treeNodes = [   
+				    {"id":1, "pId":0, "name":"会计科目", "iconSkin":"prt"},   
+				    {"id":11, "pId":1, "name":"资产", "iconSkin":"prt"},
+				    {"id":111, "pId":11, "name":"短期借款", "iconSkin":"leaf"},
+				    {"id":112, "pId":11, "name":"应付票据", "iconSkin":"leaf"},
+				    {"id":113, "pId":11, "name":"应付账款", "iconSkin":"leaf"},
+				    {"id":114, "pId":11, "name":"预收账款", "iconSkin":"leaf"},
+				    {"id":115, "pId":11, "name":"应付职工薪酬", "iconSkin":"prt"},
+				    {"id":1151, "pId":115, "name":"应付职工工资", "iconSkin":"leaf"},
+				    {"id":1152, "pId":115, "name":"应付奖金", "iconSkin":"leaf"},
+				    {"id":1153, "pId":115, "name":"应付福利费", "iconSkin":"leaf"},
+				    {"id":1154, "pId":115, "name":"应付社会保障", "iconSkin":"leaf"},
+				    {"id":1155, "pId":115, "name":"应付住房公积金", "iconSkin":"leaf"},
+				    {"id":1156, "pId":115, "name":"应付公会经费", "iconSkin":"leaf"},
+				    {"id":1157, "pId":115, "name":"应付教育经费", "iconSkin":"leaf"},
+				    {"id":1158, "pId":115, "name":"非货币性福利", "iconSkin":"leaf"},
+				    {"id":1159, "pId":115, "name":"辞退福利", "iconSkin":"leaf"},
+				    {"id":11510, "pId":115, "name":"其他应付", "iconSkin":"leaf"},
+				    {"id":12, "pId":1, "name":"权益", "iconSkin":"prt"},   
+				    {"id":13, "pId":1, "name":"成本", "iconSkin":"prt"},   
+				    {"id":14, "pId":1, "name":"损益", "iconSkin":"prt"}  
+				];
+				$.fn.zTree.init($("#jtyrTree"),setting, treeNodes);
+				var grid = $("#jtyr").jqGrid(
+				      {
+				        datatype : "local",
+				        colNames : [ '序号', '级次', '科目编号', '科目名称', '科目类型', '余额方向'],
+				        colModel : [ 
+				                     {name : 'id',index : 'id',align:'center',sorttype:"int",width:50}, 
+				                     {name : 'order',index : 'order',align:'center',width:50}, 
+				                     {name : 'accountcode',index : 'accountcode',align:'center',width:80}, 
+				                     {name : 'accountname',index : 'accountname',align:'center',width:100}, 
+				                     {name : 'accounttype',index : 'accounttype',align:'center',width:80}, 
+				                     {name : 'balancedirection',index : 'balancedirection',align:'center',width:100}
+				                   ],
+				        sortname : 'id',
+				        rowNum : 20000,
+				        styleUI: 'Bootstrap',//设置jqgrid的全局样式为bootstrap样式  
+				        viewrecords : true,
+				        autowidth : true,
+				        multiselect : true,
+				        multiboxonly : true,
+				        sortorder : "asc",
+				        height : '100%',
+				        caption : ""
+				      });
+				var data = {"id":1,"order":13,"accountcode":10020,"accountname":"货币资金","accounttype":"资产","balancedirection":"借方"};
+				
+				var tableData = [];
+				for(var i=0;i<100;i++){
+					var newData = clone(data);
+					newData.id=i+1;
+					tableData.push(newData);
+				}
+				for(var i=0;i<=tableData.length;i++){
+					$("#jtyr").jqGrid('addRowData',i+1,tableData[i]);
+				} 
+				function clone(obj){  
+				    function Fn(){}  
+				    Fn.prototype = obj;  
+				    var o = new Fn();  
+				    for(var a in o){  
+				        if(typeof o[a] == "object") {  
+				            o[a] = clone(o[a]);  
+				        }  
+				    }  
+				    return o;  
+				} 
+				$("#jtyr").setGridHeight($(window).height()*0.6 - 22);
+				
+			});
+			
+		</script>

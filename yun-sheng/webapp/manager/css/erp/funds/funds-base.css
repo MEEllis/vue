@@ -1,0 +1,186 @@
+
+/*隐藏页面的滚动条*/
+html , body{
+	overflow-x: hidden;
+	width: 100%;
+	height: auto;	
+}
+html{
+	height: 100%;	
+}
+body{
+	margin-bottom: 60px;
+}
+.gridTools{
+	/*padding: 15px;*/
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+.gridTop{
+	/*padding: 15px;*/
+	padding-bottom: 0px;
+	width:100%;
+}
+.switchDIV{
+	position: absolute;;
+	right: 32px;
+	top:-10px;	
+}
+.gridBody{
+	padding-left: 15px;
+}
+#topForm input{
+	padding-right: 0px;
+	
+}
+
+.formBtn{
+	float: left;	
+	width: 25%;
+	min-width: 250px;
+	height: 56PX;
+}
+.formBtn .col-sm-8{
+	padding-right: 0px;
+	padding-left: 5px;
+}
+.formBtn .control-label{
+	padding-right: 0px;
+	font-weight: normal;;
+	min-width: 80px;
+}
+
+
+.formBtn .input-group{
+	/*padding-right: 40px;*/
+	padding-right:0px;
+	width:175px;
+}
+.formBtnSM{
+	float: left;	
+	width: 200px;
+}
+
+#topForm{
+	padding: 5px;
+	padding-left: 10px;
+	padding-bottom: 0px;
+	padding-right:10%;
+}
+
+#bottomForm{
+	padding-top: 12px;
+}
+#bottomForm .col-sm-5{
+	padding-left: 0px;padding-right: 0px;
+}
+
+#filterParamModalDialog  .col-sm-4{
+	padding-left: 0px;padding-right: 0px;
+}
+#filterParamModalDialog  .col-sm-6{
+	padding-left: 0px;padding-right: 0px;
+}
+
+.gridBottom{
+	/*background-color: #f8f8f8;*/
+}
+
+.gridType{
+	float: left;
+
+	padding-top: 12px;
+}
+.gridFloat{
+	float: left;
+}
+.billsTypeTitle{
+	text-align: center;width: 100%;font-size: 25px;font-weight: bold;
+}
+.filterParamForm{
+	padding: 5px;padding-top: 20px;
+}
+.dialogHeight{
+	width: 880px;
+}
+
+
+.btnHundred {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	border-top: 1px solid #ddd;
+	background-image: url(../../../images/btnboxbg.png);
+}
+
+.btn-group>button {
+	background-image: url(../../../images/btnboxbg.png);
+	text-align: left;
+	border: 0;
+}
+.btn {
+	padding: 5px 12px;
+}
+.navbar-btn {
+	margin-top: 0px;
+	
+}
+.formBtn .col-sm-8{
+    height: 50px;
+}
+
+
+.none-cx{
+	
+	position: absolute;
+	z-index: 1;
+	background: #F4F8FA;
+	height: auto;
+	border: 1px solid #dfdfdf;
+}
+.none-cx>ul>li{
+	padding-left: 10px;
+	line-height: 30px;
+	height: 30px;
+}
+.none-cx>ul{
+	margin-bottom:0;
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	max-height: 300px;
+	overflow-y: auto;
+}
+.none-cx>ul>li:hover{
+	background: #65c294;
+	cursor: pointer;
+}
+
+/*.well {margin-bottom:0px;}*/
+
+/*验证样式补丁*/
+.form-horizontal .has-feedback .form-control-feedback {
+    left: 170px;
+}
+
+#contactUnitReferenceModal .modal-body{
+	padding-left: 0px;padding-right: 0px;padding-top: 0px;	
+}
+#sectionReferenceModal .modal-body{
+	padding-left: 0px;padding-right: 0px;padding-top: 0px;	
+}
+#employeeReferenceModal .modal-body{
+	padding-left: 0px;padding-right: 0px;padding-top: 0px;	
+}
+#billsReferenceModal .modal-body{
+	padding-left: 0px;padding-right: 0px;padding-top: 0px;	
+}
+
+.ui-pager-table{
+	height: 38px !important;
+}
+.showBox>button{
+	height: 34px;
+}

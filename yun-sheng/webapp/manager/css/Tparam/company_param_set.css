@@ -1,0 +1,54 @@
+
+/*闅愯棌椤甸潰鐨勬粴鍔ㄦ潯*/
+html , body{
+	overflow-x: hidden;
+	width: 100%;	
+}
+
+html{
+	height: 100%;	
+}
+.well{
+	    border-radius: 0px;
+}
+
+/*容器*/
+.well{
+	padding:0px;
+    margin: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/*头部菜单背景*/
+.btnHundred {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	background-image: url(../../images/btnboxbg.png);
+}
+
+.mainBody{
+	padding: 20px;
+	padding-top:0px;
+	padding-bottom:0px;
+	background-color: white;
+}
+
+/*头部菜单*/
+.btnHundred button {
+	background-image: url(../../images/btnboxbg.png);
+	text-align: left;
+	border: 0;
+}
+.btnHundred .btn {
+	padding: 5px 12px;
+}
+
+#kindTab button{
+	background: none;
+	
+	
+}

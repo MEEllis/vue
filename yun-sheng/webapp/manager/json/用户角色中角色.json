@@ -1,0 +1,102 @@
+{
+	"roles": [{
+		"checked": false,
+		"roleId": 26,
+		"iconCode": "&#xe604 ",
+		"name": "查询",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 24,
+		"iconCode": "&#xe625 ",
+		"name": "修改",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 25,
+		"iconCode": "&#xe618 ",
+		"name": "打印",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 27,
+		"iconCode": "&#xe60b ",
+		"name": "新增公司",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 47,
+		"iconCode": "&#xe619 ",
+		"name": "单据引入",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 48,
+		"iconCode": "&#xe619 ",
+		"name": "导入",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 2,
+		"iconCode": "&#xe61f ",
+		"name": "新增",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 3,
+		"iconCode": "&#xe61c",
+		"name": "删除",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 4,
+		"iconCode": "&#xe61b ",
+		"name": "导出",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 41,
+		"iconCode": "&#xe625 ",
+		"name": "过账",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 45,
+		"iconCode": "&#xe610 ",
+		"name": "接收",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 43,
+		"iconCode": "&#xe61e ",
+		"name": "保存",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 44,
+		"iconCode": "&#xe630 ",
+		"name": "红冲",
+		"remark": ""
+	},
+	{
+		"checked": false,
+		"roleId": 46,
+		"iconCode": "&#xe62e ",
+		"name": "拒收",
+		"remark": ""
+	}],
+	"name": "",
+	"resourceId": 136
+}

@@ -1,0 +1,5 @@
+{"rows":[
+       {"blocId":"0000","codeSP":"1001001","nameSP":"机械键盘","sortSP":"手机","brandSP":"华为","modelSP":"p9","colorSP":"金色","networkSP":"全网通","ifName":"0","goodsId":"102","ifAuxImei":"1"},
+       {"blocId":"0001","codeSP":"1001002","nameSP":"暖手宝","sortSP":"手机","brandSP":"华为","modelSP":"p8","colorSP":"金色","networkSP":"全网通","ifName":"1","goodsId":"101","ifAuxImei":"1"},
+       {"blocId":"0002","codeSP":"1001003","nameSP":"iphone7","sortSP":"手机","brandSP":"华为","modelSP":"p9","colorSP":"金色","networkSP":"全网通","ifName":"0","goodsId":"100","ifAuxImei":"0"}
+]}

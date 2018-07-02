@@ -1,0 +1,105 @@
+.ztree li span.button{
+				width:0;
+				height:0;
+			}
+.ui-th-ltr{
+	text-align: center;
+}
+.sureWidth{
+   width:100px;
+   display:block;	
+}
+/*头部样式修改*/
+.btn-group>button{
+	background-image:url(../../images/btnboxbg.png);
+    text-align: left;
+    border: 0;
+}
+.btnHundred{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	background-image:url(../../images/btnboxbg.png);
+	}
+.well{
+ 	padding: 0;
+ 	min-width: 1175px !important;
+ 	height: 161px;
+ }
+ /*输入框样式*/
+ .Zpercent{
+    width: 25%;
+    float: left;
+    margin-top:20px;
+}
+.Zpercent1{
+    margin-left: 10px;
+    width: 50%;
+}
+.form-control2 {
+    display: block;
+    min-width: 120px;
+    width: 100%;
+    height: 32px;
+    padding: 4px 8px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.top{
+	overflow:hidden;
+}
+.box_text2{
+	min-width: 60px;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+}
+.box_input {
+    display: block;
+    margin-left: 13px;
+    height: 30px;
+    line-height: 30px;
+    width: 127px;
+    float: left;
+}
+.contentWrap {
+    border:1px solid #ccc;
+    overflow:hidden;
+    margin-top:40px;
+}
+.contentL{
+    float:left;
+    border-top:1px solid #ccc;
+    border-right:1px solid #ccc;
+    padding:10px;
+    margin-top:40px;
+    margin-right:40px;
+    height:638px;
+    width:250px;
+}
+.contentL>p{
+    font-size:16px;
+    font-weight:bold;
+}
+.contentR{
+    overflow:hidden;
+     margin-top:40px;
+}
+.contentR>.Zpercent{
+    margin-bottom:20px;
+}
+.gridWrap{
+    clear:both;
+}

@@ -1,0 +1,149 @@
+
+.ztree li span.button.chk.checkbox_false_part {/*取消会员促销券的半勾选状态*/
+	    background-position: 0 0;
+}
+.ztree li span.button.chk.checkbox_true_part {
+	  background-position: -14px 0;
+}
+#newAdd .tp-info,#ModifyModal .tp-info,#CouponsModal .tp-info{
+	height: 90px;
+}
+#newAdd .tp-info>p,#ModifyModal .tp-info>p,#CouponsModal .tp-info>p{
+	margin-bottom: 10px;
+}
+#newAdd .tp-info>p>input[type=text],#ModifyModal .tp-info>p>input[type=text],#CouponsModal .tp-info>p>input[type=text]{
+	width: 148px;
+	height: 28px;
+	border: 1px solid #CFCFCF;
+}
+#newAdd .tp-info>p>select,#ModifyModal .tp-info>p>select {
+	width: 148px;
+	height: 28px;
+	border: 1px solid #CFCFCF;
+	margin-right: 20px;
+}
+#newAdd .tp-info>p>input[type="checkbox"],#ModifyModal .tp-info>p>input[type="checkbox"] {
+	margin-right: 0px;
+}
+
+.all-disAdd,.all-disModify{
+	width: 253px;
+height: 31px;
+margin-left: 20px;
+padding-top: 7px;
+}
+.paHeadAdd,.paHeadModify{
+	height: auto;
+	overflow: hidden;
+}
+.pabodyAdd,.pabodyModify{
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+.pabodyAdd>div,.pabodyModify>div{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-top: 1px solid #cfcfcf;
+}
+li.bn1,li.bn2{
+	width: 107px;
+}
+
+.two-bn>.btn{
+	width: 88px;
+	height: 28px;
+	background-color: #89adc7;
+	color: #FFFFFF;
+	border-radius: 3px;
+	line-height: 14px;
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.bottom-side{
+	width: 100%;
+	height: 172px;
+	margin-top: 10px;
+}
+
+.show-close,.message-content{
+	height: 132px;
+	width:100%;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.sign-btm{
+	margin-left: 7px;
+}
+
+/*会员促销发放*/
+#CouponsModal .tp-info>p>span{
+	display: inline-block;
+	width: 61px;
+	
+}
+
+.modal-impt>.content-middle>div{
+	float: left;
+}
+.modal-impt>.content-middle>.leftTRee{
+	border: 1px solid #cfcfcf;
+}
+.modal-impt>.content-middle>.rightTable{
+	border: 1px solid #cfcfcf;
+}
+
+/*过滤*/
+#filterModal span{
+	display: inline-block;
+	width: 70px;
+}
+
+#filterModal input[type=text],#filterModal select{
+	width: 148px;
+	height: 28px;
+	border: 1px solid #CFCFCF;
+}
+
+#filterModal select
+{
+	margin-left: 8px;
+}
+
+input.spc{
+	margin-left: -49px;
+}
+
+/*发放情况*/
+#dstributCouponsModal .tp-info>p{
+	margin-left: -15px;
+}
+#dstributCouponsModal span{
+	display: inline-block;
+	width: 56px;
+	margin-left: 14px;
+	
+}
+#dstributCouponsModal input{
+	width: 148px;
+	height: 28px;
+	border: 1px solid #CFCFCF;
+	margin-left: 0;
+margin-right: 0;
+}
+
+#dstributCouponsModal select{
+	width: 148px;
+	height: 28px;
+	border: 1px solid #CFCFCF;
+}
+
+/*会员券的checkbox*/

@@ -1,0 +1,21 @@
+@charset "utf-8";
+/*  erp 历史单据页面   */
+.pageList{
+
+  #GridTool{
+    margin-bottom: 5px;
+  }
+
+  #searchQuery .form-group{
+    padding-right:0px;
+    padding-left:0px;
+  }
+
+  .yes-auditStatus{
+    color:#68C5A3;
+  }
+  .no-auditStatus{
+    color:#D07F31;
+  }
+}
+

@@ -1,0 +1,25 @@
+#xwx{
+    text-align: center;
+    margin: 50px auto;
+}
+#xwx img{
+    width: 70%;
+}
+.xwxTxt{
+    display: block;
+    text-indent: 2em;
+    text-align: left;
+    margin: 10px 0;
+}
+.xwxBtn{
+    height: 50px;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+.xwxBtn:hover{
+    background: #ddd;
+    color: #fff;
+}

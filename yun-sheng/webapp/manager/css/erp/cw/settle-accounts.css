@@ -1,0 +1,74 @@
+
+/*隐藏页面的滚动条*/
+html , body{
+	overflow-x: hidden;
+	width: 100%;	
+	font-family:'Microsoft YaHei','微软雅黑';
+}
+
+html{
+	height: 100%;	
+}
+
+/*容器*/
+.well{
+	padding:0px;
+    padding-bottom: 20px;
+    margin: 20px;
+}
+
+/*头部菜单背景*/
+.btnHundred {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	background-image: url(../../../images/btnboxbg.png);
+}
+
+.gridBody{
+	padding: 20px;
+	padding-top:0px;
+	padding-bottom:0px;
+	background-color: white;
+}
+
+/*头部菜单*/
+.btnHundred button {
+	background-image: url(../../../images/btnboxbg.png);
+	text-align: left;
+	border: 0;
+}
+.btnHundred .btn {
+	padding: 5px 12px;
+}
+
+.btn-xs{
+	width: 58px;
+    height: 30px;
+    border: 1px solid #cfcfcf;
+	background-color: #619ad2;
+	color: #FFFFFF;
+	font-family: "microsoft sans serif";
+}
+
+/*查询表单*/
+#searchForm{
+	padding: 20px;	
+	padding-top: 10px;
+	padding-bottom: 0px;
+}
+#searchForm input{
+	width: 128px;
+    height: 30px;
+}
+.ui-jqgrid .ui-jqgrid-htable .ui-th-div{
+	height: auto;
+	}
+	
+.gridBody th{
+	text-align: center;
+	}
+.gridBody td{
+	font-size: 14px;
+	}

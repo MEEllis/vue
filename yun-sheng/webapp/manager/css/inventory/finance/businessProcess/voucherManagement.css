@@ -1,0 +1,43 @@
+#gridType{
+    height:40px;
+    line-height: 38px;
+    cursor: pointer;
+}
+#gridType li{
+    margin-right: 20px;
+}
+.activeType{
+    border-bottom: 2px solid #5184F0;
+    color: #5184F0;
+    font-size: 18px;
+}
+.actionBox li{
+    cursor: pointer;
+}
+.checkBoxInfo{
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #F3EFDF;
+    margin: 4px 0;
+    background: #FFFAEE;
+}
+.checkAllInfo,.qxCheck{
+    color: #5184f0;
+    cursor: pointer;
+}
+span.checkAllBox :hover{
+    color: #274d9e;
+}
+span.qxCheckBox :hover{
+     color: #395598;
+}
+.btnColor{
+    padding: 6px 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+.btnColor:hover{
+    border: 1px solid #0099FF;
+}

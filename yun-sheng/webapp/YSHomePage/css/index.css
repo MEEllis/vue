@@ -1,0 +1,27 @@
+#con{position:relative;height:320px;width:1100px;z-index:2;margin:0 auto;}
+#con ul {width:100%;height:100%;position:absolute;top:0;left:0;}
+#con ul li {position:absolute;}
+#con ul img {position:relative;top:0;left:0;width: 250px;height: 250px;}
+/*箭头部分*/
+#con span {display:inline-block;width:50px;position:absolute;top:0;z-index:30;cursor:pointer;}
+#con span img {width:50px;height:150px;display:block;}
+.pic1 {opacity:1;}
+.pic2 {opacity:1;}
+.pic3 {opacity:1;}
+.pic4 {opacity:0;}
+.pic5 {opacity:0;}
+.pic6 {opacity:0;}
+.pic7 {opacity:0;}
+.pic8 {opacity:0;}
+.pic9 {opacity:0;}
+#closeVideo{
+    position: absolute;
+    top:5px;
+    right:5px;
+    height:15px;
+    line-height: 11px;
+    width: 15px;
+    background: #fff;
+    border-radius: 50%;
+
+}

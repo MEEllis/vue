@@ -1,0 +1,9 @@
+{
+	"rows":[
+		{"depId":"1","comName":"苹果","storageName":""},
+		{"depId":"2","comName":"华为","storageName":""},
+		{"depId":"3","comName":"中兴","storageName":""},
+		{"depId":"4","comName":"小米","storageName":""},
+		{"depId":"5","comName":"VIVO","storageName":""}
+	]
+}

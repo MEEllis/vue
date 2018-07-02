@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>模块管理</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap-select.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap-treeview.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/jquery.datetimepicker.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/skins/all.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pagecss/treepage.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/zxsaas_plus.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pagecss/bills.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/Input2select/input2select.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/font-awesome-ie7.css"/>
+		<script src="../../js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery.query.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/base/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/bootstrap-treeview.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/bootstrap-select.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/icheck.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery.datetimepicker.full.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/zxsaas_plus.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/curdmodal.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/Input2select/input2select.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/pagejs/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var maxnum=1;
+				var tr = $(".inputboxtable tbody tr:last-child").clone();
+		
+				$(document).on("click", ".inputboxtable tbody tr:last-child ", function(event) {
+				     maxnum++;
+					var trs=tr.clone();
+					$(this).parents("tbody").append(trs);
+				$(".zxsaastable tbody tr:last-child td:first-child").text(maxnum);
+				  $(".zxsaastable tbody tr:last-child").find("input").val("");
+				    $(".zxsaastable tbody tr:last-child").find("input[data-autocompletetablesrc]").autCompleteTable(
+					{
+					thead:'<thead><tr><th>序号</th><th>店名</th></tr></thead>\n',
+	  		        tbody:'<tr><td>{{xh}}</td><td>{{md}}</td></tr>\n',
+	  		  	  		   		});	
+				
+				});
+				
+				$(document).on("click", ".btnbox .pull-right", function() {
+					$(this).toggleClass("hideinputbox");
+					$(this).parents(".searchbox").find(".inputbox").toggle();
+				});
+				$(document).on("mouseout",".Amountbox input",function(){
+					$(this).prevAll("font").text($(this).val());
+				});
+				$("input[data-autocompletetablesrc]").autCompleteTable(
+					{
+					thead:'<thead><tr><th>序号</th><th>店名</th></tr></thead>\n',
+	  		        tbody:'<tr><td>{{xh}}</td><td>{{md}}</td></tr>\n',
+	  		       	  		   		});
+	  		   		$(document).on("click",".input2table .icon-search",function(){
+	  		   			$("#maxselect .modal-title").text("常用摘要参照");
+	  		   			
+	  		   			$("#maxselect").modal("show");
+	  		   		});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="searchbox">
+			<div class="btnbox clearfix ">
+				<a class="save">保存</a>
+
+				<a class="pull-right"><i class="iconfont icon-xia"></i><i class="iconfont icon-shang"></i></a>
+			</div>
+			<div class="inputbox">
+				<form class="form">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-3 ">
+								<div class="input-group">
+									<span class="input-group-addon input-group-title" id="basic-addon1"> 凭证类别：</span>
+									<input type="text" class="form-control" placeholder="凭证类别" aria-describedby="basic-addon1" name="djbh">
+								</div>
+							</div>
+							<div class="col-xs-3 ">
+								<div class="input-group">
+									<span class="input-group-addon input-group-title" id="basic-addon1"> 制单日期：</span>
+									<input type="text" class="form-control timebox" placeholder="制单日期" aria-describedby="basic-addon1" name="gys">
+								</div>
+							</div>
+							<div class="col-xs-3 ">
+								<div class="input-group">
+									<span class="input-group-addon input-group-title" id="basic-addon1"> 附单据数：</span>
+									<input type="text" class="form-control" placeholder="附单据数" aria-describedby="basic-addon1" name="djbh">
+								</div>
+							</div>
+							<div class="col-xs-3">
+								<div class="input-group">
+									<span class="input-group-addon input-group-title" id="basic-addon1"> 凭证编号：</span>
+									<input type="text" class="form-control" placeholder="凭证编号" aria-describedby="basic-addon1" name="cgy">
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="grp_table">
+			<table class="zxsaastable inputboxtable">
+				<thead>
+					<tr>
+						<th rowspan="2">序号</th>
+						<th rowspan="2"><font class="red">*</font>摘要</th>
+						<th rowspan="2">科目名称</th>
+						<th>借方</th>
+						<th>贷方</th>
+						
+					</tr>	
+					<tr>
+						<th class="Amountbox"><font>亿千百十万千百十元角分</font></th>
+						<th class="Amountbox"><font>亿千百十万千百十元角分</font></th>
+						
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>
+							<input type="text" name="a" data-autocompletetablesrc="listtable.json" data-type="table" data-valin="aaa" data-namecol="md" data-valcol="id"/>
+	                        <input type="hidden" name="aaa" id="aid" value="" /></td>
+						<td><input type="text" name="hsjr" data-src="" /></td>
+						<td class="Amountbox"><font></font><input type="text" name="je" maxlength="11"/></td>
+						<td class="Amountbox"><font></font><input type="text" name="zkl" maxlength="11"/></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="container-fluid mt20 footer">
+			<form class="form">
+				<div class="row">
+					<div class="col-xs-3 ">
+						<div class="input-group">
+							<span class="input-group-addon input-group-title" id="basic-addon1"> 记账人：</span>
+							<input type="text" class="form-control" placeholder="记账人" aria-describedby="basic-addon1" name="fkfs">
+						</div>
+					</div>
+					<div class="col-xs-3 ">
+						<div class="input-group">
+							<span class="input-group-addon input-group-title" id="basic-addon1"> 审核人：</span>
+							<input type="text" class="form-control" placeholder="审核人" aria-describedby="basic-addon1" name="yfje">
+						</div>
+					</div>
+					<div class="col-xs-3 ">
+						<div class="input-group">
+							<span class="input-group-addon input-group-title" id="basic-addon1"> 出纳：</span>
+							<input type="text" class="form-control" placeholder="出纳" aria-describedby="basic-addon1" name="wfje">
+						</div>
+					</div>
+					<div class="col-xs-3">
+						<div class="input-group">
+							<span class="input-group-addon input-group-title" id="basic-addon1"> 制单人：</span>
+							<input type="text" class="form-control" placeholder="制单人" aria-describedby="basic-addon1" name="zdzk">
+						</div>
+					</div>
+					</div>
+			</form>
+		</div>
+		<div class="modal fade addbox" id="maxselect">
+			<div class="modal-dialog" style="width: 80%;">
+				<div class="modal-content">
+					<form id="menuAdminForm" class="form">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title">
+								
+							</h4>
+						</div>
+						
+						<div class="modal-body">
+                              <div class="container-fluid" >
+                              	<div class="row">
+                              		<div class="col-xs-12">
+                              			<!--查询类别：<select>
+                              				</select>-->
+                              		</div>
+                              	</div>
+                              	<div class="row">
+                              		
+                              		<div class="col-xs-3"></div>
+                              		<div class="col-xs-9"></div>
+                              		
+                              	</div>
+                              </div>
+							</div>
+							
+							<div class="modal-footer text-center">
+								<button type="button" class="btn btn-primary addbutton">
+									保存
+								</button>
+							
+								<button type="button" class="btn btn-default"	data-dismiss="modal">
+									关闭
+								</button>
+
+							</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	
+</body>
+
+</html>

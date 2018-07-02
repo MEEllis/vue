@@ -1,0 +1,144 @@
+
+.searchbox{border: 1px solid #cfcfcf;margin-bottom: 10px;}
+.snAdminTitle .row div{height: 34px; line-height: 34px;}
+.snAdminTitle .row {margin-bottom:20px ;}
+.tablebox{overflow-y:auto ; max-height: 400px;}
+.snAdminTitle .row .number{width:70px;display: inline-block;}
+.input-group-title {
+    background: transparent none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 4px;
+    color: #555;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    padding: 6px 12px;
+    text-align: right;
+    width: 120px;
+}
+td>input{display: inline-block;width: 100%;}
+.btnbox{background-image:url(../../images/btnboxbg.png) ; height: 30px; line-height: 30px; text-align: left;border-bottom: 1px solid #cfcfcf;}
+.btnbox a{ height: 30px; line-height: 30px; text-align: center;display:inline-block;padding:0px 10px ; text-decoration: none; color:#666666 ; cursor: pointer;}
+.btnbox a:hover{  color:#333;background-color: #dddddd;}
+.btnbox a.pull-right{background-color:#749abb; color: #fff;}
+.btnbox a.pull-right>i.icon-xia{display: none;}
+.btnbox a.pull-right>i.icon-shang{display: inline;}
+.btnbox a.hideinputbox>i.icon-xia{display:inline ;}
+.btnbox a.hideinputbox>i.icon-shang{display:none ;}
+.clearfix{
+	width:100%;
+}
+.clearfix button{
+    height: 30px;
+	padding: 0 10px;
+	border: 0;
+    background-image: url(../../images/btnboxbg.png);
+}
+/*财务总账*/
+.inputboxtable th{font-weight: normal;font-size: 14px;height: 25px;line-height: 25px;}
+.zxsaastable th.Amountbox{width: 232px;padding: 0px; margin: 0px; text-align: right; font-weight: normal;position: relative; }
+.zxsaastable th.Amountbox input,.zxsaastable td.Amountbox input{display: none;}
+.zxsaastable td.Amountbox {width: 232px;padding: 0px; margin: 0px;text-align: right; font-weight: normal; }
+.zxsaastable td.Amountbox font,.zxsaastable th.Amountbox font{font-size: 14px;float:left;width: 21px;border-right:1px solid #cfcfcf ;text-align: center;}
+
+.zxsaastable td.Amountbox font.blueline,.zxsaastable th.Amountbox font.blueline{border-right:1px solid #a5d9f6 ;}
+.zxsaastable td.Amountbox font.redline,.zxsaastable th.Amountbox font.redline{border-right:1px solid #eeb9b9 ;}
+.zxsaastable td.Amountbox font.lastline,.zxsaastable th.Amountbox font.lastline{border-right:0px ;}
+/*.zxsaastable td.Amountbox:hover input{display: inline-block;background-color:#fff ;width:100%;height:100%;text-align:right ;padding-right:0px ;}
+.zxsaastable td.Amountbox:hover font{display: none;}*/
+.zxsaastable th.Debit,.zxsaastable td.Debit{border-right: 1px solid #777;}
+.zxsaastable td.DebitSum{border-right: 1px solid #777;}
+.zxsaastable th.Amountbox:first-child{border-right: 1px solid #777;}
+.rowsclick{border-radius:0px 0px 0px 40px ; height: 35px;padding: 5px 5px 5px 20px; width: 210px; border: 1px solid #cfcfcf;position: absolute; background-color: #fff;display: none;}
+.rowsclick a.btn{ height: 24px; margin-left: 5px; background-color:#cdeafa ; border: 1px solid #3485b2;color: #555; padding: 2px 5px ;}
+
+
+
+.flowTop,.flowBottom{
+	width:100%;
+	height:320px;
+    overflow: auto;
+}
+.lu{
+    width: 600px;
+    margin: 0 auto;
+}
+.lu table tr td:nth-child(1){
+    text-align: right;
+    vertical-align: middle;
+}
+.lu select{
+    width: 100%;
+    height: 100%;
+}
+.form-control{
+    width: 233px;
+    display: inline-block;
+}
+
+.details{
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.lab1,.lab2,.lab3{
+	width:6px;
+	height: 40px;
+	float: right;
+	cursor:e-resize;
+	position:relative;
+	left:3px;
+	z-index:999;
+}
+
+
+
+
+
+
+
+
+
+
+/*辅助项弹框*/
+.unitsInput,.departInput,.clerkInput{
+	width:80%;
+	height: 100%;
+    border: 0;
+}
+#AssTable{
+	border-top: 1px solid #ddd;
+}
+#AssTable tr td{
+	vertical-align: middle;
+}
+
+#cashFlowBottom tr td{
+	vertical-align: middle;
+}
+
+.ui-pg-selbox.form-control{
+    width: auto;
+}
+
+.SubAssboxtable tr:hover{
+    background-color: #f5f5f5;
+}
+.SubAssboxtable tr.active,
+.SubAssboxtable tr.active:hover{
+    background-color: #dff0d8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

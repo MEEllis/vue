@@ -1,0 +1,255 @@
+header{
+    padding: 20px;
+    box-shadow: 0px 11px 10px -6px #E7EAEC;
+    position: relative;
+}
+i{
+    font-style: initial;
+}
+#integralGrid td[aria-describedby="integralGrid_goodsclassName"],#discountGrid td[aria-describedby="discountGrid_goodsclassName"]{
+    overflow: initial;
+}
+#vipType{
+    width: 250px;
+    display: inline-block;
+    margin-right: 20px;
+}
+.addservice{
+    background-color: rgba(81, 132, 240, 1);
+    color: #fff;
+    border: 0;
+    padding: 6px 20px;
+    border-radius: 15px;
+    position: absolute;
+    right: 100px;
+    top: 22px;
+}
+#search,.navBtn .btn{
+    padding: 6px 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+#search:hover,.navBtn .btn:hover{
+    border: 1px solid #0099FF;
+}
+.navBtn{
+    padding: 20px;
+}
+.navBtn .btn{
+    margin-right: 10px;
+}
+#add{
+    background-color: rgba(81, 132, 240, 1);
+    color: #fff;
+    border: 0;
+}
+#add:hover{
+    background-color: rgba(0, 102, 255, 1);
+}
+#addModal .modal-header{
+    background-color: #4f6e92;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px 5px 0 0;
+}
+#addModal .modal-dialog{
+    width: 980px;
+    height: 585px!important;
+}
+#addModal .modal-content{
+    height: 585px!important;
+}
+.mlefy{
+    height: 500px;
+    width: 285px;
+    float: left;
+    margin-right: 50px;
+}
+.mright{
+    height: 500px;
+    width: 612px;
+    float: left;
+}
+.mlefy .vone{
+    min-height: 120px;
+}
+.vone{
+    width: 100%;
+    position: relative;
+    padding-left: 6px;
+}
+.vone p{
+    height: 40px;
+}
+.vone:before{
+    content: "";
+    height: 27px;
+    width: 8px;
+    position: absolute;
+    left: -15px;
+    top: 0;
+    background-color: #b4c8f3;
+}
+.inp{
+    width: 160px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.inp:focus{
+    border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.month{
+    width: 64px;
+    margin-right: 5px;
+}
+.amount{
+    margin-right: 5px;
+}
+.shu{
+    width: 72px;
+    height: 30px;
+    line-height: 30px;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+.money{
+    margin-left: 32px;
+    width: 150px;
+}
+.labbox{
+    height: 35px;
+    line-height: 35px;
+    margin-right: 35px;
+}
+.fl{
+    height: 30px;
+    line-height: 30px;
+}
+.remark{
+    height: 230px;
+    margin-left: 15px;
+    width: 220px;
+    resize: none;
+}
+.gridbox{
+    padding: 0 20px;
+}
+.mnav ul{
+    overflow: hidden;
+    height: 40px;
+    background: #ebebeb;
+}
+.sli{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    width: 100px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    display: none;
+}
+.slimove:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100px;
+    background: #5184f0;
+}
+.slion{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 100px;
+    background: #0099FF;
+    display: none;
+}
+.mbox{
+    height: 380px;
+    overflow: hidden;
+}
+.mright p .btn{
+    padding: 4px 30px;
+    background: #5184f0;
+    color: #fff;
+    border: 1px solid #ccc;
+}
+.mright p .btn:hover{
+    border: 1px solid #0099FF;
+}
+.integralBox p{
+    height: 34px;
+    line-height: 34px;
+}
+.discountBox p{
+    height: 40px;
+}
+.addserveBox{
+    overflow: auto;
+    padding-top: 10px;
+}
+.mbox>div{
+    height: 100%;
+    display: none;
+    padding-top: 10px;
+}
+.emp input{
+    width: 100px;
+    height: 30px;
+    margin: 0 5px;
+    padding: 0 5px;
+}
+.emp i{
+    display: inline-block;
+    width: 28px;
+    text-align: center;
+}
+.mfoot{
+    height: 40px;
+    line-height: 40px;
+    margin-top: 10px;
+    text-align: right;
+}
+#addModal .addSave{
+    margin: 0 10px;
+    color: #fff;
+    background: #5184f0;
+    padding: 6px 30px;
+}
+#addModal .addoff{
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 30px;
+}
+#addModal .addoff:hover,#addModal .addSave:hover{
+    border: 1px solid #0099FF;
+}
+.gridwrap{
+    margin-top: 10px;
+    height: 256px;
+    width: 553px;
+    overflow: auto;
+}
+.disfl{
+    height: 290px;
+    width: 432px;
+    overflow: auto;
+}
+.disinp{
+    height:30px;
+    margin: 0 5px;
+    width: 100px;
+}
+.adddiscount{
+    margin-left: 5px;
+}

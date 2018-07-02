@@ -1,0 +1,326 @@
+.ui-th-ltr {
+	text-align: center;
+}
+
+.grid-title {
+	clear: both;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+}
+
+.grid-head {
+	width: 100%;
+	font-size: 16px;
+	height: 30px;
+}
+
+.grid-head .grid-date {
+	display: inline-block;
+	float: left;
+	padding-left: 20px;
+}
+
+.grid-head .grid-yuan {
+	display: inline-block;
+	float: right;
+	padding-right: 30px;
+}
+
+.grid-status {
+	position: absolute;
+	top: 60px;
+	right: 50px;
+	width: 500px;
+	height: 30px;
+	color: red;
+	font-size: 18px;
+	text-align: right;
+}
+
+.parent {
+	background-color: #f5f5f5;
+}
+
+.searchDate div {
+	float: left;
+	width: 250px;
+}
+
+.searchDate div input {
+	float: left;
+}
+
+.searchDate div span {
+	display: inline-block;
+	float: left;
+}
+
+.searchDate {
+	height: 30px;
+}
+
+#collapseExample {
+	height: 50px;
+	margin-top: 30px;
+}
+
+#collapseExample .well {
+	padding: 0px;
+}
+
+.change form div {
+	/*margin: 1rem 2rem 0 2rem;*/
+}
+
+.change form label {
+	/*width: 9rem;*/
+	width:110px;
+	text-align: right;
+	/*margin-right: 3rem;*/
+}
+
+
+/*.change form input {
+	width: 12.5rem;
+}*/
+
+.change form div input.textLeft {
+	width: 1rem;
+}
+
+.change form select {
+	width: 12.5rem;
+}
+
+#model-body {
+	/*padding: 2rem 2rem 2rem 6rem;*/
+}
+
+
+/*搜索*/
+
+.search {
+	min-width: 1800px;
+	height: 50px;
+}
+
+.search-sp {
+	float: left;
+	width: 17%;
+	margin-right: 20px;
+}
+
+.up {
+	float: left;
+	width: 10%;
+}
+
+.up input,
+.change .up select {
+	width: 110px;
+	height: 24px;
+}
+
+.search-sp:nth-child(4) select {
+	height: 24px;
+	width: 174px;
+}
+
+
+/*.search-sp:nth-child(5){
+	float: left;
+	width: 10%;
+}
+.search-sp:nth-child(6){
+	float: left;
+	width: 6%;
+}*/
+
+.search-sp span {
+	float: left;
+}
+
+.search-sp input {
+	float: left;
+}
+
+.search-sp input.double {
+	float: none;
+}
+
+.checkbox {
+	display: inline;
+}
+
+.multi_select {
+	float: left;
+}
+
+.change form div.tree_area {
+	width: 200px;
+	margin: 1rem 0 0 7rem;
+}
+
+fieldset {
+	padding: .35em .625em .75em;
+	margin: 0 2px;
+	border: 1px solid silver
+}
+
+legend {
+	padding: .5em;
+	border: 0;
+	width: auto
+}
+
+@media (min-width: 768px) {
+	.model-dialog {
+		width: 1100px;
+		margin: 30px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.model-dialog2 {
+		width: 1100px;
+		margin: 30px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.model-dialog3 {
+		width: 400px;
+		margin: 30px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.model-dialog4 {
+		width: 600px;
+		margin: 30px auto;
+	}
+}
+
+legend {
+	margin-bottom: 0px;
+	font-size: 18px;
+}
+
+.empAddTop {
+	width: 100%;
+	/*height: 300px;*/
+}
+
+.empAddTop .empAddLeft {
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+
+.minWidth{min-width:1175px;}
+.msgTelUp,.msgTelAdd{color:red;}
+.empAddTop .empAddRight {
+	width: 80%;
+	height: 100%;
+	float: left;
+}
+
+.fieTwo {
+	clear: both;
+}
+
+.fg{
+    display: inline-block;
+    vertical-align: top;
+    margin: 1rem 0rem 0 0rem;
+    width: 270px;
+}
+
+.fieTwo div {
+	margin-right: 60px;
+}
+
+.fieLeft div select {
+}
+
+.fieLeft div label:nth-child(2),
+.fieLeft div label:nth-child(3) {
+/*	width: 4rem;*/
+	width: 50px;
+}
+
+.fieLeft div> input {
+	width: 12.5rem;
+}
+.fieLeft div> select {
+	width: 12.5rem;
+}
+
+/*图片上传*/
+
+#picUpload,
+.img,
+img,
+#changeUpload {
+	width: 160px;
+	height: 215px;
+}
+
+#picUpload,
+#changeUpload {
+	border: 1px solid #999;
+}
+
+/*授权*/
+.acc{
+	text-align: center;
+	margin-bottom: 1rem;
+}
+.change .acc label{
+	width: 12rem;
+	text-align: center;
+	cursor: pointer;
+}
+
+
+
+.main{
+	/*width: 500px;*/
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main-top{
+	width: 86%;
+	margin-left: 14%;
+}
+
+.left {
+	width: 14%;
+	float: left;
+}
+
+.details {
+	width: 86%;
+	float: left;
+}
+
+.left_tree {
+	height: 597px;
+	overflow: auto;
+}
+
+.ztree li {
+	/*line-height: 25px;*/
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,222 @@
+.ui-th-ltr{text-align:center;}
+.grid-title {
+	clear: both;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+}
+.grid-head{
+	width: 100%;
+	font-size:16px;
+	height:30px;
+}
+.grid-head .grid-date{
+	display:inline-block;
+	float:left;
+	padding-left:20px;
+}
+.grid-head .grid-yuan{
+	display:inline-block;
+	float:right;
+	padding-right:30px;
+}
+.grid-status{
+	position:absolute;
+	top:60px;
+	right:50px;
+	width:500px;
+	height:30px;
+	color:red;
+	font-size:18px;
+	text-align: right;
+}
+.parent{
+	background-color:#f5f5f5;
+}
+.searchDate div{
+	float: left;
+	width: 250px;
+}
+.searchDate div input{
+	float: left;
+}
+.searchDate div span{
+	display:inline-block;
+	float: left;
+}
+.searchDate{
+	height: 30px;		
+}
+.bodyModel{
+	border: 1px solid #cfcfcf;
+	min-width: 1175px;
+	height: auto;
+}
+/*表头的按钮*/
+
+.btn-group>button{
+	background-image:url(../../images/btnboxbg.png);
+    text-align: left;
+    border: 0;
+}
+.btnHundred{
+	width: 100%;
+	margin-bottom: 20px;
+	height: 30px;
+    line-height: 30px;
+     text-align: left;
+    background-image:url(../../images/btnboxbg.png);
+}
+.btn{
+	padding: 5px 12px;
+}
+/*查询条件*/
+ .well{
+ 	padding: 0;
+    min-width: 1175px !important;
+ }
+ .Zpercent{
+    width: 25%;
+    float: left;
+}
+
+/******中间区域开始******/
+.btn2{
+	padding: 6px 12px;
+}
+.YFcenter{
+	border-top: 1px solid #cfcfcf;
+	/*padding: 10px;*/
+	min-width: 1175px !important;
+}
+.box_text>em{color: red;}
+.container-fluid{
+	padding-right: 0px;
+    padding-left: 0;
+	width: 90%;
+    margin: 0;
+}
+.footYF{
+	margin-top: 20px;
+}
+/******中间区域结束******/
+.overflAuto {overflow: auto;}
+.jqGrid_wrap>input{
+	margin-bottom: 10px;
+	width: 150px;
+	height: 30px;
+	border-radius: 4px;
+	border: 1px solid #d3d3d3;
+}
+/*弹出框样式*/
+.modal-header{
+	background-color: #4e78a1;
+	height: 40px;
+	padding: 10px;
+	color: #fff;
+}
+.modal-header>button.close>span{color: #fff;}
+.btn-info{
+	border: 1px solid #457bb0;
+	border-radius: 4px;
+	background: -webkit-linear-gradient(#629bd4,#4e78a1); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#629bd4,#4e78a1); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#629bd4,#4e78a1); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#629bd4,#4e78a1); /* 标准的语法（必须放在最后） */
+}
+.btn-info:hover{
+	border: 1px solid #457bb0;
+	border-radius: 4px;
+	background: -webkit-linear-gradient(#629bd4,#4e78a1); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#629bd4,#4e78a1); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#629bd4,#4e78a1); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#629bd4,#4e78a1); /* 标准的语法（必须放在最后） */
+}
+.btn-success{
+	border: 1px solid #457bb0;
+	border-radius: 4px;
+	background: -webkit-linear-gradient(#629bd4,#4e78a1); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#629bd4,#4e78a1); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#629bd4,#4e78a1); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#629bd4,#4e78a1); /* 标准的语法（必须放在最后） */
+}
+.btn-success:hover{
+	border: 1px solid #457bb0;
+	border-radius: 4px;
+	background: -webkit-linear-gradient(#629bd4,#4e78a1); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#629bd4,#4e78a1); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#629bd4,#4e78a1); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#629bd4,#4e78a1); /* 标准的语法（必须放在最后） */
+}
+.btn-warning{
+	background: #ededed;
+	border-radius: 4px;
+	border: 1px solid #d3d3d3;
+	color: #000;
+}
+.btn-warning:active{
+	background-color: #ededed;
+	border-radius: 4px;
+	border: 1px solid #d3d3d3;
+	color: #000;
+}
+.btn-warning:hover{
+    background: #ededed;
+	border-radius: 4px;
+	border: 1px solid #d3d3d3;
+	color: #000;	
+}
+/*.btn{
+	padding: 5px 12px;
+}*/
+/*页脚*/
+.footer{
+	height: 30px;
+	min-width: 1300px;
+	margin-top: 50px;
+}
+
+.footer > div{
+	float: left;
+	margin-left: 30px;
+}
+
+.footer > div input{
+	width: 150px;
+}
+/*弹出框*/
+@media (min-width: 768px){
+ .modalSmall{
+	width: 300px !important;
+    margin: 30px auto !important; 
+  }
+}
+@media (min-width: 768px){
+ .modalFour{
+	width: 400px !important;
+    margin: 30px auto !important; 
+  }
+}
+@media (min-width: 768px){
+	.modalYQ{
+	    width: 940px;
+	    margin: 30px auto;
+	}
+}
+@media (min-width: 768px){
+	.modalNine{
+		width: 1100px;
+	}
+}
+@media (min-width: 768px){
+    .modal990{
+    width: 1010px;
+    margin: 30px auto;
+    }
+}
+
+
+
+
+
+

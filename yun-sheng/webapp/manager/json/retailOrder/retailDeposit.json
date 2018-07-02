@@ -1,0 +1,25 @@
+{
+   "row":[
+          {"goodsCode":"111111","handle":"111","goodsName":"三星","goodsType":"iphone7","goodsColor":"红色","retailPrice":"10000000","presale":"222222","number":"222","deposit":"1111","remark":"哈哈哈"},
+          {"goodsCode":"111111","handle":"111","goodsName":"三星","goodsType":"iphone7","goodsColor":"红色","retailPrice":"10000000","presale":"222222","number":"222","deposit":"1111","remark":"哈哈哈"},
+          {"goodsCode":"111111","handle":"111","goodsName":"三星","goodsType":"iphone7","goodsColor":"红色","retailPrice":"10000000","presale":"222222","number":"222","deposit":"1111","remark":"哈哈哈"},
+          {"goodsCode":"111111","handle":"111","goodsName":"三星","goodsType":"iphone7","goodsColor":"红色","retailPrice":"10000000","presale":"222222","number":"222","deposit":"1111","remark":"哈哈哈"}
+         
+          ],
+    "undo":[
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"},
+          {"goodsCode":"101","goodsName":"诺基亚","goodsType":"9527","goodsColor":"米色","retail":"998","presell":"889","number":"1222","undoNum":"11","deposit":"222","undoDeposit":"111","person":"老王","remark":"活动中"}
+            ]
+
+}

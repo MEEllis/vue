@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:spring/spring-mvc.xml;
+			classpath:spring/spring-datasource.xml;
+			classpath:spring/spring-mybatis.xml;
+			classpath:spring/spring-consumer.xml;
+			classpath:spring/spring-service.xml
+		</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<context-param>
+		<param-name>SuperAdminModule</param-name>
+		<param-value>{moduleCode:"XTQX",navName:"超级管理员",menuCodes:"'JTGL_S','GGXXWH_S','CKZSBA_S','LWH_S','BBLWH_S','BBFAWH_S','BBCX_S','XTGG_S','BBGX_S','XTDXZH_S','XTDXMB_S'"}</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>GroupAdminModule</param-name>
+		<param-value>{moduleCode:"XTQX",navName:"集团管理员",menuCodes:"'JTKJKM_G','QYDA_G','GSGL_G','SPDA_G','JTZDJGD_G','YHSGL_G'"}</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>CompanyAdminModule</param-name>
+		<param-value>{moduleCode:"XTQX",navName:"公司管理员",menuCodes:"'KMQC_C','KCDR_C','STWJDR_C','WTWJDR_C','WLYEDR_C','ZJYEDR_C','LCXD_C','GSXX_C','GSKJKM_C','GSCSSZ_C','ZJZH_C','BMXX_C','CKXX_C','ZWXX_C','YGDA_C','JSGL_C','WLDW_C'"}</param-value>
+	</context-param>
+	
+	<!-- 系统初始化监听器 -->
+	<listener>
+		<listener-class>com.zx.soft.manager.listener.InitContextListener</listener-class>
+	</listener>
+
+	<!-- Spring字符集过滤器 -->
+	<filter>
+		<filter-name>SpringEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>SpringEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+	    <filter-name>encodingFilter</filter-name>
+	    <filter-class>com.raqsoft.report.webutil.CharacterEncodingFilter</filter-class>
+	    <init-param>
+	        <param-name>encoding</param-name>
+	        <param-value>UTF-8</param-value>
+	    </init-param>
+	</filter>
+	<filter-mapping>
+	    <filter-name>encodingFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	
+	<filter>
+		<filter-name>Inject</filter-name>
+		<filter-class>com.zx.soft.manager.listener.InjectFilter</filter-class>
+		<init-param>
+			<param-name>level</param-name>
+			<param-value>1</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>Inject</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring/spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<jsp-config>
+	 <taglib>
+	    <taglib-uri>/WEB-INF/ListStatistics.tld</taglib-uri>
+	    <taglib-location>/WEB-INF/ListStatistics.tld</taglib-location>
+	 </taglib>
+	</jsp-config>
+	
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/500.jsp</location>
+	</error-page>
+
+	<!-- 用户登陆失效监听 -->
+	<session-config>
+		<!-- 设置SESSION失效时间 (单位:分钟) -->
+		<session-timeout>720</session-timeout>
+	</session-config>
+</web-app>  

@@ -1,0 +1,530 @@
+/*
+验证
+*/
+.help-block{
+	margin-left:150px;
+}
+.glyphicon-remove,.glyphicon-ok{
+	margin-right:-30px;
+}
+.glyphicon-plus-sign{
+	margin-right:15px;
+}
+.divYF1>i{
+	margin-top: 15px !important;
+    margin-right: -23px;
+}
+.divYF1>small{
+	margin-left: 0px !important;
+}
+.vatayf1>small{
+	margin-left: 87px !important;
+}
+
+.ui-th-ltr{text-align:center;}
+.grid-title {
+	clear: both;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+}
+.grid-head{
+	width: 100%;
+	font-size:16px;
+	height:30px;
+}
+.grid-head .grid-date{
+	display:inline-block;
+	float:left;
+	padding-left:20px;
+}
+.grid-head .grid-yuan{
+	display:inline-block;
+	float:right;
+	padding-right:30px;
+}
+.grid-status{
+	position:absolute;
+	top:60px;
+	right:50px;
+	width:500px;
+	height:30px;
+	color:red;
+	font-size:18px;
+	text-align: right;
+}
+.parent{
+	background-color:#f5f5f5;
+}
+.searchDate div{
+	float: left;
+	width: 250px;
+}
+.searchDate div input{
+	float: left;
+}
+.searchDate div span{
+	display:inline-block;
+	float: left;
+}
+.searchDate{
+	height: 30px;		
+}
+.radquery{margin-left:10px;}
+.radJU{
+   width: 30% !important;
+    margin-left: 20px;
+    line-height: 34px;
+}
+/**/
+#cb_jqGrid_changeYF,#cb_jqGrid_toGetTreatment{display:none;}
+/*开关*/
+.slideThree {
+	width: 120px;
+	height: 28px;
+	background: #8BAEC7;
+	/*margin: 20px auto;*/
+	float: right;
+	position: relative;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	margin-right:30px;
+}
+
+.slideThree:after {
+	content: '正式单据';
+	color: white;
+	position: absolute;
+	right: 60px;
+	z-index: 0;
+	font: 12px/26px Arial, sans-serif;
+	font-weight: bold;
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+}
+
+.slideThree:before {
+	content: '草稿单据';
+	color: white;
+	position: absolute;
+	left: 60px;
+	z-index: 0;
+	font: 12px/26px Arial, sans-serif;
+	font-weight: bold;
+}
+
+.slideThree label {
+	display: block;
+	width: 60px;
+	height: 26px;
+	cursor: pointer;
+	position: absolute;
+	top: 1px;
+	left: 0px;
+	z-index: 1;
+	background: #fcfff4;
+	background: -moz-linear-gradient(top, #EDEEEF 0%, #ECECEC 40%, #D2D4D6 100%);
+	background: -webkit-linear-gradient(top, #EDEEEF 0%, #ECECEC 40%, #D2D4D6 100%);
+	background: linear-gradient(to bottom, #EDEEEF 0%, #ECECEC 40%, #D2D4D6 100%);
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.slideThree input[type=checkbox] {
+	visibility: hidden;
+}
+
+.slideThree input[type=checkbox]:checked+ label {
+	left: 60px;
+}
+
+.color7D5F50{
+	background: #D09E85;
+}
+.bodyModel{
+	border: 1px solid #cfcfcf;
+	min-width: 1175px;
+	height: auto;
+}
+/*表头的按钮*/
+
+.btn-group>button{
+	background-image:url(../../images/btnboxbg.png);
+    text-align: left;
+    border: 0;
+}
+.btnHundred{
+	width: 100%;
+	margin-bottom: 20px;
+	height: 30px;
+    line-height: 30px;
+     text-align: left;
+    background-image:url(../../images/btnboxbg.png);
+}
+.btn{
+	padding: 5px 12px;
+}
+/*查询条件*/
+ .well{
+ 	padding: 0;
+    min-width: 1175px !important;
+ }
+ .Zpercent{
+    width: 25%;
+    float: left;
+}
+/***选项卡***/
+ .ZpercentYY{
+    width: 20%;
+    float: left;
+}
+.textYF1{
+	min-width: 298px;
+	width: 100%;
+	height: 98px;
+	border: 1px solid #cfcfcf;
+}
+.divYF1{margin: 10px;float: left;width:30%}
+.divYF1>p{margin-bottom: 5px;}
+.lineF{float: left;width: 100%;margin-bottom: 20px;}
+.box_textY{
+	float: left;
+    width: 86px;
+    height: 35px;
+    line-height: 35px;
+    text-align: right;
+}
+.box_inputY{
+    display: block;
+    margin-left: 86px;
+    height: 35px;
+    line-height: 35px;	
+}
+.lineBottom{min-width: 1175px;}  
+.YFbutton{
+	margin-top: 7px;
+}
+.YFbutton>button{
+	width: 100px;
+	height: 30px;
+	border: 1px solid #cfcfcf;
+	border-radius: 4px;
+	background-image:url(../../images/btnboxbg.png);
+    text-align: left;
+}
+.form-controlY{
+	display: block;
+    width: 150px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}
+.ZpercentNO{float: left;}
+.guolv{
+    margin-left: 20px;
+    width: 60px;
+    height: 32px;
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+    background-image:url(../../images/btnboxbg.png);
+}
+/******中间区域开始******/
+.btn2{
+	padding: 6px 12px;
+}
+.YFcenter{
+	border-top: 1px solid #cfcfcf;
+	/*padding: 10px;*/
+	min-width: 1175px !important;
+}
+.box_text>em{color: red;}
+.container-fluid{
+	padding-right: 0px;
+    padding-left: 0;
+	width: 90%;
+    margin: 0;
+}
+.oneTier,.twoTier,.threeTier,.fourTier{
+	border-bottom: 1px solid #cfcfcf;
+}
+.footYF{
+	margin-top: 20px;
+}
+.YFbtnHied1,.YFbtnHied2,.YFbtnHied3,.TShide{display: none;}
+/*点击生成**/
+.XFinput{
+	width: 100px;
+	height: auto;
+	max-height: 50px;
+	margin-left: -10px;
+    padding-left: 5px;
+}
+/*.none-left{float: left;line-height: 34px;}	*/		
+/*模糊查询显示的div*/
+/*.noneHeight{
+	height: 46px;
+}*/
+.yfRelative{position: relative;}
+.none-cx{
+	width: 100%;
+	position: absolute;
+	z-index: 1;
+	background: #F4F8FA;
+	height: auto;
+	border: 1px solid #dfdfdf;
+}
+.none-cx>ul>li{
+	padding-left: 5px;
+	line-height: 25px;
+	height: 25px;
+}
+.none-cx>ul{
+	margin-bottom:0;
+}
+.temporary2>select{width: 150px;height: 34px;border: 1px solid #cfcfcf;}
+
+.goodsFilter{cursor: pointer;}
+/******中间区域结束******/
+.overflAuto {overflow: auto;}
+.jqGrid_wrap>input{
+	margin-bottom: 10px;
+	width: 150px;
+	height: 30px;
+	border-radius: 4px;
+	border: 1px solid #d3d3d3;
+}
+/*弹出框样式*/
+.modal-header{
+	background-color: #4e78a1;
+	height: 40px;
+	padding: 10px;
+	color: #fff;
+}
+.modal-header>button.close>span{color: #fff;}
+.btn-info{
+	border: 1px solid #457bb0;
+	border-radius: 4px;
+	background: -webkit-linear-gradient(#629bd4,#4e78a1); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#629bd4,#4e78a1); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#629bd4,#4e78a1); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#629bd4,#4e78a1); /* 标准的语法（必须放在最后） */
+}
+.btn-info:hover{
+	border: 1px solid #457bb0;
+	border-radius: 4px;
+	background: -webkit-linear-gradient(#629bd4,#4e78a1); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#629bd4,#4e78a1); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#629bd4,#4e78a1); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#629bd4,#4e78a1); /* 标准的语法（必须放在最后） */
+}
+.btn-success{
+	border: 1px solid #457bb0;
+	border-radius: 4px;
+	background: -webkit-linear-gradient(#629bd4,#4e78a1); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#629bd4,#4e78a1); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#629bd4,#4e78a1); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#629bd4,#4e78a1); /* 标准的语法（必须放在最后） */
+}
+.btn-success:hover{
+	border: 1px solid #457bb0;
+	border-radius: 4px;
+	background: -webkit-linear-gradient(#629bd4,#4e78a1); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#629bd4,#4e78a1); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#629bd4,#4e78a1); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#629bd4,#4e78a1); /* 标准的语法（必须放在最后） */
+}
+.btn-warning{
+	background: #ededed;
+	border-radius: 4px;
+	border: 1px solid #d3d3d3;
+	color: #000;
+}
+.btn-warning:active{
+	background-color: #ededed;
+	border-radius: 4px;
+	border: 1px solid #d3d3d3;
+	color: #000;
+}
+.btn-warning:hover{
+    background: #ededed;
+	border-radius: 4px;
+	border: 1px solid #d3d3d3;
+	color: #000;	
+}
+/*.btn{
+	padding: 5px 12px;
+}*/
+/*页脚*/
+.footer{
+	height: 30px;
+	min-width: 1300px;
+	margin-top: 50px;
+}
+
+.footer > div{
+	float: left;
+	margin-left: 30px;
+}
+
+.footer > div input{
+	width: 150px;
+}
+/*引入串号*/
+.left-body{
+	float:left;
+}
+.left-body>span{display:inline-block;margin: 0px 10px 10px 10px;}
+.cent2-body>span{display:inline-block;margin: 0px 10px 10px 10px;}
+.cent-body{
+    border: 1px solid #dfdfdf;
+}
+.cent2-body{
+	float: left;
+	 
+}
+.rightModal{
+    border: 1px solid #dfdfdf;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+}
+.tip_double{
+	width: 150px;
+	max-height: 500px;
+	overflow: auto;
+}
+.leftJU{
+	margin-top: 20px;
+    text-align: center;
+    width: 50px;
+    cursor: pointer;
+}
+#cb_jqGrid_tranNumber,#cb_jqGrid_tranNumber2{display: none;}
+#jqGrid_tranNumber>tbody>tr>td>input{cursor: pointer;}
+#jqGrid_tranNumber2>tbody>tr>td>input{cursor: pointer;}
+.buttonModal{
+	float: right;
+}
+.coverDemo{
+	 width: 80px;
+     height: 178px; 
+      float: left;
+       text-align: center;
+}
+.coverDemo>span{
+	display: inline-block;
+	height: 25px;
+}
+.coverDemo1{
+	float: right;
+	width: 150px;
+     height: 178px; 
+}
+.coverDemo1>span{
+	display: inline-block;
+	margin: 0px 10px 10px 10px;
+}
+
+/*弹出框*/
+@media (min-width: 768px){
+ .modalSmall{
+	width: 300px !important;
+    margin: 30px auto !important; 
+  }
+}
+@media (min-width: 768px){
+ .modalFour{
+	width: 400px !important;
+    margin: 30px auto !important; 
+  }
+}
+@media (min-width: 768px){
+	.modal1130{
+	    width: 1130px;
+	    margin: 30px auto;
+	}
+}
+@media (min-width: 768px){
+	.modalNine{
+		width: 1100px;
+	}
+}
+@media (min-width: 768px){
+    .modal990{
+    width: 600px;
+    margin: 30px auto;
+    }
+}
+
+/*商品名称*/
+.left_tree {
+    height: 450px;
+    overflow: auto;
+}
+.tranLeft {
+	width: 15%;
+	float: left;
+	/*margin-top: 32px;*/
+}
+
+.right-body{
+	float: right;
+}
+/*单据引入*/
+.forward{
+	text-align: left !important;
+}
+.inputTab{
+    float: left;
+     height: 35px; 
+    line-height: 35px;
+    text-align: right;
+    margin-right: 10%;
+    margin-bottom: 20px;
+}
+.inputTab>span>input{
+	width: 150px;
+	height: 35px;
+}
+.inputTab>span>select{
+	width: 150px;
+	height: 35px;
+}
+.slectDome{
+	width: 150px;
+	height: 35px;
+}
+.next-modal{
+    padding: 15px;
+    overflow:scroll;
+    height: 230px;
+}
+.next-include{
+	padding: 15px;
+    overflow:scroll;
+	height: 230px;
+}
+#cb_jqGrid_tranBills{display: none;}
+#jqGrid_tranBills>tbody>tr>td>input{cursor: pointer;margin: auto;}
+#jqGrid_tranDetail>tbody>tr>td>input{cursor: pointer;margin: auto;}
+.next-modal2>h4{margin: 20px 20px 20px 10px;}
+
+
+.numberCheck,.spmcCheck{cursor:pointer;}
+
+
+

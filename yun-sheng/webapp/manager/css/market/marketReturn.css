@@ -1,0 +1,425 @@
+.ui-th-ltr {
+	text-align: center;
+}
+
+.grid-title {
+	clear: both;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+}
+
+.grid-head {
+	width: 100%;
+	font-size: 16px;
+	height: 30px;
+}
+
+.grid-head .grid-date {
+	display: inline-block;
+	float: left;
+	padding-left: 20px;
+}
+
+.grid-head .grid-yuan {
+	display: inline-block;
+	float: right;
+	padding-right: 30px;
+}
+
+.grid-status {
+	position: absolute;
+	top: 60px;
+	right: 50px;
+	width: 500px;
+	height: 30px;
+	color: red;
+	font-size: 18px;
+	text-align: right;
+}
+
+.parent {
+	background-color: #f5f5f5;
+}
+
+.searchDate div {
+	float: left;
+	width: 250px;
+}
+
+.searchDate div input {
+	float: left;
+}
+
+.searchDate div span {
+	display: inline-block;
+	float: left;
+}
+
+.searchDate {
+	height: 30px;
+}
+
+
+/*页脚*/
+
+.footer {
+	height: 30px;
+	min-width: 1300px;
+	/*margin-top: 50px;*/
+}
+
+.footer> div {
+	float: left;
+	margin-left: 30px;
+}
+
+.footer> div input {
+	width: 150px;
+}
+
+.tip {
+	width: 150px;
+	border: 1px solid;
+	height: 40px;
+	position: relative;
+	margin-top: -30px;
+	margin-bottom: 10px;
+	margin-left: 50px;
+}
+
+.tip .tip_p {
+	width: 80px;
+	height: 20px;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+	color: red;
+}
+
+@media (min-width: 768px) {
+	.model-dialog1 {
+		width: 900px;
+		margin: 30px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.model-dialog2 {
+		width: 700px;
+		margin: 30px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.model-dialog3 {
+		width: 400px;
+		margin: 30px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.model-dialog5 {
+		width: 300px;
+		margin: 30px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.model-dialog4 {
+		width: 1100px;
+		margin: 30px auto;
+	}
+}
+
+.left {
+	width: 15%;
+	float: left;
+	margin-top: 32px;
+}
+
+.left_tree {
+	height: 450px;
+	overflow: auto;
+}
+
+.details {
+	width: 85%;
+	float: left;
+}
+
+.details1 {
+	margin-top: 31px;
+}
+
+.left-no {
+	width: 15%;
+	float: left;
+}
+
+.left_no_tree {
+	height: 450px;
+}
+
+.left_no_tree .ztree {
+	height: 373px;
+	overflow: auto;
+}
+
+.details_no {
+	width: 80%;
+	float: left;
+	margin-left: 20px;
+}
+
+.ztree li {
+	line-height: 25px;
+}
+
+.ztree li a.curSelectedNode {
+	height: 25px;
+}
+
+.ztree li a {
+	height: 25px;
+}
+
+.details .right button:nth-child(2) {
+	margin-left: 380px;
+}
+
+.details .right {
+	height: 40px;
+}
+
+.unitCh,
+.checkName,
+.goodsName,
+.goodsCheck,
+.storName {
+	cursor: pointer;
+}
+
+.showTab .current div button:nth-child(4) {
+	margin-left: 150px;
+}
+
+.details .moneyTab {
+	/*border: 1px solid #333333;*/
+}
+
+.details .moneyTab tr td,
+.details .moneyTab tr th {
+	border: 1px solid #333333;
+	text-align: center;
+}
+
+.details .moneyTab tr td:nth-child(1),
+.details .moneyTab tr th:nth-child(1) {
+	width: 100px;
+}
+
+.details .moneyTab tr td:nth-child(2),
+.details .moneyTab tr th:nth-child(2) {
+	width: 130px;
+	/*text-overflow: ellipsis; 
+	overflow: hidden; 
+	display: block; 
+	height: 25px;
+	white-space: nowrap; */
+}
+
+.details .moneyTab tr td:nth-child(3),
+.details .moneyTab tr th:nth-child(3) {
+	width: 100px;
+}
+
+.details .moneyTab tr td input {
+	width: 100px;
+}
+
+.radio,
+.checkbox {
+	display: inline-block;
+}
+
+.change form div.demoText {
+	margin: 1rem 0rem 0 0rem;
+}
+
+form div.demoText {
+	float: left;
+}
+
+.change form div.demoText label:nth-child(1) {
+	width: 10rem;
+	text-align: right;
+	/*margin-right: 3rem;*/
+}
+
+.change form div.demoText input:nth-child(2),.change form div.demoText input:nth-child(3) {
+	width: 174px;
+}
+
+.unitClazz {
+	float: right;
+}
+
+.unitClazz label {
+	font-size: 16px;
+}
+
+.sel {
+	/*width: 170px;*/
+}
+
+
+/*单据引入*/
+
+.forward {
+	text-align: left !important;
+}
+
+.inputModal {}
+
+.inputTab {
+	float: left;
+	line-height: 25px;
+	text-align: right;
+	margin-right: 10%;
+	margin-bottom: 20px;
+}
+
+.inputTab>span>input {
+	width: 150px;
+	height: 35px;
+}
+
+.inputTab>span>select {
+	width: 150px;
+	height: 35px;
+}
+
+.slectDome {
+	width: 150px;
+	height: 35px;
+}
+
+.next-modal,
+.next-modal2 {
+	padding: 15px;
+	overflow: scroll;
+}
+
+
+/*#cb_jqGrid_tranBills{display: none;}*/
+
+#jqGrid_tran>tbody>tr>td>input {
+	cursor: pointer;
+}
+
+.next-modal2>h4 {
+	margin: 20px 20px 20px 10px;
+}
+
+
+/*引入串号*/
+
+.left-body {
+	float: left;
+}
+
+.left-body>span {
+	display: inline-block;
+	margin: 0px 10px 10px 10px;
+}
+
+.cent2-body>span {
+	display: inline-block;
+	margin: 0px 10px 10px 10px;
+}
+
+.cent-body {
+	border: 1px solid #dfdfdf;
+	/*width: 80px;
+     height: 178px; 
+      float: left;
+       text-align: center;*/
+	/*position: absolute;
+  left: 51%;*/
+}
+
+.cent2-body {
+	float: left;
+}
+
+.rightModal {
+	border: 1px solid #dfdfdf;
+	text-align: center;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+.modalQian {
+	width: 1100px;
+}
+
+.leftJU {
+	margin-top: 20px;
+	text-align: center;
+	width: 50px;
+}
+
+#cb_jqGrid_tranNumber,
+#cb_jqGrid_tranNumber2 {
+	display: none;
+}
+
+#jqGrid_tranNumber>tbody>tr>td>input {
+	cursor: pointer;
+}
+
+#jqGrid_tranNumber2>tbody>tr>td>input {
+	cursor: pointer;
+}
+
+.buttonModal {
+	float: right;
+}
+
+.coverDemo {
+	/*border: 1px solid red;*/
+	width: 80px;
+	height: 178px;
+	float: left;
+	text-align: center;
+}
+
+.coverDemo>span {
+	display: inline-block;
+	height: 25px;
+}
+
+.coverDemo1 {
+	float: right;
+	width: 150px;
+	height: 178px;
+}
+
+.coverDemo1>span {
+	display: inline-block;
+	margin: 0px 10px 10px 10px;
+}
+
+
+/*修复分页显示问题*/
+
+.ui-jqgrid .ui-pager-control .ui-pager-table td#gridpager_tranNumber_left,
+.ui-jqgrid .ui-pager-control .ui-pager-table td#gridpager_tranNumber2_left,
+.ui-jqgrid .ui-pager-control .ui-pager-table td#gridpager_billStor_left {
+	display: none;
+}

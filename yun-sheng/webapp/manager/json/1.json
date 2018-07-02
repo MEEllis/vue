@@ -1,0 +1,615 @@
+[{
+	"myNodeId": 6,
+	"nodes": [{
+		"myNodeId": 136,
+		"nodes": [{
+			"myNodeId": 144,
+			"state": {
+				"checked": false
+			},
+			"text": "454"
+		},
+		{
+			"myNodeId": 155,
+			"state": {
+				"checked": false
+			},
+			"text": "收入属性"
+		}],
+		"state": {
+			"checked": false
+		},
+		"text": "仓库属性"
+	},
+	{
+		"myNodeId": 151,
+		"state": {
+			"checked": false
+		},
+		"text": "供货商类别"
+	},
+	{
+		"myNodeId": 163,
+		"state": {
+			"checked": false
+		},
+		"text": "集团区域"
+	},
+	{
+		"myNodeId": 165,
+		"state": {
+			"checked": false
+		},
+		"text": "集团参数表"
+	},
+	{
+		"myNodeId": 166,
+		"state": {
+			"checked": false
+		},
+		"text": "公司参数表"
+	},
+	{
+		"myNodeId": 134,
+		"state": {
+			"checked": false
+		},
+		"text": "功能管理"
+	},
+	{
+		"myNodeId": 137,
+		"state": {
+			"checked": false
+		},
+		"text": "区域管理"
+	},
+	{
+		"myNodeId": 135,
+		"state": {
+			"checked": false
+		},
+		"text": "员工表"
+	},
+	{
+		"myNodeId": 149,
+		"state": {
+			"checked": false
+		},
+		"text": "部门属性"
+	},
+	{
+		"myNodeId": 175,
+		"state": {
+			"checked": false
+		},
+		"text": "员工属性"
+	},
+	{
+		"myNodeId": 153,
+		"state": {
+			"checked": false
+		},
+		"text": "职位表"
+	},
+	{
+		"myNodeId": 159,
+		"state": {
+			"checked": false
+		},
+		"text": "分期商表"
+	},
+	{
+		"myNodeId": 161,
+		"state": {
+			"checked": false
+		},
+		"text": "分期商酬金表"
+	},
+	{
+		"myNodeId": 162,
+		"state": {
+			"checked": false
+		},
+		"text": "往来单位"
+	},
+	{
+		"myNodeId": 169,
+		"nodes": [{
+			"resourceFunId": 81,
+			"state": {
+				"checked": false
+			},
+			"text": "修改集团"
+		},
+		{
+			"resourceFunId": 82,
+			"state": {
+				"checked": false
+			},
+			"text": "删除集团"
+		},
+		{
+			"resourceFunId": 83,
+			"state": {
+				"checked": false
+			},
+			"text": "新增子公司"
+		},
+		{
+			"resourceFunId": 84,
+			"state": {
+				"checked": false
+			},
+			"text": "修改公司"
+		},
+		{
+			"resourceFunId": 85,
+			"state": {
+				"checked": false
+			},
+			"text": "删除公司"
+		},
+		{
+			"resourceFunId": 86,
+			"state": {
+				"checked": false
+			},
+			"text": "新增部门"
+		},
+		{
+			"resourceFunId": 87,
+			"state": {
+				"checked": false
+			},
+			"text": "新增子部门"
+		},
+		{
+			"resourceFunId": 88,
+			"state": {
+				"checked": false
+			},
+			"text": "修改部门"
+		},
+		{
+			"resourceFunId": 89,
+			"state": {
+				"checked": false
+			},
+			"text": "删除部门"
+		},
+		{
+			"resourceFunId": 90,
+			"state": {
+				"checked": false
+			},
+			"text": "新增仓库"
+		},
+		{
+			"resourceFunId": 91,
+			"state": {
+				"checked": false
+			},
+			"text": "修改仓库"
+		},
+		{
+			"resourceFunId": 92,
+			"state": {
+				"checked": false
+			},
+			"text": "删除仓库"
+		},
+		{
+			"resourceFunId": 93,
+			"state": {
+				"checked": false
+			},
+			"text": "新增公司"
+		}],
+		"state": {
+			"checked": false
+		},
+		"text": "组织架构"
+	},
+	{
+		"myNodeId": 142,
+		"state": {
+			"checked": false
+		},
+		"text": "用户角色"
+	},
+	{
+		"myNodeId": 143,
+		"state": {
+			"checked": false
+		},
+		"text": "员工扩展表"
+	},
+	{
+		"myNodeId": 172,
+		"state": {
+			"checked": false
+		},
+		"text": "公共选项"
+	},
+	{
+		"myNodeId": 10,
+		"nodes": [{
+			"resourceFunId": 4,
+			"state": {
+				"checked": false
+			},
+			"text": "新增"
+		},
+		{
+			"resourceFunId": 5,
+			"state": {
+				"checked": false
+			},
+			"text": "导出"
+		}],
+		"state": {
+			"checked": false
+		},
+		"text": "角色管理"
+	},
+	{
+		"myNodeId": 157,
+		"state": {
+			"checked": false
+		},
+		"text": "资金账户表"
+	},
+	{
+		"myNodeId": 189,
+		"state": {
+			"checked": false
+		},
+		"text": "角色模块功能管理"
+	},
+	{
+		"myNodeId": 152,
+		"state": {
+			"checked": false
+		},
+		"text": "经销商类别"
+	},
+	{
+		"myNodeId": 158,
+		"state": {
+			"checked": false
+		},
+		"text": "支出属性"
+	},
+	{
+		"myNodeId": 160,
+		"state": {
+			"checked": false
+		},
+		"text": "收入属性"
+	}],
+	"state": {
+		"checked": false
+	},
+	"text": "基础模块"
+},
+{
+	"myNodeId": 17,
+	"nodes": [{
+		"myNodeId": 132,
+		"state": {
+			"checked": false
+		},
+		"text": "dd"
+	},
+	{
+		"myNodeId": 18,
+		"nodes": [{
+			"resourceFunId": 6,
+			"state": {
+				"checked": false
+			},
+			"text": "新增"
+		},
+		{
+			"resourceFunId": 7,
+			"state": {
+				"checked": false
+			},
+			"text": "删除"
+		}],
+		"state": {
+			"checked": false
+		},
+		"text": "零售定金"
+	},
+	{
+		"myNodeId": 19,
+		"state": {
+			"checked": false
+		},
+		"text": "零售出库"
+	},
+	{
+		"myNodeId": 20,
+		"state": {
+			"checked": false
+		},
+		"text": "零售换货"
+	}],
+	"state": {
+		"checked": false
+	},
+	"text": "零售"
+},
+{
+	"myNodeId": 21,
+	"nodes": [{
+		"myNodeId": 13,
+		"nodes": [{
+			"myNodeId": 14,
+			"state": {
+				"checked": false
+			},
+			"text": "定价调拨"
+		},
+		{
+			"myNodeId": 15,
+			"state": {
+				"checked": false
+			},
+			"text": "议价调拨"
+		},
+		{
+			"myNodeId": 16,
+			"state": {
+				"checked": false
+			},
+			"text": "调拨入库"
+		}],
+		"state": {
+			"checked": false
+		},
+		"text": "但是 "
+	},
+	{
+		"myNodeId": 22,
+		"state": {
+			"checked": false
+		},
+		"text": "销售订单"
+	},
+	{
+		"myNodeId": 23,
+		"state": {
+			"checked": false
+		},
+		"text": "批发出库"
+	},
+	{
+		"myNodeId": 24,
+		"state": {
+			"checked": false
+		},
+		"text": "批发退货"
+	}],
+	"state": {
+		"checked": false
+	},
+	"text": "分销"
+},
+{
+	"myNodeId": 168,
+	"nodes": [{
+		"myNodeId": 174,
+		"state": {
+			"checked": false
+		},
+		"text": "角色管理-xm"
+	},
+	{
+		"myNodeId": 192,
+		"state": {
+			"checked": false
+		},
+		"text": "分期商酬金表-zjf"
+	},
+	{
+		"myNodeId": 133,
+		"nodes": [{
+			"resourceFunId": 61,
+			"state": {
+				"checked": false
+			},
+			"text": "查询"
+		},
+		{
+			"resourceFunId": 62,
+			"state": {
+				"checked": false
+			},
+			"text": "修改"
+		},
+		{
+			"resourceFunId": 63,
+			"state": {
+				"checked": false
+			},
+			"text": "打印"
+		},
+		{
+			"resourceFunId": 64,
+			"state": {
+				"checked": false
+			},
+			"text": "新增"
+		},
+		{
+			"resourceFunId": 65,
+			"state": {
+				"checked": false
+			},
+			"text": "删除"
+		},
+		{
+			"resourceFunId": 66,
+			"state": {
+				"checked": false
+			},
+			"text": "导出"
+		}],
+		"state": {
+			"checked": false
+		},
+		"text": "功能模块-xjz"
+	},
+	{
+		"myNodeId": 185,
+		"state": {
+			"checked": false
+		},
+		"text": "组织架构-xjz"
+	},
+	{
+		"myNodeId": 190,
+		"state": {
+			"checked": false
+		},
+		"text": "员工属性_gzx"
+	},
+	{
+		"myNodeId": 191,
+		"state": {
+			"checked": false
+		},
+		"text": "部门属性"
+	},
+	{
+		"myNodeId": 180,
+		"state": {
+			"checked": false
+		},
+		"text": "收入属性-gzx"
+	},
+	{
+		"myNodeId": 181,
+		"state": {
+			"checked": false
+		},
+		"text": "资金账户表-zjf"
+	},
+	{
+		"myNodeId": 182,
+		"state": {
+			"checked": false
+		},
+		"text": "供货商类别_gzx"
+	},
+	{
+		"myNodeId": 12,
+		"nodes": [{
+			"resourceFunId": 9,
+			"state": {
+				"checked": false
+			},
+			"text": "新增"
+		},
+		{
+			"resourceFunId": 8,
+			"state": {
+				"checked": false
+			}
+		}],
+		"state": {
+			"checked": false
+		},
+		"text": "仓库属性-xm"
+	},
+	{
+		"myNodeId": 170,
+		"state": {
+			"checked": false
+		},
+		"text": "集团区域-xm"
+	},
+	{
+		"myNodeId": 171,
+		"nodes": [{
+			"myNodeId": 173,
+			"state": {
+				"checked": false
+			},
+			"text": "角色管理"
+		}],
+		"state": {
+			"checked": false
+		},
+		"text": "模块管理--xjz"
+	},
+	{
+		"myNodeId": 183,
+		"state": {
+			"checked": false
+		},
+		"text": "用户角色-xm"
+	},
+	{
+		"myNodeId": 186,
+		"state": {
+			"checked": false
+		},
+		"text": "职位表_gzx"
+	},
+	{
+		"myNodeId": 187,
+		"state": {
+			"checked": false
+		},
+		"text": "支出属性_gzx"
+	},
+	{
+		"myNodeId": 188,
+		"state": {
+			"checked": false
+		},
+		"text": "分期商表-zjf"
+	},
+	{
+		"myNodeId": 177,
+		"state": {
+			"checked": false
+		},
+		"text": "集团参数表-zjf"
+	},
+	{
+		"myNodeId": 178,
+		"state": {
+			"checked": false
+		},
+		"text": "公司参数表-zjf"
+	},
+	{
+		"myNodeId": 179,
+		"state": {
+			"checked": false
+		},
+		"text": "经销商类别_gzx"
+	},
+	{
+		"myNodeId": 184,
+		"state": {
+			"checked": false
+		},
+		"text": "员工管理-xjz"
+	}],
+	"state": {
+		"checked": false
+	},
+	"text": "提交测试"
+},
+{
+	"myNodeId": 164,
+	"state": {
+		"checked": false
+	},
+	"text": "系统设置"
+}]

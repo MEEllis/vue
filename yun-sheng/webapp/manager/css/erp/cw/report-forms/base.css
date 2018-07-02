@@ -1,0 +1,72 @@
+
+html , body{
+	overflow-x: hidden;
+	width: 100%;	
+}
+
+html{
+	height: 100%;	padding: 20px;
+}
+.toolsMenu{
+	border: 1px solid #cfcfcf;
+	padding-top: 1px;
+}
+#queryModal .modal-body{
+	padding-top: 0px;padding-bottom: 0px;
+}
+
+#queryModal .modal-footer{
+	border-top: 2px solid rgb(195, 218, 249);
+}
+
+#queryModal .col-md-4{
+	border-right: 5px solid rgb(195, 218, 249);height: 100%;
+}
+
+.tab-content{
+	padding-top: 5px;
+}
+
+.split3 .colleft{
+	padding-left: 0px;
+}
+.split3 .colmid{
+	padding-left: 0px;padding-right: 0px;text-align: center;line-height: 30px;
+}
+
+.split3 .colright{
+	padding-right: 0px;
+}
+
+
+.btnHundred {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    background-image: url(../../../../images/btnboxbg.png);
+}
+.btn-group>button {
+    background-image: url(../../../../images/btnboxbg.png);
+    text-align: left;
+    border: 0;
+}
+   .btn {
+    padding: 5px 12px;
+}
+
+.gridBody th{
+	font-weight: normal;
+	font-size: 10pt;
+	text-align: center;
+}
+
+.gridBody td{
+	font-size: 10pt;
+}
+
+.js-example-basic-multiple{
+	width: 220px;
+}
+
+

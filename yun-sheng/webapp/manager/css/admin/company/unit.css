@@ -1,0 +1,484 @@
+.ui-th-ltr {
+	text-align: center;
+}
+
+.grid-title {
+	clear: both;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+}
+
+.grid-head {
+	width: 100%;
+	font-size: 16px;
+	height: 30px;
+}
+
+.grid-head .grid-date {
+	display: inline-block;
+	float: left;
+	padding-left: 20px;
+}
+
+.grid-head .grid-yuan {
+	display: inline-block;
+	float: right;
+	padding-right: 30px;
+}
+
+.grid-status {
+	position: absolute;
+	top: 60px;
+	right: 50px;
+	width: 500px;
+	height: 30px;
+	color: red;
+	font-size: 18px;
+	text-align: right;
+}
+
+.parent {
+	background-color: #f5f5f5;
+}
+
+.searchDate div {
+	float: left;
+	width: 250px;
+}
+
+.searchDate div input {
+	float: left;
+}
+
+.searchDate div span {
+	display: inline-block;
+	float: left;
+}
+
+.searchDate {
+	height: 30px;
+}
+
+#collapseExample {
+	height: 50px;
+	margin-top: 30px;
+}
+
+#collapseExample .well {
+	padding: 0px;
+}
+
+.change form div {
+	/*margin: 1rem 2rem 0 2rem;*/
+}
+
+.change{
+	margin-left: 50px;
+}
+
+.change > div{
+	float: left;
+	width: 50%;
+	height: 30px;
+}
+.change div.retailDetailTable{
+	/*float: none;*/
+	width: 100%;
+	height: 400px;
+}
+
+.change div.unitClazz{
+	width: 100%;
+	margin-bottom: 10px;
+    margin-left: 200px;
+    float: left;
+    height: 30px;
+}
+
+.current div.unitClazz{
+	margin-left: 0px;
+}
+
+.change div.unitClazz:nth-child(1){
+	margin-top: 30px;
+}
+
+.change div.unitClazz label:nth-child(1){
+	width: 150px;
+	margin-right: 20px;
+}
+
+.change div.unitClazz select{
+	width: 14.5rem;
+	height: 24px;
+}
+
+.change div input,.change div select{
+	/*float: left;
+	width: 50%;*/
+	/*height: 30px;*/
+}
+
+.change div label:nth-child(1){
+	width: 120px;
+	height: 30px;
+	/*overflow: hidden;*/
+	float: left;
+	text-align: right;
+}
+
+.change div label:nth-child(2){
+	width: 160px;
+	height: 30px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: 500;
+}
+
+.change form label {
+	width: 9rem;
+	text-align: right;
+	/*margin-right: 3rem;*/
+}
+
+.change .unitClazz .radio-inline{
+	width: 100px;
+	height: 30px;
+	text-align: left;
+	margin-left: 0px;
+}
+
+
+/*.change form input {
+	width: 12.5rem;
+}*/
+
+.change form div input.textLeft {
+	width: 1rem;
+}
+
+.change form select {
+	width: 16.5rem;
+}
+
+#model-body {
+	/*padding: 2rem 2rem 2rem 6rem;*/
+}
+
+
+/*搜索*/
+
+.search {
+	min-width: 1800px;
+	height: 50px;
+}
+
+.search-sp {
+	float: left;
+	width: 17%;
+	margin-right: 20px;
+}
+
+.up {
+	float: left;
+	width: 20%;
+}
+
+.up input,
+.change .up select {
+	width: 170px;
+	height: 24px;
+}
+
+.search-sp:nth-child(4) select {
+	height: 24px;
+	width: 174px;
+}
+
+
+/*.search-sp:nth-child(5){
+	float: left;
+	width: 10%;
+}
+.search-sp:nth-child(6){
+	float: left;
+	width: 6%;
+}*/
+
+.search-sp span {
+	float: left;
+}
+
+.search-sp input {
+	float: left;
+}
+
+.search-sp input.double {
+	float: none;
+}
+
+.checkbox {
+	display: inline;
+}
+
+.multi_select {
+	float: left;
+}
+
+.change form div.tree_area {
+	width: 200px;
+	margin: 1rem 0 0 7rem;
+}
+
+/*更改fieldset在bootstrap中的样式*/
+fieldset {
+	padding: .35em .625em .75em;
+	margin: 0 2px;
+	border: 1px solid silver
+}
+
+legend {
+	padding: .5em;
+	border: 0;
+	width: auto
+}
+
+#gbox_jqGrid_empMessage,#gview_jqGrid_empMessage,#gview_jqGrid_empMessage div.ui-jqgrid-hdiv,#gview_jqGrid_empMessage div.ui-jqgrid-bdiv,#jqGridPager_emp{
+	max-width:385px;
+}
+
+.model-dialog2{min-width:1175px;}
+
+@media (min-width: 768px) {
+	.model-dialog {
+		width: 1100px;
+		margin: 30px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.model-dialog2 {
+		width: 1100px;
+		margin: 30px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.model-dialog3 {
+		width: 400px;
+		margin: 30px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.model-dialog4 {
+		width: 730px;
+		margin: 30px auto;
+	}
+}
+
+legend {
+	margin-bottom: 0px;
+	font-size: 18px;
+}
+
+.empAddTop {
+	width: 100%;
+	/*height: 300px;*/
+}
+
+.empAddTop .empAddLeft {
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+
+.empAddTop .empAddRight {
+	width: 80%;
+	height: 100%;
+	float: left;
+}
+
+.fieTwo {
+	clear: both;
+}
+
+.fieLeft div {
+	float: left;
+	margin: .5rem 0rem 0 0rem;
+	width: 50%;
+}
+.fieLeft div.qiOne {
+	width: 100%;
+}
+
+.fieTwo div {
+	/*margin-right: 60px;*/
+}
+
+.fieLeft div select {
+	height: 24px;
+}
+
+.fieLeft div label:nth-child(2),
+.fieLeft div label:nth-child(3) {
+	width: 4rem;
+}
+
+.fieLeft div> input {
+	width: 16.5rem;
+}
+
+.fieLeft div> input.checkQi,.fieLeft div> input.checkCon {
+	width: 2rem;
+}
+
+.fieLeft div.hideDiv{
+	display: none;
+}
+
+
+/*图片上传*/
+
+#picUpload,
+.img,
+img,
+#changeUpload {
+	width: 160px;
+	height: 215px;
+}
+
+#picUpload,
+#changeUpload {
+	border: 1px solid #999;
+}
+
+/*授权*/
+.acc{
+	text-align: center;
+	margin-bottom: 1rem;
+}
+.change .acc label{
+	width: 12rem;
+	text-align: center;
+	cursor: pointer;
+}
+
+
+
+.main{
+	/*width: 500px;*/
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main-top{
+	width: 86%;
+	margin-left: 14%;
+}
+
+.left {
+	width: 14%;
+	float: left;
+}
+
+.details {
+	width: 86%;
+	float: left;
+}
+
+.left_tree {
+	height: 597px;
+	overflow: auto;
+}
+
+.ztree li {
+	/*line-height: 25px;*/
+}
+
+.showTab{
+	width: 90%;
+    margin-left: 30px;
+}
+
+.showTab .change {
+	/*width: 400px;
+	height: 300px;*/
+	display: none;
+}
+
+.showTab .current {
+	display: block;
+}
+
+
+/*设置权限*/
+.accre{
+	margin-left: 0px;
+}
+
+.accre > div{
+	float:left ;
+	height: 500px;
+}
+
+.accre > div:nth-child(1),.accre > div:nth-child(3){
+	width: 40%;
+	margin-top: 20px;
+}
+
+.accre > div:nth-child(2){
+	width: 20%;
+	margin-top: 72px;
+    height: 441px;
+    overflow: auto;
+}
+
+.accre > div:nth-child(3){
+	margin-top: 50px;
+    height: 400px;
+}
+
+.accre .sea{
+	width: 105px;
+    margin-right: 17px;
+}
+
+.accre .accredit_left_top span,.accre .accredit_left_top input{
+	margin-bottom: 10px;
+}
+
+/*.modal-body {
+	padding: 0px;
+}*/
+
+#jqGridPager_emp_left,#jqGridPager_accredit_left{
+	width: 0px;
+}
+
+
+.areaDiv {
+    height: 35px;
+}
+.areaDiv label {
+    width: 36%;
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

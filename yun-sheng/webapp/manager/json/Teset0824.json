@@ -1,0 +1,13 @@
+{"rows":[
+
+{"id":"1","subCode":"1001","subName":"资产","subTime":"2010-09-09","subNo":"记001","subF":"0","subMon":"100"},
+{"id":"1","subCode":"1001","subName":"资产","subTime":"2010-09-09","subNo":"记002","subF":"1","subMon":"100"},
+{"id":"1","subCode":"1002","subName":"资产","subTime":"2010-09-09","subNo":"记003","subF":"2","subMon":"100"},
+{"id":"1","subCode":"1003","subName":"资产","subTime":"2010-09-09","subNo":"记004","subF":"0","subMon":"100"},
+{"id":"1","subCode":"1004","subName":"资产","subTime":"2010-09-09","subNo":"记005","subF":"2","subMon":"100"},
+{"id":"1","subCode":"1005","subName":"资产","subTime":"2010-09-09","subNo":"记006","subF":"1","subMon":"100"},
+{"id":"1","subCode":"1006","subName":"资产","subTime":"2010-09-09","subNo":"记005","subF":"1","subMon":"100"},
+{"id":"1","subCode":"1007","subName":"资产","subTime":"2010-09-09","subNo":"记007","subF":"2","subMon":"100"},
+{"id":"1","subCode":"1008","subName":"资产","subTime":"2010-09-09","subNo":"记008","subF":"0","subMon":"100"},
+{"id":"1","subCode":"1009","subName":"资产","subTime":"2010-09-09","subNo":"记009","subF":"0","subMon":"100"}
+  ]}

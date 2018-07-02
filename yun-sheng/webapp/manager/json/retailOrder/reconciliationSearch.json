@@ -1,0 +1,26 @@
+{
+	"row":[
+	       {"check":"1","runNum":"11111","store":"超市","paymentPerson":"丽丽","paymentDate":"2020-12-22","paymentMoney":"11111","collectionAccount":"老王","totalTime":"2020-11-22","receive":"1","receiveBranch":"销售","receivePerson":"小王","receiveTime":"2012-12-12"},
+	       {"check":"1","runNum":"11111","store":"超市","paymentPerson":"丽丽","paymentDate":"2020-12-22","paymentMoney":"11111","collectionAccount":"老王","totalTime":"2020-11-22","receive":"1","receiveBranch":"销售","receivePerson":"小王","receiveTime":"2012-12-12"},
+	       {"check":"1","runNum":"11111","store":"超市","paymentPerson":"丽丽","paymentDate":"2020-12-22","paymentMoney":"11111","collectionAccount":"老王","totalTime":"2020-11-22","receive":"1","receiveBranch":"销售","receivePerson":"小王","receiveTime":"2012-12-12"},
+	       {"check":"1","runNum":"11111","store":"超市","paymentPerson":"丽丽","paymentDate":"2020-12-22","paymentMoney":"11111","collectionAccount":"老王","totalTime":"2020-11-22","receive":"1","receiveBranch":"销售","receivePerson":"小王","receiveTime":"2012-12-12"},
+	       {"check":"1","runNum":"11111","store":"超市","paymentPerson":"丽丽","paymentDate":"2020-12-22","paymentMoney":"11111","collectionAccount":"老王","totalTime":"2020-11-22","receive":"1","receiveBranch":"销售","receivePerson":"小王","receiveTime":"2012-12-12"},
+	       {"check":"1","runNum":"11111","store":"超市","paymentPerson":"丽丽","paymentDate":"2020-12-22","paymentMoney":"11111","collectionAccount":"老王","totalTime":"2020-11-22","receive":"1","receiveBranch":"销售","receivePerson":"小王","receiveTime":"2012-12-12"},
+	       {"check":"1","runNum":"11111","store":"超市","paymentPerson":"丽丽","paymentDate":"2020-12-22","paymentMoney":"11111","collectionAccount":"老王","totalTime":"2020-11-22","receive":"1","receiveBranch":"销售","receivePerson":"小王","receiveTime":"2012-12-12"},
+	       {"check":"1","runNum":"11111","store":"超市","paymentPerson":"丽丽","paymentDate":"2020-12-22","paymentMoney":"11111","collectionAccount":"老王","totalTime":"2020-11-22","receive":"1","receiveBranch":"销售","receivePerson":"小王","receiveTime":"2012-12-12"},
+	       {"check":"1","runNum":"11111","store":"超市","paymentPerson":"丽丽","paymentDate":"2020-12-22","paymentMoney":"11111","collectionAccount":"老王","totalTime":"2020-11-22","receive":"1","receiveBranch":"销售","receivePerson":"小王","receiveTime":"2012-12-12"},
+	       {"check":"1","runNum":"11111","store":"超市","paymentPerson":"丽丽","paymentDate":"2020-12-22","paymentMoney":"11111","collectionAccount":"老王","totalTime":"2020-11-22","receive":"1","receiveBranch":"销售","receivePerson":"小王","receiveTime":"2012-12-12"}
+	       ],
+     "sure":[
+           {"store":"超市","paymentPerson":"小王","paymentMoney":"1111","sureCheck":"1","receiptAccount":"建行","receipt":"2222","costsMoney":"111","gap":"111","result":"哈哈哈","runNum":"22222","paymentDate":"2016-12-12","tatalDate":"2013-11-22","remark":"老王"},
+           {"store":"超市","paymentPerson":"小王","paymentMoney":"1111","sureCheck":"1","receiptAccount":"建行","receipt":"2222","costsMoney":"111","gap":"111","result":"哈哈哈","runNum":"22222","paymentDate":"2016-12-12","tatalDate":"2013-11-22","remark":"老王"},
+           {"store":"超市","paymentPerson":"小王","paymentMoney":"1111","sureCheck":"1","receiptAccount":"建行","receipt":"2222","costsMoney":"111","gap":"111","result":"哈哈哈","runNum":"22222","paymentDate":"2016-12-12","tatalDate":"2013-11-22","remark":"老王"},
+           {"store":"超市","paymentPerson":"小王","paymentMoney":"1111","sureCheck":"1","receiptAccount":"建行","receipt":"2222","costsMoney":"111","gap":"111","result":"哈哈哈","runNum":"22222","paymentDate":"2016-12-12","tatalDate":"2013-11-22","remark":"老王"},
+           {"store":"超市","paymentPerson":"小王","paymentMoney":"1111","sureCheck":"1","receiptAccount":"建行","receipt":"2222","costsMoney":"111","gap":"111","result":"哈哈哈","runNum":"22222","paymentDate":"2016-12-12","tatalDate":"2013-11-22","remark":"老王"},
+           {"store":"超市","paymentPerson":"小王","paymentMoney":"1111","sureCheck":"1","receiptAccount":"建行","receipt":"2222","costsMoney":"111","gap":"111","result":"哈哈哈","runNum":"22222","paymentDate":"2016-12-12","tatalDate":"2013-11-22","remark":"老王"},
+           {"store":"超市","paymentPerson":"小王","paymentMoney":"1111","sureCheck":"1","receiptAccount":"建行","receipt":"2222","costsMoney":"111","gap":"111","result":"哈哈哈","runNum":"22222","paymentDate":"2016-12-12","tatalDate":"2013-11-22","remark":"老王"},
+           {"store":"超市","paymentPerson":"小王","paymentMoney":"1111","sureCheck":"1","receiptAccount":"建行","receipt":"2222","costsMoney":"111","gap":"111","result":"哈哈哈","runNum":"22222","paymentDate":"2016-12-12","tatalDate":"2013-11-22","remark":"老王"},
+           {"store":"超市","paymentPerson":"小王","paymentMoney":"1111","sureCheck":"1","receiptAccount":"建行","receipt":"2222","costsMoney":"111","gap":"111","result":"哈哈哈","runNum":"22222","paymentDate":"2016-12-12","tatalDate":"2013-11-22","remark":"老王"},
+           {"store":"超市","paymentPerson":"小王","paymentMoney":"1111","sureCheck":"1","receiptAccount":"建行","receipt":"2222","costsMoney":"111","gap":"111","result":"哈哈哈","runNum":"22222","paymentDate":"2016-12-12","tatalDate":"2013-11-22","remark":"老王"}
+             ]
+}

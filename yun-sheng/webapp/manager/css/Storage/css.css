@@ -1,0 +1,23 @@
+
+/*验证 样式bug调整*/
+.container-fluid {min-width:1185px;}
+.inputbox .row {margin-bottom:0px;margin-left:0px;}
+.input-group {width:167px;}
+/*.form-control-feedback {right:15px;}
+.form-control2 {padding-right:28px;}*/
+.col-sm-8 {height:55px;width: 200px;padding-right:0px;padding-left:0px;}
+.container-fluid,.btnHundred {min-width:1185px;}
+.form-group {margin-bottom:0px;}
+.change form div.demoText {margin: 0rem 0rem 0 0rem;}
+
+.managers {width:167px;}
+
+/*仓储 多选下拉框样式调整*/
+.multi_select {height: 0;overflow: visible;float: none; margin-left: 0px;}
+.select_rel_alloType,.select_rel_audit {width:100% !important;min-width:100px !important;}
+
+.multi_select input:first-child {margin:0px;}
+
+
+
+

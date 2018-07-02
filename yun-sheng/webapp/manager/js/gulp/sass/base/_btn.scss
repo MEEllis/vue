@@ -1,0 +1,90 @@
+@charset "utf-8";
+/*背景色的按钮*/
+.erp-btn-bg{
+  min-width:100px;
+  border-radius: 4px;
+  height: 30px;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 30px;
+  background-color: #5184f0;
+  border: none;
+  cursor: pointer;
+  padding: 0 20px !important;
+}
+.erp-btn-bg:focus,
+.erp-btn-bg:hover{
+  background-color:#4472d3 ;
+  color: #ffffff !important;
+}
+
+.erp-btn-bg:active{
+  background-color:#274d9e;
+}
+.erp-btn-bg[disabled]{
+  background-color:#cccccc;
+  cursor: not-allowed;
+}
+
+/*按钮的公共样式 end*/
+
+/*文字按钮的公共样式 start*/
+.erp-link-lab{
+  color:#5184f0;
+  border:none;
+  background: none;
+  cursor:pointer;
+}
+.erp-link-lab:hover{
+  color:#274d9e;
+}
+.erp-link-lab[disabled]{
+  color:#999999;
+}
+/*文字按钮的公共样式 end*/
+
+/*按钮的公共样式 start*/
+/*文字的按钮*/
+.erp-btn-lab{
+  min-width:100px;
+  border-radius: 4px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  background-color: #ffffff;
+  border: 1px solid #ccc !important;
+  cursor: pointer;
+  padding: 0 20px !important;
+}
+.erp-btn-lab:hover{
+  color: #5184f0;
+  border-color:#5184f0 ;
+}
+
+.erp-btn-lab:active{
+  color: #274d9e;
+  border-color:#274d9e;
+}
+.erp-btn-lab[disabled]{
+  color: #999999;
+  border-color:#e6e6e6;
+  cursor: not-allowed;
+}
+
+/*操作的按钮*/
+.e-caozuo{
+  border: none;
+  background: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  line-height: 30px;
+}
+.e-caozuo[disabled]{
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+.e-caozuo:hover{
+  background: #e9f2fe;
+}

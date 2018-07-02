@@ -1,0 +1,108 @@
+html,body{margin: 0px;padding: 0px; width: 100%; height: 100%; overflow: hidden;background-color: #f6f6f6}
+a{cursor: pointer; text-decoration: none!important;}
+a:hover{cursor: pointer; text-decoration: none!important;}
+
+.headerbox{height: 60px;position:fixed;width: 100%; min-width: 1200px;}
+.headerbox .logo{padding: 10px; float:left;}
+.headerbox .logo .logo-img{margin-top: -10px;}
+.headerbox .menuAndSkin{float: left;padding: 0 10px;}
+.headerbox .menuAndSkin>a{display: inline-block;cursor: pointer; color: #fff; font-size:14px ; height: 60px; line-height: 60px;text-decoration: none;margin-left:15px;}
+.headerbox .headerboxright{float: right;margin-right: 10px;}
+.headerbox .headerboxright>a{display: inline-block;cursor: pointer; color: #fff; font-size:14px ; height: 60px; line-height: 60px; margin-right:20px ;}
+.headerbox .headerboxright>a>i{font-size:16px ; padding: 6px;float: left;}
+.headerbox .headerboxright>a:hover{color: #f0852e;text-decoration: none; }
+.headerbox .headerboxright>a:hover>font{color: #fff;background-color: #f0852e; border-radius:3px ; }
+.headerbox .headerboxright .exitbtn>i{font-size:24px ;float: left;margin-top: -4px;}
+.headerbox .headerboxright .noread>i{font-size:14px ;float: left;margin-top: -5px;}
+.headerbox .headerboxright .luckscreen>i{font-size:14px ;float: left;margin-top: -5px;}
+.headerbox .headerboxright .changepwd>i{font-size:14px ;float: left;margin-top: -2px;}
+.headerbox .headerboxright .admin .usericon>img{height: 40px;width: 40px;position: absolute;}
+.headerbox .headerboxright .admin .usericon{float: left; margin:10px;height: 40px; width: 40px; border-radius: 20px;background-color: #fff;overflow:hidden;}
+
+.bodybox{padding-top:60px ;height: 100%;}
+.body_left{width: 150px; float: left; height: 100%; position: relative;}
+.body_leftbg{position: absolute;left: 0px;top:0px;height: 100%; width: 100%;z-index:1 ; background-color: #4f6e92;}
+.body_leftctn{position: absolute;left: 0px;top:0px;width: 100%;height: 100%;z-index: 2;}
+.body_right{margin-left: 150px;height: 100%;}
+.body_right .tabBox{width: 100%;height:40px;position:relative;}
+.body_right .tabBox a{position:relative; text-decoration:none;background-color: #476e9a;height:40px;float: left; color: #fff;  border-left:1px solid #fff;border-right:1px solid #fff;border-top:1px solid #fff; border-radius:5px 5px 0px 0px; padding:10px 15px 10px 10px ; }
+.body_right .tabBox a:first-child{padding:10px 10px 10px 10px ;}
+.body_right .tabBox a.active{background-color: #072c4c;}
+.body_right .tabBox a span{ position: absolute; right: 0px;top:10px; font-size:12px; color: #999; width: 15px; height: 15px;text-align: center; line-height: 15px;}  
+.body_right .workBox{height:100%; width: 100%;padding-bottom: 50px;}
+.body_right  .workBox .workCtn{display: none;height: 100%;}
+.body_right .workCtn.active{display:block;}
+.body_right .workChild.active{background-color: #fff;}
+
+.menulist .usericon{float: left; margin:10px;height: 40px; width: 40px; border-radius: 20px;background-color: #fff; padding: 2px; overflow:hidden;}
+.menulist .usericon>img{width: 40px;height: 40px;}
+.menulist .userinfo{float: right; width: 90px;color: #fff; padding: 5px; margin:5px 0px;}
+.menulist .userinfo span{display: block;}
+.menulist .mainMenuList a{color: #fff; text-decoration: none;font-size: 16px; cursor: pointer;}
+.mainMenuList{margin-bottom: 100px; width: 150px;}
+.mainMenuList>li{height: 50px; margin: 0px;padding:10px 15px;  border-top:1px solid #777 ;position: relative;}
+.mainMenuList>li>span.bg{display: none;}
+/*.mainMenuList>li ul{top:0px;left: 150px;position: absolute;display: none;width:150px ;z-index:2 ;background-color:#fff;}
+.mainMenuList>li li  {height: 40px; margin: 0px;padding:5px 10px; width: 199px;  border-right:1px dotted #fff ; background-color:#fff;position: relative;float: left;}
+.mainMenuList>li li>a{color: #444;}*/
+.menulist ul>li>a{height: 30px;line-height: 30px; float: left; font-size: 16px;position: relative; z-index:3 ;}
+.mainMenuList>li>a>i{font-size: 30px; margin:0px 15px 0px 0px ;float: left;}
+/*.mainMenuList>li>div{top:0px;left: 150px;position: absolute; padding: 20px;display: none;background:#758ba8 ;width:200px ;}*/
+/*.mainMenuList>li:hover>div{display: block;}*/
+.menulist ul>li>span.bg{display:none;height: 100%;width: 100%; position: absolute;left: 0px;top:0px; background-color: #000;filter:alpha(opacity=30); -moz-opacity:0.3; opacity:0.3; z-index: 1;}
+.mainMenuList>li>span.bg:hover{display:block;}
+/*.mainMenuList>li>div>a{position:relative;z-index: 2; width: 80px;text-align: center;border-right:1px dotted #fff;float:left;height: 35px; line-height:35px; text-overflow: ellipsis;overflow: hidden;}
+.mainMenuList>li>div>a:nth-child(2n+1){border-right:0px;}*/
+.ulbox{position: absolute;z-index: 999;display: block; background: white; }
+.ulbox ul{background-color: #fff;border:1px solid #cfcfcf ; border-radius:7px; float: left; margin: 0;max-height:450px;overflow-y: auto;}
+.ulbox ul>li{height: 35px; padding: 5px 20px;}
+.ulbox ul>li>p{border-bottom: 1px dashed #cfcfcf; margin: 0;}
+.ulbox ul>li>p>a{text-decoration: none;font-size: 16px; cursor: pointer;}
+.ulbox ul>li>p>a>font{padding:0 5px; color: #000;}
+.ulbox ul>li>p>a:hover{background: #4e7fda; border-radius: 4px;}
+.ulbox ul>li>p>a:hover font{color: #fff;}
+.ulbox ul h4{margin-top: 10px; text-align: center;}
+
+.workCtn{background-color: #fff; height:100%;}
+.workCtn:first-child{background-color:transparent;}
+
+.indexShadow{position:absolute;width:20000px;z-index: 400;left:0;right:0;top:0;bottom:0;background: -webkit-linear-gradient(top,#fff,#d9d9d9);background: -moz-linear-gradient(top,#fff,#d9d9d9);background: -o-linear-gradient(top,#fff,#d9d9d9);background: -ms-linear-gradient(top,#fff,#d9d9d9);}
+
+.navBox {width: 100%;height:50px; position: relative;}
+.navBox .indexLeft,.navBox .indexRight{display: none; position: relative;margin-top: -50px; cursor:pointer; height: 100%;width: 20px;line-height: 50px;background: #eee;text-align: center;left: 0;top: 0;}
+.navBox .indexRight{float: right;}
+.navBox .indexLeft{float: left;}
+
+.indexTab{height:80px;position: relative;width:100%;float:left;}
+.indexTabShadow{position:absolute;left:0;right:0;top:0;bottom:0;background:#000;opacity:0.2;}
+.indexTabItem{height:80px;color:#fff;float:left;position: relative;cursor:pointer;text-align:left;text-indent:20px;line-height: 80px;}
+.indexTabItemShadow{position:absolute;left:0;right:0;top:0;bottom:0;background:#fff;opacity:0.2;display:none;}
+.indexTabItem:hover .indexTabItemShadow{display:block;}
+.indexTabItem i{font-size:36px;vertical-align: middle;color:rgb(76,202,203);position: relative;}
+.indexTabItem span{margin-left:20px;position: relative;}
+.indexTabItem em{color:rgb(253,100,100);}
+.indexNew{height:526px;}
+.indexNewCtn{height:486px;padding:20px;overflow: hidden;position: relative;}
+.indexNewBlock{height:141px;float:left;width:49%;border:1px solid #fff;position: relative;}
+.indexNewBlock:nth-child(odd){margin-left:1%;}
+.indexNewBlockImg{height:102px;border-bottom:1px solid #fff;background-repeat: no-repeat !important;background-position: center center !important;}
+.indexNewBlockText{line-height:18px;height:36px;}
+.indexNewBlockText p{margin:0;text-indent:3px;}
+.indexNewBlockText p:nth-child(2){color: rgb(243,69,10);}
+.indexNotice{height:165px;}
+.indexNoticeCtn{height:124px;padding:0 20px;position: relative;}
+.indexNoticeItem{line-height:40px;border-bottom:1px dashed rgb(85,97,121);position:relative;}
+.indexNoticeItem p{margin:0;}
+.indexNoticeItem p:first-child{color:rgb(238,97,99);}
+.indexNoticeItem p:first-child a{color:rgb(238,97,99);}
+.indexNoticeItem a{color:#fff;text-decoration: none;outline: 0 none;}
+.indexNews{height:165px;}
+.indexNewsCtn{height:124px;padding:0 20px;position:relative;}
+.indexNewsItem{line-height:40px;border-bottom:1px dashed rgb(85,97,121);position:relative;}
+.indexNewsItem p{margin:0;}
+.indexNewsItem p:first-child{color:rgb(238,97,99);}
+.indexNewsItem p:first-child a{color:rgb(238,97,99);}
+.indexNewsItem a{color:#fff;text-decoration: none;outline: 0 none;}
+.salesTrend{height:340px;}
+.salesTrendCtn{height:298px;padding:0 20px;position:relative;}
+.workBox iframe{height: 100%; width: 100%; border: 0px;}

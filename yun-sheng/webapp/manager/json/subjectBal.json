@@ -1,0 +1,16 @@
+{"rows":[
+
+{"id":"1","subCla":"资产","subCode":"1001","subName":"银行存款","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"2","subCla":"资产","subCode":"1002","subName":"银行存款","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"3","subCla":"资产","subCode":"1003","subName":"应收账款","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"4","subCla":"资产","subCode":"1004","subName":"预付账款","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"5","subCla":"负债","subCode":"1222","subName":"其他应收款","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"6","subCla":"负债","subCode":"2111","subName":"原材料","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"7","subCla":"负债","subCode":"1005","subName":"固定资产","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"8","subCla":"负债","subCode":"1022","subName":"短期借款","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"9","subCla":"负债","subCode":"1021","subName":"应付账款","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"10","subCla":"权益","subCode":"1025","subName":"预收账款","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"11","subCla":"权益","subCode":"1009","subName":"短期借款","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"12","subCla":"权益","subCode":"1008","subName":"库存现金","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"},
+{"id":"13","subCla":"权益","subCode":"1007","subName":"其他应收款","num1":"100","money1":"123131","num2":"21","money2":"10.00","num3":"31","money3":"110.00","num4":"21","money4":"99","num5":"23","money5":"211","num6":"89","money6":"32"}
+  ]}

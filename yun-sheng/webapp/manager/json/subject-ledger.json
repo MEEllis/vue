@@ -1,0 +1,16 @@
+{"rows":[
+
+{"id":"1","subCla":"2016.1","subCode":"期初余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"2","subCla":"2016.1","subCode":"期初余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"3","subCla":"2016.1","subCode":"期初余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"4","subCla":"2016.1","subCode":"期初余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"5","subCla":"2016.1","subCode":"期初余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"6","subCla":"2016.1","subCode":"期初余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"7","subCla":"2016.2","subCode":"期初余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"8","subCla":"2016.2","subCode":"期末余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"9","subCla":"2016.2","subCode":"期末余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"10","subCla":"2016.2","subCode":"期末余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"11","subCla":"2016.3","subCode":"期末余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"12","subCla":"2016.3","subCode":"期末余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"},
+{"id":"13","subCla":"2016.3","subCode":"期末余额","num1":"100","money1":"123131","num2":"21","money2":"10.00","direction":"借","num3":"31","money3":"110.00"}
+  ]}

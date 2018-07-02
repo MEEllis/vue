@@ -1,0 +1,7 @@
+{"data.contactsunitList":[
+	{"id":"1","companyId":"10","code":"9527","name":"大秦","remCode":"999","companyAddr":"咸阳","contactunitTypeCode":"0001","contactsunitClassName":"123"},
+	{"id":"2","companyId":"11","code":"1233","name":"赵","remCode":"000","companyAddr":"邯郸","contactunitTypeCode":"0011","contactsunitClassName":"123"},
+	{"id":"3","companyId":"12","code":"1233","name":"齐","remCode":"010","companyAddr":"临淄","contactunitTypeCode":"0021","contactsunitClassName":"123"},
+	{"id":"4","companyId":"13","code":"1233","name":"楚","remCode":"020","companyAddr":"鄢郢","contactunitTypeCode":"0031","contactsunitClassName":"123"}
+
+]}

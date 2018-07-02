@@ -1,0 +1,324 @@
+body{background: #f6f6f6;}
+.headerbox{
+	background: -webkit-linear-gradient(top,#5b7b9f,#39577a);
+	background: -moz-linear-gradient(top,#5b7b9f,#39577a);
+	background: -o-linear-gradient(top,#5b7b9f,#39577a);
+	background: -ms-linear-gradient(top,#5b7b9f,#39577a);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b7b9f', endColorstr='#39577a',GradientType=0 ); 
+}
+:root .gradient{filter:none;}<!--ie9-->
+
+.body_leftbg{background-color: #4f6e92;}
+.body_right .tabBox {
+    height: 50px;
+    position: relative;
+    width: 20000px;
+}
+.body_right .tabBox a {
+    background-color: #587995;
+    border: 0px ;
+    color: #fff;
+    float: left;
+    height: 50px;
+    line-height: 30px;
+    padding: 10px 15px 10px 10px;
+    position: relative;
+    z-index: 400;
+    text-decoration: none;
+}
+.body_right .tabBox a span {
+	color: #999;
+    font-size: 12px;
+    height: 18px;
+    line-height: 20px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 15px;
+    width: 15px;
+}
+
+i{
+	font-style: normal;
+}
+@media screen and (max-height: 850px) {
+    .newMes,.newSell{
+		max-height: 435px;
+	}
+}
+@media screen and (max-height: 800px) {
+    .newMes,.newSell{
+		max-height: 400px;
+	}
+}
+@media screen and (max-height: 750px) {
+    .newMes,.newSell{
+		max-height: 375px;
+	}
+}
+@media screen and (min-width: 1700px) {
+    .myDiv{
+		width: 30%;
+	}
+	.infoDiv{
+		width: 33%;
+	}
+	.mesDiv{
+		width: 33%;
+	}
+}
+@media screen and (max-width: 1700px) {
+    .myDiv{
+		width: 32%;
+	}
+	.infoDiv{
+		width: 32%;
+	}
+	.mesDiv{
+		width: 32%;
+	}
+}
+@media screen and (max-width: 1600px) {
+    .myDiv{
+		width: 34%;
+	}
+	.infoDiv{
+		width: 31%;
+	}
+	.mesDiv{
+		width: 31%;
+	}
+}
+@media screen and (max-width: 1500px) {
+    .myDiv{
+		width: 36%;
+	}
+	.infoDiv{
+		width: 30%;
+	}
+	.mesDiv{
+		width: 30%;
+	}
+}
+@media screen and (max-width: 1400px) {
+    .myDiv{
+		width: 38%;
+	}
+	.infoDiv{
+		width: 29%;
+	}
+	.mesDiv{
+		width: 29%;
+	}
+}
+@media screen and (max-width: 1300px) {
+    .myDiv{
+		width: 40%;
+	}
+	.infoDiv{
+		width: 28%;
+	}
+	.mesDiv{
+		width: 28%;
+	}
+}
+.body_right .tabBox .pad20{
+	padding-left: 20px;
+    padding-right: 20px;
+}
+.body_read{
+	position: absolute;
+    right: -210px;
+    height: 100%;
+    width: 210px;
+    background: #fff;
+    top: 60px;
+    z-index: 999;
+}
+.body_read h4{
+	height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: relative;
+    margin: 0;
+}
+.isRead{
+	position: absolute;
+    right: 12px;
+    padding: 0 3px;
+    cursor: pointer;
+}
+.body_read p{
+	height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-bottom: 1px solid #e2e6ea;
+    margin-bottom: 0;
+    cursor: pointer;
+    position: relative;
+}
+.body_read p i{
+	position: absolute;
+    right: 18px;
+}
+.dsbox_p{
+	background: #5289ff;
+    color: #fff;
+}
+.dgzbox_p{
+	background: #f36161;
+    color: #fff;
+}
+.dgsbox_p{
+	background: #50daa1;
+    color: #fff;
+}
+.wdgs_p{
+	background: #50c3fc;
+    color: #fff;
+}
+.wdxt_p{
+	background: #ffb759;
+    color: #fff;
+}
+.homeBox{
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+}
+.boxOne{
+	height: 240px;
+	width: 100%;
+}
+.boxOne>div{
+	height: 230px;
+	border: 1px solid #e2e6ea;
+	float: left;
+    padding: 10px;
+}
+.boxOne>div>h5{
+	height: 30px;
+	border-bottom: 1px solid #e2e6ea;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    position: relative;
+}
+.boxOne>div>h5>a{
+	position: absolute;
+    right: 0;
+    font-size: 14px;
+    top: 3px;
+}
+.infoDiv{
+	margin: 0 2%;
+}
+.infoDiv p,.mesDiv p{
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    margin: 0;
+    padding-right: 50px;
+    overflow: hidden;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.infoDiv p:hover,.mesDiv p:hover{
+	color: #5c8bf1;
+}
+.infoDiv p i,.mesDiv p i{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.myDiv>div{
+	height: 160px;
+	float: left;
+	width: 32%;
+	border-radius: 8px;
+	padding: 20px 0;
+	cursor: pointer;
+}
+.myDiv p{
+	text-align: center;
+	font-size: 18px;
+    color: #fff;
+}
+.myDiv .myDivp{
+	font-size: 24px;
+    margin-bottom: 3px;
+}
+.dsbox{
+	background: #5289ff;
+}
+.dgzbox{
+	background: #f36161;
+	margin: 0 2%;
+}
+.dgsbox{
+	background: #50daa1;
+}
+.boxTwo{
+    height: 69%;
+    width: 100%;
+}
+.boxTwo>div{
+	height: 100%;
+    width: 49%;
+    float: left;
+    border: 1px solid #e2e6ea;
+    padding: 10px;
+}
+.newMes{
+	margin-right: 2%;
+}
+.newMesNav,.newSellNav{
+	height: 35px;
+    border-bottom: 1px solid #e2e6ea;
+    margin-bottom: 20px;
+    position: relative;
+}
+.newMesNav select,.newSellNav select{
+	position: absolute;
+    right: 10px;
+    top: -2px;
+    font-size: 16px;
+    border: 0;
+    height: 24px;
+}
+.newMesNav span,.newSellNav span{
+    display: inline-block;
+    height: 34px;
+    padding-top: 3px;
+    margin-right: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.newMesNav span:hover{
+	color: #5c8bf1;
+	border-bottom: 2px solid #5c8bf1;
+}
+.newMon{
+	color: #5c8bf1;
+	border-bottom: 2px solid #5c8bf1;
+}
+#newModal .modal-body h4{
+    text-align: center;
+}
+.newmp{
+	position: relative;
+	text-align: center;
+	text-indent: initial;
+}
+.newmp i{
+	position: absolute;
+    right: 0;
+}
+#id_0{
+	min-height: 420px;
+	width: 100%;
+    overflow-y: auto;
+}
+.yd{
+	color: #ccc;
+}

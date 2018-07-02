@@ -1,0 +1,9 @@
+{"rows":[
+{"serviceName":"1001","limitTime":"1","serviceLimit":"执信","limitCount":"","serviceCount":"1001","prePrince":"3","feeStandrad":"执信","serviceCount":"00001","chOrNot":"1","feeContinue":"","initialOverTime":"","remark":"00001"},
+{"serviceName":"1001","limitTime":"0","serviceLimit":"执信","limitCount":"","serviceCount":"1001","prePrince":"4","feeStandrad":"执信","serviceCount":"00001","chOrNot":"","feeContinue":"","initialOverTime":"","remark":"00001"},
+{"serviceName":"1001","limitTime":"","serviceLimit":"执信","limitCount":"","serviceCount":"1001","prePrince":"5","feeStandrad":"执信","serviceCount":"00001","chOrNot":"1","feeContinue":"","initialOverTime":"","remark":"00001"},
+{"serviceName":"1001","limitTime":"","serviceLimit":"执信","limitCount":"","serviceCount":"1001","prePrince":"6","feeStandrad":"执信","serviceCount":"00001","chOrNot":"","feeContinue":"1","initialOverTime":"","remark":"00001"},
+{"serviceName":"1001","limitTime":"","serviceLimit":"执信","limitCount":"","serviceCount":"1001","prePrince":"7","feeStandrad":"执信","serviceCount":"00001","chOrNot":"","feeContinue":"","initialOverTime":"","remark":"00001"}
+]}
+
+

@@ -1,0 +1,11 @@
+#ld{
+    margin: 50px auto 150px auto;
+}
+#ld h3{}
+#ld p{
+    text-align: left;
+    font-weight: bold;
+}
+#ld span{
+    font-size: 11pt;
+}

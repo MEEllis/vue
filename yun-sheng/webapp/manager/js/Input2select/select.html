@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../base/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/font-awesome-ie7.css"/>	
+		<link rel="stylesheet" type="text/css" href="input2select.css"/>
+		<script src="input2select.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+	
+	$(function() {
+		$("input[data-src]").Input2select();
+		String.prototype.replaceAll = function(s1, s2) {
+		return this.replace(new RegExp(s1, "gm"), s2);
+		};
+	$("input[data-comsrc]").autocom();
+});
+
+
+		</script>
+		<style type="text/css">
+			
+			
+		</style>
+	</head>
+	<body>
+	<input type="checkbox" name="" id="" value="" />
+	<input type="text" name="a" data-src="list.json" data-type="list" data-multi="0" data-valin="aid" data-namecol="name" data-valcol="id" readonly="readonly" />
+	<input type="hidden" name="aid" id="aid" value="" />
+	
+	<input type="text" name="a1" data-src="list.json" data-type="list" data-multi="1" data-valin="aid" data-namecol="name" data-valcol="id" readonly="readonly" />
+	<input type="hidden" name="a1id" id="aid" value="" />
+	
+	<input type="text" name="a1" data-src="tree.json" data-type="tree" data-multi="0" data-valin="aid" data-namecol="name" data-valcol="id" readonly="readonly" />
+	<input type="hidden" name="a1id" id="aid" value="" />
+	
+	<input type="text" name="a1" data-src="tree.json" data-type="tree" data-multi="1" data-valin="aid" data-namecol="name" data-valcol="id" readonly="readonly" />
+	<input type="hidden" name="a1id" id="aid" value="" />
+	
+<input type="text" name="autocoms" data-comsrc="list.json" data-namecol="name"/>
+<div class="tree">
+	
+</div>
+	
+	
+	</body>
+</html>

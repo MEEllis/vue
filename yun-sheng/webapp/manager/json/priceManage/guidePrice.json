@@ -1,0 +1,25 @@
+{
+	"guidePrice":[
+	              {"checkbox":"","goodsNum":"11112222211","goodsName":"屠龙宝刀","price_01":"998","price_02":"8.8"},
+	              {"checkbox":"","goodsNum":"11112222211","goodsName":"屠龙宝刀","price_01":"998","price_02":"8.8"},
+	              {"checkbox":"","goodsNum":"11112222211","goodsName":"屠龙宝刀","price_01":"998","price_02":"8.8"},
+	              {"checkbox":"","goodsNum":"11112222211","goodsName":"屠龙宝刀","price_01":"998","price_02":"8.8"},
+	              {"checkbox":"","goodsNum":"11112222211","goodsName":"屠龙宝刀","price_01":"998","price_02":"8.8"},
+	              {"checkbox":"","goodsNum":"11112222211","goodsName":"屠龙宝刀","price_01":"998","price_02":"8.8"},
+	              {"checkbox":"","goodsNum":"11112222211","goodsName":"屠龙宝刀","price_01":"998","price_02":"8.8"},
+	              {"checkbox":"","goodsNum":"11112222211","goodsName":"屠龙宝刀","price_01":"998","price_02":"8.8"},
+	              {"checkbox":"","goodsNum":"11112222211","goodsName":"屠龙宝刀","price_01":"998","price_02":"8.8"},
+	              {"checkbox":"","goodsNum":"11112222211","goodsName":"屠龙宝刀","price_01":"998","price_02":"8.8"}
+	              ],
+	"companyPrice":[
+	                {"checkbox":"","companyNum":"222222213","companyName":"甲骨文","companyType":"IT公司","contant":"王莹","sellerPrice":"998"},
+	                {"checkbox":"","companyNum":"222222213","companyName":"甲骨文","companyType":"IT公司","contant":"王莹","sellerPrice":"998"},
+	                {"checkbox":"","companyNum":"222222213","companyName":"甲骨文","companyType":"IT公司","contant":"王莹","sellerPrice":"998"},
+	                {"checkbox":"","companyNum":"222222213","companyName":"甲骨文","companyType":"IT公司","contant":"王莹","sellerPrice":"998"},
+	                {"checkbox":"","companyNum":"222222213","companyName":"甲骨文","companyType":"IT公司","contant":"王莹","sellerPrice":"998"},
+	                {"checkbox":"","companyNum":"222222213","companyName":"甲骨文","companyType":"IT公司","contant":"王莹","sellerPrice":"998"},
+	                {"checkbox":"","companyNum":"222222213","companyName":"甲骨文","companyType":"IT公司","contant":"王莹","sellerPrice":"998"},
+	                {"checkbox":"","companyNum":"222222213","companyName":"甲骨文","companyType":"IT公司","contant":"王莹","sellerPrice":"998"},
+	                {"checkbox":"","companyNum":"222222213","companyName":"甲骨文","companyType":"IT公司","contant":"王莹","sellerPrice":"998"}
+	                ]
+}

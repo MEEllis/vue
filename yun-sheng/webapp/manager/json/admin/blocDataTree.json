@@ -1,0 +1,13 @@
+[   
+	{"id":11, "pId":1, "name":"进销存"},
+	{"id":111, "pId":11, "name":"采购", "nocheck":true},
+	{"id":112, "pId":11, "name":"仓储", "nocheck":true},
+	{"id":113, "pId":11, "name":"零售", "nocheck":true},
+	{"id":114, "pId":11, "name":"销售", "nocheck":true},
+	
+	{"id":12, "pId":1, "name":"财务"},
+	{"id":121, "pId":12, "name":"一级"},
+	{"id":1211, "pId":121, "name":"二级"},
+	{"id":12111, "pId":1211, "name":"三级", "nocheck":true}
+	
+]

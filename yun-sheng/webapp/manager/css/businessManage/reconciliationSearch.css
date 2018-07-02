@@ -1,0 +1,25 @@
+#search{
+	background-image: none;
+}
+.ui-th-column.ui-th-ltr{
+	text-align: center;
+}
+.tableWrap{
+	margin-top:20px;
+}
+#popsSure{
+	background-image: none;
+}
+.popsWrap{
+	display: none;
+}
+.fontCtrl{
+	width:100%;
+	height:100%;
+	text-decoration: underline;
+	color:blue;
+}
+.fontCtrl:hover{
+	color:red;
+	cursor:pointer;
+}

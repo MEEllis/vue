@@ -1,0 +1,146 @@
+.topMargin{
+	margin-bottom:10px!important;
+	min-width:1450px;
+	margin-right: 0;
+}
+.ui-th-div{
+	text-align: center;
+}
+.BottomMargin{
+	margin:10px 0;
+	overflow: hidden;
+}
+.Zpercent2{
+	width:33.3%;
+	float:left;
+}
+.changeBackground{
+	background-color:#4e78a1!important;
+	color:#fff;
+	font-weight: bold;
+}
+.list-group>li:hover{
+  cursor: pointer;
+}
+.table th, .table td { 
+text-align: center;
+vertical-align: middle!important;
+}
+i{
+	font-style: normal;
+}
+.pdbtn{
+	width: 150px;
+    border-radius: 5px;
+}
+.newAD{
+	position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+}
+.closeAD{
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+#goodsBook .modal-title,#countStock .modal-title,#countMessage .modal-title{
+	text-align: center;
+}
+#goodsBookDetails tr td:first-child{
+	width: 68px;
+}
+.td_imeis,.td_auxiliaryImeis{
+	width: 223px;
+}
+.count-main{
+	height: 450px;
+}
+.countleft-title{
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    text-align: center;
+    background: buttonface;
+    margin-bottom: 10px;
+}
+.count-left,.count-right{
+	float: left;
+	overflow-y: auto;
+	height: 100%;
+}
+.count-left{
+	width: 340px;
+    margin-right: 15px;
+}
+.count-right{
+	width: 510px;
+}
+.countMbody{
+	height:400px;
+	overflow-y: auto;
+}
+.countMtip{
+    text-align: center;
+    width: 552px;
+}
+.green{
+	color: green;
+}
+.blue{
+	color: blue;
+}
+.countStocktitle{
+    height: 40px;
+    margin-bottom: 10px;
+}
+#imeiTextarea{
+	height: 100%;
+    width: 400px;
+    padding: 2px 3px;
+    font-size: 12px;
+    resize:none;
+}
+.countStockSave{
+    vertical-align: top;
+    height: 35px;
+    width: 80px;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+.td_add{
+	cursor: pointer;
+}
+.td_del{
+	color: #337ab7;
+	cursor: pointer;
+}
+.onceHide{
+	display: none;
+}
+.numberFont {
+    width:40px;
+    height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #000;
+}
+.mainFont{
+   font-style:normal;
+   
+}
+/*时间显示*/
+#mainTimeShow{
+  width:200px;
+  height:20px;
+  text-align:center;
+  float:right;
+}
+#refresCount{
+  display:none;
+}
+#statusComplete,#statusNoComplete{
+  display:none;
+}

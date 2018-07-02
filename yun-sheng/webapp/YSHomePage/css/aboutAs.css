@@ -1,0 +1,431 @@
+html,body{color:#333}
+body{background:#fff;}
+ul,ol,li{ list-style:none;}
+a:link, a:visited{ color:#333; text-decoration:none;}
+a:hover{ color:#12b7f5;}
+img{ border:none;}
+em{ font-style:normal;}
+.clearfloat:after{ content:'.';display:block;overflow:hidden;visibility:hidden;font-size:0;line-height:0;width:0;height:0;}
+.clearfloat{zoom:1;}
+/* top */
+.max1600{max-width:1600px; min-width:1170px; margin:0 auto;}
+.topbar{ position: absolute; left: 0; top: 0; width:100%; height:150px; z-index: 900;}
+.toppic{ max-width:1170px; min-width:980px;/* width:80%;*/ height:75px; margin:0 auto;}
+.toppic a:link, .toppic a:visited{ color: #fff;}
+.topicfixed{ position: fixed; left: 0; top: 0; background: #fff; border-bottom: 1px solid #f1f1f1;}
+.topicfixed a:link, .topicfixed a:visited{ color: #797878;}
+.topside{ float:left;}
+.logoLink{ float:left; display:block; width:140px; height:0; overflow:hidden; padding-top:76px; font-size:0; background:transparent url('http://ylres.yonyouup.com/images/icon-logo.png') no-repeat left 20px;}
+.topNav{ float:right; padding-left: 18px;}
+.topNav li{ float:left;}
+.topNav li a{ float: left; padding: 0 15px;line-height:75px; font-size:17px;}
+.topNav li a:hover{ color: #faa448;}
+.topNav li.current a{ color: #faa448;}
+@media screen and (max-width:1070px){
+    .topNav li a{ padding: 0 10px;}
+}
+.topicfixed { height: 75px;}
+.topicfixed .logoLink{ background-image: url('http://ylres.yonyouup.com/images/icon-logo-gray.png');}
+.topicfixed li.current a,.topicfixed .topNav li a:hover{ background: none; color: #ff8500;}
+.topTool{ float:right; margin-top:18px; font-size: 16px;}
+.topTool a.barzc,.topTool a.reg{ float: right; width: 92px; height:35px; border: 2px solid #faa448; border-radius:30px; overflow: hidden; text-align: center; line-height: 35px; color: #faa448; margin-left: 15px;}
+.topTool a.reg{background: #faa448; color: #fff;}
+.topTool a.reg:hover{background: #ff8500; color: #fff;border: 2px solid #ff8500}
+.topTool a.barzc:hover, .topicfixed a.barzc:hover{background: #faa448; color: #fff;}
+.topTool ul{ float: right; height: 40px; padding-top: 6px;}
+.topTool li{ float: right; margin-left: 30px; position: relative; line-height: 40px;}
+.topTool .login{ height:43px; line-height:43px;}
+.topTool .login span{ padding:0 18px; color:#cecece;}
+.topTool a:hover{ color:#12b7f5;}
+.topicfixed a.barzc{ display: inline;}
+/* banner */
+.crossbanenr{ width: 100%; height: 778px;}
+.crossbanenr ul{ position: relative; width: 100%; height: 100%; overflow: hidden; /*max-width: 1920px; */min-width: 1170px; margin: 0 auto;}
+.crossbanenr li{ position: absolute; left: 50%; top: 0; width: 1920px; height: 100%; margin: 0 0 0 -960px; display: none; z-index: 1;}
+.crossbanenr li:first-child{ display: block;}
+.crossbanenr li.current{ z-index: 2;}
+.crossbanenr li.top_bg01{ background: transparent url('http://ylres.yonyouup.com/images/top_bigpic01.jpg') no-repeat center top;}
+.crossbanenr li.top_bg02{ background: transparent url('http://ylres.yonyouup.com/images/top_bigpic02.jpg') no-repeat center top;}
+.crossbanenr li.top_bg03{ background: transparent url('http://ylres.yonyouup.com/images/top_bigpic03.jpg') no-repeat center top;}
+.bncont{ position: relative; width: 980px; height: 100%; margin: 0 auto;}
+.bntxt01{ position: absolute;  left: -53px; top:45%; width: 1100px;height: 460px; margin-top: -230px; z-index: 10; }
+.bntxt01 h2{ width: 100%; height: 0; overflow: hidden; padding-top: 520px; text-indent: -9999px; background: url("http://ylres.yonyouup.com/images/top_bigpic01_words.png") no-repeat center 60px;}
+a.bnxz{ display: block;width: 380px; height: 74px; color: #fff;border-radius: 40px;position: absolute; bottom:0;left:218px;  line-height: 74px; text-align: center; font-size: 36px; background:#faa448 }
+.bntxt02 h2{ width: 100%; height: 0; overflow: hidden; padding-top: 315px; text-indent: -9999px;background: url("http://ylres.yonyouup.com/images/top_bigpic02_words.png") no-repeat center top;}
+.bntxt02{ position: absolute;right:-35px; top: 30%; width: 640px; height: 210px; margin-top: -105px; z-index: 10;}
+.bntxt h2{ width: 100%; height: 0; overflow: hidden; padding-top: 315px; text-indent: -9999px;background: url("http://ylres.yonyouup.com/images/top_bigpic03_words.png") no-repeat center top;}
+.bntxt{ position: absolute;right:-35px; top: 30%; width: 640px; height: 210px; margin-top: -105px; z-index: 10;}
+.bnxz:hover{background: #ff8500; color: #fff;}
+
+.circle{ position: relative; width: 100%; height: 52px; margin-top: -52px; background: transparent url(http://ylres.yonyouup.com/images/linearbot.png) repeat-x left top; text-align: center; z-index: 5;}
+.circle span{ margin: 0 5px; padding: 2px 5px; background: transparent url(http://ylres.yonyouup.com/images/nav.png) no-repeat center center; cursor: pointer;}
+.circle span.on{ background-image: url(http://ylres.yonyouup.com/images/navcur.png);}
+.content{ width: 100%;}
+.content h1{ width: 100%; height: 0; overflow: hidden; padding-top: 280px; background: #fff url('http://ylres.yonyouup.com/images/icon-banner.gif') no-repeat center top;}
+.activebg{ position: relative; width: 100%; height: 600px; background: #fff; background-attachment: fixed;background-position: center 0; background-repeat: no-repeat;background-size: 100%}
+
+.txtwrap p{ font-size: 20px;line-height: 35px; opacity: 0.8; width: 100%; margin-bottom: 12px;}
+.txtwrap h2{width: 100%; overflow: hidden;height:120px; font-size:70px; color: #333;}
+.figure{ width: 100%;
+    padding: 50px 0;
+    /*height: 584px; */
+    background: #fff;}
+.w1170{
+    position: relative;
+    max-width:980px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.call .txtwrap{ position: absolute; right: 7px; top: 115px; width: 487px;}
+.call h2,.call p{ text-align: right;}
+.figs{ width: 100%; padding-top: 44px; min-height: 77px;}
+.figs li{ padding: 0; color: #666; font-size: 16px; text-align: center; width:138px;}
+.figs li span{background: transparent url("http://ylres.yonyouup.com/images/icon-global.png") no-repeat;display: block; width: 80px; height: 80px; margin:0 auto 10px}
+.figs li span.icon-101{ background-position:0 -880px }
+.figs li span.icon-102{ background-position:-130px -880px }
+.figs li span.icon-103{ background-position:-260px -880px }
+.figs li span.icon-201{ background-position:-390px -880px }
+.figs li span.icon-202{ background-position:-520px -880px }
+.figs li span.icon-203{ background-position:-650px -880px }
+.figs li span.icon-301{ background-position:-780px -880px }
+.figs li span.icon-302{ background-position:0 -963px }
+.figs li span.icon-303{ background-position:-130px -963px }
+.figs li span.icon-401{ background-position:-260px -963px }
+.figs li span.icon-402{ background-position:-390px -963px }
+.figs li span.icon-403{ background-position:-520px -963px }
+.figs li span.icon-501{ background-position:-650px -963px }
+.figs li span.icon-502{ background-position:-780px -963px }
+.figs li span.icon-503{ background-position:0 -1050px }
+.figs li span.icon-601{ background-position:-130px -1050px }
+.figs li span.icon-602{ background-position:-260px -1050px }
+.figs li span.icon-603{ background-position:-390px -1050px }
+.call .figs{ margin-right: -30px;float: right}
+.call .figs li{ float: right; }
+.callWrap{ position: relative; width:502px; height: 588px; overflow: hidden; left:0; top:0;}
+.pic1,.pic2,.pic3,.pic4,.pic5,.pic6,.pic7,.pic-center{ background: transparent url("http://ylres.yonyouup.com/images/icon-global.png") no-repeat; position: absolute;z-index: 2; opacity: 0}
+.pic7,.pic-center{opacity: 1}
+.callAnimate{ position: absolute; left: -32px; bottom: 0; width: 664px; height: 710px; background: transparent url('http://ylres.yonyouup.com/images/icon-phone01-bg.png') no-repeat 0 0;}
+.callWrap .pic1{ left:345px; top:108px; width: 83px; height: 83px;background-position: 0 0; }
+.callWrap .pic2{  left:133px; top:47px; width: 82px; height: 82px; background-position: -130px 0; }
+.callWrap .pic3{  left:73px; top:250px; width: 94px; height: 94px;background-position: -260px 0; }
+.callWrap .pic4{  left:176px; top:466px; width: 60px; height: 60px; background-position: -390px 0; }
+.callWrap .pic5{  left:329px; top:405px; width: 130px; height: 130px; background-position: -520px 0; }
+.callWrap .pic6{  right:10px; top:297px; width: 51px; height: 51px;background-position: -650px 0; }
+.callWrap .pic7{  left: 1px; top:459px; width: 62px; height: 65px; background-position: -780px 0; }
+.callWrap .pic-center{ left:221px; top:245px; width: 105px; height: 91px;background-position: 0 -780px; }
+
+/*file*/
+.fileAnimate{ position: absolute; right:0; bottom: 0; width:540px; height: 710px;background: transparent url('http://ylres.yonyouup.com/images/icon-phone02-bg.png') no-repeat 0 0;}
+.file .txtwrap{ position: absolute; left: 0; top: 115px; width: 500px;}
+.file p{  padding-left: 5px; }
+.file .figs li{ float: left; }
+.file .figs{ margin-left: -30px;}
+.fileWrap{ position: relative;left: 0; top: 0}
+.fileWrap .pic1{ left:102px; top:177px; width: 82px; height: 82px; background-position:0 -130px ;}
+.fileWrap .pic2{ left:0; top:300px; width: 70px; height: 70px; background-position:-130px -130px ; }
+.fileWrap .pic3{ left:112px; top:375px; width: 130px; height: 130px; background-position:-260px -130px ; }
+.fileWrap .pic4{ left:333px; top:462px; width: 60px; height: 60px; background-position:-390px -130px; }
+.fileWrap .pic5{ left:370px; top:333px; width: 81px; height: 81px; background-position:-520px -130px ; }
+.fileWrap .pic6{ left:350px; top:73px; width: 92px; height: 92px; background-position: -650px -130px; }
+.fileWrap .pic7{ right: 10px; top:434px; width: 62px; height: 65px; background-position:-780px -130px ; }
+.fileWrap .pic-center{  left:233px; top:230px; width:90px; height: 86px; background-position: -130px -780px;}
+/*mall*/
+.mall .txtwrap{ position: absolute; right: 7px; top: 120px; width: 495px;}
+.mall p,.mall h2{  text-align: right;}
+.mall .figs li{ float: right; }
+.mallAnimate{ position: absolute; left: -32px; bottom: 0; width: 664px; height: 710px; background: transparent url('http://ylres.yonyouup.com/images/icon-phone03-bg.png') no-repeat 0 0;}
+.mallWrap{ position: relative; width:550px; height: 588px; overflow: hidden; left:0; top:0;}
+.mallWrap .pic1{  left:320px; top:49px; width: 130px; height: 130px; background-position:0 -260px ;}
+.mallWrap .pic2{  left:44px; top:156px; width: 63px; height: 63px; background-position:-130px -260px ; }
+.mallWrap .pic3{  left:92px; top:245px; width: 79px; height: 79px; background-position:-260px -260px ;}
+.mallWrap .pic4{  left:118px; top:426px; width: 75px; height: 75px; background-position:-390px -260px ; }
+.mallWrap .pic5{  left:288px; top:465px; width: 81px; height: 81px;background-position:-520px -260px ; }
+.mallWrap .pic6{  left:344px; top:320px; width: 94px; height: 94px;background-position:-650px -260px ; }
+.mallWrap .pic7{  left: 1px; top:460px; width: 62px; height: 65px; background-position:-780px -260px ;  }
+.mallWrap .pic-center{  left:221px; top:250px; width: 104px; height: 76px;background-position: -260px -780px;}
+a.knmore:link, a.knmore:visited{ color: #12b7f5;}
+/*member*/
+.memberAnimate{ position: absolute; right:0; bottom: 0; width:550px; height: 710px;background: transparent url('http://ylres.yonyouup.com/images/icon-phone01-bg.png') no-repeat 0 0;}
+.memberWrap{ position: relative;left: 0; top: 0}
+.memberWrap .pic1{   left:116px; top:110px;width: 83px; height: 83px; background-position:0 -390px; }
+.memberWrap .pic2{  left:329px; top:49px;   width: 82px; height: 82px;  background-position:-130px -390px; }
+.memberWrap .pic3{  left:377px; top:252px; width: 94px; height: 94px;  background-position:-260px -390px; }
+.memberWrap .pic4{  left:305px; top:469px; width: 60px; height: 60px;  background-position:-390px -390px; }
+.memberWrap .pic5{  left:84px; top:407px;width: 130px; height: 130px;  background-position:-520px -390px; }
+.memberWrap .pic6{ left:40px; top:296px; width: 56px; height: 56px;  background-position:-650px -390px; }
+.memberWrap .pic7{  right: 10px; top:461px; width: 62px; height: 65px; background-position:-780px -390px;}
+.memberWrap .pic-center{  left:234px; top:238px; width: 89px; height: 89px;background-position: -390px -780px;}
+/*microSite*/
+.microWrap{ position: relative; width:550px; height: 588px; overflow: hidden; left:0; top:0;}
+.microAnimate{ position: absolute; left: -32px; bottom: 0; width: 664px; height: 710px; background: transparent url('http://ylres.yonyouup.com/images/icon-phone02-bg.png') no-repeat 0 0;}
+.microWrap .pic1{  left:166px; top:463px; width: 60px; height: 60px; background-position:0 -520px; }
+.microWrap .pic2{  left:108px; top:238px; width: 81px; height: 81px; background-position:-130px -520px; }
+.microWrap .pic3{  left:116px; top:75px; width: 92px; height: 92px; background-position:-260px -520px; }
+.microWrap .pic4{  left:375px; top:180px;width: 82px; height: 82px;  background-position:-390px -520px; }
+.microWrap .pic5{  left:317px; top:376px; width: 130px; height: 130px; background-position:-520px -520px; }
+.microWrap .pic6{  right:10px; top:304px; width: 63px; height: 63px; background-position:-650px -520px; }
+.microWrap .pic7{  left: 1px; top:437px; width: 62px; height: 65px; background-position:-780px -520px;}
+.microWrap .pic-center{ left:222px; top:229px; width: 102px; height: 82px; background-position: -520px -780px;}
+/*o2o*/
+.o2oAnimate{ position: absolute; right:0; bottom: 0; width:550px; height: 710px;background: transparent url('http://ylres.yonyouup.com/images/icon-phone03-bg.png') no-repeat 0 0;}
+.o2oWrap{ position: relative;left: 0; top: 0}
+.o2oWrap .pic1{   left:102px; top:49px;width: 130px; height: 130px; background-position:0 -650px; }
+.o2oWrap .pic2{  left:116px; top:319px;   width: 94px; height: 94px; background-position:-130px -650px; }
+.o2oWrap .pic3{  left:203px; top:472px;  width: 57px; height: 57px;background-position:-260px -650px; }
+.o2oWrap .pic4{  left:361px; top:426px; width: 75px; height: 75px; background-position:-390px -650px; }
+.o2oWrap .pic5{  left:387px; top:250px;width: 70px; height: 70px; background-position:-520px -650px; }
+.o2oWrap .pic6{ left:446px; top:156px; width: 63px; height: 63px; background-position:-650px -650px; }
+.o2oWrap .pic7{  right: 10px; top:461px; width: 62px; height: 65px; background-position:-780px -650px;opacity: 1}
+.o2oWrap .pic-center{left:225px; top:238px; width: 118px; height: 46px; background-position: -650px -780px;}
+/* footer */
+.footer{ max-width: 1080px; margin: 0 auto 100px }
+.footer h2{ background: url("http://ylres.yonyouup.com/images/icon-footer-txt.png") no-repeat center; height: 148px; width: 100%;}
+.footer-img{/*background: url("http://ylres.yonyouup.com/images/pic-footer.jpg") no-repeat top center; */width: 100%; }
+.footer-img table{border-collapse: collapse;}
+.footer-img table tr td{width: 178px; height: 88px;border: 1px solid #ebebeb;text-align: center;vertical-align: middle}
+.newfoot{ width: 100%; height: 348px; padding-top:34px; background: #3e4147; font-size:0.75em; min-width: 1170px}
+.newfoot h2{ text-align: center; color: #fff; font-size: 40px; vertical-align: middle }
+.newfoot h2 span{ display: inline-block; background: transparent url("http://ylres.yonyouup.com/images/icon-global.png") no-repeat -780px -780px; width: 50px; height: 50px; vertical-align: middle; margin-right: 28px;}
+.newfoot a:link, .newfoot a:visited{ color: #fff;}
+.newfoot a:hover{ color: #cfcfcf;}
+.maps{ width: 1170px; height: 205px; margin: 0 auto;}
+.maps ul{display: table; width: 100%; margin-top: 38px;}
+.maps ul li{display: table-cell; color: #fff; vertical-align: top; width: 177px }
+.maps ul li img{ margin-bottom: 10px;}
+.maps ul li div{border-left: 1px solid #5b5d62; padding-left: 20px;}
+.maps ul li h3{font-size: 18px; margin-bottom: 15px;}
+.maps ul li p{ line-height: 24px; font-size: 14px;}
+.copyright{ clear: both; width: 1170px; margin: 0 auto; padding-top: 16px; border-top: 1px solid #666; line-height: 17px; font-size:12px;text-align: center; color: #999;}
+#pg1 .callWrap .pic-center,#pg2 .fileWrap .pic-center,#pg3 .mallWrap .pic-center,#pg4 .memberWrap .pic-center,#pg5 .microWrap .pic-center,#pg6 .o2oWrap .pic-center{
+    -webkit-animation:fadeToggle  3s infinite linear;
+    animation:fadeToggle  3s infinite linear;
+    opacity: 1;
+    -webkit-animation-fill-mode: backwards;
+    -moz-animation-fill-mode: backwards;
+    -o-animation-fill-mode: backwards;
+    animation-fill-mode: backwards;
+}
+
+
+#pg1 .callWrap .pic1,#pg2 .fileWrap .pic1,#pg3 .mallWrap .pic1,#pg4 .memberWrap .pic1,#pg5 .microWrap .pic1,#pg6 .o2oWrap .pic1{
+    -webkit-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.4s;
+    -moz-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.4s;
+    -o-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.4s;
+    animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.4s;
+}
+
+#pg1 .callWrap .pic2,#pg2 .fileWrap .pic2,#pg3 .mallWrap .pic2,#pg4 .memberWrap .pic2,#pg5 .microWrap .pic2,#pg6 .o2oWrap .pic2{
+    -webkit-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.5s;
+    -moz-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.5s;
+    -o-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.5s;
+    animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.5s;
+}
+
+#pg1 .callWrap .pic3,#pg2 .fileWrap .pic3,#pg3 .mallWrap .pic3,#pg4 .memberWrap .pic3,#pg5 .microWrap .pic3,#pg6 .o2oWrap .pic3{
+    -webkit-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.6s;
+    -moz-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.6s;
+    -o-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.6s;
+    animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.6s;
+}
+#pg1 .callWrap .pic4,#pg2 .fileWrap .pic4,#pg3 .mallWrap .pic4,#pg4 .memberWrap .pic4,#pg5 .microWrap .pic4,#pg6 .o2oWrap .pic4{
+    -webkit-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.7s;
+    -moz-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.7s;
+    -o-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.7s;
+    animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.7s;
+}
+#pg1 .callWrap .pic5,#pg2 .fileWrap .pic5,#pg3 .mallWrap .pic5,#pg4 .memberWrap .pic5,#pg5 .microWrap .pic5,#pg6 .o2oWrap .pic5{
+    -webkit-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.8s;
+    -moz-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.8s;
+    -o-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.8s;
+    animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.8s;
+}
+#pg1 .callWrap .pic6,#pg2 .fileWrap .pic6,#pg3 .mallWrap .pic6,#pg4 .memberWrap .pic6,#pg5 .microWrap .pic6,#pg6 .o2oWrap .pic6{
+    -webkit-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.9s;
+    -moz-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.9s;
+    -o-animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.9s;
+    animation: zoomIn 1s cubic-bezier(0, .25, .08, 1) 0.9s;
+}
+#pg1 .callWrap .pic1,#pg2 .fileWrap .pic1,#pg3 .mallWrap .pic1,#pg4 .memberWrap .pic1,#pg5 .microWrap .pic1,#pg6 .o2oWrap .pic1,
+#pg1 .callWrap .pic2,#pg2 .fileWrap .pic2,#pg3 .mallWrap .pic2,#pg4 .memberWrap .pic2,#pg5 .microWrap .pic2,#pg6 .o2oWrap .pic2,
+#pg1 .callWrap .pic3,#pg2 .fileWrap .pic3,#pg3 .mallWrap .pic3,#pg4 .memberWrap .pic3,#pg5 .microWrap .pic3,#pg6 .o2oWrap .pic3,
+#pg1 .callWrap .pic4,#pg2 .fileWrap .pic4,#pg3 .mallWrap .pic4,#pg4 .memberWrap .pic4,#pg5 .microWrap .pic4,#pg6 .o2oWrap .pic4,
+#pg1 .callWrap .pic5,#pg2 .fileWrap .pic5,#pg3 .mallWrap .pic5,#pg4 .memberWrap .pic5,#pg5 .microWrap .pic5,#pg6 .o2oWrap .pic5,
+#pg1 .callWrap .pic6,#pg2 .fileWrap .pic6,#pg3 .mallWrap .pic6,#pg4 .memberWrap .pic6,#pg5 .microWrap .pic6,#pg6 .o2oWrap .pic6{
+    opacity: 1;
+    -webkit-animation-fill-mode: backwards;
+    -moz-animation-fill-mode: backwards;
+    -o-animation-fill-mode: backwards;
+    animation-fill-mode: backwards;
+}
+
+.kfloat{ position:fixed;width:40px; height:196px; top:30%; margin-top:-98px; right:15px; z-index:9999}
+.kfloat div.item{ width:40px;height:40px; margin-bottom:12px; background-color:#e8e8e8; background-image:url(http://ylres.yonyouup.com/images/icon_kf.png); position:relative;transition:all ease .5s;-webkit-transition:all ease linear .5s;}
+.kfloat div.item:last-child{ margin-bottom:0}
+.kfloat div.item:hover{background-color:#faa448;}
+.kfloat div.item1{ background-position:0 0;}
+.kfloat div.item2{ background-position:0 -52px;}
+.kfloat div.item3{ background-position:0 -104px;}
+.kfloat div.item4{ background-position:0 -156px;}
+.kfloat div.item1:hover{ background-position:-50px 0;}
+.kfloat div.item2:hover{ background-position:-50px -52px;}
+.kfloat div.item3:hover{ background-position:-50px -104px;}
+.kfloat div.item4:hover{ background-position:-50px -156px;}
+.kfloat div.item div.sub{position:absolute;width:0;overflow:hidden;border-radius:5px 0 0 3px;transition:all .5s ease;-webkit-transition:all .5s ease;left:0;top:0;}
+.kfloat div.item:hover div.sub{width:196px; left:-196px;}
+.kfloat div.sub div.mark{ position:absolute; top:50%; right:-20px; margin-top:-4px; width:8px; height:8px; background:url(http://ylres.yonyouup.com/images/icon_kf_triangle.png) left center no-repeat; display:block; opacity:0;transition:all .5s ease;-webkit-transition:all .5s ease;}
+.kfloat div.item:hover div.sub div.mark{ opacity:1;right:0;}
+.kfloat div.item div.text{width:188px;background-color:#faa448;line-height:40px;color:#fff; font-size:16px; line-height:40px; text-align:center}
+.kfloat div.item1 div.text{ font-size:18px}
+.kfloat div.item2 div.sub{top:-70px; height:180px;}
+.kfloat div.item2 div.text{ height:180px; font-size:14px;}
+.kfloat div.item2 div.text ul{ padding-top:13px;}
+.kfloat div.item2 div.text span{ display:inline-block; line-height:18px; vertical-align:middle;width:5em;}
+.kfloat div.item2 div.text small{ display:block;font-size:10px;font-family:Times,"Times New Roman";line-height:14px}
+.kfloat div.item2 div.text a{display:inline-block; width:80px; line-height:28px; height:28px; text-align:center; font-weight:bold; color:#fff; border:1px solid #fff; border-radius:10px; vertical-align:middle; margin-top:-3px;}
+.kfloat div.item2 div.text a:hover{ background:#faa448}
+.kfloat div.item3 div.text span{ font-size:20px; font-weight:bold;color:#faa448; background:#fff; border-radius:14px; display:inline-block; width:28px; height:28px; vertical-align:middle; line-height:28px; margin:-3px 4px auto 4px}
+.kfloat div.item3 div.text a{ color:#fff}
+.kfloat div.item3 div.text a:hover{ text-decoration:underline}
+.kfloat div.item4 div.sub{top:-98px; height:236px;}
+.kfloat div.item4 div.text{ height:236px;}
+.kfloat div.item4 div.text img{ width:160px; height:160px; border:none; vertical-align:top; margin-top:14px;border-radius:5px;}
+.kfloat div.item4 div.text div{ margin:14px auto 0; border-top:1px solid #f8b990; width:160px;color:#fff}
+
+@keyframes fadeToggle{
+    0% { opacity: 1;}
+    50% { opacity:0.3;}
+    100% { opacity: 1;}
+}
+@-webkit-keyframes fadeToggle{
+    0% { opacity: 1;}
+    50% { opacity:0.3;}
+    100% { opacity: 1;}
+}
+@keyframes zoomIn {
+    0%{ transform: scale(0);}
+    60%{ transform: scale(1.2);}
+    100% { transform: scale(1);}
+}
+@-moz-keyframes zoomIn {
+    0%{ transform: scale(0);}
+    60% { transform: scale(1.2);}
+    100% { transform: scale(1);}
+}
+@-webkit-keyframes zoomIn {
+    0%{ -webkit-transform: scale(0);}
+    60% { -webkit-transform: scale(1.1);}
+    100% { -webkit-transform: scale(1);}
+}
+@-o-keyframes zoomIn {
+    0%{ -o-transform: scale(0);}
+    90% { -o-transform: scale(1.1);}
+    100% { -o-transform: scale(1);}
+}
+@-ms-keyframes zoomIn{
+    0%{ -ms-transform: scale(0);}
+    60% { -ms-transform: scale(1.1);}
+    100% { -ms-transform: scale(1);}
+}
+@media screen and (min-width:1921px) {
+    .crossbanenr li{ width: 100%; left: 50%; margin-left: -50%;}
+    .crossbanenr li.top_bg01, .crossbanenr li.top_bg02, .crossbanenr li.top_bg03,.fisrtbg, .secondbg, .thirdbg{ background-size: 100%;}
+}
+
+@media screen and (max-width:1440px) {
+    .crossbanenr li.top_bg01{ background: transparent url('http://ylres.yonyouup.com/images/top_bigpic01_s.jpg') no-repeat center top;}
+    .crossbanenr li.top_bg02{ background: transparent url('http://ylres.yonyouup.com/images/top_bigpic02_s.jpg') no-repeat center top;}
+    .crossbanenr li.top_bg03{ background: transparent url('http://ylres.yonyouup.com/images/top_bigpic03_s.jpg') no-repeat center top;}
+    .bntxt01 h2,.bntxt02 h2,.bntxt h2{background-size: 80%; }
+    .bntxt01{ position: absolute;  left: -53px; top:45%; width: 1100px;height: 420px; margin-top: -200px; z-index: 10; }
+    .bntxt02{ position: absolute;right:-35px; top: 35%; width: 640px; height: 210px; margin-top: -85px; z-index: 10;}
+    .bntxt{ position: absolute;right:-35px; top: 35%; width: 640px; height: 210px; margin-top: -85px; z-index: 10;}
+    a.bnxz{ display: block;width: 380px; height:64px; color: #fff;border-radius: 40px;position: absolute; bottom:0;left:240px;  line-height: 64px; text-align: center; font-size: 30px; background:#faa448 }
+    .crossbanenr li.top_bg01, .crossbanenr li.top_bg02, .crossbanenr li.top_bg03, .fisrtbg, .secondbg, .thirdbg,.fourthbg,.fifthbg,.sixthbg,.seventhbg{ background-size: cover;}
+}
+
+@media screen and (max-width:1200px) and (min-height:1400px) {
+    .crossbanenr li.top_bg01, .crossbanenr li.top_bg02, .crossbanenr li.top_bg03, .fisrtbg, .secondbg, .thirdbg,.fourthbg,.fifthbg,.sixthbg,.seventhbg{ background-size: cover;}
+}
+@media screen and (min-width:1200px) and (min-height:900px) {
+    .crossbanenr li.top_bg01, .crossbanenr li.top_bg02, .crossbanenr li.top_bg03, .fisrtbg, .secondbg, .thirdbg,.fourthbg,.fifthbg,.sixthbg,.seventhbg{ background-size: cover;}
+}
+/*@media screen and (min-width:320px) and (max-width:460px){*/
+    /*body{min-width: 1024px;}*/
+    /*.toppic{*/
+        /*max-width: 1024px;*/
+        /*min-width: 980px;*/
+    /*}*/
+/*}*/
+#asBanner{
+    width: 100%;
+}
+#asTopTxt{
+    width: 100%;
+    text-align: center;
+    margin: 50px 0;
+}
+.asLeft{
+    text-align: center;
+}
+.asLeft b{
+    font-size: 15pt;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    top: -50px;
+}
+.asLeft img{
+    width: 50%;
+    max-width: 200px;
+    top: -100px;
+    position: relative;
+}
+.asLeft span{
+    display: block;
+    font-size: 12pt;
+    color: #868686;
+    margin-top: 20px;
+    text-align: left;
+}
+.asLeft span s{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background: #ddd;
+    border-radius: 100%;
+}
+.asRight{
+    text-align: center;
+}
+.asRight img{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.asRight p{
+    text-indent: 2em;
+    text-align: left;
+    font-size: 11pt;
+}
+.asmid{
+
+}
+.asmid p{
+    text-align: left;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.table tbody tr td{
+    border: none;
+    font-size: 12pt;
+    font-weight: 400;
+    text-align: left;
+}
+.asmid b{
+    display: block;
+    border: 1px solid #0CACC1;
+    text-align: center;
+}
+#aaa tbody tr td:nth-child(1){
+    min-width: 96px;
+}

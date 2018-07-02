@@ -1,0 +1,46 @@
+{"result":[{
+		"information":[{
+			"left":[
+				{"id":"01","name":"公司会计科目","src":"/manager/cw/test/subjectPage"},
+				{"id":"02","name":"部门信息","src":"/manager/authority/sectionInfo/toSection"},
+				{"id":"03","name":"员工档案","src":"/manager/authority/employeeInfo/toEmployee"},
+				{"id":"03","name":"现金流量科目","src":""}
+			],
+			"right":[
+				{"id":"05","name":"往来单位","src":"/manager/authority/contactInfo/toContact"},
+				{"id":"06","name":"凭证类别","src":"/manager/cw/test/voucherManage"},
+				{"id":"07","name":"凭证接口设置","src":"/manager/cw/voucherInterfaceSet"},
+				{"id":"07","name":"科目期初","src":"/manager/cw/qc/init"}
+			]
+		}],
+		"statement":[{
+			"left":[
+				{"id":"11","name":"科目余额表","src":""},
+				{"id":"12","name":"科目总账","src":""},
+				{"id":"13","name":"科目明细表","src":""},
+				{"id":"14","name":"现金流量统计","src":""}
+			],
+			"right":[
+				{"id":"19","name":"辅助余额表","src":""},
+				{"id":"20","name":"辅助总账","src":""},
+				{"id":"21","name":"辅助明细账","src":""},
+				{"id":"22","name":"现金流量明细","src":""}
+			]
+		}]
+	}]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!-- 
+      accountantSubject.html
+      <公司会计科目>
+      
+      Created by LyNnJeR on 2017-01-13.
+      Copyright 2017 LyNnJeR. All rights reserved.
+ -->
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE ; chrome=1" />
+		<link rel="stylesheet" type="text/css" href="../../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/skins/all.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap-select.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pagecss/treepage.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/jquery.datetimepicker.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/ui.jqgrid-bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/cw/zTreeStyle/zTreeStyle_.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/market/public.css" />
+		<title>公司会计科目</title>
+		<style type="text/css">
+			.ui-jqgrid .ui-jqgrid-htable .ui-th-div {text-align: center;}
+			.mainSub {min-width: 1175px !important;}
+			.left {width: 14%;float: left;}
+			.details {width: 86%;float: left;}
+			.left_tree {height: 600px;overflow: auto;}
+			.model-dialog4 {width: 700px;}
+			.details .right {height: 40px;}
+			/*科目弹窗*/
+			.subjectMian {padding: 10px 0;}
+			.col-sm-8 { height: 40px;width: 145px;}
+			.mainLeft {width: 300px;float: left;}
+			fieldset {padding: .35em .625em .75em;margin: 0 2px;border: 1px solid silver;width: 265px;min-width: 265px !important;}
+			legend {margin-bottom: 0px;font-size: 18px;padding: .5em;border: 0;width: auto;}
+			.monSub {margin: 10px 0 10px 80px;}
+			.mainRight {float: right;width: 300px;}
+			.hsx label {display: block;margin-left: 20px;}
+			.parentSubInfo {margin-left: 5px;}
+			#gbox_jqGrid_subComparison,#gbox_jqGrid_subDiff {width: 437px;float: left;}
+			#gbox_jqGrid_subComparisonRight,#gbox_jqGrid_subDiffRight {width: 418px;float: left;}
+			#gview_jqGrid_subComparison .ui-jqgrid-bdiv,#gbox_jqGrid_subDiff .ui-jqgrid-bdiv,#gbox_jqGrid_subDiffRight .ui-jqgrid-bdiv{overflow-x: hidden;}
+			.btnHundred {min-width: 860px;}
+			#jqgh_jqGrid_subComparison_rn,#jqgh_jqGrid_subDiff_rn {height: 54px; line-height: 54px;}
+		</style>
+	</head>
+	<body>
+		<div class="well">
+			<div class="btn-group btnHundred" role="group">
+				<button type="button" class="btn btn-default add" data-eventname="">新增</button>
+				<button type="button" class="btn btn-default update" data-eventname="">修改</button>
+				<button type="button" class="btn btn-default stop" data-eventname="">停用</button>
+				<button type="button" class="btn btn-default delete" data-eventname="">删除</button>
+				<button type="button" class="btn btn-default groupIntroduce" data-eventname="inquire" data-toggle="modal" data-target="">集团引入</button>
+				<!--<button type="button" class="btn btn-default ">查找</button>
+				<button type="button" class="btn btn-default ">栏目</button>
+				<button type="button" class="btn btn-default ">导出</button>-->
+				<button type="button" class="btn btn-default subjectContrast">科目对照</button>
+				<button type="button" class="btn btn-default subjectCopy">科目复制</button>
+				<button type="button" class="btn btn-default quit">退出</button>
+			</div>
+		</div>
+
+		<!-------------------------------------表格开始----------------------------------------->
+		<div class="mainSub">
+			<div class="left">
+				<div class="left_tree">
+					<ul id="subjectTree" class="ztree"></ul>
+				</div>
+			</div>
+			<div class="details">
+				<div class="right">
+					<div class="tablebox retailDetailTable">
+						<div class="grid-wrap" style="margin-top:10px">
+							<table id="jqGrid_subject" class="zxsaastable">
+							</table>
+							<div id="jqGridPager_subject"></div>
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div>
+		<!-------------------------------------表格结束----------------------------------------->
+	
+		<!-- 集团引入 弹窗 -->
+		<div class="modal fade" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 800px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							集团引入参照
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<div class="left">
+								<div class="left_tree">
+									<ul id="groupTreeData" class="ztree"></ul>
+								</div>
+							</div>
+							<!--展示列表开始-->
+							<div class="details">
+							   <div class="right">
+									<input type="text" placeholder="编码、名称模糊搜索" id="groupRemCode" class="form-control" style="width:200px;"/>
+								</div>
+								<!--表格-->
+								<div class="jqGrid_wrap">
+									<table id="groupModalGrid" class="zxsaastable"></table>
+									<div id="groupGridpager"></div>
+								</div>
+							</div>
+							<!--展示列表结束-->
+						</div>
+		
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success saveSub">确定</button>
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+		</div>
+		
+		<!-- 科目对照 弹出窗-->
+		<div class="modal fade" id="subComparisonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog " style="width: 900px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							科目对照
+						</h4>
+					</div>
+					<div class="modal-body" id="model-body">
+							<div class="btn-group btnHundred" role="group">
+								<button type="button" class="btn btn-default save" data-eventname="">保存</button>
+								<button type="button" class="btn btn-default subDiff" data-eventname="">差异科目</button>
+								<button type="button" class="btn btn-default subInfo" data-eventname="">科目信息</button>
+								<div class="btn-group">
+								    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								     	打印
+								      <span class="caret"></span>
+								    </button>
+								    <ul class="dropdown-menu" role="menu">
+								      <li><a href="#">打印设置</a></li>
+								      <li><a href="#">打印预览</a></li>
+								      <li><a href="#">打印</a></li>
+								    </ul>
+								</div>
+								<button type="button" class="btn btn-default" data-eventname="" data-dismiss="modal">退出</button>
+							</div>
+							<div class="tablebox retailDetailTable">
+								<div class="grid-wrap" style="margin-top:10px">
+									<table id="jqGrid_subComparison" class="zxsaastable" style="width: 537px;float: left;"></table>
+									<div id="jqGridPager_subComparison"></div>
+									<table id="jqGrid_subComparisonRight" class="zxsaastable" style="width: 518px;float: left;"></table>
+									<div id="jqGridPager_subComparisonRight"></div>
+								</div>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		<!-- 科目参照 弹出窗-->
+		<div class="modal fade" id="subjectDirModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 800px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title title" id="myModalLabel">
+							科目参照
+						</h4>
+					</div>
+					<div class="modal-body" id="model-body">
+						<div class="container">
+							<div class="left">
+								<div class="left_tree">
+									<ul id="groupTreeData2" class="ztree"></ul>
+								</div>
+							</div>
+							<!--展示列表开始-->
+							<div class="details">
+							   <div class="right">
+									<input type="text" placeholder="编码、名称模糊搜索" id="groupRemCode2" class="form-control" style="width:200px;"/>
+								</div>
+								<!--表格-->
+								<div class="jqGrid_wrap">
+									<table id="unitModalGrid" class="zxsaastable"></table>
+									<div id="unitGridpager"></div>
+								</div>
+							</div>
+							<!--展示列表结束-->
+						</div>
+							
+					</div>
+					<div class="modal-footer">
+						<!--<button type="button" class="btn btn-success saveSubject">确定</button>-->
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		<!-- 差异科目 弹出窗-->
+		<div class="modal fade" id="subDiffModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog " style="width: 900px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							差异科目
+						</h4>
+					</div>
+					<div class="modal-body" id="model-body">
+							<div class="btn-group btnHundred" role="group">
+								<div class="btn-group">
+								    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								     	打印
+								      <span class="caret"></span>
+								    </button>
+								    <ul class="dropdown-menu" role="menu">
+								      <li><a href="#">打印设置</a></li>
+								      <li><a href="#">打印预览</a></li>
+								      <li><a href="#">打印</a></li>
+								    </ul>
+								</div>
+								<button type="button" class="btn btn-default" data-eventname="" data-dismiss="modal">退出</button>
+							</div>
+							<div class="tablebox retailDetailTable">
+								<div class="grid-wrap" style="margin-top:10px">
+									<table id="jqGrid_subDiff" class="zxsaastable" style="width: 537px;float: left;"></table>
+									<div id="jqGridPager_subDiff"></div>
+									<table id="jqGrid_subDiffRight" class="zxsaastable" style="width: 518px;float: left;"></table>
+									<div id="jqGridPager_subDiffRight"></div>
+								</div>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+			<!-- 科目新增 弹出窗-->
+		<div class="modal fade" id="subjectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog model-dialog4">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title title" id="myModalLabel">
+							科目
+						</h4>
+					</div>
+					<div class="modal-body" id="model-body">
+							<div class="btn-group btnHundred" style="min-width: 670px;" role="group">
+								<!--<button type="button" class="btn btn-default" data-eventname="">上一张</button>
+								<button type="button" class="btn btn-default" data-eventname="">下一张</button>-->
+								<button type="button" class="btn btn-default save" data-eventname="">保存</button>
+								<button type="button" class="btn btn-default saveAndAdd" data-eventname="">保存并新增</button>
+								<button type="button" class="btn btn-default" data-eventname="" data-dismiss="modal">退出</button>
+							</div>
+							<div class="subjectMian">
+								<div class="mainLeft">
+									<div class=" form-group">
+										<span for="" class="box_text2"><span style="color: red;">* &nbsp;</span>科目编码：</span>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<input type="text" class="form-control subjectCode clear" id="" placeholder="">
+											</div>
+										</div>
+									</div>
+									<div class=" form-group">
+										<span for="" class="box_text2"><span style="color: red;">* &nbsp;</span>科目名称：</span>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<input type="text" class="form-control subjectName clear" id="" placeholder="">
+											</div>
+										</div>
+									</div>
+									<div class=" form-group">
+										<span for="" class="box_text2">助记码：</span>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<input type="text" class="form-control subjectNo clear" id="" placeholder="">
+											</div>
+										</div>
+									</div>
+									<div class=" form-group">
+										<span for="" class="box_text2"><span style="color: red;">* &nbsp;</span>科目类型：</span>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<select class="form-control clazzSel clear">
+												  <option value='1'>资产</option>
+												  <option value='2'>负债</option>
+												  <option value='3'>权益</option>
+												  <option value='4'>成本</option>
+												  <option value='5'>损益</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class=" form-group">
+										<span for="" class="box_text2"><span style="color: red;">* &nbsp;</span>余额方向：</span>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<select class="form-control dirSel clear">
+												  <option value='01'>借方</option>
+												  <option value='02'>贷方</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<label class="monSub clear"><input type="checkbox" class="xjll clear"> 是否现金流量科目</label>
+									<fieldset class="fieLeft" id="">
+										<legend><label class="numSub clear" style="font-weight: 500;"><input type="checkbox" class="xjll clear"> 数量核算</label></legend>
+										<div class=" form-group">
+											<span for="" class="box_text2">计量单位：</span>
+											<div class="col-sm-8">
+												<div class="input-group" style="width: 150px;">
+													<input type="text" class="form-control jldw clear" disabled id="" placeholder="">
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+								<div class="mainRight">
+									<p class="roles">编码规则&nbsp;&nbsp;4-2-2-2-2</p>
+									<p class="parentSub">上级科目<span class="parentSubInfo clear"></span></p>
+									<label for=""><input type="checkbox" class="stop clear" /> 停用</label>
+									<fieldset class="fieLeft" id="">
+										<legend><label class="numSub clear" style="font-weight: 500;"><input type="checkbox" class="sfsk clear">是否受控科目</label></legend>
+										<label class=""><input type="checkbox" class="pwd clear" disabled> 受控科目是否允许输入主管密码修改、填制凭证</label>
+									</fieldset>
+									<fieldset class="fieLeft hsx" id="">
+										<legend>辅助核算项</legend>
+										<label class=""><input type="checkbox" class="hesuan dep clear"> 部门</label>
+										<label class=""><input type="checkbox" class="hesuan per clear"> 个人</label>
+										<label class=""><input type="checkbox" class="hesuan unit clear"> 往来单位</label>
+										<label class=""><input type="checkbox" class="hesuan goods clear"> 存货</label>
+										<label class=""><input type="checkbox" class="hesuan project clear"> 项目</label>
+									</fieldset>
+								</div>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		
+	</body>
+	<script src="../../js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/jquery-form.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/jquery.jqGrid.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/jquery.datetimepicker.full.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/grid.locale-cn.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/zxsaas_plus.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/commonjs/xr.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/cw/jquery.ztree.all-3.5.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/cw/accountantSubject.js" type="text/javascript" charset="utf-8"></script>
+</html>

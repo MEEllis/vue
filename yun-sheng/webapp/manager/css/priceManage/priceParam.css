@@ -1,0 +1,68 @@
+th,td{
+				text-align: center;
+			}
+			.vMiddle{
+				margin-top:36%;
+				transform: translateY(-50%);
+			}
+			.lMiddle{
+				margin-top:30%;
+				transform: translateY(-50%);
+			}
+			
+.changeColor{
+	background-color:#dff0d8;
+}
+.saveBtn{
+   margin-left:30px;
+}
+.getMargin{
+  margin-left:15px;
+}
+/*样式修改*/
+#myTabContent{
+   border:1px solid #ccc;
+   border-top:0;
+   height:700px;
+}
+.getUp{
+	margin-bottom:50px;
+}
+.checkLeft {
+    border:1px solid #ccc;
+    padding-left:40px;
+    margin-left:-17px;
+    border-left:0;
+    padding-top:20px;
+    margin-right:20px;
+
+}
+.checkRight{
+    border:1px solid #ccc;
+    padding-top:20px;
+    padding-left:40px;
+}
+.FistTable{margin-top: 226px;}
+.LastTable{margin-top: 100px;}
+.btn-group>button{
+	background-image:url(../../images/btnboxbg.png);
+    text-align: left;
+    border: 0;
+}
+.btnHundred{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	background-image:url(../../images/btnboxbg.png);
+	}
+
+.nav-tabs > li > a{
+   color:#959595;
+   background:-webkit-linear-gradient(top,#fdfdfd,#dbdbdb);
+   margin-right:0px;
+   border-radius:0px;
+}
+.nav-tabs > li>a:focus{
+   background-color:red;!important
+}

@@ -1,0 +1,451 @@
+/*改变bootstrap按钮的颜色*/
+.btn-change{
+    border-color:#108ee9!important;
+    color:#108ee9!important;
+}
+.btn-change:hover{
+    background-color:#108ee9!important;
+    color:#ffffff!important;
+}
+.dateInp{
+    width: 46%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.dateInp:focus{
+	border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.retailContainer{
+    width:100%;
+    min-width:1800px;
+    height:auto;
+    padding:160px 0px 140px;
+}
+.retailContainerTop{
+    width:100%;
+    height:160px;
+    position:fixed;
+    top:0;
+    z-index:10;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:3px;
+    box-shadow: 0px 11px 10px -6px #b5b5b5;
+}
+.btnHundred{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    border-top: 1px solid #ddd;
+    background-image: url(../../../images/btnboxbg.png);
+}
+.inlineBlock{
+    border:none!important;
+    margin-top:0px!important;
+    margin-bottom:0px!important;
+    background:none!important;
+    padding-top:5px!important;
+    padding-bottom:4px!important;
+}
+.retailNav{
+   width:100%;
+    height:auto;
+    margin:20px 10px;
+}
+.lineHeight{
+    padding:10px 0px;
+}
+.retailFooter{
+    width:100%;
+    height:140px;
+    background:#fff;
+    margin:30px 0px 0px 0px;
+    box-shadow: 0 -9px 10px -7px #b5b5b5;
+    position:fixed;
+    bottom:0;
+    z-index:10;
+}
+.amountHeight{
+    padding:5px 0px;
+    line-height: 34px;
+}
+.priceHeight{
+    padding:2px 15px;
+}
+.productEentry{
+    width:100%;
+    height:auto;
+    border-radius:3px;
+    margin: 20px 25px 0px
+}
+.productEntryHeader{
+    width:100%;
+    height:50px;
+    line-height:45px;
+    font-size:15px;
+    border-bottom:1px solid #cacaca
+}
+.productEntryHeader>span{
+	float:left;
+	}
+.productEntryHeader>span:nth-of-type(2){
+	margin:0px 15px
+}
+.productEntryHeader>span:nth-of-type(2)>button>span{
+	color:#5184f0;
+	font-size:13px;
+	cursor:pointer
+}
+.productEntryHeader>span:nth-of-type(3){
+	margin-left:15px;
+	font-size:13px;
+}
+.productEntryHeader>span:last-child{
+	padding-top:3px
+}
+.productEntryHeader>span>input{
+	width:200px;
+}
+.productEntryHeader>span{
+    margin-right:10px;
+}
+.productEntryCounter{
+    margin:15px 10px
+}
+.productTable{
+	padding:15px 15px 15px 0px
+}
+.retail-table1{
+	background:#fff
+}
+.retail-table1>thead{
+	background:#F5F6F8
+}
+.retail-table1>thead>tr>th:first-child{
+	border-top: 1px solid #e4e4e4!important;
+    border-left: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    background:#F5F6F8
+}
+.retail-table1>tbody>tr>td:first-child{
+	border-left: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    background:#F5F6F8
+}
+.retail-table1 tr{
+	height:35px;
+	}
+.retail-table1 tr td{
+	vertical-align:middle!important
+}
+.retail-table1 tr>td:first-child>span{
+	color:red;
+	cursor:pointer
+}
+.retail-table1 .inputNumber{
+	width:100%;
+	height:100%;
+	text-align:center;
+	vertical-align:middle;
+	border:none
+}
+.retail-table1>tfoot>tr>td:first-child{
+	border-left: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    background:#F5F6F8
+}
+table>thead>tr>th>span{
+	color:red
+}
+.carrierBusiness{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+}
+.carrBusinHeader{
+	height:50px;
+	line-height:45px;
+	font-size:15px;
+    border-bottom:1px solid #cacaca
+}
+.carrBusinHeader>span{
+	float:left;
+	margin-right:10px;
+}
+.carrBusinHeader>span:nth-of-type(2){
+	display:inline-block;
+	width:80px;
+}
+.carrBusin{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	padding:15px 15px 0px 0px;
+	display:none
+}
+.Value-addedServices{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+}
+.Value-addedHeader{
+	height:50px;
+	line-height:45px;
+	font-size:15px;
+    border-bottom:1px solid #cacaca
+}
+.Value-addedHeader>span{
+	float:left;
+	margin-right:10px;
+}
+.Value-addedHeader>span:nth-of-type(2){
+	display:inline-block;
+	width:80px;
+}
+.Value-added{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	padding:15px 15px 0px 0px;
+	display:none
+}
+.ThirdpartyDiscount{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+}
+.DiscountHeader{
+	height:50px;
+	line-height:45px;
+	font-size:15px;
+    border-bottom:1px solid #cacaca
+}
+.DiscountHeader>span{
+	float:left;
+	margin-right:10px;
+}
+.DiscountHeader>span:nth-of-type(2){
+	display:inline-block;
+	width:80px;
+}
+.Discount{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	padding:15px 15px 0px 0px;
+	display:none
+}
+.StaBusiness{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+}
+.StaBusinessHeader{
+	height:50px;
+	line-height:45px;
+	font-size:15px;
+    border-bottom:1px solid #cacaca
+}
+.StaBusinessHeader>span{
+	float:left;
+	margin-right:10px;
+}
+.StaBusinessHeader>span:nth-of-type(2){
+	display:inline-block;
+	width:80px;
+}
+.StaBu{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	padding:15px 15px 0px 0px;
+	display:none
+}
+.saveButton{
+	width: 100px;
+    height: 100px;
+    line-height: 100px;
+    margin: 15px;
+    color: #fff;
+    text-align: center;
+    background: #5184f0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 22px;
+    position: absolute;
+    margin: 0 auto;
+    top: 20px;
+}
+button>span{
+	color:#5184f0
+}
+.table{
+	margin-bottom:0px!important;
+}
+tfoot{
+	background:#F5F6F8;
+}
+.posContainer{
+	position:relative;
+}
+.posContentTable{
+	position:absolute;
+	left:-130px;
+	width:400px;
+	height:auto;
+	padding:15px 15px;
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:8px;
+	z-index:22;
+	box-shadow: 5px 17px 18px 4px #c3c3c3;
+	display:none;
+}
+.posButton{
+	width:114px;
+	height:35px;
+	margin-top:20px;
+	float:right;
+}
+.tableTrangle{
+	width: 0;
+    height: 0;
+    border: 25px solid #fff;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    position:absolute;
+    bottom:-50px;
+    left:170px;
+}
+
+.otherContainer{
+	position:relative;
+}
+.otherContentTable{
+	position:absolute;
+	left:-70px;
+	width:400px;
+	height:auto;
+	padding:15px 15px;
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:8px;
+	z-index:22;
+	box-shadow: 5px 17px 18px 4px #c3c3c3;
+	display:none;
+}
+.otherAccountButton{
+	width:114px;
+	height:35px;
+	margin-top:20px;
+	float:right;
+}
+.tableTrangle{
+	width: 0;
+    height: 0;
+    border: 25px solid #fff;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    position:absolute;
+    bottom:-50px;
+    left:170px;
+}
+#wipingAmount{
+	display: inline-block;
+    width: 45%;
+    text-align: center;
+}
+
+.inputDisplay{
+	display: inline-block;
+    width: 45%;
+}
+
+.nameCss{
+	width: 78px;
+    display: inline-block;
+    text-align: right;
+}
+.before2:before{
+	content:'POS:';
+}
+.before3:before{
+	content:'支付宝:';
+}
+.before4:before{
+	content:'微信:';
+}
+.before5:before{
+	content:'其它账户:';
+}
+.before6:before{
+	content:'现金:';
+}
+.before7:before{
+	content:'现金:';
+}
+.before8:before{
+	content:'现金:';
+}
+
+#DiscountTable{
+	width: 1400px;
+}
+#carrBusinTable th,#Value-addedTable th,#DiscountTable th,#StaBuTable th{
+	width: 100px;
+}
+#productInfoTable thead .stroageSelect{
+	border: 0;
+	height: 20px;
+    padding: 0 12px;
+}
+
+@media screen and (max-width: 1250px) {
+	.form-control{
+		height: 30px;
+		padding: 4px 12px;
+	}
+	.btn{
+		padding: 4px 12px;
+	}
+    .retailNav{
+   	    margin: 10px 10px 0;
+    }
+    .form-inline .form-group{
+    	margin-bottom: 10px;
+    }
+    .retailContainerTop{
+    	height: 125px;
+    }
+    .retailContainer{
+    	padding: 125px 0px 120px;
+    }
+    .productEentry{
+    	margin: 10px 25px 0px;
+    }
+    .productEntryHeader,.carrBusinHeader,.Value-addedHeader,.DiscountHeader,.StaBusinessHeader{
+    	height: 40px;
+    	line-height: 35px;
+    }
+    .amountHeight{
+    	padding: 0;
+    }
+    .saveButton{
+    	top: 10px;
+    }
+    .retailFooter{
+    	height: 120px;
+    }
+    #wipingAmount,.priceHeight .col-md-2 div span input,.inputDisplay{
+    	width: 34%;
+    }
+}
