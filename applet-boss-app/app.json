@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/my/index/index",
+    "pages/report/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "零售开单",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "borderStyle": "#e6e6e6",
+    "backgroundColor": "#fff",
+    "selectedColor": "#476EC9",
+    "list": [
+      {
+        "pagePath": "pages/my/index/index",
+        "text": "串号跟踪",
+        "iconPath": "images/tabBar/follow.png",
+        "selectedIconPath": "images/tabBar/follow-sel.png"
+      },
+      {
+        "pagePath": "pages/report/index/index",
+        "text": "我的",
+        "iconPath": "images/tabBar/my.png",
+        "selectedIconPath": "images/tabBar/my-sel.png"
+      }
+    ]
+  },
+  "debug": false
+}

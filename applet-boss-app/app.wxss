@@ -1,0 +1,215 @@
+/**app.wxss**/
+@import 'iconfont.wxss';
+@import 'weui.wxss';
+@import 'reset.wxss';
+
+page {
+  background-color: #efeff4;
+  font-size: 32rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+button[type=default]{
+  background: #fff;
+} 
+
+.pt-20 {
+  padding-top: 20rpx;
+}
+
+.pb-10 {
+  padding-bottom: 10rpx;
+}
+
+.pb-20 {
+  padding-bottom: 20rpx;
+}
+
+.mt-20 {
+  margin-top: 20rpx;
+}
+
+.mt-30 {
+  margin-top: 30rpx;
+}
+
+.mb-20 {
+  margin-bottom: 20rpx;
+}
+
+.mb-30 {
+  margin-bottom: 30rpx;
+}
+
+.mr-15 {
+  margin-right: 15rpx;
+}
+
+.color1 {
+  color: #ffaf23;
+}
+
+.color2 {
+  color: #333;
+}
+
+.color3 {
+  color: #666;
+}
+
+.color4 {
+  color: #1a1a1a;
+}
+
+.color5 {
+  color: #46be8a;
+}
+.color6 {
+  color: #e6e6e6;
+}
+
+.on {
+  color: #476ec9;
+}
+
+.fw {
+  font-weight: 600;
+}
+
+.tc {
+  text-align: center;
+}
+
+.tr {
+  text-align: right;
+}
+
+/*清除浮动代码*/
+
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.tl {
+  text-align: left;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.container {
+  background-color: #efeff4;
+}
+
+.ellipsis {
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.ellipsis2 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.sel-time {
+  position: relative;
+  font-size: 26rpx;
+  padding-left: 30rpx;
+  color: #8c8c8c;
+  line-height: 70rpx;
+  height: 70rpx;
+}
+
+.border-bottom, .border-top {
+  position: relative;
+}
+
+.border-bottom::before, .border-top::before {
+  content: " ";
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 1px;
+  border-top: 1rpx solid #e6e6e6;
+}
+
+.border-top::before {
+  top: 0;
+}
+
+.border-bottom::before {
+  bottom: 0;
+}
+
+.btnBlue {
+  background-color: rgba(71, 110, 201, 1) !important;
+  color: #fff !important;
+}
+
+.btnBlue[disabled] {
+  background-color: rgba(71, 110, 201, 0.5) !important;
+}
+
+
+.modal-content picker {
+  display: inline-block;
+  border-bottom: 1rpx solid #e6e6e6;
+  padding: 20rpx 30rpx;
+  margin:30rpx 0;
+}
+
+.modal-content picker:hover {
+  border-bottom: 1rpx solid #ffaf23;
+}
+
+.placeholder{
+  color: #ccc;
+}
+
+
+@-webkit-keyframes fadeIn {
+    from {
+          opacity: 0;
+    }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

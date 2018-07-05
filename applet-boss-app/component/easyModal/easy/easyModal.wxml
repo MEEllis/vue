@@ -1,0 +1,16 @@
+
+<base-modal id="baseModal"   modalSize="{{modalSize}}"  animated="{{animated}}"  backdrop="{{backdrop}}">
+    <view slot="header" class='modal-header'>
+        <text>{{title}}</text>
+    </view>
+
+     <view slot="body" class='modal-body'>
+        <slot></slot>
+    </view>
+ 
+    <view slot="footer" class='modal-footer'>
+         <text catchtap='_cancelModal'  wx:if="{{isShowCancel}}"  class='btn btn-default {{isShowCancel}}'>{{cancelText}}</text>
+         <text catchtap='_confirmModal' wx:if="{{isShowConfirm}}"  class='btn btn-primary'>{{confirmText}}</text>      
+    </view>
+
+</base-modal>
