@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/my/index/index",
-    "pages/report/index/index"
+    "pages/index/index",
+    "pages/login/login",
+    "pages/report/index/index",
+    "pages/report/stockDistribution/stockDistribution", 
+    "pages/my/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

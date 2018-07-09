@@ -1,0 +1,22 @@
+<!-- 一级类目 -->
+<view class='cate-wrap'>
+  <scroll-view scroll-x="true" class="cate-cotent">
+    <button class="cate-item  {{goodsClassId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" bindtap="cateTap"> {{item.name}}</button>
+  </scroll-view>
+</view>
+<!-- 搜索 -->
+<search-bar placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' isShowAdvanced="true"></search-bar>
+
+
+
+<!-- 商品列表 -->
+<scroll-view scroll-y='true' class="list-wrap pt-20" style="height:350px;" bindscrolltolower='scrolltolower'>
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text" wx:for="{{ dataList }}" wx:key="">
+        <view class="weui-media-box__title weui-media-box__title_in-text">{{ item.goodsName }}</view>
+        <view class="weui-media-box__desc">{{ item.goodsQuantity}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

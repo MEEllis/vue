@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "实时库存",
+  "navigationBarBackgroundColor": "#21a4ff",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index",
+    "wux-refresher": "/component/refresher/index"
+  }
+}

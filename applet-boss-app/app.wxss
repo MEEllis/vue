@@ -1,6 +1,5 @@
 /**app.wxss**/
 @import 'iconfont.wxss';
-@import 'weui.wxss';
 @import 'reset.wxss';
 
 page {
@@ -185,7 +184,7 @@ button[type=default]{
 }
 
 .placeholder{
-  color: #ccc;
+  color: #b8b8b8;
 }
 
 

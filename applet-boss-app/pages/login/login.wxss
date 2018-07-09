@@ -1,0 +1,50 @@
+.logo-wrap {
+  margin: 0rpx auto;
+  text-align: center;
+  margin-top: 48rpx;
+  margin-bottom: 20rpx;
+}
+
+.logo {
+  width: 328rpx;
+  height: 184rpx;
+}
+
+form {
+  display: block;
+  padding: 0rpx 30rpx 0rpx 30rpx;
+}
+
+.txt-input {
+  border-bottom: 1rpx solid #ccc;
+  padding-bottom: 15rpx;
+  margin-top: 40rpx;
+  font-size: 32rpx;
+  padding-right: 150rpx;
+}
+
+.txt-input:hover
+{ 
+  border-bottom-color: #FFAF23 !important;
+}
+
+.login{
+  margin-top: 80rpx;
+  background-color: rgba(71, 110, 201, 1) !important;
+}
+
+.login[disabled][type=primary] {
+  background-color: rgba(71, 110, 201, 0.5) !important;
+}
+.item{
+  position: relative;
+}
+
+.clear{
+ padding: 10rpx 20rpx;
+  position: absolute;
+  top:-12rpx;
+  right: 10rpx;
+  display: block;
+}
+
