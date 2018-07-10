@@ -57,7 +57,7 @@
               <view class="weui-flex__item">
                 单据日期：{{numberFr.stringNull(billsVoItem.billsDateStr)}}
               </view>
-              <view class="weui-flex__item color1 ">
+              <view wx-if="{{billsVoItem.inOutStockType=='45' || billsVoItem.inOutStockType=='46' || billsVoItem.inOutStockType=='19'  || billsVoItem.inOutStockType=='20'  || billsVoItem.inOutStockType=='21'}}" class="weui-flex__item color1 ">
                 金额：
                 <text class='fw'>{{numberFr.formatNum(billsVoItem.price,2)}}</text>
               </view>

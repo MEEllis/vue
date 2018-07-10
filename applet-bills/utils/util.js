@@ -23,14 +23,16 @@ function formatTime(date, fmt = 'yyyy-MM-dd') {
 /**
  * 封封微信的的request
  */
-function request(url, data = {}, method = "POST") {
+function request(url, data = {}, method = "POST",config) {
   return new Promise(function(resolve, reject) {
-    wx.showLoading({
-      title: '小云拼命加载中...',
-      mask: true,
-      icon: 'loading'
-    })
-    console.log(url)
+    config = config||{};
+    if (config.hideLoading !== true){
+      wx.showLoading({
+        title: '小云拼命加载中...',
+        mask: true,
+        icon: 'loading'
+      })
+    }
 
     wx.request({
       url: url,

@@ -65,7 +65,7 @@ function saveAndPostDraftRetailVo(saveData) {
         if (Array.isArray(goodItem.giftList)) {
           for (let j = 0; j < goodItem.giftList.length; j++) {
             const giftItem = goodItem.giftList[j];
-            goodsDetailList.push(abc(goodItem, i, j));
+            goodsDetailList.push(abc(giftItem, i, j));
           }
         }
       }
