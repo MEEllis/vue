@@ -1,16 +1,17 @@
 /**app.wxss**/
 @import 'iconfont.wxss';
-@import 'reset.wxss';
+@import 'common.wxss';
 
 page {
   background-color: #efeff4;
   font-size: 32rpx;
   font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  line-height: 1.6;
 }
 
-button[type=default]{
+button[type=default] {
   background: #fff;
-} 
+}
 
 .pt-20 {
   padding-top: 20rpx;
@@ -26,6 +27,10 @@ button[type=default]{
 
 .mt-20 {
   margin-top: 20rpx;
+}
+
+.mt-24 {
+  margin-top: 24rpx;
 }
 
 .mt-30 {
@@ -44,27 +49,56 @@ button[type=default]{
   margin-right: 15rpx;
 }
 
-.color1 {
+.font-22 {
+  font-size: 22rpx;
+}
+
+.font-28 {
+  font-size: 28rpx;
+}
+
+.font-30 {
+  font-size: 30rpx;
+}
+
+.font-36 {
+  font-size: 36rpx;
+}
+
+.colorffa {
   color: #ffaf23;
 }
 
-.color2 {
+.color333 {
   color: #333;
 }
 
-.color3 {
+.color666 {
   color: #666;
 }
 
-.color4 {
+.color1a1 {
   color: #1a1a1a;
 }
 
-.color5 {
+.color46b {
   color: #46be8a;
 }
-.color6 {
+
+.colore6e {
   color: #e6e6e6;
+}
+
+.colorfe9 {
+  color: #fe9f45;
+}
+
+.color000 {
+  color: #000;
+}
+
+.color8c8 {
+  color: #8c8c8c;
 }
 
 .on {
@@ -145,21 +179,24 @@ button[type=default]{
   position: relative;
 }
 
-.border-bottom::before, .border-top::before {
+.border-bottom:before, .border-top:before {
   content: " ";
   position: absolute;
   right: 0;
   left: 0;
-  height: 1px;
-  border-top: 1rpx solid #e6e6e6;
+  height: 1rpx;
+  color: #d9d9d9;
+  z-index: 2;
 }
 
-.border-top::before {
+.border-top:before {
   top: 0;
+  border-top: 1rpx solid #d9d9d9;
 }
 
-.border-bottom::before {
+.border-bottom:before {
   bottom: 0;
+  border-bottom: 1rpx solid #d9d9d9;
 }
 
 .btnBlue {
@@ -171,28 +208,71 @@ button[type=default]{
   background-color: rgba(71, 110, 201, 0.5) !important;
 }
 
+.btnDefault {
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #21a4ff;
+  border-radius: 6rpx;
+  color: #fff;
+  font-size: 26rpx;
+  padding: 0 35rpx;
+  border: 0;
+}
+
+.btnDefault::after {
+  border: none !important;
+}
 
 .modal-content picker {
   display: inline-block;
-  border-bottom: 1rpx solid #e6e6e6;
+  border-bottom: 1rpx solid #d9d9d9;
   padding: 20rpx 30rpx;
-  margin:30rpx 0;
+  margin: 30rpx 0;
 }
 
 .modal-content picker:hover {
   border-bottom: 1rpx solid #ffaf23;
 }
 
-.placeholder{
+.placeholder {
   color: #b8b8b8;
 }
 
+.list-wrap {
+  background: #fff;
+}
+
+.count-tai {
+  color: #fe9f45;
+  font-size: 28rpx;
+}
+
+.icon-shouji {
+  color: #669ffd;
+  font-size: 54rpx;
+  line-height: 1;
+  padding-right: 8rpx;
+}
+
+.icon-xiangxia-copy {
+  padding-left: 8rpx;
+}
+
+.icon-40.left:before {
+  transform: rotate(180deg);
+  display: inline-block;
+  color: #999;
+}
+.icon-gouxuan{
+   color: #10D0B3;
+}
 
 @-webkit-keyframes fadeIn {
-    from {
-          opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 }
+
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;

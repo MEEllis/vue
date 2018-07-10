@@ -9,5 +9,5 @@
       </view>
     </view>
   </form>
-  <view class="weui-search-bar__cancel-btn" wx:if="{{isShowAdvanced}}" bindtap="tap">高级搜索</view>
+  <view class="weui-search-bar__cancel-btn" wx:if="{{isShowAdvanced}}" bindtap="tapAdvanced">高级搜索</view>
 </view>

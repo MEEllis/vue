@@ -38,7 +38,20 @@
 				{
 					"id": -1,
 					"name": "stockDistribution",
-					"pathName": "pages/report/stockDistribution/stockDistribution"
+					"pathName": "pages/report/stockDistribution/stockDistribution",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "common/default",
+					"pathName": "pages/common/default/default",
+					"query": "route=pages/report/stockDistribution/stockDistribution&barTitle=实时库存-查询条件"
+				},
+				{
+					"id": 2,
+					"name": "common/goodsClass",
+					"pathName": "pages/common/goodsClass/goodsClass",
+					"query": "route=pages/common/default/default"
 				}
 			]
 		}

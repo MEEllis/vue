@@ -1,5 +1,5 @@
 .cate-wrap {
-  padding: 18rpx;
+  padding: 16rpx;
   background-color: #fff;
 }
 
@@ -31,4 +31,47 @@
 
 .cate-item:last-child {
   margin-right: 0rpx;
+}
+
+
+
+.detail-content {
+  background-color: #f7f7f7;
+  padding: 20rpx 30rpx;
+  animation: fadeIn 0.4s linear;
+}
+
+.icon-xiangxia-copy:before {
+  transform: rotate(0deg);
+  display: inline-block;
+  transition: transform 0.4s linear;
+}
+
+.icon-xiangxia-copy.active:before {
+  transform: rotate(-180deg);
+  transition: transform 0.4s linear;
+}
+
+.sum-wrap {
+  background-color: #fff;
+  padding-top: 16rpx;
+  box-shadow: 0px -5rpx 5rpx 0px rgba(128, 128, 128, 0.2);
+}
+
+.sum-wrap .sum-desc {
+  font-size: 24rpx;
+  color: #333;
+  text-align: center;
+}
+
+.sum-wrap .sum-val {
+  font-size: 24rpx;
+  color: #fe9f45;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.sum-wrap .sum-hj {
+  max-width: 150rpx;
+  font-size: 24rpx;
 }

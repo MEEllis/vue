@@ -34,8 +34,8 @@ Component({
    */
   methods: {
     // 搜索
-    searchSubmit: () => {
-      this.searchSubmit()
+    searchSubmit: function(e) {
+      this.triggerSearch()
     },
     // 监听输入框
     inputTyping: function(e) {
@@ -45,14 +45,19 @@ Component({
       });
       this.triggerInput()
     },
+    // 清空输入框
     clearInput: function() {
       this.setData({
         keyWord: ""
       });
       this.triggerInput()
-      this.searchSubmit()
+      this.triggerSearch()
     },
-
+    // 点击输入框
+    tapAdvanced: function() {
+      this.triggerEvent("tapAdvanced");
+    },
+    // 触发 监听输入框
     triggerInput: function() {
       const {
         keyWord
@@ -61,7 +66,8 @@ Component({
         keyWord,
       });
     },
-    triggerSearch: function () {
+    // 触发 搜索
+    triggerSearch: function() {
       const {
         keyWord
       } = this.data;

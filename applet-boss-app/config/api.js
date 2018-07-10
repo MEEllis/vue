@@ -9,8 +9,13 @@ NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/21285/'; // 模拟接口地�
 
 
 module.exports = {
-  getFirstGoodsClassVoList: NewApiRootUrl +'component/goods/getFirstGoodsClassVoList',
+  getFirstGoodsClassVoList: NewApiRootUrl + 'component/goods/getFirstGoodsClassVoList', //获取商品一级类别集合
+  getGoodsBrandVoList: NewApiRootUrl + 'component/goods/getGoodsBrandVoList', //获取商品品牌集合
+  
   getStockDistrData: NewApiRootUrl + 'boss/report/storage/getStockDistrData',// 库存分布报表 主页
+  
   getCurrentStockData: NewApiRootUrl + 'boss/report/storage/getCurrentStockData',// 实时库存报表 主页
+  getCurrentStockTotalVo: NewApiRootUrl + 'boss/report/storage/getCurrentStockTotalVo',// 实时库存 主页(总计行对象)
+
 
 }

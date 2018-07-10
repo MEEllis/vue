@@ -3,14 +3,19 @@
     "pages/index/index",
     "pages/login/login",
     "pages/report/index/index",
-    "pages/report/stockDistribution/stockDistribution", 
+    "pages/report/stockDistribution/stockDistribution",
+    "pages/report/stockDistributionDetail/stockDistributionDetail",
+    "pages/common/default/default",
+    "pages/common/companySection/companySection",
+    "pages/common/goodsClass/goodsClass",
+    "pages/common/goodsBrand/goodsBrand",
     "pages/my/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "零售开单",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#21a4ff",
+    "navigationBarTitleText": "boss app",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#999",
@@ -19,13 +24,13 @@
     "selectedColor": "#476EC9",
     "list": [
       {
-        "pagePath": "pages/my/index/index",
+        "pagePath": "pages/report/index/index",
         "text": "串号跟踪",
         "iconPath": "images/tabBar/follow.png",
         "selectedIconPath": "images/tabBar/follow-sel.png"
       },
       {
-        "pagePath": "pages/report/index/index",
+        "pagePath": "pages/my/index/index",
         "text": "我的",
         "iconPath": "images/tabBar/my.png",
         "selectedIconPath": "images/tabBar/my-sel.png"

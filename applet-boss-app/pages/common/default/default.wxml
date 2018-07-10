@@ -1,0 +1,29 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<view class='content-wrap'>
+  <view class="weui-cell" bindtap='tapShowDetail' data-target='companySection'>
+    公司部门
+    <view class="weui-cell__bd tr">
+      <text class='font-28 color333'>{{numberFr.stringNull(companySectionParamName)}}</text>
+    </view>
+    <text class='iconfont  icon-40 left'></text>
+  </view>
+  <view class="weui-cell" bindtap='tapShowDetail' data-target='goodsClass'>
+    商品类别
+    <view class="weui-cell__bd tr">
+      <text class='font-28 color333'>{{numberFr.stringNull(goodsClassName)}}</text>
+    </view>
+    <text class='iconfont  icon-40 left'></text>
+  </view>
+  <view class="weui-cell" bindtap='tapShowDetail' data-target='goodsBrand'>
+    品牌
+    <view class="weui-cell__bd tr">
+      <text class='font-28 color333'>{{numberFr.stringNull(goodsBrandName)}}</text>
+    </view>
+    <text class='iconfont  icon-40 left'></text>
+  </view>
+</view>
+<view class='btn-wrap'>
+  <button class="search font-36" type="primary" bindtap="formSubmit">查询</button>
+  <button class="mt-24 font-36" type="default" bindtap="formReset">重置</button>
+</view>
+<view class='font-22 tc color8c8'>说明：实时库存仅针对有权限且已启用的公司部门库存。</view>
