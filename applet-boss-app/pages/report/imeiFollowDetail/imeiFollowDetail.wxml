@@ -1,0 +1,95 @@
+<view class="container">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <view class='detail-head'>
+    <view class="weui-flex ">
+      <view class=" weui-flex__item title">
+        串号：
+      </view>
+      <view class=" weui-flex__item desc">
+        {{numberFr.stringNull(imei)}}
+      </view>
+    </view>
+    <view class="weui-flex ">
+      <view class=" weui-flex__item title">
+        辅助串号：
+      </view>
+      <view class=" weui-flex__item desc">
+        {{numberFr.stringNull(auxiliaryImei)}}
+      </view>
+    </view>
+    <view class="weui-flex ">
+      <view class=" weui-flex__item col{{statusCode}}" style='text-align:left;padding-left:15rpx;'>
+        {{numberFr.stringNull(nowStatus)}}
+      </view>
+
+    </view>
+  </view>
+  <view class='detail-body' style='padding-bottom:20rpx;'>
+    <view class='table mt-20' wx:for-items="{{imeiVo}}" wx:key="*this">
+      <view class='table-head'>
+        <view class="weui-flex ">
+          <text class='iconfont icon-shouji1'></text>
+          <view class="weui-flex__item">
+            {{numberFr.stringNull(item.goodsName)}}
+          </view>
+        </view>
+        <view class="weui-flex mt-20">
+          <view class=" weui-flex__item">
+            配置：{{item.configure}}
+          </view>
+        </view>
+      </view>
+      <view class='table-body'>
+
+        <view class='weui-flex item-title color1'>
+          <view class="weui-flex__item">
+            <text class='index'>{{idx+1}}</text>
+            <text class='fw'>{{numberFr.stringNull(item.billType)}}</text>
+          </view>
+          <view class="weui-flex__item tr">
+            {{numberFr.stringNull(item.billsCode)}}
+          </view>
+        </view>
+        <view class=' item-body'>
+          <view class='weui-flex'>
+            <view class="weui-flex__item">
+              单据日期：{{numberFr.stringNull(item.billsDateStr)}}
+            </view>
+            <view wx-if="{{item.inOutStockType=='45' || item.inOutStockType=='46' || item.inOutStockType=='19'  || item.inOutStockType=='20'  || item.inOutStockType=='21'}}" class="weui-flex__item color1 ">
+              金额：
+              <text class='fw'>{{numberFr.formatNum(item.price,2)}}</text>
+            </view>
+          </view>
+          <view class='weui-flex'>
+            <view class="weui-flex__item">
+              部门名称：{{numberFr.stringNull(item.sectionName)}}
+            </view>
+
+          </view>
+          <view class='weui-flex'>
+            <view class="weui-flex__item">
+              仓库名称：{{numberFr.stringNull(item.storageName)}}
+            </view>
+          </view>
+          <view class='weui-flex'>
+            备注：
+            <view class="weui-flex__item">
+              {{numberFr.stringNull(item.imeiDetailRemark)}}
+            </view>
+          </view>
+          <view class='weui-flex  color3'>
+            <view class="weui-flex__item">
+              {{numberFr.stringNull(item.createByName)}}
+            </view>
+            <view class="weui-flex__item tr">
+              {{numberFr.stringNull(item.createDateStr)}}
+            </view>
+          </view>
+        </view>
+
+
+
+      </view>
+    </view>
+  </view>
+</view>

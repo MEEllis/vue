@@ -1,0 +1,47 @@
+<view class="container">
+  <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+  <import src="../../../template/pagination.wxml" />
+  <!-- 搜索 -->
+  <view class="weui-search-bar">
+    <form class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder-class='placeholder' placeholder="请输入串号（右匹配，至少5位）" value="{{imeiKeyWord}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
+        <view class="weui-icon-clear" wx:if="{{imeiKeyWord.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+    </form>
+    <view class="weui-search-bar__cancel-btn" bindtap="bindScanCode">
+      <text class='iconfont icon-iconfontsaoyisao1'></text>
+    </view>
+  </view>
+  <view hidden="{{inputShowed}}" class='scanCode-wrap'>
+    <image bindtap='bindScanCode' src="../../../images/scanCode.png" lazy-load='true' class='scanCode' />
+  </view>
+
+  <!-- 商品列表 -->
+  <scroll-view hidden="{{!inputShowed}}" scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+    <view class='list-item mb-30 ' wx:for-items="{{dataList}}" wx:key="*this">
+      <view class='list-item-body'>
+        <view class="weui-flex">
+          <view class='weui-flex__item color666 title'>串号：</view>
+          <view class="weui-flex__item desc color000">
+            {{numberFr.stringNull(item.imei)}}
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class='weui-flex__item color666 title'>辅助串号：</view>
+          <view class="weui-flex__item desc color000">
+            {{numberFr.stringNull(item.auxiliaryImei)}}
+          </view>
+        </view>
+        <navigator url='/pages/report/imeiFollowDetail/imeiFollowDetail?imeiId={{item.imeiId}}&imei={{item.imei}}&auxiliaryImei={{item.auxiliaryImei}}&statusCode={{item.statusCode}}&nowStatus={{item.nowStatus}}' class="weui-cell mt-20">
+          <view class="weui-cell__bd col{{item.statusCode}}'">{{numberFr.stringNull(item.nowStatus)}}</view>
+          <text class='iconfont icon-40 left'></text>
+        </navigator>
+      </view>
+    </view>
+    <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+  </scroll-view>
+</view>

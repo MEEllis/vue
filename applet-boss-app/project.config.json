@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -52,6 +52,54 @@
 					"name": "common/goodsClass",
 					"pathName": "pages/common/goodsClass/goodsClass",
 					"query": "route=pages/common/default/default"
+				},
+				{
+					"id": 3,
+					"name": "report/stockDistributionDetail",
+					"pathName": "pages/report/stockDistributionDetail/stockDistributionDetail",
+					"query": "goodsId=1&goodsName=sdfsdfsadfdsfadsfadsfasdf&goodsQuantity=1111&goodsPrice=1111&goodsAmount=1111&CKCBJ=true"
+				},
+				{
+					"id": -1,
+					"name": "common/goodDetail",
+					"pathName": "pages/common/goodDetail/goodDetail",
+					"query": "goodsId=1"
+				},
+				{
+					"id": 5,
+					"name": "report/index",
+					"pathName": "pages/report/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my/index",
+					"pathName": "pages/my/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/imeiFollow",
+					"pathName": "pages/report/imeiFollow/imeiFollow",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "report/imeiFollowDetail",
+					"pathName": "pages/report/imeiFollowDetail/imeiFollowDetail",
+					"query": "imeiId=1&imei= 100110021003&auxiliaryImei= 100110021004&statusCode=1&nowStatus=库存中"
+				},
+				{
+					"id": -1,
+					"name": "report/mySales",
+					"pathName": "pages/report/mySales/mySales",
+					"query": ""
 				}
 			]
 		}

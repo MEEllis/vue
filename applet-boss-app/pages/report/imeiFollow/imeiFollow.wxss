@@ -1,0 +1,137 @@
+page {
+  background-color: #fff;
+}
+
+.col1 {
+  color: #ffaf23;
+}
+
+.col2 {
+  color: #3384d6;
+}
+
+.col3 {
+  color: #46be8a;
+}
+
+.weui-search-bar {
+  position: relative;
+  padding: 16rpx 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #efeff4;
+}
+
+.weui-icon-search {
+  margin-right: 8px;
+  font-size: inherit;
+}
+
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+.weui-search-bar__text {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 12rpx;
+  background: #fff;
+}
+
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.weui-search-bar__input {
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 28rpx;
+}
+
+.weui-search-bar__cancel-btn {
+  margin-left: 20rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 28rpx;
+  color: #09bb07;
+  white-space: nowrap;
+}
+
+.weui-icon-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 22rpx 16rpx;
+  font-size: 0;
+}
+
+.weui-search-bar__cancel-btn {
+  width: 72rpx;
+  height: 72rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  text-align: center;
+  color: #666;
+}
+
+.icon-iconfontsaoyisao1 {
+  font-size: 44rpx;
+}
+
+.scanCode-wrap {
+  background-color: #fff;
+}
+
+.scanCode {
+  width: 385rpx;
+  height: 386rpx;
+  margin: 0 auto;
+  display: block;
+  padding-top: 260rpx;
+}
+
+.list-item-body {
+  background-color: #fff;
+  padding: 20rpx 0rpx 0rpx 0rpx;
+}
+
+.list-item-body .weui-flex {
+  font-size: 32rpx;
+}
+
+.list-item-body .weui-cell {
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+}
+
+.weui-cell:before {
+  left: 30rpx;
+  border-top: 1rpx dotted #d9d9d9;
+}
+
+.list-item-body .title {
+  text-align: right;
+}
+
+.list-item-body .desc {
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+  flex: 3;
+}

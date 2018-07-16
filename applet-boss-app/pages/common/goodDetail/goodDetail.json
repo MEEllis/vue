@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "商品资料详情",
+  "usingComponents": {
+    "wux-animation-group": "/component/animation-group/index"
+  }
+}

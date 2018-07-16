@@ -1,2 +1,28 @@
-<!--pages/common/companySection/companySection.wxml-->
-<text>pages/common/companySection/companySection.wxml</text>
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<!-- 搜索 -->
+<search-bar placeholder="公司编码/公司名称/部门编码/部门名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+
+<!-- 商品列表 -->
+<scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;">
+  <view class='list-item' wx:for-items="{{dataList}}" wx:key="">
+    <view bindtap='tapSel' data-id="{{item.id}}" data-name="{{item.name}}" data-nodetype="{{item.nodeType}}" class='list-item-title border-bottom'>
+      <view class='weui-cell'>
+        <view class="weui-cell__bd">
+          {{numberFr.stringNull(item.name)}}
+        </view>
+        <text class='fr iconfont {{(activeId==item.id&&activeNodeType==item.nodeType)==true?"icon-gouxuan":""}}'></text>
+      </view>
+    </view>
+    <view wx:for-items="{{item.sectionList}}" wx:key="" wx:for-item="sectionItem" bindtap='tapSel' data-id="{{sectionItem.id}}" data-name="{{sectionItem.name}}" data-nodetype="{{sectionItem.nodeType}}" style='padding-left:80rpx;'>
+      <view class='list-item-title border-bottom'>
+        <view class='weui-cell' style='padding: 14rpx 30rpx 14rpx 0rpx;'>
+          <view class="weui-cell__bd">
+            <view style='line-height:1;'> {{numberFr.stringNull(sectionItem.name)}}</view>
+            <view style='line-height:1;padding-top:10rpx;' class='font-24 color666'> {{numberFr.stringNull(sectionItem.sectionPath)}}</view>
+          </view>
+          <text class='fr iconfont {{(activeId==sectionItem.id&&activeNodeType==sectionItem.nodeType)==true?"icon-gouxuan":""}}'></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

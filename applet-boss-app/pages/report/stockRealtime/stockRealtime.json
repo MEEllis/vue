@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "实时库存",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

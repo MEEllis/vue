@@ -1,0 +1,61 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<view wx:if="{{goodsVo!=null}}">
+  <view class='list-item '>
+    <view class='font-34 pd-20 tc fw'>{{numberFr.stringNull(goodsVo.goodsName)}}</view>
+  </view>
+  <wux-animation-group wux-class="list-wrap" classNames='wux-animate--fadeInDown'  in='true'>
+
+    <view class="weui-flex  deail-item ">
+      <text class='color666'>品牌</text>
+      <view class="weui-flex__item tr color000">
+        {{numberFr.stringNull(goodsVo.goodsBrand)}}
+      </view>
+    </view>
+    <view class="weui-flex  deail-item ">
+      <text class='color666'>型号</text>
+      <view class="weui-flex__item tr color000">
+        {{numberFr.stringNull(goodsVo.goodsModel)}}
+      </view>
+    </view>
+    <view class="weui-flex  deail-item ">
+      <text class='color666'>颜色</text>
+      <view class="weui-flex__item tr color000">
+        {{numberFr.stringNull(goodsVo.goodsColor)}}
+      </view>
+    </view>
+    <view class="weui-flex  deail-item ">
+      <text class='color666'>配置</text>
+      <view class="weui-flex__item tr color000">
+        {{numberFr.stringNull(goodsVo.goodsConfiguration)}}
+      </view>
+    </view>
+    <view class="weui-flex  deail-item ">
+      <text class='color666'>商品编码</text>
+      <view class="weui-flex__item tr color000">
+        {{numberFr.stringNull(goodsVo.goodsCode)}}
+      </view>
+    </view>
+    <view class="weui-flex  deail-item be6e">
+      <text class='color666'>商品备注</text>
+      <view class="weui-flex__item tr color000">
+        {{numberFr.stringNull(goodsVo.goodsRemark)}}
+      </view>
+    </view>
+    <view class="weui-flex  deail-item ">
+      <text class='color666'>一级类别</text>
+      <view class="weui-flex__item tr color000">
+        {{numberFr.stringNull(goodsVo.firstGoodsClassName)}}
+      </view>
+    </view>
+    <view class="weui-flex  deail-item ">
+      <text class='color666'>类别路径</text>
+      <view class="weui-flex__item tr color000">
+        {{numberFr.stringNull(goodsVo.goodsClassPathName)}}
+      </view>
+    </view>
+
+  </wux-animation-group>
+
+
+
+</view>

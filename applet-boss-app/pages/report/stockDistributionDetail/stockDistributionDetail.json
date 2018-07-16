@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "实时库存分布详情"
+  "navigationBarTitleText": "库存分布详情",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
 }

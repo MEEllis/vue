@@ -1,5 +1,7 @@
 import util from '../../utils/util.js';
+import request from '../../utils/request.js';
 import api from '../../config/api.js';
+import serviceUser from '../../services/user.js';
 
 Page({
   /**
@@ -38,36 +40,19 @@ Page({
       name,
       pwd
     } = this.data
-    if (!wxUserInfo.userInfo){
+    if (!wxUserInfo.userInfo) {
       return;
     }
-    util.login().then(({
-      code
-    }) => {
-      if (code) {
-        util.request(
-          api.authGetAccessCompanyList, {
-            userName: name,
-            password: pwd
-          }
-        ).then(ajaxData => {
-          _this.setData({
-            companyList: ajaxData.data.companyList
-          });
-          //只有一个公司，直接登录
-          if (ajaxData.data.companyList.length === 1) {
-            _this.login(ajaxData.data.companyList[0].id)
-          } else {
-            wx.setStorage({
-              key: "companyList",
-              data: ajaxData.data.companyList,
-              success: function() {
-                _this.thridModal.show();
-              }
-            });
-          }
 
-        })
+    serviceUser.getCompanyVoList(name, pwd).then(ajaxData => {
+      _this.setData({
+        companyList: ajaxData.data.companyList
+      });
+      //只有一个公司，直接登录
+      if (ajaxData.data.companyList.length === 1) {
+        _this.login(ajaxData.data.companyList[0].id)
+      } else {
+        _this.thridModal.show();
       }
     })
   },
@@ -82,29 +67,9 @@ Page({
       name,
       pwd
     } = this.data;
-    util.loginByWeixin().then(({
-      code,
-      userInfo
-    }) => {
-      return util.request(
-        api.authLogin, {
-          userName: name,
-          password: pwd,
-          companyId,
-          code: code,
-          userInfo: JSON.stringify(userInfo),
-        }
-      )
-    }).then(ajaxData => {
-      wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
-      wx.setStorage({
-        key: "token",
-        data: ajaxData.data['ERP-WX-TOKEN'],
-        success: function() {
-          wx.switchTab({
-            url: '/pages/billing/index/index'
-          });
-        }
+    serviceUser.login(name, pwd, companyId).then(ajaxData => {
+      wx.switchTab({
+        url: '/pages/report/index/index'
       });
     })
   },

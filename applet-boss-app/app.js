@@ -1,11 +1,13 @@
 import util from './utils/util.js'
 import api  from './config/api.js'
-import user  from './services/user.js'
+import serviceUser  from './services/user.js'
 App({
   //生命周期函数--监听小程序初始化 (desc:当小程序初始化完成时，会触发 onLaunch（全局只触发一次）)
   onLaunch: function () {
-    const that=this;
-    console.log("==============onLaunch")
+    serviceUser.autoLogin()
+    setInterval(function () {
+      serviceUser.autoLogin()
+    }, 1500000) 
  
   },
   //生命周期函数--监听小程序显示 (desc:当小程序启动，或从后台进入前台显示，会触发 onShow)

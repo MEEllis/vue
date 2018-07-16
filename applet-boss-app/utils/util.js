@@ -41,13 +41,16 @@ function checkSession() {
 function loginByWeixin() {
 
   let code = null;
-  return new Promise(function (resolve, reject) {
+  return new Promise(function(resolve, reject) {
 
     return login().then((res) => {
       code = res.code;
       return getUserInfo();
     }).then((userInfo) => {
-      resolve({ code, userInfo });
+      resolve({
+        code,
+        userInfo
+      });
     }).catch((err) => {
       reject(err);
     })
@@ -224,6 +227,35 @@ function accDiv(a, b) {
   return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), accMul(c / d, Math.pow(10, f - e));
 }
 
+
+//本月
+function getCurBMonth() {
+  const curDate = new Date();
+  const startDate = formatTime(new Date(new Date().setDate(1)))
+  const endDate = formatTime(curDate);
+  return {
+    startDate,
+    endDate,
+  }
+}
+// 本周
+function getCurBWeekend() {
+  const curDate = new Date();
+  const nowDayOfWeek = curDate.getDay(); //今天本周的第几天 
+  const nowDay = curDate.getDate(); //当前日 
+  const nowMonth = curDate.getMonth(); //当前月 
+  const nowYear = curDate.getFullYear(); //当前年 
+
+  const weekStartDate = new Date(nowYear, nowMonth, nowDay - nowDayOfWeek + 1);
+
+  const startDate = util.formatTime(weekStartDate);
+  const endDate = util.formatTime(curDate);
+  return {
+    startDate,
+    endDate,
+  }
+}
+
 module.exports = {
   formatTime,
   showErrorToast,
@@ -238,4 +270,6 @@ module.exports = {
   accSub,
   accMul,
   accDiv,
+  getCurBMonth,
+  getCurBWeekend,
 }

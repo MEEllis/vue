@@ -1,0 +1,30 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<!-- 一级类目 -->
+<view class='cate-wrap'>
+  <scroll-view scroll-x="true" class="cate-cotent">
+    <button class="cate-item  {{goodsClassId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="cateTap"> {{item.name}}</button>
+  </scroll-view>
+</view>
+<!-- 搜索 -->
+<search-bar placeholder="部门编码/部门名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
+<view class='sel-time border-top'>
+  查询时间:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
+</view>
+<!-- 商品列表 -->
+<scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+  <view class='border-bottom' wx:for="{{ dataList }}" wx:key="">
+    <navigator url='/pages/report/stockDistributionDetail/stockDistributionDetail?goodsId={{item.goodsId}}&goodsName={{item.goodsName}}&goodsQuantity={{item.goodsQuantity}}&companySectionParam={{item.companySectionParam}}' class="weui-cell">
+      <text class='iconfont icon-shouji'></text>
+      <view class="weui-cell__bd ellipsis color000 font-30">
+        {{numberFr.stringNull(item.goodsName)}}
+      </view>
+      <view class='weui-cell__ft'>
+        <text class='count-tai'>{{numberFr.formatNum(item.goodsQuantity)}}台</text>
+        <text class='iconfont  icon-40 left'></text>
+      </view>
+    </navigator>
+  </view>
+  <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+
+</scroll-view>

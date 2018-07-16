@@ -5,10 +5,18 @@
     "pages/report/index/index",
     "pages/report/stockDistribution/stockDistribution",
     "pages/report/stockDistributionDetail/stockDistributionDetail",
+    "pages/report/stockRealtime/stockRealtime",
+    "pages/report/stockRealtimeDetail/stockRealtimeDetail",
+    "pages/report/imeiFollow/imeiFollow",
+    "pages/report/imeiFollowDetail/imeiFollowDetail",
+    "pages/report/mySales/mySales",
+    "pages/report/mySalesDetail/mySalesDetail",
     "pages/common/default/default",
     "pages/common/companySection/companySection",
     "pages/common/goodsClass/goodsClass",
     "pages/common/goodsBrand/goodsBrand",
+    "pages/common/goodDetail/goodDetail",
+    "pages/my/about/about",
     "pages/my/index/index"
   ],
   "window": {

@@ -30,11 +30,11 @@ form {
 
 .login{
   margin-top: 80rpx;
-  background-color: rgba(71, 110, 201, 1) !important;
+  background-color: rgba(33, 164, 255, 1) !important;
 }
 
 .login[disabled][type=primary] {
-  background-color: rgba(71, 110, 201, 0.5) !important;
+  background-color: rgba(33, 164, 255, 0.5) !important;
 }
 .item{
   position: relative;

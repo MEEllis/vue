@@ -11,7 +11,8 @@ Page({
     delta: 1,
     addPage: null,
     companySectionParamId: '',
-    companySectionParamName: '全部',
+    companySectionParamNodeType: '',
+    companySectionParamName: '',
     goodsClassId: '',
     goodsClassName: '全部',
     categoryData: [],
@@ -55,6 +56,7 @@ Page({
   formSubmit: function() {
     const {
       companySectionParamId,
+      companySectionParamNodeType,
       companySectionParamName,
       goodsClassId,
       goodsClassName,
@@ -67,19 +69,25 @@ Page({
     if (addPage != null) {
       addPage.setData({
         companySectionParamId,
+        companySectionParamNodeType,
         companySectionParamName,
         goodsClassId,
         goodsClassName,
         goodsBrandId,
         goodsBrandName,
       })
+      addPage.searchSubmit()
     }
     wx.navigateBack({})
   },
   formReset: function() {
+       //获取当前登录公司
+    const userInfo = wx.getStorageSync('userInfo');
+ 
     this.setData({
-      companySectionParamId: '',
-      companySectionParamName: '全部',
+      companySectionParamId: userInfo.companyId,
+      companySectionParamName: userInfo.companyName,
+
       goodsClassId: '',
       goodsClassName: '全部',
       goodsBrandId: '',
@@ -110,6 +118,10 @@ Page({
           goodsBrandId,
           goodsBrandName,
           BrandData,
+          companySectionParamNodeType,
+          companySectionParamId,
+          companySectionParamName,
+          companySectionParamData
         } = addPage.data;
         this.setData({
           goodsClassId,
@@ -118,6 +130,10 @@ Page({
           goodsBrandId,
           goodsBrandName,
           BrandData,
+          companySectionParamNodeType,
+          companySectionParamId,
+          companySectionParamName,
+          companySectionParamData
         });
       }
     }

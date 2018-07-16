@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的销量",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

@@ -1,0 +1,149 @@
+import util from '../../../utils/util.js';
+import api from '../../../config/api.js';
+import request from '../../../utils/request.js';
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    inputShowed: false,
+    imeiKeyWord: "",
+    dataList: [],
+    curListData: [],
+    total: 1,
+    page: 1,
+    pageSize: 20,
+    loadingMore: true,
+    scrollHeight: 0,
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+    const that = this;
+    util.getScrollHeight((56)).then((scrollHeight) => {
+      // 计算主体部分高度,单位为px
+      that.setData({
+        scrollHeight,
+      })
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+  showInput: function() {
+    this.setData({
+      inputShowed: true
+    });
+  },
+
+  inputTyping: function(e) {
+    this.setData({
+      imeiKeyWord: e.detail.value
+    });
+  },
+
+  clearInput: function() {
+    this.setData({
+      imeiKeyWord: "",
+      dataList: [],
+      curListData: [],
+      inputShowed: false
+    });
+
+  },
+  //关键字搜索
+  searchSubmit: function() {
+    this.setData({
+      page: 1,
+    });
+    const {
+      imeiKeyWord
+    } = this.data;
+    if (imeiKeyWord.length < 5) {
+      util.showErrorToast('请输入串号（右匹配，至少5位）~')
+      return;
+    }
+    this.getImeiVoList();
+  },
+  bindScanCode: function() {
+    const that = this;
+    // 允许从相机和相册扫码
+    wx.scanCode({
+      success: ({
+        result,
+        scanType,
+        charSet,
+        path
+      }) => {
+        if (imeiKeyWord.length < 5) {
+          util.showErrorToast('请输入串号（右匹配，至少5位）~')
+          return;
+        }
+        this.setData({
+          page: 1,
+        });
+        this.getImeiVoList();
+      }
+    })
+  },
+  scrolltolower: function() {
+    const {
+      page,
+      curListData,
+      pageSize
+    } = this.data;
+    if (curListData.length !== pageSize) {
+      return;
+    }
+    this.setData({
+      page: page + 1,
+    });
+    this.getImeiVoList();
+  },
+
+  // 获取列表
+  getImeiVoList: function() {
+    const that = this;
+    const {
+      imeiKeyWord,
+      page,
+      pageSize,
+    } = this.data;
+    this.setData({
+      inputShowed: true
+    })
+    request(api.getImeiTrackingMainData, {
+      imeiKeyWord,
+      page,
+      pageSize,
+    }).then(res => {
+      let dataList = that.data.dataList.concat(res.data.dataList)
+
+      that.setData({
+        dataList,
+        curListData: res.data.dataList,
+        loadingMore: false,
+      });
+      if (page == 1 && dataList.length === 1) {
+       wx.navigateTo({
+         url: `/pages/report/imeiFollowDetail/imeiFollowDetail?imeiId=${dataList[0].imeiId}&imei=${dataList[0].imei}&auxiliaryImei=${dataList[0].auxiliaryImei}&statusCode=${dataList[0].statusCode}&nowStatus=${dataList[0].nowStatus}`,
+       })
+      }
+    });
+  },
+})

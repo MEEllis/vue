@@ -53,12 +53,20 @@ button[type=default] {
   font-size: 22rpx;
 }
 
+.font-24 {
+  font-size: 24rpx;
+}
+
 .font-28 {
   font-size: 28rpx;
 }
 
 .font-30 {
   font-size: 30rpx;
+}
+
+.font-34 {
+  font-size: 34rpx;
 }
 
 .font-36 {
@@ -168,12 +176,14 @@ button[type=default] {
 
 .sel-time {
   position: relative;
-  font-size: 26rpx;
-  padding-left: 30rpx;
-  color: #8c8c8c;
-  line-height: 70rpx;
-  height: 70rpx;
+  font-size: 22rpx;
+  color: #666;
+  line-height: 50rpx;
+  text-align: center;
+  height: 50rpx;
 }
+
+
 
 .border-bottom, .border-top {
   position: relative;
@@ -242,9 +252,73 @@ button[type=default] {
   background: #fff;
 }
 
+.detail-content {
+  background-color: #f7f7f7;
+  animation: fadeIn 0.4s linear;
+}
+
 .count-tai {
   color: #fe9f45;
   font-size: 28rpx;
+}
+
+.cate-wrap {
+  padding: 16rpx;
+  background-color: #fff;
+}
+
+.cate-cotent {
+  height: 60rpx;
+  white-space: nowrap;
+}
+
+.cate-item {
+  display: inline-block;
+  line-height: 60rpx;
+  height: 60rpx;
+  font-size: 26rpx;
+  color: #000;
+  background-color: #efeff4;
+  border-radius: 6rpx;
+  margin-right: 18rpx;
+  padding: 0rpx 30rpx;
+}
+
+.cate-item::after {
+  border: none !important;
+}
+
+.cate-item.on {
+  background-color: #21a4ff;
+  color: #fff;
+}
+
+.cate-item:last-child {
+  margin-right: 0rpx;
+}
+
+.sum-wrap {
+  background-color: #fff;
+  padding-top: 16rpx;
+  box-shadow: 0px -5rpx 5rpx 0px rgba(128, 128, 128, 0.2);
+}
+
+.sum-wrap .sum-desc {
+  font-size: 24rpx;
+  color: #333;
+  text-align: center;
+}
+
+.sum-wrap .sum-val {
+  font-size: 24rpx;
+  color: #fe9f45;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.sum-wrap .sum-hj {
+  max-width: 150rpx;
+  font-size: 24rpx;
 }
 
 .icon-shouji {
@@ -252,6 +326,21 @@ button[type=default] {
   font-size: 54rpx;
   line-height: 1;
   padding-right: 8rpx;
+}
+
+.icon-iconfontdianpu5 {
+  color: #ff8b64;
+  font-size: 48rpx;
+  line-height: 1;
+  padding-right: 4rpx;
+}
+
+.icon-kucun1 {
+  color: #a28443;
+  font-size: 40rpx;
+  line-height: 1;
+  margin-right: 12rpx;
+  margin-left: 6rpx;
 }
 
 .icon-xiangxia-copy {
@@ -263,8 +352,20 @@ button[type=default] {
   display: inline-block;
   color: #999;
 }
-.icon-gouxuan{
-   color: #10D0B3;
+
+.icon-gouxuan {
+  color: #10d0b3;
+}
+
+.icon-xiangxia-copy:before {
+  transform: rotate(0deg);
+  display: inline-block;
+  transition: transform 0.4s linear;
+}
+
+.icon-xiangxia-copy.active:before {
+  transform: rotate(-180deg);
+  transition: transform 0.4s linear;
 }
 
 @-webkit-keyframes fadeIn {
