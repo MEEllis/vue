@@ -1,3 +1,30 @@
 .detail-content {
   padding: 20rpx 30rpx;
 }
+
+.sale-detail {
+    font-size: 28rpx;
+  padding: 16rpx 0rpx;
+  border-top: 1rpx dotted #d9d9d9;
+}
+
+.sale-detail .sum-desc {
+  color: #333;
+}
+
+.sale-detail .sum-val {
+  color: #fe9f45;
+}
+
+.total-desc {
+  max-width: 100rpx;
+  text-align: right;
+  color: #333;
+}
+
+.total-wrap {
+  background-color: #fff;
+  padding: 16rpx 30rpx;
+  color: #fe9f45;
+  font-size: 28rpx;
+}

@@ -105,6 +105,10 @@ button[type=default] {
   color: #000;
 }
 
+.colorfff {
+  color: #fff;
+}
+
 .color8c8 {
   color: #8c8c8c;
 }
@@ -182,8 +186,6 @@ button[type=default] {
   text-align: center;
   height: 50rpx;
 }
-
-
 
 .border-bottom, .border-top {
   position: relative;
@@ -323,7 +325,14 @@ button[type=default] {
 
 .icon-shouji {
   color: #669ffd;
-  font-size: 54rpx;
+  font-size: 48rpx;
+  line-height: 1;
+  padding-right: 8rpx;
+}
+
+.icon-caigou {
+  color: #fe9f45;
+  font-size: 48rpx;
   line-height: 1;
   padding-right: 8rpx;
 }
@@ -342,6 +351,31 @@ button[type=default] {
   margin-right: 12rpx;
   margin-left: 6rpx;
 }
+
+.icon-shangpinleibie-copy {
+  color: #10d0b3;
+  font-size: 48rpx;
+  line-height: 1;
+  margin-right: 12rpx;
+  margin-left: 6rpx;
+}
+
+.icon-pinpai {
+  color: #dec7a5;
+  font-size: 48rpx;
+  line-height: 1;
+  margin-right: 12rpx;
+  margin-left: 6rpx;
+}
+
+.icon-iconfontgerenzhongxin{
+  color: #18ACFF;
+  font-size: 48rpx;
+  line-height: 1;
+  margin-right: 12rpx;
+  margin-left: 6rpx;
+}
+
 
 .icon-xiangxia-copy {
   padding-left: 8rpx;

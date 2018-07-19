@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "供应商",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

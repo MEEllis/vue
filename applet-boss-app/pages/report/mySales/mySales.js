@@ -26,11 +26,15 @@ Page({
     goodsBrandId: '',
     goodsBrandName: '全部',
     BrandData: [],
+
     dataList: [],
     curListData: [],
     loadingMore: true,
     startDate: '',
     endDate: '',
+    timeActive:2,
+    salesType: '',
+    totalVo: null,
     authValidate: {
       FW: true,
       CKCBJ: false,
@@ -58,6 +62,7 @@ Page({
     this.getGoodsList()
     this.getBossAuthValidate();
     this.getCompanySectionList();
+    this.getTotalVo();
   },
 
   /**
@@ -89,13 +94,13 @@ Page({
       dataList: [],
     });
     this.getGoodsList();
-
+    this.getTotalVo();
   },
   tapAdvanced: function() {
     var pages = getCurrentPages() //获取加载的页面
     var currentPage = pages[pages.length - 1] //获取当前页面的对象
     wx.navigateTo({
-      url: `/pages/common/default/default?route=${currentPage.route}&barTitle=库存分布-查询条件`,
+      url: `/pages/common/saleModal/saleModal?route=${currentPage.route}&barTitle=我的销量-查询条件`,
     })
   },
   //选择一级类别
@@ -111,6 +116,7 @@ Page({
       dataList: [],
     });
     this.getGoodsList();
+    this.getTotalVo();
   },
   scrolltolower: function() {
     const {
@@ -195,21 +201,29 @@ Page({
     const that = this;
     this.setCompanySectionParam();
     const {
+      menuCode,
       companySectionParam,
-      keyWord,
       goodsClassId,
+      goodsBrandId,
+      keyWord,
+      startDate,
+      endDate,
+      salesType,
       page,
       pageSize,
-      goodsBrandId,
     } = this.data;
-
-    request(api.getStockDistrData, {
+    request(api.getMySalesData, {
+      menuCode,
       companySectionParam,
       goodsClassId,
       goodsBrandId,
       keyWord,
+      startDate,
+      endDate,
+      salesType,
       page,
       pageSize,
+    
     }).then(res => {
       if (callback) {
         callback(dataList)
@@ -224,6 +238,36 @@ Page({
     });
   },
 
+  //获取总计行对象
+  getTotalVo: function () {
+    var that = this;
+    this.setCompanySectionParam();
+    const {
+      menuCode,
+      companySectionParam,
+      goodsClassId,
+      goodsBrandId,
+      keyWord,
+      startDate,
+      endDate,
+      salesType,
+    } = this.data;
+
+    request(api.getMySalesTotalVo, {
+      menuCode,
+      companySectionParam,
+      goodsClassId,
+      goodsBrandId,
+      keyWord,
+      startDate,
+      endDate,
+      salesType,
+    }).then(res => {
+      that.setData({
+        totalVo: res.data.totalVo,
+      });
+    })
+  },
   //获取权限
   getBossAuthValidate: function() {
     const that = this;

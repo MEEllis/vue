@@ -1,1 +1,5 @@
-/* pages/report/mySalesDetail/mySalesDetail.wxss */
+.gooddesc-wrap {
+  padding: 12rpx 30rpx;
+  font-size: 28rpx;
+   border-top: 1rpx dotted #d9d9d9;
+}

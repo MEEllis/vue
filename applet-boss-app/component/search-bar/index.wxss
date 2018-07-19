@@ -54,7 +54,7 @@
   height: 72rpx;
   line-height: 72rpx;
   font-size: 28rpx;
-  color: #09bb07;
+  color: #21a4ff;
   white-space: nowrap;
 }
 

@@ -1,0 +1,10 @@
+.sale-detail {
+  font-size: 28rpx;
+  padding: 16rpx 0rpx;
+  border-top: 1rpx dotted #d9d9d9;
+}
+
+
+.weui-navbar__slider {
+  width: 250rpx;
+}

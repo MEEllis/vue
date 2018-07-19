@@ -16,8 +16,9 @@ module.exports = {
 
   getFirstGoodsClassVoList: NewApiRootUrl + 'component/goods/getFirstGoodsClassVoList', //获取商品一级类别集合
   getGoodsBrandVoList: NewApiRootUrl + 'component/goods/getGoodsBrandVoList', //获取商品品牌集合
-  getBossAuthValidate: NewApiRootUrl + 'boss/common/getBossAuthValidate', 
+  getBossAuthValidate: NewApiRootUrl + 'boss/common/getBossAuthValidate',
   getCompanySectionList: NewApiRootUrl + 'boss/common/getCompanySectionList', //获取商品品牌集合
+  getContactUnits: NewApiRootUrl + 'boss/common/getContactUnits', //获取往来单位
 
   getGoodsDetailData: NewApiRootUrl + 'boss/report/storage/getGoodsDetailData', //获取商品品牌集合
   getStockDistrData: NewApiRootUrl + 'boss/report/storage/getStockDistrData', // 库存分布报表 主页
@@ -33,6 +34,24 @@ module.exports = {
   getImeiTrackingDetailData: NewApiRootUrl + 'boss/report/storage/getImeiTrackingDetailData', // 串号跟踪详情页
 
 
+  getMySalesData: NewApiRootUrl + 'boss/report/sales/getMySalesData', // 我的销量报表主页
+  getMySalesTotalVo: NewApiRootUrl + 'boss/report/sales/getMySalesTotalVo', // 我的销量报表主页总计行对象
+  getMySalesDetailData: NewApiRootUrl + 'boss/report/sales/getMySalesDetailData', // 我的销量报表(公司或部门详情页) 
+  getMySalesDetailTotalVo: NewApiRootUrl + 'boss/report/sales/mySales/getMySalesDetailTotalVo', //我的销量 详情页总计行
 
 
+
+
+  getGrossProfitData: NewApiRootUrl + 'boss/report/sales/getGrossProfitData', // 毛利战报 主页
+  getGrossProfitTotalVo: NewApiRootUrl + 'boss/report/sales/getGrossProfitTotalVo', // 毛利战报 主页总计行对象
+  getGrossProfitDetailData: NewApiRootUrl + 'boss/report/sales/getGrossProfitDetailData', // 毛利战报 主页总计行对象 
+
+
+  getPurchaseCollectData: NewApiRootUrl + 'boss/report/purchase/purchaseCollect/getPurchaseCollectData', // 采购汇总报表
+  getPurchaseCollectTotalVo: NewApiRootUrl + 'boss/report/purchase/purchaseCollect/getPurchaseCollectTotalVo', // 采购汇总报表获取总计行对象
+
+  getGrossProfitData: NewApiRootUrl + 'boss/report/sales/grossProfit/getGrossProfitData', // 毛利战报 主页
+  getGrossProfitTotalVo: NewApiRootUrl + 'boss/report/sales/grossProfit/getGrossProfitTotalVo', // 毛利战报 主页总计行对象
+  getGrossProfitDetailData: NewApiRootUrl + 'boss/report/sales/grossProfit/getGrossProfitDetailData', // 毛利战报 详情页
+  getGrossProfitDetailTotalVo: NewApiRootUrl + 'boss/report/sales/grossProfit/getGrossProfitDetailTotalVo', // 毛利战报 详情页总计行接口
 }

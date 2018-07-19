@@ -25,11 +25,11 @@ export default function request(url, data = {}, method = "POST", config) {
         wx.hideLoading()
 
         if (res.statusCode == 200) {
-          if (res.data.result == 1) {
+          if (res.data.code == 1) {
             resolve(res.data);
           }
           // 未登录时（），先调用自动登录
-          else if (res.data.result == 1000) {
+          else if (res.data.code == 1000) {
             console.log(res.data)
             loginByWeixin().then(({
               code,
@@ -47,7 +47,7 @@ export default function request(url, data = {}, method = "POST", config) {
             })
           }
           //登录失败（）
-          else if (res.data.result == 1001) {
+          else if (res.data.code == 1001) {
             console.log(res.data)
             wx.reLaunch({
               url: '/pages/login/login',
@@ -55,7 +55,7 @@ export default function request(url, data = {}, method = "POST", config) {
             })
           }
           //权限不足
-          else if (res.data.result == 1100) {
+          else if (res.data.code == 1100) {
             wx.switchTab({
               url: '/pages/report/index/index'
             });

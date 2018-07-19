@@ -248,8 +248,8 @@ function getCurBWeekend() {
 
   const weekStartDate = new Date(nowYear, nowMonth, nowDay - nowDayOfWeek + 1);
 
-  const startDate = util.formatTime(weekStartDate);
-  const endDate = util.formatTime(curDate);
+  const startDate = formatTime(weekStartDate);
+  const endDate = formatTime(curDate);
   return {
     startDate,
     endDate,

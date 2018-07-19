@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "采购汇总",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

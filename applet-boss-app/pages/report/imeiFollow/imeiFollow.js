@@ -1,6 +1,7 @@
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
 import request from '../../../utils/request.js';
+import serviceCom from '../../../services/common.js';
 
 Page({
 
@@ -8,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    menuCode:'CHGZ',
     inputShowed: false,
     imeiKeyWord: "",
     dataList: [],
@@ -17,13 +19,14 @@ Page({
     pageSize: 20,
     loadingMore: true,
     scrollHeight: 0,
+    authValidate:{},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.getBossAuthValidate()
   },
 
   /**
@@ -123,6 +126,7 @@ Page({
       imeiKeyWord,
       page,
       pageSize,
+      authValidate
     } = this.data;
     this.setData({
       inputShowed: true
@@ -141,9 +145,22 @@ Page({
       });
       if (page == 1 && dataList.length === 1) {
        wx.navigateTo({
-         url: `/pages/report/imeiFollowDetail/imeiFollowDetail?imeiId=${dataList[0].imeiId}&imei=${dataList[0].imei}&auxiliaryImei=${dataList[0].auxiliaryImei}&statusCode=${dataList[0].statusCode}&nowStatus=${dataList[0].nowStatus}`,
+         url: `/pages/report/imeiFollowDetail/imeiFollowDetail?imeiId=${dataList[0].imeiId}&CKCBJ=${authValidate.CKCBJ}`,
        })
       }
     });
   },
+  //获取权限
+  getBossAuthValidate: function () {
+    const that = this;
+    const {
+      menuCode
+    } = this.data;
+    serviceCom.getBossAuthValidate(menuCode).then(res => {
+      const authValidate = res.data;
+      that.setData({
+        authValidate
+      });
+    })
+  }
 })

@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -93,12 +93,30 @@
 					"id": 9,
 					"name": "report/imeiFollowDetail",
 					"pathName": "pages/report/imeiFollowDetail/imeiFollowDetail",
-					"query": "imeiId=1&imei= 100110021003&auxiliaryImei= 100110021004&statusCode=1&nowStatus=库存中"
+					"query": "imeiId=1&CKCBJ=true"
 				},
 				{
 					"id": -1,
 					"name": "report/mySales",
 					"pathName": "pages/report/mySales/mySales",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "common/saleModal",
+					"pathName": "pages/common/saleModal/saleModal",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/purchaseSummary",
+					"pathName": "pages/report/purchaseSummary/purchaseSummary",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/grossProfit",
+					"pathName": "pages/report/grossProfit/grossProfit",
 					"query": ""
 				}
 			]

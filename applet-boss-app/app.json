@@ -11,10 +11,17 @@
     "pages/report/imeiFollowDetail/imeiFollowDetail",
     "pages/report/mySales/mySales",
     "pages/report/mySalesDetail/mySalesDetail",
+    "pages/report/purchaseSummary/purchaseSummary",
+    "pages/report/grossProfit/grossProfit",
+    "pages/report/grossProfitDetail/grossProfitDetail",
     "pages/common/default/default",
+    "pages/common/saleModal/saleModal",
     "pages/common/companySection/companySection",
     "pages/common/goodsClass/goodsClass",
     "pages/common/goodsBrand/goodsBrand",
+    "pages/common/contactUnits/contactUnits",
+    "pages/common/purchase/purchase",
+    "pages/common/grossProfit/grossProfit",
     "pages/common/goodDetail/goodDetail",
     "pages/my/about/about",
     "pages/my/index/index"
@@ -29,13 +36,13 @@
     "color": "#999",
     "borderStyle": "#e6e6e6",
     "backgroundColor": "#fff",
-    "selectedColor": "#476EC9",
+    "selectedColor": "#21a4ff",
     "list": [
       {
         "pagePath": "pages/report/index/index",
-        "text": "串号跟踪",
-        "iconPath": "images/tabBar/follow.png",
-        "selectedIconPath": "images/tabBar/follow-sel.png"
+        "text": "报表",
+        "iconPath": "images/tabBar/sales.png",
+        "selectedIconPath": "images/tabBar/sales-sel.png"
       },
       {
         "pagePath": "pages/my/index/index",

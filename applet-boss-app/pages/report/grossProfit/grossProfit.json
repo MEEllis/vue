@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "毛利战报",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

@@ -26,4 +26,4 @@
   <button class="search font-36" type="primary" bindtap="formSubmit">查询</button>
   <button class="mt-24 font-36" type="default" bindtap="formReset">重置</button>
 </view>
-<view class='font-22 tc color8c8'>说明：实时库存仅针对有权限且已启用的公司部门库存。</view>
+<!-- <view class='font-22 tc color8c8'>说明：实时库存仅针对有权限且已启用的公司部门库存。</view> -->

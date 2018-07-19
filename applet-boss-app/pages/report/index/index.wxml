@@ -1,1 +1,6 @@
-<navigator url='/pages/report/stockDistribution/stockDistribution'>实时库存</navigator>
+<navigator url='/pages/report/stockDistribution/stockDistribution'>库存分布</navigator>
+<navigator url='/pages/report/stockRealtime/stockRealtime'>实时库存</navigator>
+<navigator url='/pages/report/imeiFollow/imeiFollow'>串号跟踪</navigator>
+<navigator url='/pages/report/mySales/mySales'>我的销量</navigator>
+<navigator url='/pages/report/purchaseSummary/purchaseSummary'>采购汇总</navigator>
+<navigator url='/pages/report/grossProfit/grossProfit'>毛利战报</navigator>

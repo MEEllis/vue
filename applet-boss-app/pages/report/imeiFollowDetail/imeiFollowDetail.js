@@ -9,11 +9,9 @@ Page({
    */
   data: {
     imeiId: '',
-    imei: '',
-    auxiliaryImei: '',
-    statusCode: '',
-    nowStatus: '',
-    imeiVo: {}
+    CKCBJ:false,
+    dataList: {},
+    goodsVo: {},
   },
 
   /**
@@ -22,25 +20,15 @@ Page({
   onLoad: function(options) {
     let {
       imeiId,
-      imei,
-      auxiliaryImei,
-      statusCode,
-      nowStatus,
+      CKCBJ,
     } = options;
 
     imeiId = imeiId === undefined ? '' : imeiId;
-    imei = imei === undefined ? '' : imei;
-    auxiliaryImei = auxiliaryImei === undefined ? '' : auxiliaryImei;
-    statusCode = statusCode === undefined ? '' : statusCode;
-    nowStatus = nowStatus === undefined ? '' : nowStatus;
-
+    CKCBJ = CKCBJ === undefined ? false : imeiId;
 
     this.setData({
       imeiId,
-      imei,
-      auxiliaryImei,
-      statusCode,
-      nowStatus,
+      CKCBJ,
     });
     this.getDetailImeiVo();
   },
@@ -69,7 +57,8 @@ Page({
       imeiId,
     }).then(res => {
       _this.setData({
-        imeiVo: res.data.dataList,
+        dataList: res.data.dataList,
+        goodsVo: res.data.goodsVo,
       });
     });
   },

@@ -9,21 +9,78 @@
 <!-- 搜索 -->
 <search-bar placeholder="部门编码/部门名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
 <view class='sel-time border-top'>
-  查询时间:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
+  查询日期:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
 </view>
 <!-- 商品列表 -->
-<scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-  <view class='border-bottom' wx:for="{{ dataList }}" wx:key="">
-    <navigator url='/pages/report/stockDistributionDetail/stockDistributionDetail?goodsId={{item.goodsId}}&goodsName={{item.goodsName}}&goodsQuantity={{item.goodsQuantity}}&companySectionParam={{item.companySectionParam}}' class="weui-cell">
-      <text class='iconfont icon-shouji'></text>
+<scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+
+  <navigator url='/pages/report/mySalesDetail/mySalesDetail?companySectionParam={{companySectionParam}}&goodsClassId={{goodsClassId}}&goodsBrandId={{goodsBrandId}}&keyWord={{keyWord}}&startDate={{startDate}}&endDate={{endDate}}&salesType={{salesType}}&nodeType={{totalVo.nodeType}}&CKCBJ={{authValidate.CKCBJ}}'
+    class="weui-flex align-center total-wrap">
+    <view class="weui-flex__item  ">
+      <view class="weui-flex">
+        <view class="weui-flex__item total-desc">
+          总销量:
+        </view>
+        <view class="weui-flex__item">
+          {{numberFr.formatNum(totalVo.goodsQuantity)}}台
+        </view>
+        <view class="weui-flex__item total-desc">
+          总金额:
+        </view>
+        <view class="weui-flex__item">
+          ￥{{numberFr.formatNum(totalVo.goodsAmount)}}
+        </view>
+      </view>
+      <view class="weui-flex" wx:if="{{authValidate.CKCBJ}}">
+        <view class="weui-flex__item total-desc">
+          均 毛:
+        </view>
+        <view class="weui-flex__item">
+          ￥{{numberFr.formatNum(totalVo.goodsAvgProfitAmount)}}
+        </view>
+        <view class="weui-flex__item total-desc">
+          总毛利:
+        </view>
+        <view class="weui-flex__item">
+          ￥{{numberFr.formatNum(totalVo.goodsProfitAmount)}}
+        </view>
+      </view>
+    </view>
+    <text class='iconfont  icon-40 left'></text>
+  </navigator>
+
+  <view class='mt-24 list-wrap' wx:for="{{ dataList }}" wx:key="">
+    <navigator url='/pages/report/mySalesDetail/mySalesDetail?companySectionParam={{companySectionParam}}&goodsClassId={{goodsClassId}}&goodsBrandId={{goodsBrandId}}&keyWord={{keyWord}}&startDate={{startDate}}&endDate={{endDate}}&salesType={{salesType}}&sectionId={{item.id}}&nodeType={{item.nodeType}}&CKCBJ={{authValidate.CKCBJ}}&sectionName={{item.name}}'
+      class="weui-cell ">
+      <text class='iconfont icon-iconfontdianpu5'></text>
       <view class="weui-cell__bd ellipsis color000 font-30">
-        {{numberFr.stringNull(item.goodsName)}}
+        {{numberFr.stringNull(item.name)}}
       </view>
       <view class='weui-cell__ft'>
         <text class='count-tai'>{{numberFr.formatNum(item.goodsQuantity)}}台</text>
         <text class='iconfont  icon-40 left'></text>
       </view>
     </navigator>
+    <view class="weui-flex align-center sale-detail " wx:if="{{authValidate.CKCBJ}}">
+      <view class="weui-flex__item tc ">
+        <view class='sum-desc'>均毛</view>
+        <view class='sum-val'>￥{{numberFr.formatNum(item.goodsAvgProfitAmount,2)}}</view>
+      </view>
+      <view class="weui-flex__item tc " wx:if="{{authValidate.CKCBJ}}">
+        <view class='sum-desc'>毛利</view>
+        <view class='sum-val'>￥{{numberFr.formatNum(item.goodsProfitAmount,2)}}</view>
+      </view>
+      <view class="weui-flex__item tc">
+        <view class='sum-desc'>金额</view>
+        <view class='sum-val'>￥{{numberFr.formatNum(item.goodsAmount,2)}}</view>
+      </view>
+    </view>
+    <view class="weui-flex sale-detail" style='padding-left:30rpx;' wx:else>
+      金额:
+      <view class="weui-flex__item tl">
+        <view class='sum-val'>￥{{numberFr.formatNum(item.goodsAmount,2)}}</view>
+      </view>
+    </view>
   </view>
   <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
 

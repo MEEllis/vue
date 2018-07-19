@@ -50,7 +50,7 @@ Page({
     this.getFirstGoodsClassVoList()
     this.getGoodsBrandVoList()
     this.getGoodsList()
-    this.getCurrentStockTotalVo();
+    this.getTotalVo();
     this.getBossAuthValidate();
 
     this.getCompanySectionList();
@@ -85,7 +85,7 @@ Page({
       dataList: [],
     });
     this.getGoodsList();
-    this.getCurrentStockTotalVo();
+    this.getTotalVo();
   },
   tapAdvanced: function () {
     var pages = getCurrentPages() //获取加载的页面
@@ -107,6 +107,7 @@ Page({
       dataList: [],
     });
     this.getGoodsList();
+    this.getTotalVo();
   },
   scrolltolower: function () {
     const {
@@ -236,7 +237,7 @@ Page({
     });
   },
   //获取总计行对象
-  getCurrentStockTotalVo: function () {
+  getTotalVo: function () {
     var that = this;
     this.setCompanySectionParam();
     const {

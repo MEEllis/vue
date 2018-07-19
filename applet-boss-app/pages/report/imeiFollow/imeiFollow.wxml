@@ -36,7 +36,7 @@
             {{numberFr.stringNull(item.auxiliaryImei)}}
           </view>
         </view>
-        <navigator url='/pages/report/imeiFollowDetail/imeiFollowDetail?imeiId={{item.imeiId}}&imei={{item.imei}}&auxiliaryImei={{item.auxiliaryImei}}&statusCode={{item.statusCode}}&nowStatus={{item.nowStatus}}' class="weui-cell mt-20">
+        <navigator url='/pages/report/imeiFollowDetail/imeiFollowDetail?imeiId={{item.imeiId}}&CKCBJ={{authValidate.CKCBJ}}' class="weui-cell mt-20">
           <view class="weui-cell__bd col{{item.statusCode}}'">{{numberFr.stringNull(item.nowStatus)}}</view>
           <text class='iconfont icon-40 left'></text>
         </navigator>
