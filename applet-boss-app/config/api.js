@@ -1,27 +1,35 @@
+let LoginNewApiRootUrl = ''
 let NewApiRootUrl = ''
 //NewApiRootUrl = 'http://127.0.0.1:8080/wxapi/'; // 预生产的接口
-//NewApiRootUrl = 'http://192.168.0.62/wxapi/'; // 后台联调的接口
+
+LoginNewApiRootUrl = 'http://192.168.0.9:8801/'; // 后台联调的接口
+NewApiRootUrl = 'http://192.168.0.9:8802/'; // 后台联调的接口
+
 //NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/'; // 提交测试的接口
 //NewApiRootUrl = 'https://pre.phoneerp.com/wxapi/'; // 预生产的接口
 
 //NewApiRootUrl = 'https://www.phoneerp.com/wxapi/'; // 线上的接口
-NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/21285/'; // 模拟接口地址
+//NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/21285/'; // 模拟接口地址
 
 
 module.exports = {
-  getAccessCompanyVoList: NewApiRootUrl + 'login/getAccessCompanyVoList', //获取可使用公司
-  login: NewApiRootUrl + 'login/login', //使用账号密码登录
-  autoLogin: NewApiRootUrl + 'login/autoLogin', //微信自动登录
-  changeLoginCompany: NewApiRootUrl + 'login/changeLoginCompany', //切换登录公司
+  getAccessCompanyVoList: LoginNewApiRootUrl + 'login/getAccessCompanyVoList', //获取可使用公司
+  login: LoginNewApiRootUrl + 'login/login', //使用账号密码登录
+  autoLogin: LoginNewApiRootUrl + 'login/autoLogin', //微信自动登录
+  changeLoginCompany: LoginNewApiRootUrl + 'login/changeLoginCompany', //切换登录公司
 
-  getFirstGoodsClassVoList: NewApiRootUrl + 'component/goods/getFirstGoodsClassVoList', //获取商品一级类别集合
-  getGoodsBrandVoList: NewApiRootUrl + 'component/goods/getGoodsBrandVoList', //获取商品品牌集合
+  getFirstGoodsClassVoList: NewApiRootUrl + 'boss/common/getGoodsClassList', //获取商品一级类别集合
+  getGoodsClassList: NewApiRootUrl + 'boss/common/getGoodsClassList', //获取商品一级类别集合
+  getGoodsBrandVoList: NewApiRootUrl + 'boss/common/getGoodsBrandList', //获取商品品牌集合
+  getGoodsBrandList: NewApiRootUrl + 'boss/common/getGoodsBrandList', //获取商品品牌集合
   getBossAuthValidate: NewApiRootUrl + 'boss/common/getBossAuthValidate',
   getCompanySectionList: NewApiRootUrl + 'boss/common/getCompanySectionList', //获取商品品牌集合
   getContactUnits: NewApiRootUrl + 'boss/common/getContactUnits', //获取往来单位
+  getBossMenuList: NewApiRootUrl + 'boss/common/getBossMenuList', //获取Boss小程序菜单集合
+  getGoodsDetailData: NewApiRootUrl + 'boss/report/storage/getGoodsDetailData', //
 
-  getGoodsDetailData: NewApiRootUrl + 'boss/report/storage/getGoodsDetailData', //获取商品品牌集合
-  getStockDistrData: NewApiRootUrl + 'boss/report/storage/getStockDistrData', // 库存分布报表 主页
+
+  getStockDistrData: NewApiRootUrl + 'boss/report/storage/stockDistribution/getStockDistrData', // 库存分布报表 主页
   stockDistrDetailData: NewApiRootUrl + 'boss/report/storage/stockDistrDetailData', // 库存分布报表 主页
 
 

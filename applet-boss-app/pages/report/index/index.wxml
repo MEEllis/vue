@@ -1,6 +1,148 @@
-<navigator url='/pages/report/stockDistribution/stockDistribution'>库存分布</navigator>
-<navigator url='/pages/report/stockRealtime/stockRealtime'>实时库存</navigator>
-<navigator url='/pages/report/imeiFollow/imeiFollow'>串号跟踪</navigator>
-<navigator url='/pages/report/mySales/mySales'>我的销量</navigator>
-<navigator url='/pages/report/purchaseSummary/purchaseSummary'>采购汇总</navigator>
-<navigator url='/pages/report/grossProfit/grossProfit'>毛利战报</navigator>
+<view class='report-wrap'>
+  <view class='report-body-title weui-flex border-bottom'>
+    <view class='weui-flex__item'>
+      常规类报表
+    </view>
+  </view>
+  <view class='report-body'>
+    <view class='weui-flex align-center'>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/1.png" lazy-load='true' />
+        <view>今日战报</view>
+      </view>
+      <navigator url='/pages/report/mySales/mySales' class='weui-flex__item tc'>
+        <image src="../../../images/2-1.png" lazy-load='true' />
+        <view>我的销量</view>
+      </navigator>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/3.png" lazy-load='true' />
+        <view>营业款</view>
+      </view>
+    </view>
+    <view class='weui-flex align-center'>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/4.png" lazy-load='true' />
+        <view>批发战报</view>
+      </view>
+      <navigator url='/pages/report/grossProfit/grossProfit' class='weui-flex__item tc'>
+        <image src="../../../images/5-1.png" lazy-load='true' />
+        <view>毛利战报</view>
+      </navigator>
+      <navigator url='/pages/report/imeiFollow/imeiFollow' class='weui-flex__item tc'>
+        <image src="../../../images/6-1.png" lazy-load='true' />
+        <view>串号跟踪</view>
+      </navigator>
+    </view>
+    <view class='weui-flex align-center'>
+      <navigator url='/pages/report/stockRealtime/stockRealtime' class='weui-flex__item tc'>
+        <image src="../../../images/7-1.png" lazy-load='true' />
+        <view>实时库存</view>
+      </navigator>
+      <navigator url='/pages/report/stockDistribution/stockDistribution' class='weui-flex__item tc'>
+        <image src="../../../images/8-1.png" lazy-load='true' />
+        <view>库存分布</view>
+      </navigator>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/9.png" lazy-load='true' />
+        <view>滞销库存</view>
+      </view>
+    </view>
+    <view class='weui-flex align-center'>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/10.png" lazy-load='true' />
+        <view>今日采购</view>
+      </view>
+      <navigator url='/pages/report/purchaseSummary/purchaseSummary' class='weui-flex__item tc'>
+        <image src="../../../images/11-1.png" lazy-load='true' />
+        <view>采购汇总</view>
+      </navigator>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/12.png" lazy-load='true' />
+        <view>今日调拨</view>
+      </view>
+    </view>
+    <view class='weui-flex align-center'>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/13.png" lazy-load='true' />
+        <view>我的资金</view>
+      </view>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/14.png" lazy-load='true' />
+        <view>我的往来</view>
+      </view>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/15.png" lazy-load='true' />
+        <view>运营商业务战报</view>
+      </view>
+    </view>
+    <view class='weui-flex align-center'>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/16.png" lazy-load='true' />
+        <view>增值服务战报</view>
+      </view>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/17.png" lazy-load='true' />
+        <view>分期业务战报</view>
+      </view>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/18.png" lazy-load='true' />
+        <view>第三方抵扣战报</view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view class='report-wrap mt-24'>
+  <view class='report-body-title weui-flex border-bottom'>
+    <view class='weui-flex__item'>
+      分析类报表
+    </view>
+  </view>
+  <view class='report-body'>
+    <view class='weui-flex align-center'>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/01.png" lazy-load='true' />
+        <view>销售占比</view>
+      </view>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/02.png" lazy-load='true' />
+        <view>销售排行</view>
+      </view>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/03.png" lazy-load='true' />
+        <view>销售走势</view>
+      </view>
+    </view>
+    <view class='weui-flex align-center'>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/04.png" lazy-load='true' />
+        <view>销售对比</view>
+      </view>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/05.png" lazy-load='true' />
+        <view>进销对比</view>
+      </view>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/06.png" lazy-load='true' />
+        <view>库存占比</view>
+      </view>
+    </view>
+    <view class='weui-flex align-center'>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/07.png" lazy-load='true' />
+        <view>周转率分析</view>
+      </view>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/08.png" lazy-load='true' />
+        <view>周转天数分析</view>
+      </view>
+      <view class='weui-flex__item tc'>
+        <image src="../../../images/09.png" lazy-load='true' />
+        <view>资产概要</view>
+      </view>
+    </view>
+
+
+  </view>
+</view>

@@ -23,13 +23,15 @@ export default function request(url, data = {}, method = "POST", config) {
       },
       success: function(res) {
         wx.hideLoading()
-
+        const {
+          code
+        } = res.data;
         if (res.statusCode == 200) {
-          if (res.data.code == 1) {
+          if (code === '0000') {
             resolve(res.data);
           }
           // 未登录时（），先调用自动登录
-          else if (res.data.code == 1000) {
+          else if (code === '1000') {
             console.log(res.data)
             loginByWeixin().then(({
               code,
@@ -46,8 +48,8 @@ export default function request(url, data = {}, method = "POST", config) {
               wx.setStorageSync('companyList', ajaxData.data.companyList);
             })
           }
-          //登录失败（）
-          else if (res.data.code == 1001) {
+          //自动登录失败（）
+          else if (res.data.code == '1002') {
             console.log(res.data)
             wx.reLaunch({
               url: '/pages/login/login',
@@ -59,7 +61,8 @@ export default function request(url, data = {}, method = "POST", config) {
             wx.switchTab({
               url: '/pages/report/index/index'
             });
-          } else {
+          } 
+          else {
             util.showErrorToast(res.data.desc)
             reject(res.data);
           }

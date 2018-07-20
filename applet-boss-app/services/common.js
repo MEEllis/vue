@@ -15,8 +15,48 @@ function getBossAuthValidate(menuCode) {
 }
 
 
+//获取分类
+function getGoodsClassList(onlyQueryOneLevelGoodsclass = 1) {
+  return new Promise(function(resolve, reject) {
+    request(api.getGoodsClassList, {
+      onlyQueryOneLevelGoodsclass,
+    }).then(res => {
+      let categoryData = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = categoryData.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
+
+
+//获取品牌
+function getGoodsBrandList() {
+  return new Promise(function (resolve, reject) {
+    request(api.getGoodsBrandList).then(res => {
+      let categoryData = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = categoryData.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
 
 
 module.exports = {
   getBossAuthValidate,
+  getGoodsClassList,
+  getGoodsBrandList,
 }

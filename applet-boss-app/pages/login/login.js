@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '',
-    pwd: '',
+    name: '15116201365',
+    pwd: '123456',
     companyList: [], //公司列表
     showOp: {
       showName: 0,
@@ -46,11 +46,11 @@ Page({
 
     serviceUser.getCompanyVoList(name, pwd).then(ajaxData => {
       _this.setData({
-        companyList: ajaxData.data.companyList
+        companyList: ajaxData.data.dataList
       });
       //只有一个公司，直接登录
-      if (ajaxData.data.companyList.length === 1) {
-        _this.login(ajaxData.data.companyList[0].id)
+      if (ajaxData.data.dataList.length === 1) {
+        _this.login(ajaxData.data.dataList[0].id)
       } else {
         _this.thridModal.show();
       }

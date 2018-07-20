@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'KCFB',
+    menuCode: 'BOSS_KCFB',
     scrollHeight: 0,
     keyWord: '',
     items: [],
@@ -48,7 +48,7 @@ Page({
 
     })
     this.getFirstGoodsClassVoList()
-    this.getGoodsBrandVoList()
+    this.getGoodsBrandList()
     this.getGoodsList()
     this.getBossAuthValidate();
     this.getCompanySectionList();
@@ -120,7 +120,7 @@ Page({
     });
     this.getGoodsList();
   },
- 
+
   setCompanySectionParam() {
     const {
       companySectionParamNodeType,
@@ -137,30 +137,23 @@ Page({
   //获取一级类别
   getFirstGoodsClassVoList: function() {
     var that = this;
-    request(api.getFirstGoodsClassVoList).then(res => {
-      let categoryData = [{
-        id: '',
-        code: '',
-        name: '全部'
-      }]
+    serviceCom.getGoodsClassList().then(categoryData => {
       that.setData({
-        categoryData: categoryData.concat(res.data.dataList)
+        categoryData,
       });
     })
+
+
   },
   //获取品牌
-  getGoodsBrandVoList: function() {
+  getGoodsBrandList: function() {
     var that = this;
-    request(api.getGoodsBrandVoList).then(res => {
-      let BrandData = [{
-        id: '',
-        code: '',
-        name: '全部'
-      }]
+    serviceCom.getGoodsBrandList().then(BrandData => {
       that.setData({
-        BrandData: BrandData.concat(res.data.dataList)
+        BrandData,
       });
     })
+
   },
   //获取公司
   getCompanySectionList: function() {
@@ -189,6 +182,7 @@ Page({
     const that = this;
     this.setCompanySectionParam();
     const {
+      menuCode,
       companySectionParam,
       keyWord,
       goodsClassId,
@@ -198,6 +192,7 @@ Page({
     } = this.data;
 
     request(api.getStockDistrData, {
+      menuCode,
       companySectionParam,
       goodsClassId,
       goodsBrandId,
