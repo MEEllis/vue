@@ -15,8 +15,8 @@
   left: 0;
   top: 0;
   right: 0;
-  height: 1rpx;
-  border-top: 1rpx solid #d9d9d9;
+  height: 1px;
+  border-top: 1px solid #d9d9d9;
   color: #d9d9d9;
 }
 
@@ -43,7 +43,7 @@
 
 .weui-cell__ft {
   text-align: right;
-  padding-left: 16rpx;
+  padding-left: 8px;
   color: #999;
 }
 
@@ -172,9 +172,9 @@
 }
 
 .ui-radio {
-  padding-left: 38rpx;
-  font-size: 28rpx;
-  margin-left: 8rpx;
+  padding-left: 19px;
+  font-size: 14px;
+  margin-left: 4px;
 }
 
 .ui-radio {
@@ -189,9 +189,9 @@
   font-family: "iconfont";
   content: '\e66c';
   position: absolute;
-  font-size: 32rpx;
-  top: 0rpx;
-  left: 0rpx;
+  font-size: 16px;
+  top: 0px;
+  left: 0px;
   line-height: 1.2;
   color: #ccc;
 }

@@ -4,7 +4,7 @@
 
 page {
   background-color: #efeff4;
-  font-size: 32rpx;
+  font-size: 16px;
   font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
   line-height: 1.6;
 }
@@ -200,19 +200,19 @@ button[type=default] {
   position: absolute;
   right: 0;
   left: 0;
-  height: 1rpx;
+  height: 1px;
   color: #d9d9d9;
   z-index: 2;
 }
 
 .border-top:before {
   top: 0;
-  border-top: 1rpx solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
 }
 
 .border-bottom:before {
   bottom: 0;
-  border-bottom: 1rpx solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
 }
 
 .btnBlue {
