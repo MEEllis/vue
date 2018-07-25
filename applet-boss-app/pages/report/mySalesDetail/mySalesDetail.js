@@ -8,7 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'WDXL',
     companySectionParam: "",
     goodsClassId: 0,
     goodsBrandId: 0,
@@ -19,9 +18,12 @@ Page({
     nodeType: "",
     page: 1,
     pageSize: 20,
-    sectionWord: "",
-    menuCode: "",
+    detailKeyWord: "",
     sectionId: '',
+    goodsQuantity: '',
+    goodsAmount: '',
+    goodsAvgProfitAmount: '',
+    goodsProfitAmount: '',
     CKCBJ: false,
     dataList: [],
     curListData: [],
@@ -46,6 +48,10 @@ Page({
       nodeType,
       sectionId,
       sectionName,
+      goodsQuantity,
+      goodsAmount,
+      goodsAvgProfitAmount,
+      goodsProfitAmount,
       CKCBJ,
     } = options;
     companySectionParam = companySectionParam === undefined ? '' : companySectionParam;
@@ -58,7 +64,12 @@ Page({
     nodeType = nodeType === undefined ? '' : nodeType;
     sectionId = sectionId === undefined ? '' : sectionId;
     sectionName = sectionName === undefined ? '' : sectionName;
-    CKCBJ = CKCBJ === undefined ? false : CKCBJ;
+
+    goodsQuantity = goodsQuantity === undefined ? '' : goodsQuantity;
+    goodsAmount = goodsAmount === undefined ? '' : goodsAmount;
+    goodsAvgProfitAmount = goodsAvgProfitAmount === undefined ? '' : goodsAvgProfitAmount;
+    goodsProfitAmount = goodsProfitAmount === undefined ? '' : goodsProfitAmount;
+    CKCBJ = CKCBJ === 'true' ? true : false;
 
     this.setData({
       companySectionParam,
@@ -71,7 +82,12 @@ Page({
       nodeType,
       sectionId,
       sectionName,
+      goodsQuantity,
+      goodsAmount,
+      goodsAvgProfitAmount,
+      goodsProfitAmount,
       CKCBJ,
+
     });
     this.getDataList()
     this.getTotalVo()
@@ -82,14 +98,19 @@ Page({
    */
   onReady: function() {
     const that = this;
-    let {
-      nodeType
+    const {
+      nodeType,
+      CKCBJ,
     } = this.data;
-    var section = 0;
+    let section = 0;
     if (nodeType == 'Section') {
-      section = 46
+      if (CKCBJ === true) {
+        section = 103;
+      } else {
+        section = 81;
+      }
     }
-    util.getScrollHeight((section + 52 + 25 + 46 + 5)).then((scrollHeight) => {
+    util.getScrollHeight((section + 52 + 25 + 46)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -101,7 +122,7 @@ Page({
       keyWord
     } = e.detail;
     this.setData({
-      sectionWord: keyWord,
+      detailKeyWord: keyWord,
     });
   },
 
@@ -133,37 +154,15 @@ Page({
   //获取 详情
   getDataList: function() {
     const that = this;
+    const postData = this.getSearchParam();
     const {
-      menuCode,
-      companySectionParam,
-      goodsClassId,
-      goodsBrandId,
-      keyWord,
-      startDate,
-      endDate,
-      salesType,
-      nodeType,
-      sectionWord,
-      sectionId,
       page,
       pageSize,
     } = this.data;
+    postData.page = page;
+    postData.pageSize = pageSize;
 
-    request(api.getMySalesDetailData, {
-        menuCode,
-        companySectionParam,
-        goodsClassId,
-        goodsBrandId,
-        keyWord,
-        startDate,
-        endDate,
-        salesType,
-        nodeType,
-        sectionWord,
-        sectionId,
-        page,
-        pageSize,
-      })
+    request(api.getMySalesDetailData, postData)
       .then(res => {
 
         let dataList = that.data.dataList.concat(res.data.dataList)
@@ -177,38 +176,38 @@ Page({
   },
   //获取总计行对象
   getTotalVo: function() {
-    var that = this;
-
-    const {
-      menuCode,
-      companySectionParam,
-      goodsClassId,
-      goodsBrandId,
-      keyWord,
-      startDate,
-      endDate,
-      salesType,
-      nodeType,
-      sectionWord,
-      sectionId
-    } = this.data;
-
-    request(api.getMySalesDetailTotalVo, {
-      menuCode,
-      companySectionParam,
-      goodsClassId,
-      goodsBrandId,
-      keyWord,
-      startDate,
-      endDate,
-      salesType,
-      nodeType,
-      sectionWord,
-      sectionId
-    }).then(res => {
+    const that = this;
+    const postData = this.getSearchParam();
+    request(api.getMySalesDetailTotalVo, postData).then(res => {
       that.setData({
         totalVo: res.data.totalVo,
       });
     })
   },
+  getSearchParam: function() {
+    const {
+      companySectionParam,
+      goodsClassId,
+      goodsBrandId,
+      keyWord,
+      startDate,
+      endDate,
+      salesType,
+      nodeType,
+      detailKeyWord,
+      sectionId
+    } = this.data;
+    return {
+      companySectionParam,
+      goodsClassId,
+      goodsBrandId,
+      keyWord,
+      startDate,
+      endDate,
+      salesType,
+      nodeType,
+      detailKeyWord,
+      sectionId
+    }
+  }
 })

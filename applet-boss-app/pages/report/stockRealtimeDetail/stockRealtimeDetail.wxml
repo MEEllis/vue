@@ -24,7 +24,7 @@
   </view>
 
   <!-- 搜索 -->
-  <search-bar placeholder="部门编码/部门名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+  <search-bar placeholder="部门编码/部门名称" keyWord="{{detailKeyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
   <scroll-view class="list-wrap" scroll-y='true' style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
     <!-- 部门列表 -->
     <view class='section-wrap border-bottom' wx:for-item="sectionItem" wx:for="{{dataList}}" wx:for-index="sectionIdx" wx:key="{{sectionIdx}}">

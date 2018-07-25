@@ -24,8 +24,8 @@
   </view>
   <view class="weui-tab__panel">
     <view class="weui-tab__content">
-      <scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-        <view class='mt-24 list-wrap' wx:for="{{ dataList }}" wx:key="">
+      <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+        <view class='border-top-20' wx:for="{{ dataList }}" wx:key="">
           <view wx:if="{{groupField==='goodsName'}}" class="weui-cell ">
             <text class='iconfont {{icon}}'></text>
             <view class="weui-cell__bd ellipsis color000 font-30">
@@ -63,7 +63,7 @@
     </view>
 
   </view>
-  <view class="weui-flex sum-wrap align-center" wx:if="{{totalVo!=null}}">
+  <view class="weui-flex sum-wrap align-center" >
     <view class="weui-flex__item sum-hj  tc">
       合计
     </view>
@@ -73,11 +73,11 @@
     </view>
     <view class="weui-flex__item tr" wx:if="{{authValidate.CKCBJ}}">
       <view class='sum-desc'>均毛</view>
-      <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAvgProfitAmount===undefined?0:totalVo.goodsAvgProfitAmount))}} </view>
+      <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAvgProfitAmount===undefined?0:totalVo.goodsAvgProfitAmount),2)}} </view>
     </view>
     <view class="weui-flex__item tr" wx:if="{{authValidate.CKCBJ}}">
       <view class='sum-desc'>毛利</view>
-      <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsProfitAmount===undefined?0:totalVo.goodsProfitAmount))}}</view>
+      <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsProfitAmount===undefined?0:totalVo.goodsProfitAmount),2)}}</view>
     </view>
 
   </view>

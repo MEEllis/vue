@@ -26,8 +26,8 @@
     日期
     <view class="weui-cell__bd tr">
       <radio-group class="radio-group" bindchange="timeRadioChange">
-        <label class="radio" wx:for="{{timeList}}" wx:key="">
-          <radio value="{{index}}" checked="{{index==timeActive}}" />{{item}}
+        <label class="ui-radio {{index==timeActive?'checked':''}}" wx:for="{{timeList}}" wx:key="">
+          <radio value="{{index}}" checked="{{index==timeActive}}" /> {{item}}
         </label>
       </radio-group>
     </view>
@@ -62,7 +62,7 @@
     销售类型
     <view class="weui-cell__bd tr">
       <radio-group class="radio-group" bindchange="salesTypeRadioChange">
-        <label class="radio" wx:for="{{salesTypeList}}" wx:key="">
+        <label class="ui-radio {{item.value==salesType?'checked':''}}" wx:for="{{salesTypeList}}" wx:key="">
           <radio value="{{item.value}}" checked="{{item.value==salesType}}" />{{item.name}}
         </label>
       </radio-group>
@@ -73,7 +73,7 @@
     统计对象
     <view class="weui-cell__bd tr">
       <radio-group class="radio-group" bindchange="groupFieldRadioChange">
-        <label class="radio" wx:for="{{groupFieldList}}" wx:key="">
+        <label  class="ui-radio {{item.value==groupField?'checked':''}}" wx:for="{{groupFieldList}}" wx:key="">
           <radio value="{{item.value}}" checked="{{item.value==groupField}}" />{{item.name}}
         </label>
       </radio-group>

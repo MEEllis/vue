@@ -1,5 +1,5 @@
 .weui-cell {
-  padding: 23rpx 30rpx;
+  padding: 11px 15px;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -114,7 +114,7 @@
   top: 0;
   width: 100%;
   background-color: #fff;
-  font-size: 28rpx;
+  font-size: 14px;
   color: #333;
 }
 
@@ -124,7 +124,7 @@
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  padding: 20rpx 0;
+  padding: 10px 0;
   text-align: center;
   font-size: 0;
 }
@@ -139,7 +139,7 @@
   left: 0;
   bottom: 0;
   width: 6em;
-  height: 4rpx;
+  height: 2px;
   background-color: #21a4ff;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
@@ -166,7 +166,37 @@
 .weui-tab__panel {
   box-sizing: border-box;
   height: 100%;
-  padding-top: 88rpx;
+  padding-top: 44px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.ui-radio {
+  padding-left: 38rpx;
+  font-size: 28rpx;
+  margin-left: 8rpx;
+}
+
+.ui-radio {
+  position: relative;
+}
+
+.ui-radio radio {
+  display: none;
+}
+
+.ui-radio:before {
+  font-family: "iconfont";
+  content: '\e66c';
+  position: absolute;
+  font-size: 32rpx;
+  top: 0rpx;
+  left: 0rpx;
+  line-height: 1.2;
+  color: #ccc;
+}
+
+.ui-radio.checked:before {
+  content: '\e610';
+  color: #fe9f45;
 }

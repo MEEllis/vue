@@ -44,7 +44,6 @@
         </view>
       </view>
       <view class='table-body'>
-
         <view class='weui-flex item-title colorffa'>
           <view class="weui-flex__item">
             <text class='index'>{{index+1}}</text>
@@ -68,7 +67,6 @@
             <view class="weui-flex__item">
               部门名称：{{numberFr.stringNull(item.sectionName)}}
             </view>
-
           </view>
           <view class='weui-flex'>
             <view class="weui-flex__item">
@@ -78,21 +76,18 @@
           <view class='weui-flex'>
             备注：
             <view class="weui-flex__item">
-              {{numberFr.stringNull(item.imeiDetailRemark)}}
+              {{numberFr.stringNull(item.remark)}}
             </view>
           </view>
           <view class='weui-flex  color666'>
             <view class="weui-flex__item">
-              {{numberFr.stringNull(item.operatorMan)}}
+              {{numberFr.stringNull(item.operatorName)}}
             </view>
             <view class="weui-flex__item tr">
               {{numberFr.stringNull(item.operationTime)}}
             </view>
           </view>
         </view>
-
-
-
       </view>
     </view>
   </view>

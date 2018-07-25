@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'SSKU',
+    menuCode: 'BOSS_SSKC',
     scrollHeight: 0,
     keyWord: '',
     items: [],
@@ -39,7 +39,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     //获取当前登录公司
     const userInfo = wx.getStorageSync('userInfo');
     this.setData({
@@ -59,9 +59,9 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
     const that = this;
-    util.getScrollHeight((46 + 52 + 46 + 5)).then((scrollHeight) => {
+    util.getScrollHeight((46 + 52 + 46)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -69,7 +69,7 @@ Page({
     })
   },
 
-  searchInput: function (e) {
+  searchInput: function(e) {
     const {
       keyWord
     } = e.detail;
@@ -79,15 +79,10 @@ Page({
   },
 
   //关键字搜索
-  searchSubmit: function () {
-    this.setData({
-      page: 1,
-      dataList: [],
-    });
-    this.getGoodsList();
-    this.getTotalVo();
+  searchSubmit: function() {
+    this.search()
   },
-  tapAdvanced: function () {
+  tapAdvanced: function() {
     var pages = getCurrentPages() //获取加载的页面
     var currentPage = pages[pages.length - 1] //获取当前页面的对象
     wx.navigateTo({
@@ -95,7 +90,7 @@ Page({
     })
   },
   //选择一级类别
-  cateTap: function (e) {
+  cateTap: function(e) {
     const {
       id,
       name
@@ -103,13 +98,10 @@ Page({
     this.setData({
       goodsClassId: id,
       goodsClassName: name,
-      page: 1,
-      dataList: [],
     });
-    this.getGoodsList();
-    this.getTotalVo();
+    this.search()
   },
-  scrolltolower: function () {
+  scrolltolower: function() {
     const {
       page,
       curListData,
@@ -123,8 +115,17 @@ Page({
     });
     this.getGoodsList();
   },
+  search: function() {
+    this.setData({
+      page: 1,
+      dataList: [],
+      loadingMore: true,
+    });
+    this.getGoodsList();
+    this.getTotalVo();
+  },
   // 展示明细
-  tapShowDetail: function (e) {
+  tapShowDetail: function(e) {
     const {
       index,
       isshow
@@ -146,65 +147,46 @@ Page({
       companySectionParamId,
     } = this.data;
     let companySectionParam = '';
-    if (companySectionParamNodeType != '') {
-      companySectionParam = companySectionParamNodeType + ',' + companySectionParamId
-    }
+    companySectionParam = serviceCom.setCompanySectionParam(companySectionParamNodeType, companySectionParamId);
     this.setData({
       companySectionParam,
     });
   },
   //获取一级类别
-  getFirstGoodsClassVoList: function () {
+  getFirstGoodsClassVoList: function() {
     var that = this;
-    request(api.getFirstGoodsClassVoList).then(res => {
-      let categoryData = [{
-        id: '',
-        code: '',
-        name: '全部'
-      }]
+    serviceCom.getGoodsClassList().then(categoryData => {
       that.setData({
-        categoryData: categoryData.concat(res.data.dataList)
+        categoryData,
       });
     })
   },
   //获取品牌
-  getGoodsBrandVoList: function () {
+  getGoodsBrandVoList: function() {
     var that = this;
-    request(api.getGoodsBrandVoList).then(res => {
-      let BrandData = [{
-        id: '',
-        code: '',
-        name: '全部'
-      }]
+    serviceCom.getGoodsBrandList().then(BrandData => {
       that.setData({
-        BrandData: BrandData.concat(res.data.dataList)
+        BrandData,
       });
     })
+
   },
   //获取公司
-  getCompanySectionList: function () {
+  getCompanySectionList: function() {
     var that = this;
     const {
       menuCode
     } = this.data;
-
-    request(api.getCompanySectionList, {
+    serviceCom.getCompanySectionList({
       menuCode,
-      kcFalg: 1,
-    }).then(res => {
-      let companySectionParamData = [{
-        id: '',
-        code: '',
-        nodeType: '',
-        name: '全部'
-      }]
+    }).then(companySectionParamData => {
       that.setData({
-        companySectionParamData: companySectionParamData.concat(res.data.dataList)
+        companySectionParamData,
       });
     })
   },
   // 获取商品列表
-  getGoodsList: function (callback) {
+  getGoodsList: function() {
     const that = this;
     this.setCompanySectionParam();
     const {
@@ -224,9 +206,13 @@ Page({
       page,
       pageSize,
     }).then(res => {
-      if (callback) {
-        callback(dataList)
+      if (Array.isArray(res.data.dataList)) {
+        for (let i = 0; i < res.data.dataList.length; i++) {
+          var item = res.data.dataList[i];
+          item.url = `/pages/report/stockRealtimeDetail/stockRealtimeDetail?goodsId=${item.goodsId}&goodsName=${item.goodsName}&goodsQuantity=${item.goodsQuantity}&goodsPrice=${item.goodsPrice}&goodsAmount=${item.goodsAmount}&companySectionParam=${companySectionParam}`;
+        }
       }
+
       let dataList = that.data.dataList.concat(res.data.dataList)
       that.setData({
         dataList,
@@ -237,7 +223,7 @@ Page({
     });
   },
   //获取总计行对象
-  getTotalVo: function () {
+  getTotalVo: function() {
     var that = this;
     this.setCompanySectionParam();
     const {
@@ -261,7 +247,7 @@ Page({
 
 
   //获取权限
-  getBossAuthValidate: function () {
+  getBossAuthValidate: function() {
     const that = this;
     const {
       menuCode

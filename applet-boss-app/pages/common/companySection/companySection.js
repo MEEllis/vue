@@ -39,7 +39,7 @@ Page({
    */
   onReady: function() {
     const that = this;
-    util.getScrollHeight((52 + 5)).then((scrollHeight) => {
+    util.getScrollHeight((52)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -93,6 +93,7 @@ Page({
       id,
       name,
       nodetype,
+      companyid,
     } = e.currentTarget.dataset;
     const {
       addPage
@@ -102,6 +103,7 @@ Page({
         companySectionParamId: id,
         companySectionParamNodeType: nodetype,
         companySectionParamName: name,
+        companyId: companyid,
       })
     }
     wx.navigateBack({})

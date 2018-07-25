@@ -1,5 +1,7 @@
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
+import serviceCom from '../../../services/common.js';
+let lastCompanySectionParamId='';
 Page({
 
   /**
@@ -13,6 +15,7 @@ Page({
     companySectionParamId: '',
     companySectionParamNodeType: '',
     companySectionParamName: '',
+    companyId: '',
     goodsClassId: '',
     goodsClassName: '全部',
     categoryData: [],
@@ -37,6 +40,7 @@ Page({
       value: 'supplierName'
     }],
     groupField: 'goodsName',
+    menuCode:'',
   },
 
   /**
@@ -64,6 +68,35 @@ Page({
       endDate: curTime,
     });
     this.setDelta();
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    const {
+      companySectionParamId,
+      companyId,
+      menuCode,
+    } = this.data;
+    const that=this;
+    //
+    if ((companySectionParamId != lastCompanySectionParamId )&& (companyId != lastCompanySectionParamId)){
+      lastCompanySectionParamId = companySectionParamId;
+      serviceCom.getContactUnitList({
+        menuCode,
+        companyId: companyId,
+      }).then(ContactUnitsData => {
+        that.setData({
+          ContactUnitsData,
+          supplierId: '',
+          supplierName: '全部',
+        });
+      })
+      
+    
+    }
+    
   },
   //切换时间
   timeRadioChange: function(e) {
@@ -172,6 +205,7 @@ Page({
       endDate,
       timeActive,
       groupField,
+      ContactUnitsData,
     } = this.data;
     const {
       addPage
@@ -189,6 +223,7 @@ Page({
         endDate,
         timeActive,
         groupField,
+        ContactUnitsData,
       })
       addPage.searchSubmit()
     }
@@ -211,7 +246,7 @@ Page({
       goodsClassName: '全部',
       startDate,
       endDate,
-      timeActive: 0,
+      timeActive: 2,
       groupField: 'goodsName',
     })
   },
@@ -248,11 +283,13 @@ Page({
           endDate,
           timeActive,
           groupField,
+          menuCode,
         } = addPage.data;
         this.setData({
           goodsClassId,
           goodsClassName,
           categoryData,
+          companyId: companySectionParamId,
           companySectionParamNodeType,
           companySectionParamId,
           companySectionParamName,
@@ -264,7 +301,10 @@ Page({
           endDate,
           timeActive,
           groupField,
+          menuCode,
         });
+
+        lastCompanySectionParamId = companySectionParamId;
       }
     }
 

@@ -3,7 +3,6 @@ import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
 import serviceCom from '../../../services/common.js';
 
-var sliderWidth = 125; // 需要设置slider的宽度，用于计算中间位置
 
 Page({
 
@@ -11,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'CGHZ',
+    menuCode: 'BOSS_CGHZ',
     scrollHeight: 0,
     keyWord: '',
     items: [],
@@ -55,6 +54,7 @@ Page({
     }],
     sliderOffset: 0,
     sliderLeft: 0,
+    icon: '',
   },
 
   /**
@@ -74,7 +74,7 @@ Page({
       startDate,
       endDate,
     })
-    this.setSlider()
+
 
     this.getFirstGoodsClassVoList()
     this.getContactUnits()
@@ -89,7 +89,7 @@ Page({
    */
   onReady: function() {
     const that = this;
-    util.getScrollHeight((46 + 52 + 25 + 44 + 46 + 5)).then((scrollHeight) => {
+    util.getScrollHeight((46 + 52 + 25 + 44 + 46)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -107,8 +107,9 @@ Page({
       groupFieldName,
       page: 1,
       dataList: [],
+      loadingMore: true,
     });
-    this.search()
+    this.getGoodsList();
   },
 
   searchInput: function(e) {
@@ -121,19 +122,18 @@ Page({
   },
 
   search: function() {
+    this.setData({
+      page: 1,
+      dataList: [],
+      loadingMore: true,
+    });
+    this.setSlider()
     this.getGoodsList();
     this.getTotalVo();
   },
 
   //关键字搜索
   searchSubmit: function() {
-    const that = this;
-
-    this.setData({
-      page: 1,
-      dataList: [],
-    });
-    this.setSlider()
     this.search()
   },
 
@@ -212,28 +212,25 @@ Page({
   //获取一级类别
   getFirstGoodsClassVoList: function() {
     var that = this;
-    request(api.getFirstGoodsClassVoList).then(res => {
-      let categoryData = [{
-        id: '',
-        code: '',
-        name: '全部'
-      }]
+    serviceCom.getGoodsClassList().then(categoryData => {
       that.setData({
-        categoryData: categoryData.concat(res.data.dataList)
+        categoryData,
       });
     })
   },
   //获取供应商
   getContactUnits: function() {
     var that = this;
-    request(api.getContactUnits).then(res => {
-      let ContactUnitsData = [{
-        id: '',
-        code: '',
-        name: '全部'
-      }]
+    const {
+      menuCode,
+      companySectionParamId,
+    } = this.data;
+    serviceCom.getContactUnitList({
+      menuCode,
+      companyId: companySectionParamId,
+    }).then(ContactUnitsData => {
       that.setData({
-        ContactUnitsData: ContactUnitsData.concat(res.data.dataList)
+        ContactUnitsData,
       });
     })
   },
@@ -241,26 +238,18 @@ Page({
   getCompanySectionList: function() {
     var that = this;
     const {
-      menuCode
-    } = this.data;
-
-    request(api.getCompanySectionList, {
       menuCode,
-      kcFalg: 1,
-    }).then(res => {
-      let companySectionParamData = [{
-        id: '',
-        code: '',
-        nodeType: '',
-        name: '全部'
-      }]
+    } = this.data;
+    serviceCom.getCompanySectionList({
+      menuCode,
+    }).then(companySectionParamData => {
       that.setData({
-        companySectionParamData: companySectionParamData.concat(res.data.dataList)
+        companySectionParamData,
       });
     })
   },
   // 获取商品列表
-  getGoodsList: function(callback) {
+  getGoodsList: function() {
     const that = this;
     this.setCompanySectionParam();
     const {
@@ -288,14 +277,20 @@ Page({
       pageSize,
 
     }).then(res => {
-      if (callback) {
-        callback(dataList)
+      let icon = '';
+      if (groupField == 'goodsName') {
+        icon = 'icon-shouji'
+      } else if (groupField == 'sectionName') {
+        icon = 'icon-iconfontdianpu5'
+      } else if (groupField == 'supplierName') {
+        icon = 'icon-caigou'
       }
       let dataList = that.data.dataList.concat(res.data.dataList)
       that.setData({
         dataList,
         curListData: res.data.dataList,
         loadingMore: false,
+        icon,
       });
 
     });

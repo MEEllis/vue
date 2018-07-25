@@ -9,9 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode:'CHGZ',
+    menuCode:'BOSS_CHGZ',
     inputShowed: false,
-    imeiKeyWord: "",
+    keyWord: "",
     dataList: [],
     curListData: [],
     total: 1,
@@ -56,32 +56,21 @@ Page({
 
   inputTyping: function(e) {
     this.setData({
-      imeiKeyWord: e.detail.value
+      keyWord: e.detail.value
     });
   },
 
   clearInput: function() {
     this.setData({
-      imeiKeyWord: "",
+      keyWord: "",
       dataList: [],
       curListData: [],
       inputShowed: false
     });
-
   },
   //关键字搜索
   searchSubmit: function() {
-    this.setData({
-      page: 1,
-    });
-    const {
-      imeiKeyWord
-    } = this.data;
-    if (imeiKeyWord.length < 5) {
-      util.showErrorToast('请输入串号（右匹配，至少5位）~')
-      return;
-    }
-    this.getImeiVoList();
+    this.search();
   },
   bindScanCode: function() {
     const that = this;
@@ -93,14 +82,10 @@ Page({
         charSet,
         path
       }) => {
-        if (imeiKeyWord.length < 5) {
-          util.showErrorToast('请输入串号（右匹配，至少5位）~')
-          return;
-        }
         this.setData({
-          page: 1,
+          keyWord: result,
         });
-        this.getImeiVoList();
+        that.search();
       }
     })
   },
@@ -118,12 +103,27 @@ Page({
     });
     this.getImeiVoList();
   },
-
+  search:function(){
+    const {
+      keyWord
+    } = this.data;
+    if (keyWord.length < 5) {
+      util.showErrorToast('请输入串号（右匹配，至少5位）~')
+      return;
+    }
+    this.setData({
+      page: 1,
+      dataList: [],
+      loadingMore: true,
+    });
+    this.getImeiVoList();
+  },
   // 获取列表
   getImeiVoList: function() {
+    
     const that = this;
     const {
-      imeiKeyWord,
+      keyWord,
       page,
       pageSize,
       authValidate
@@ -132,10 +132,17 @@ Page({
       inputShowed: true
     })
     request(api.getImeiTrackingMainData, {
-      imeiKeyWord,
+      keyWord,
       page,
       pageSize,
     }).then(res => {
+      if (Array.isArray(res.data.dataList)){
+        for (let i = 0; i < res.data.dataList.length;i++){
+          var item = res.data.dataList[i];
+          item.url = `/pages/report/imeiFollowDetail/imeiFollowDetail?imeiId=${item.imeiId}&CKCBJ=${authValidate.CKCBJ}`;
+        }
+      }
+
       let dataList = that.data.dataList.concat(res.data.dataList)
 
       that.setData({
@@ -145,7 +152,7 @@ Page({
       });
       if (page == 1 && dataList.length === 1) {
        wx.navigateTo({
-         url: `/pages/report/imeiFollowDetail/imeiFollowDetail?imeiId=${dataList[0].imeiId}&CKCBJ=${authValidate.CKCBJ}`,
+         url: dataList[0].url,
        })
       }
     });

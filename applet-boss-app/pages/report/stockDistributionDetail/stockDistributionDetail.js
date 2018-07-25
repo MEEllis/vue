@@ -10,7 +10,7 @@ Page({
    */
   data: {
     scrollHeight: 0,
-    keyWord: "",
+    detailKeyWord: "",
     companySectionParam: "",
     goodsId: "",
     goodsName: "",
@@ -35,7 +35,7 @@ Page({
     goodsId = goodsId === undefined ? '' : goodsId;
     goodsName = goodsName === undefined ? '' : goodsName;
     goodsQuantity = goodsQuantity === undefined ? '' : goodsQuantity;
-   
+
 
     this.setData({
       companySectionParam,
@@ -51,7 +51,7 @@ Page({
    */
   onReady: function() {
     const that = this;
-    util.getScrollHeight((97 + 52 + 5)).then((scrollHeight) => {
+    util.getScrollHeight((97 + 52)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -63,7 +63,7 @@ Page({
       keyWord
     } = e.detail;
     this.setData({
-      keyWord,
+      detailKeyWord: keyWord,
     });
   },
 
@@ -72,6 +72,7 @@ Page({
     this.setData({
       page: 1,
       dataList: [],
+      loadingMore: true,
     });
     this.getDataList();
 
@@ -109,15 +110,15 @@ Page({
   getDataList: function() {
     const that = this;
     const {
-      keyWord,
+      detailKeyWord,
       companySectionParam,
       goodsId,
       page,
       pageSize,
     } = this.data;
     if (goodsId != '') {
-      request(api.stockDistrDetailData, {
-          keyWord,
+      request(api.getStockDistrDetailData, {
+          detailKeyWord,
           companySectionParam,
           goodsId,
           page,

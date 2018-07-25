@@ -23,11 +23,11 @@
     <view class="weui-navbar__slider" style="left: {{ sliderLeft }}px; transform: translateX({{ sliderOffset }}px); -webkit-transform: translateX({{ sliderOffset }}px);"></view>
   </view>
   <view class="weui-tab__panel">
-    <view class="weui-tab__content" wx:if="{{ groupField==='goodsName'}}">
-      <scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-        <view class='mt-24 list-wrap' wx:for="{{ dataList }}" wx:key="">
+    <view class="weui-tab__content" >
+      <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+        <view class='border-top-20' wx:for="{{ dataList }}" wx:key="">
           <view class="weui-cell ">
-            <text class='iconfont icon-shouji'></text>
+            <text class='iconfont {{icon}}'></text>
             <view class="weui-cell__bd ellipsis color000 font-30">
               {{numberFr.stringNull(item.name)}}
             </view>
@@ -51,70 +51,13 @@
 
       </scroll-view>
     </view>
-    <view class="weui-tab__content" wx:if="{{ groupField==='sectionName' }}">
-      <scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-        <view class='mt-24 list-wrap' wx:for="{{ dataList }}" wx:key="">
-          <view class="weui-cell ">
-            <text class='iconfont icon-iconfontdianpu5'></text>
-            <view class="weui-cell__bd ellipsis color000 font-30">
-              {{numberFr.stringNull(item.name)}}
-            </view>
-            <view class='weui-cell__ft'>
-              <text class='count-tai'>{{numberFr.formatNum(item.goodsQuantity)}}台</text>
-            </view>
-          </view>
-          <view class="weui-flex align-center sale-detail " wx:if="{{authValidate.CKCBJ}}">
-            <view class="weui-flex__item tc ">
-              均价:
-              <text class='colorfe9'>￥{{numberFr.formatNum(item.goodsPrice,2)}}</text>
-            </view>
-            <view class="weui-flex__item tc">
-              金额:
-              <text class='colorfe9'>￥{{numberFr.formatNum(item.goodsAmount,2)}}</text>
-            </view>
-          </view>
-
-        </view>
-        <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
-
-      </scroll-view>
-    </view>
-    <view class="weui-tab__content" wx:if="{{groupField==='supplierName' }}">
-      <scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
-        <view class='mt-24 list-wrap' wx:for="{{ dataList }}" wx:key="">
-          <view class="weui-cell ">
-            <text class='iconfont icon-caigou'></text>
-            <view class="weui-cell__bd ellipsis color000 font-30">
-              {{numberFr.stringNull(item.name)}}
-            </view>
-            <view class='weui-cell__ft'>
-              <text class='count-tai'>{{numberFr.formatNum(item.goodsQuantity)}}台</text>
-            </view>
-          </view>
-          <view class="weui-flex align-center sale-detail " wx:if="{{authValidate.CKCBJ}}">
-            <view class="weui-flex__item tc ">
-              均价:
-              <text class='colorfe9'>￥{{numberFr.formatNum(item.goodsPrice,2)}}</text>
-            </view>
-            <view class="weui-flex__item tc">
-              金额:
-              <text class='colorfe9'>￥{{numberFr.formatNum(item.goodsAmount,2)}}</text>
-            </view>
-          </view>
-
-        </view>
-        <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
-
-      </scroll-view>
-    </view>
+ 
   </view>
-  <view class="weui-flex sum-wrap align-center" wx:if="{{totalVo!=null}}">
+  <view class="weui-flex sum-wrap align-center">
     <view class="weui-flex__item sum-hj  tc">
       合计
     </view>
-
     <view class="weui-flex__item tr">
-
     </view>
     <view class="weui-flex__item tr">
       <view class='sum-desc'>数量</view>

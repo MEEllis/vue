@@ -70,9 +70,7 @@ function login(name, pwd, companyId) {
         }
       )
     }).then(ajaxData => {
-      wx.setStorageSync('userInfo', ajaxData.data.loginEmployeeVo);
-      wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
-      wx.setStorageSync('companyList', ajaxData.data.accessCompanyVoList)
+      setUserInfo(ajaxData)
       resolve(ajaxData)
     }).catch(res => {
       reject(false)
@@ -106,9 +104,7 @@ function autoLogin() {
         reLaunchLogin()
       })
       .then(ajaxData => {
-        wx.setStorageSync('userInfo', ajaxData.data.loginEmployeeVo);
-        wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
-        wx.setStorageSync('companyList', ajaxData.data.accessCompanyVoList);
+        setUserInfo(ajaxData)
         resolve(ajaxData)
       }).catch(res => {
         reject(false)
@@ -141,14 +137,19 @@ function changeLoginCompany(companyId) {
         },
       )
     }).then(ajaxData => {
-      wx.setStorageSync('userInfo', ajaxData.data.employeeVo);
-      wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
-      wx.setStorageSync('companyList', ajaxData.data.companyList);
+      setUserInfo(ajaxData)
       resolve(ajaxData)
     }).catch(res => {
       reject(false)
     })
   })
+}
+
+
+function setUserInfo(ajaxData){
+  wx.setStorageSync('userInfo', ajaxData.data.loginEmployeeVo);
+  wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
+  wx.setStorageSync('companyList', ajaxData.data.accessCompanyVoList);
 }
 
 module.exports = {

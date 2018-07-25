@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.1.1",
+	"libVersion": "2.2.0",
 	"appid": "wx9f22d7e7010593c1",
 	"projectname": "applet-boss-app",
 	"isGameTourist": false,
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -117,6 +117,12 @@
 					"id": -1,
 					"name": "report/grossProfit",
 					"pathName": "pages/report/grossProfit/grossProfit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/stockRealtime",
+					"pathName": "pages/report/stockRealtime/stockRealtime",
 					"query": ""
 				}
 			]

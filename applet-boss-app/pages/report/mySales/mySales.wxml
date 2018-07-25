@@ -50,8 +50,7 @@
   </navigator>
 
   <view class='mt-24 list-wrap' wx:for="{{ dataList }}" wx:key="">
-    <navigator url='/pages/report/mySalesDetail/mySalesDetail?companySectionParam={{companySectionParam}}&goodsClassId={{goodsClassId}}&goodsBrandId={{goodsBrandId}}&keyWord={{keyWord}}&startDate={{startDate}}&endDate={{endDate}}&salesType={{salesType}}&sectionId={{item.id}}&nodeType={{item.nodeType}}&CKCBJ={{authValidate.CKCBJ}}&sectionName={{item.name}}'
-      class="weui-cell ">
+    <navigator url='{{item.url}}&CKCBJ={{authValidate.CKCBJ}}' class="weui-cell ">
       <text class='iconfont icon-iconfontdianpu5'></text>
       <view class="weui-cell__bd ellipsis color000 font-30">
         {{numberFr.stringNull(item.name)}}

@@ -1,0 +1,16 @@
+.content-wrap {
+  background-color: #fff;
+}
+
+.btn-wrap {
+  padding: 65rpx 30rpx;
+}
+
+.search {
+  background-color: #21a4ff !important;
+}
+
+
+.weui-cell{
+  font-size: 30rpx;
+}

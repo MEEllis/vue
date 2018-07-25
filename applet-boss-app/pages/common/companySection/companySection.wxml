@@ -5,7 +5,7 @@
 <!-- 商品列表 -->
 <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;">
   <view class='list-item' wx:for-items="{{dataList}}" wx:key="">
-    <view bindtap='tapSel' data-id="{{item.id}}" data-name="{{item.name}}" data-nodetype="{{item.nodeType}}" class='list-item-title border-bottom'>
+    <view bindtap='tapSel' data-id="{{item.id}}" data-name="{{item.name}}" data-nodetype="{{item.nodeType}}" data-companyid="{{item.companyId}}" class='list-item-title border-bottom'>
       <view class='weui-cell'>
         <view class="weui-cell__bd">
           {{numberFr.stringNull(item.name)}}
@@ -13,7 +13,7 @@
         <text class='fr iconfont {{(activeId==item.id&&activeNodeType==item.nodeType)==true?"icon-gouxuan":""}}'></text>
       </view>
     </view>
-    <view wx:for-items="{{item.sectionList}}" wx:key="" wx:for-item="sectionItem" bindtap='tapSel' data-id="{{sectionItem.id}}" data-name="{{sectionItem.name}}" data-nodetype="{{sectionItem.nodeType}}" style='padding-left:80rpx;'>
+    <view wx:for-items="{{item.sectionList}}" wx:key="" wx:for-item="sectionItem" bindtap='tapSel' data-id="{{sectionItem.id}}" data-name="{{sectionItem.name}}" data-nodetype="{{sectionItem.nodeType}}" data-companyid="{{item.companyId}}"   style='padding-left:80rpx;'>
       <view class='list-item-title border-bottom'>
         <view class='weui-cell' style='padding: 14rpx 30rpx 14rpx 0rpx;'>
           <view class="weui-cell__bd">

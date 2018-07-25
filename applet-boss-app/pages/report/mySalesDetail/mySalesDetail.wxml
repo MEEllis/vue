@@ -1,14 +1,39 @@
 <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
 <import src="../../../template/pagination.wxml" />
 
-<view class="weui-cell list-wrap" wx:if="{{nodeType=='Section'}}">
-  <text class='iconfont icon-iconfontdianpu5'></text>
-  <view class="weui-cell__bd ellipsis color000 font-30">
-    {{numberFr.stringNull(sectionName)}}
+<view class="list-wrap" wx:if="{{nodeType=='Section'}}">
+  <view class="weui-cell ">
+    <text class='iconfont icon-iconfontdianpu5'></text>
+    <view class="weui-cell__bd ellipsis color000 font-30">
+      {{numberFr.stringNull(sectionName)}}
+    </view>
+  </view>
+<view class="gooddesc-wrap">
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      销量:
+      <text class='colorfe9'>{{numberFr.formatNum(goodsQuantity)}}台</text>
+    </view>
+    <view class="weui-flex__item">
+      金额:
+      <text class='colorfe9'>￥{{numberFr.formatNum(goodsAmount,2)}}</text>
+    </view>
+  </view>
+  <view class="weui-flex" wx:if="{{CKCBJ}}">
+    <view class="weui-flex__item">
+      均毛:
+      <text class='colorfe9'>￥{{numberFr.formatNum(goodsAvgProfitAmount,2)}}</text>
+    </view>
+    <view class="weui-flex__item">
+      毛利:
+      <text class='colorfe9'>￥{{numberFr.formatNum(goodsProfitAmount,2)}}</text>
+    </view>
   </view>
 </view>
+</view>
+
 <!-- 搜索 -->
-<search-bar placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{sectionWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+<search-bar placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{detailKeyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
 <view class='sel-time border-top'>
   查询日期:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
 </view>
@@ -31,19 +56,19 @@
         </view>
         <view class="weui-flex__item">
           金额:
-          <text class='colorfe9'>￥{{numberFr.formatNum(sectionItem.goodsAmount)}}</text>
+          <text class='colorfe9'>￥{{numberFr.formatNum(sectionItem.goodsAmount,2)}}</text>
         </view>
       </view>
       <view class="weui-flex" wx:if="{{CKCBJ}}">
 
         <view class="weui-flex__item">
           均毛:
-          <text class='colorfe9'>￥{{numberFr.formatNum(sectionItem.goodsAvgProfitAmount)}}</text>
+          <text class='colorfe9'>￥{{numberFr.formatNum(sectionItem.goodsAvgProfitAmount,2)}}</text>
         </view>
 
         <view class="weui-flex__item">
           毛利:
-          <text class='colorfe9'>￥{{numberFr.formatNum(sectionItem.goodsProfitAmount)}}</text>
+          <text class='colorfe9'>￥{{numberFr.formatNum(sectionItem.goodsProfitAmount,2)}}</text>
         </view>
       </view>
     </view>

@@ -17,34 +17,39 @@ module.exports = {
   login: LoginNewApiRootUrl + 'login/login', //使用账号密码登录
   autoLogin: LoginNewApiRootUrl + 'login/autoLogin', //微信自动登录
   changeLoginCompany: LoginNewApiRootUrl + 'login/changeLoginCompany', //切换登录公司
-
+  
   getFirstGoodsClassVoList: NewApiRootUrl + 'boss/common/getGoodsClassList', //获取商品一级类别集合
   getGoodsClassList: NewApiRootUrl + 'boss/common/getGoodsClassList', //获取商品一级类别集合
   getGoodsBrandVoList: NewApiRootUrl + 'boss/common/getGoodsBrandList', //获取商品品牌集合
   getGoodsBrandList: NewApiRootUrl + 'boss/common/getGoodsBrandList', //获取商品品牌集合
   getBossAuthValidate: NewApiRootUrl + 'boss/common/getBossAuthValidate',
   getCompanySectionList: NewApiRootUrl + 'boss/common/getCompanySectionList', //获取商品品牌集合
-  getContactUnits: NewApiRootUrl + 'boss/common/getContactUnits', //获取往来单位
+  getContactUnitList: NewApiRootUrl + 'boss/common/getContactUnitList', //获取往来单位
   getBossMenuList: NewApiRootUrl + 'boss/common/getBossMenuList', //获取Boss小程序菜单集合
-  getGoodsDetailData: NewApiRootUrl + 'boss/report/storage/getGoodsDetailData', //
+
+  getGoodsDetailVo: NewApiRootUrl + 'boss/report/storage/currentStock/getGoodsDetailVo', // 商品详情页
 
 
   getStockDistrData: NewApiRootUrl + 'boss/report/storage/stockDistribution/getStockDistrData', // 库存分布报表 主页
-  stockDistrDetailData: NewApiRootUrl + 'boss/report/storage/stockDistrDetailData', // 库存分布报表 主页
+  getStockDistrDetailData: NewApiRootUrl + 'boss/report/storage/stockDistribution/getStockDistrDetailData', // 库存分布报表 主页
 
 
-  getCurrentStockData: NewApiRootUrl + 'boss/report/storage/getCurrentStockData', // 实时库存报表 主页
-  getCurrentStockTotalVo: NewApiRootUrl + 'boss/report/storage/getCurrentStockTotalVo', // 实时库存 主页(总计行对象)
-  getCurrentStockDetailData: NewApiRootUrl + 'boss/report/storage/getCurrentStockDetailData', // 实时库存报表 (库存分布详情页)
+  getImeiTrackingMainData: NewApiRootUrl + 'boss/report/storage/imeiTrackingMain/getImeiTrackingMainData', // 串号跟踪主页
+  getImeiTrackingDetailData: NewApiRootUrl + 'boss/report/storage/imeiTrackingMain/getImeiTrackingDetailData', // 串号跟踪详情页
 
 
-  getImeiTrackingMainData: NewApiRootUrl + 'boss/report/storage/getImeiTrackingMainData', // 串号跟踪主页
-  getImeiTrackingDetailData: NewApiRootUrl + 'boss/report/storage/getImeiTrackingDetailData', // 串号跟踪详情页
+
+  getCurrentStockData: NewApiRootUrl + 'boss/report/storage/currentStock/getCurrentStockData', // 实时库存报表 主页
+  getCurrentStockTotalVo: NewApiRootUrl + 'boss/report/storage/currentStock/getCurrentStockTotalVo', // 实时库存 主页(总计行对象)
+  getCurrentStockDetailData: NewApiRootUrl + 'boss/report/storage/currentStock/getCurrentStockDetailData', // 实时库存报表 (库存分布详情页)
 
 
-  getMySalesData: NewApiRootUrl + 'boss/report/sales/getMySalesData', // 我的销量报表主页
-  getMySalesTotalVo: NewApiRootUrl + 'boss/report/sales/getMySalesTotalVo', // 我的销量报表主页总计行对象
-  getMySalesDetailData: NewApiRootUrl + 'boss/report/sales/getMySalesDetailData', // 我的销量报表(公司或部门详情页) 
+
+
+
+  getMySalesData: NewApiRootUrl + 'boss/report/sales/mySales/getMySalesData', // 我的销量报表主页
+  getMySalesTotalVo: NewApiRootUrl + 'boss/report/sales/mySales/getMySalesTotalVo', // 我的销量报表主页总计行对象
+  getMySalesDetailData: NewApiRootUrl + 'boss/report/sales/mySales/getMySalesDetailData', // 我的销量报表(公司或部门详情页) 
   getMySalesDetailTotalVo: NewApiRootUrl + 'boss/report/sales/mySales/getMySalesDetailTotalVo', //我的销量 详情页总计行
 
 

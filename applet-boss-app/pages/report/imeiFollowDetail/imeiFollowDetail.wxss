@@ -1,12 +1,12 @@
-.col1 {
+.col0 {
   color: #ffaf23;
 }
 
-.col2 {
-  color: #3384d6;
+.col1 {
+  color: #962ada;
 }
 
-.col3 {
+.col2 {
   color: #46be8a;
 }
 

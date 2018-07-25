@@ -6,6 +6,6 @@
     </view>
   </view>
   <view wx:else class="tc pt-20">
-    亲，已经到底了啦
+    亲，我是有底线的!
   </view>
 </template>

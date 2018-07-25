@@ -21,7 +21,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let {
       route,
 
@@ -36,16 +36,16 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
     const that = this;
-    util.getScrollHeight((52 + 5)).then((scrollHeight) => {
+    util.getScrollHeight((52)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
       })
     })
   },
-  searchInput: function (e) {
+  searchInput: function(e) {
     const {
       keyWord
     } = e.detail;
@@ -55,7 +55,7 @@ Page({
   },
 
   //关键字搜索
-  searchSubmit: function () {
+  searchSubmit: function() {
     const {
       dataSource,
       keyWord
@@ -71,7 +71,7 @@ Page({
       });
     }
   },
-  tapSel: function (e) {
+  tapSel: function(e) {
     const {
       id,
       name
@@ -87,7 +87,7 @@ Page({
     }
     wx.navigateBack({})
   },
-  setDelta: function () {
+  setDelta: function() {
     const {
       route,
     } = this.data;

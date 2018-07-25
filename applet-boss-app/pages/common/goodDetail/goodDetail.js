@@ -7,7 +7,7 @@ Page({
    */
   data: {
     goodsId: '',
-    goodsVo:null,
+    goodsVo: null,
   },
 
   /**
@@ -39,12 +39,11 @@ Page({
       goodsId,
     } = this.data;
     if (goodsId != '') {
-      request(api.getGoodsDetailData, {
+      request(api.getGoodsDetailVo, {
           goodsId,
         })
         .then(res => {
-
-          const goodsVo =res.data.goodsVo || null;
+          const goodsVo = res.data.goodsVo || null;
           that.setData({
             goodsVo
           });

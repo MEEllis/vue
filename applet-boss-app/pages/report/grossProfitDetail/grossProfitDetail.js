@@ -8,7 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'WDXL',
     companySectionParam: "",
     goodsClassId: 0,
     goodsBrandId: 0,
@@ -16,12 +15,10 @@ Page({
     startDate: "",
     endDate: "",
     salesType: 0,
-    nodeType: "",
+    nodeId: "",
     page: 1,
     pageSize: 20,
     detailKeyWord: "",
-    menuCode: "",
-    sectionId: '',
     CKCBJ: false,
     dataList: [],
     curListData: [],
@@ -45,8 +42,7 @@ Page({
       startDate,
       endDate,
       salesType,
-      nodeType,
-      sectionId,
+      nodeId,
       groupField,
       icon,
       nodeName,
@@ -59,12 +55,11 @@ Page({
     startDate = startDate === undefined ? '' : startDate;
     endDate = endDate === undefined ? '' : endDate;
     salesType = salesType === undefined ? '' : salesType;
-    nodeType = nodeType === undefined ? '' : nodeType;
-    sectionId = sectionId === undefined ? '' : sectionId;
+    nodeId = nodeId === undefined ? '' : nodeId;
     nodeName = nodeName === undefined ? '' : nodeName;
     groupField = groupField === undefined ? '' : groupField;
     icon = icon === undefined ? '' : icon;
-    CKCBJ = CKCBJ === undefined ? false : CKCBJ;
+    CKCBJ = CKCBJ === 'true' ? true : false;
 
     this.setData({
       companySectionParam,
@@ -74,8 +69,7 @@ Page({
       startDate,
       endDate,
       salesType,
-      nodeType,
-      sectionId,
+      nodeId,
       nodeName,
       groupField,
       icon,
@@ -91,13 +85,13 @@ Page({
   onReady: function() {
     const that = this;
     let {
-      nodeType
+      CKCBJ
     } = this.data;
     var section = 0;
-    if (nodeType == 'Section') {
-      section = 46
+    if (CKCBJ == true) {
+      section = 39
     }
-    util.getScrollHeight((section + 52 + 25 + 46 + 5)).then((scrollHeight) => {
+    util.getScrollHeight((47 + section + 52 + 25)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -118,6 +112,7 @@ Page({
     this.setData({
       page: 1,
       dataList: [],
+      loadingMore: true,
     });
     this.getDataList();
     this.getTotalVo()
@@ -141,37 +136,15 @@ Page({
   //获取 详情
   getDataList: function() {
     const that = this;
+    const postData = this.getSearchParam();
     const {
-      menuCode,
-      companySectionParam,
-      goodsClassId,
-      goodsBrandId,
-      keyWord,
-      startDate,
-      endDate,
-      salesType,
-      nodeType,
-      detailKeyWord,
-      sectionId,
       page,
       pageSize,
     } = this.data;
+    postData.page = page;
+    postData.pageSize = pageSize;
 
-    request(api.getGrossProfitDetailData, {
-        menuCode,
-        companySectionParam,
-        goodsClassId,
-        goodsBrandId,
-        keyWord,
-        startDate,
-        endDate,
-        salesType,
-        nodeType,
-        detailKeyWord,
-        sectionId,
-        page,
-        pageSize,
-      })
+    request(api.getGrossProfitDetailData, postData)
       .then(res => {
 
         let dataList = that.data.dataList.concat(res.data.dataList)
@@ -186,36 +159,39 @@ Page({
   //获取总计行对象
   getTotalVo: function() {
     var that = this;
-    const {
-      menuCode,
-      companySectionParam,
-      goodsClassId,
-      goodsBrandId,
-      keyWord,
-      startDate,
-      endDate,
-      salesType,
-      nodeType,
-      detailKeyWord,
-      sectionId
-    } = this.data;
-
-    request(api.getGrossProfitDetailTotalVo, {
-      menuCode,
-      companySectionParam,
-      goodsClassId,
-      goodsBrandId,
-      keyWord,
-      startDate,
-      endDate,
-      salesType,
-      nodeType,
-      detailKeyWord,
-      sectionId
-    }).then(res => {
+    const postData = this.getSearchParam();
+    request(api.getGrossProfitDetailTotalVo, postData).then(res => {
       that.setData({
         totalVo: res.data.totalVo,
       });
     })
+  },
+  getSearchParam: function() {
+    const {
+      companySectionParam,
+      goodsClassId,
+      goodsBrandId,
+      keyWord,
+      startDate,
+      endDate,
+      salesType,
+      groupField,
+      nodeId,
+      nodeName,
+      detailKeyWord,
+    } = this.data;
+    return {
+      companySectionParam,
+      goodsClassId,
+      goodsBrandId,
+      keyWord,
+      startDate,
+      endDate,
+      salesType,
+      groupField,
+      nodeId,
+      nodeName,
+      detailKeyWord,
+    }
   },
 })

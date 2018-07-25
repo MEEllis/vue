@@ -211,7 +211,7 @@ Page({
       goodsBrandName: '全部',
       startDate,
       endDate,
-      timeActive: 0,
+      timeActive: 2,
       salesType: '',
     })
   },

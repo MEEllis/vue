@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'WDXL',
+    menuCode: 'BOSS_WDXL',
     scrollHeight: 0,
     keyWord: '',
     items: [],
@@ -32,7 +32,7 @@ Page({
     loadingMore: true,
     startDate: '',
     endDate: '',
-    timeActive:2,
+    timeActive: 2,
     salesType: '',
     totalVo: null,
     authValidate: {
@@ -70,7 +70,7 @@ Page({
    */
   onReady: function() {
     const that = this;
-    util.getScrollHeight((46 + 52 + 5)).then((scrollHeight) => {
+    util.getScrollHeight((46 + 52 + 25)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -89,12 +89,7 @@ Page({
 
   //关键字搜索
   searchSubmit: function() {
-    this.setData({
-      page: 1,
-      dataList: [],
-    });
-    this.getGoodsList();
-    this.getTotalVo();
+    this.search()
   },
   tapAdvanced: function() {
     var pages = getCurrentPages() //获取加载的页面
@@ -112,11 +107,8 @@ Page({
     this.setData({
       goodsClassId: id,
       goodsClassName: name,
-      page: 1,
-      dataList: [],
     });
-    this.getGoodsList();
-    this.getTotalVo();
+    this.search()
   },
   scrolltolower: function() {
     const {
@@ -132,16 +124,22 @@ Page({
     });
     this.getGoodsList();
   },
-
+  search: function() {
+    this.setData({
+      page: 1,
+      dataList: [],
+      loadingMore: true,
+    });
+    this.getGoodsList();
+    this.getTotalVo();
+  },
   setCompanySectionParam() {
     const {
       companySectionParamNodeType,
       companySectionParamId,
     } = this.data;
     let companySectionParam = '';
-    if (companySectionParamNodeType != '') {
-      companySectionParam = companySectionParamNodeType + ',' + companySectionParamId
-    }
+    companySectionParam = serviceCom.setCompanySectionParam(companySectionParamNodeType, companySectionParamId);
     this.setData({
       companySectionParam,
     });
@@ -149,28 +147,18 @@ Page({
   //获取一级类别
   getFirstGoodsClassVoList: function() {
     var that = this;
-    request(api.getFirstGoodsClassVoList).then(res => {
-      let categoryData = [{
-        id: '',
-        code: '',
-        name: '全部'
-      }]
+    serviceCom.getGoodsClassList().then(categoryData => {
       that.setData({
-        categoryData: categoryData.concat(res.data.dataList)
+        categoryData,
       });
     })
   },
   //获取品牌
   getGoodsBrandVoList: function() {
     var that = this;
-    request(api.getGoodsBrandVoList).then(res => {
-      let BrandData = [{
-        id: '',
-        code: '',
-        name: '全部'
-      }]
+    serviceCom.getGoodsBrandList().then(BrandData => {
       that.setData({
-        BrandData: BrandData.concat(res.data.dataList)
+        BrandData,
       });
     })
   },
@@ -180,53 +168,32 @@ Page({
     const {
       menuCode
     } = this.data;
-
-    request(api.getCompanySectionList, {
+    serviceCom.getCompanySectionList({
       menuCode,
-      kcFalg: 1,
-    }).then(res => {
-      let companySectionParamData = [{
-        id: '',
-        code: '',
-        nodeType: '',
-        name: '全部'
-      }]
+    }).then(companySectionParamData => {
       that.setData({
-        companySectionParamData: companySectionParamData.concat(res.data.dataList)
+        companySectionParamData,
       });
     })
   },
   // 获取商品列表
-  getGoodsList: function(callback) {
+  getGoodsList: function() {
     const that = this;
-    this.setCompanySectionParam();
+
+    const postData = this.getSearchParam();
     const {
-      menuCode,
-      companySectionParam,
-      goodsClassId,
-      goodsBrandId,
-      keyWord,
-      startDate,
-      endDate,
-      salesType,
       page,
       pageSize,
     } = this.data;
-    request(api.getMySalesData, {
-      menuCode,
-      companySectionParam,
-      goodsClassId,
-      goodsBrandId,
-      keyWord,
-      startDate,
-      endDate,
-      salesType,
-      page,
-      pageSize,
-    
-    }).then(res => {
-      if (callback) {
-        callback(dataList)
+    postData.page = page;
+    postData.pageSize = pageSize;
+
+    request(api.getMySalesData, postData).then(res => {
+      if (Array.isArray(res.data.dataList)) {
+        for (let i = 0; i < res.data.dataList.length; i++) {
+          var item = res.data.dataList[i];
+          item.url = `/pages/report/mySalesDetail/mySalesDetail?companySectionParam=${postData.companySectionParam}&goodsClassId=${postData.goodsClassId}&goodsBrandId=${postData.goodsBrandId}&keyWord=${postData.keyWord}&startDate=${postData.startDate}&endDate=${postData.endDate}&salesType=${postData.salesType}&sectionId=${item.id}&nodeType=${item.nodeType}&sectionName=${item.name}&goodsQuantity=${item.goodsQuantity}&goodsAvgProfitAmount=${item.goodsAvgProfitAmount}&goodsProfitAmount=${item.goodsProfitAmount}&goodsAmount=${item.goodsAmount}&sectionName=${item.name}`;
+        }
       }
       let dataList = that.data.dataList.concat(res.data.dataList)
       that.setData({
@@ -239,11 +206,19 @@ Page({
   },
 
   //获取总计行对象
-  getTotalVo: function () {
+  getTotalVo: function() {
     var that = this;
+    const postData = this.getSearchParam();
+    request(api.getMySalesTotalVo, postData).then(res => {
+      that.setData({
+        totalVo: res.data.totalVo,
+      });
+    })
+  },
+  getSearchParam: function() {
+
     this.setCompanySectionParam();
     const {
-      menuCode,
       companySectionParam,
       goodsClassId,
       goodsBrandId,
@@ -252,9 +227,7 @@ Page({
       endDate,
       salesType,
     } = this.data;
-
-    request(api.getMySalesTotalVo, {
-      menuCode,
+    return {
       companySectionParam,
       goodsClassId,
       goodsBrandId,
@@ -262,11 +235,7 @@ Page({
       startDate,
       endDate,
       salesType,
-    }).then(res => {
-      that.setData({
-        totalVo: res.data.totalVo,
-      });
-    })
+    }
   },
   //获取权限
   getBossAuthValidate: function() {

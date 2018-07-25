@@ -44,7 +44,7 @@ Page({
       value: 'goodsClassName'
     }, {
       name: '品牌',
-      value: 'goodsBrand'
+      value: 'goodsBrandName'
     }, {
       name: '商品',
       value: 'goodsName'
@@ -53,7 +53,7 @@ Page({
       value: 'sectionName'
     }, {
       name: '营业员',
-      value: 'goodsSalesManName'
+      value: 'salesManName'
     }],
     groupField: 'goodsClassName',
   },
@@ -239,7 +239,7 @@ Page({
       goodsBrandName: '全部',
       startDate,
       endDate,
-      timeActive: 0,
+      timeActive: 2,
       salesType: '',
       groupField: 'goodsClassName',
     })

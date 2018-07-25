@@ -59,7 +59,7 @@ Page({
    */
   onReady: function() {
     const that = this;
-    util.getScrollHeight((46 + 52 + 5)).then((scrollHeight) => {
+    util.getScrollHeight((46 + 52)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -78,11 +78,7 @@ Page({
 
   //关键字搜索
   searchSubmit: function() {
-    this.setData({
-      page: 1,
-      dataList: [],
-    });
-    this.getGoodsList();
+    this.search();
 
   },
   tapAdvanced: function() {
@@ -101,10 +97,8 @@ Page({
     this.setData({
       goodsClassId: id,
       goodsClassName: name,
-      page: 1,
-      dataList: [],
     });
-    this.getGoodsList();
+    this.search();
   },
   scrolltolower: function() {
     const {
@@ -121,15 +115,21 @@ Page({
     this.getGoodsList();
   },
 
+  search: function() {
+    this.setData({
+      page: 1,
+      dataList: [],
+      loadingMore: true,
+    });
+    this.getGoodsList();
+  },
   setCompanySectionParam() {
     const {
       companySectionParamNodeType,
       companySectionParamId,
     } = this.data;
     let companySectionParam = '';
-    if (companySectionParamNodeType != '') {
-      companySectionParam = companySectionParamNodeType + ',' + companySectionParamId
-    }
+    companySectionParam = serviceCom.setCompanySectionParam(companySectionParamNodeType, companySectionParamId);
     this.setData({
       companySectionParam,
     });
@@ -142,8 +142,6 @@ Page({
         categoryData,
       });
     })
-
-
   },
   //获取品牌
   getGoodsBrandList: function() {
@@ -161,28 +159,19 @@ Page({
     const {
       menuCode
     } = this.data;
-
-    request(api.getCompanySectionList, {
+    serviceCom.getCompanySectionList({
       menuCode,
-      kcFalg: 1,
-    }).then(res => {
-      let companySectionParamData = [{
-        id: '',
-        code: '',
-        nodeType: '',
-        name: '全部'
-      }]
+    }).then(companySectionParamData => {
       that.setData({
-        companySectionParamData: companySectionParamData.concat(res.data.dataList)
+        companySectionParamData,
       });
     })
   },
   // 获取商品列表
-  getGoodsList: function(callback) {
+  getGoodsList: function() {
     const that = this;
     this.setCompanySectionParam();
     const {
-      menuCode,
       companySectionParam,
       keyWord,
       goodsClassId,
@@ -192,7 +181,6 @@ Page({
     } = this.data;
 
     request(api.getStockDistrData, {
-      menuCode,
       companySectionParam,
       goodsClassId,
       goodsBrandId,
@@ -200,8 +188,11 @@ Page({
       page,
       pageSize,
     }).then(res => {
-      if (callback) {
-        callback(dataList)
+      if (Array.isArray(res.data.dataList)) {
+        for (let i = 0; i < res.data.dataList.length; i++) {
+          var item = res.data.dataList[i];
+          item.url = `/pages/report/stockDistributionDetail/stockDistributionDetail?goodsId=${item.goodsId}&goodsName=${item.goodsName}&goodsQuantity=${item.goodsQuantity}&companySectionParam=${companySectionParam}`;
+        }
       }
       let dataList = that.data.dataList.concat(res.data.dataList)
       that.setData({

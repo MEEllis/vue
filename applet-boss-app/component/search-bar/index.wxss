@@ -1,6 +1,6 @@
 .weui-search-bar {
   position: relative;
-  padding: 16rpx 30rpx;
+  padding: 8px 15px;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -15,8 +15,8 @@
 
 .weui-icon-search_in-box {
   position: absolute;
-  left: 20rpx;
-  top: 20rpx;
+  left: 10px;
+  top: 10px;
 }
 
 .weui-search-bar__text {
@@ -30,7 +30,7 @@
   -webkit-box-flex: 1;
   -webkit-flex: auto;
   flex: auto;
-  border-radius: 12rpx;
+  border-radius: 6px;
   background: #fff;
 }
 
@@ -44,16 +44,16 @@
 }
 
 .weui-search-bar__input {
-  height: 72rpx;
-  line-height: 72rpx;
-  font-size: 28rpx;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
 }
 
 .weui-search-bar__cancel-btn {
-  margin-left: 20rpx;
-  height: 72rpx;
-  line-height: 72rpx;
-  font-size: 28rpx;
+  margin-left: 10px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
   color: #21a4ff;
   white-space: nowrap;
 }
@@ -62,7 +62,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 22rpx 16rpx;
+  padding: 11px 8px;
   font-size: 0;
 }
 

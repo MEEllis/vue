@@ -2,7 +2,7 @@ import request from '../../../utils/request.js';
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
 import serviceCom from '../../../services/common.js';
-var sliderWidth = 75; // 需要设置slider的宽度，用于计算中间位置
+
 
 Page({
 
@@ -10,10 +10,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'CGHZ',
+    menuCode: 'BOSS_MLZB',
     scrollHeight: 0,
     keyWord: '',
-    items: [],
+
     page: 1,
     pageSize: 20,
     companySectionParam: '',
@@ -50,7 +50,7 @@ Page({
       value: 'goodsClassName'
     }, {
       name: '品牌',
-      value: 'goodsBrand'
+      value: 'goodsBrandName'
     }, {
       name: '商品',
       value: 'goodsName'
@@ -59,7 +59,7 @@ Page({
       value: 'sectionName'
     }, {
       name: '营业员',
-      value: 'goodsSalesManName'
+      value: 'salesManName'
     }],
     sliderOffset: 0,
     sliderLeft: 0,
@@ -102,7 +102,7 @@ Page({
    */
   onReady: function() {
     const that = this;
-    util.getScrollHeight((46 + 52 + 25 + 44 + 46 + 5)).then((scrollHeight) => {
+    util.getScrollHeight((46 + 52 + 25 + 44 + 46)).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,
@@ -120,8 +120,9 @@ Page({
       groupFieldName,
       page: 1,
       dataList: [],
+      loadingMore: true,
     });
-    this.search()
+    this.getGoodsList();
   },
 
   searchInput: function(e) {
@@ -134,35 +135,18 @@ Page({
   },
 
   search: function() {
+    this.setData({
+      page: 1,
+      dataList: [],
+      loadingMore: true,
+    });
+    this.setSlider()
     this.getGoodsList();
     this.getTotalVo();
   },
 
   //关键字搜索
   searchSubmit: function() {
-    const that = this;
-    const {
-      groupField,
-      tabs
-    } = this.data;
-    this.setData({
-      page: 1,
-      dataList: [],
-    });
-    wx.getSystemInfo({
-      success: function(res) {
-        let activeIndex = 0;
-        for (let i = 0; i < tabs.length; i++) {
-          if (tabs[i].value === groupField) {
-            activeIndex = i;
-            break;
-          }
-        }
-        that.setData({
-          sliderOffset: res.windowWidth / that.data.tabs.length * activeIndex
-        });
-      }
-    });
     this.search()
   },
   setSlider: function() {
@@ -182,7 +166,6 @@ Page({
         }
 
         that.setData({
-          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
           sliderOffset: res.windowWidth / that.data.tabs.length * activeIndex
         });
       }
@@ -240,14 +223,9 @@ Page({
   //获取一级类别
   getFirstGoodsClassVoList: function() {
     var that = this;
-    request(api.getFirstGoodsClassVoList).then(res => {
-      let categoryData = [{
-        id: '',
-        code: '',
-        name: '全部'
-      }]
+    serviceCom.getGoodsClassList().then(categoryData => {
       that.setData({
-        categoryData: categoryData.concat(res.data.dataList)
+        categoryData,
       });
     })
   },
@@ -255,14 +233,9 @@ Page({
   //获取品牌
   getGoodsBrandVoList: function() {
     var that = this;
-    request(api.getGoodsBrandVoList).then(res => {
-      let BrandData = [{
-        id: '',
-        code: '',
-        name: '全部'
-      }]
+    serviceCom.getGoodsBrandList().then(BrandData => {
       that.setData({
-        BrandData: BrandData.concat(res.data.dataList)
+        BrandData,
       });
     })
   },
@@ -272,19 +245,11 @@ Page({
     const {
       menuCode
     } = this.data;
-
-    request(api.getCompanySectionList, {
+    serviceCom.getCompanySectionList({
       menuCode,
-      kcFalg: 1,
-    }).then(res => {
-      let companySectionParamData = [{
-        id: '',
-        code: '',
-        nodeType: '',
-        name: '全部'
-      }]
+    }).then(companySectionParamData => {
       that.setData({
-        companySectionParamData: companySectionParamData.concat(res.data.dataList)
+        companySectionParamData,
       });
     })
   },
@@ -293,7 +258,6 @@ Page({
     const that = this;
     this.setCompanySectionParam();
     const {
-      menuCode,
       companySectionParam,
       goodsClassId,
       goodsBrandId,
@@ -306,7 +270,6 @@ Page({
       pageSize,
     } = this.data;
     request(api.getGrossProfitData, {
-      menuCode,
       companySectionParam,
       goodsClassId,
       goodsBrandId,
@@ -322,17 +285,27 @@ Page({
       if (Array.isArray(res.data.dataList)) {
         for (let i = 0; i < res.data.dataList.length; i++) {
           let item = res.data.dataList[i];
-          item.url = `/pages/report/grossProfitDetail/grossProfitDetail?companySectionParam=${companySectionParam}&goodsClassId=${goodsClassId}&goodsBrandId=${goodsBrandId}&keyWord=${keyWord}&startDate=${startDate}&endDate=${endDate}&salesType=${salesType}&groupField=${groupField}&nodeName=${item.name}&nodeId=${item.id}`
+          item.url = `/pages/report/grossProfitDetail/grossProfitDetail?companySectionParam=${companySectionParam}&goodsClassId=${goodsClassId}&goodsBrandId=${goodsBrandId}&keyWord=${keyWord}&startDate=${startDate}&endDate=${endDate}&salesType=${salesType}&groupField=${groupField}&nodeName=${item.name}&nodeId=${item.id}&groupField=${groupField}`
         }
       }
-    
-
+      let icon = '';
+      if (groupField == 'goodsClassName') {
+        icon = 'icon-shangpinleibie-copy'
+      } else if (groupField == 'goodsBrandName') {
+        icon = 'icon-pinpai'
+      } else if (groupField == 'goodsName') {
+        icon = 'icon-shouji'
+      } else if (groupField == 'sectionName') {
+        icon = 'icon-iconfontdianpu5'
+      } else if (groupField == 'salesManName') {
+        icon = 'icon-iconfontgerenzhongxin'
+      }
       let dataList = that.data.dataList.concat(res.data.dataList)
       that.setData({
         dataList,
         curListData: res.data.dataList,
         loadingMore: false,
-    
+        icon,
       });
 
     });
@@ -343,7 +316,6 @@ Page({
     var that = this;
     this.setCompanySectionParam();
     const {
-      menuCode,
       companySectionParam,
       goodsClassId,
       goodsBrandId,
@@ -355,7 +327,6 @@ Page({
     } = this.data;
 
     request(api.getGrossProfitTotalVo, {
-      menuCode,
       companySectionParam,
       goodsClassId,
       goodsBrandId,
@@ -365,23 +336,9 @@ Page({
       groupField,
       salesType,
     }).then(res => {
-      let icon = '';
-
-      if (groupField == 'goodsClassName') {
-        icon = 'icon-shangpinleibie-copy'
-      } else if (groupField == 'goodsBrand') {
-        icon = 'icon-pinpai'
-      } else if (groupField == 'goodsName') {
-        icon = 'icon-shouji'
-      } else if (groupField == 'sectionName') {
-        icon = 'icon-iconfontdianpu5'
-      } else if (groupField == 'goodsSalesManName') {
-        icon = 'icon-iconfontgerenzhongxin'
-      }
 
       that.setData({
         totalVo: res.data.totalVo,
-        icon,
       });
     })
   },

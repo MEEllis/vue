@@ -108,12 +108,10 @@ function getScrollHeight(subHeight) {
         if (Array.isArray(subHeight)) {
           scrollHeight = []
           for (let i = 0; i < subHeight.length; i++) {
-            //误差调控5
-            scrollHeight.push(res.windowHeight - ((res.windowWidth / 750) * (subHeight[i] * 2)) + 5)
+            scrollHeight.push(res.windowHeight - subHeight[i])
           }
         } else {
-          //误差调控5
-          scrollHeight = res.windowHeight - ((res.windowWidth / 750) * (subHeight * 2)) + 5
+          scrollHeight = res.windowHeight - subHeight - 1
         }
         resolve(scrollHeight);
       },

@@ -23,7 +23,8 @@
         <text class='iconfont  icon-xiangxia-copy {{(!!item.isShow)===true?"active" :""}} '></text>
       </view>
     </view>
-    <navigator url='/pages/report/stockDistributionDetail/stockDistributionDetail?goodsId={{item.goodsId}}&goodsName={{item.goodsName}}&goodsQuantity={{item.goodsQuantity}}&goodsPrice={{item.goodsPrice}}&goodsAmount={{item.goodsAmount}}&companySectionParam={{item.companySectionParam}}&CKCBJ={{authValidate.CKCBJ}}' class='border-top detail-content font-28' hidden='{{!item.isShow}}'>
+    <navigator url='{{item.url}}&CKCBJ={{authValidate.CKCBJ}}'
+      class='border-top detail-content font-28' hidden='{{!item.isShow}}'>
       <view class="weui-flex align-center pb-10" wx:if="{{authValidate.CKCBJ}}">
         <view class="weui-flex__item">
           <text class='color333'>均价：</text>
@@ -47,7 +48,7 @@
   <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
 </scroll-view>
 
-<view class="weui-flex sum-wrap align-center" wx:if="{{totalVo!=null}}">
+<view class="weui-flex sum-wrap align-center" >
   <view class="weui-flex__item sum-hj  tc">
     合计
   </view>
