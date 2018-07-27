@@ -23,7 +23,6 @@ function checkLogin() {
     }
   });
 }
-
 // 获取公司
 function getCompanyVoList(name, pwd) {
   return new Promise(function(resolve, reject) {
@@ -52,9 +51,6 @@ function getCompanyVoList(name, pwd) {
   })
 
 }
-
-
-
 // 登录
 function login(name, pwd, companyId) {
   return new Promise(function(resolve, reject) {
@@ -82,8 +78,6 @@ function login(name, pwd, companyId) {
   })
 
 }
-
-
 
 // 微信自动登录
 function autoLogin() {
@@ -117,7 +111,6 @@ function autoLogin() {
       })
   })
 }
-
 function reLaunchLogin() {
   setTimeout(function() {
     wx.reLaunch({
@@ -128,7 +121,6 @@ function reLaunchLogin() {
     })
   }, 80)
 }
-
 
 // 切换登录公司
 function changeLoginCompany(companyId) {
@@ -150,13 +142,11 @@ function changeLoginCompany(companyId) {
   })
 }
 
-
 function setUserInfo(ajaxData){
   wx.setStorageSync('userInfo', ajaxData.data.loginEmployeeVo);
   wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
   wx.setStorageSync('companyList', ajaxData.data.accessCompanyVoList);
 }
-
 module.exports = {
   checkLogin,
   getCompanyVoList,
