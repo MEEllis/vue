@@ -1,7 +1,7 @@
 <template name="pagination" class="page__bd">
   <view class='weui-flex align-center' style='width:100%;height:100%; ' wx:if="{{dataList.length===0}}">
     <view class='weui-flex__item'>
-      <image class='' style='display:block;width:449rpx;height:352rpx;margin:0 auto;' src="/../images/none.png" lazy-load='true' />
+      <image class='' style='display:block;width:449rpx;height:352rpx;margin:0 auto;' src="/images/none.png" lazy-load='true' />
       <view class='tc mt-30 font-32 color333'>暂无相关数据！</view>
     </view>
   </view>

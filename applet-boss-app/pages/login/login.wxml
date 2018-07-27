@@ -2,7 +2,7 @@
   <view class='logo-wrap'>
     <image src="../../images/logo.png" lazy-load='true' class='logo' />
   </view>
- 
+
   <form bindsubmit="formSubmit">
     <view class='item'>
       <input class='txt-input' data-key="showName" bindfocus='focusInput' bindblur='blurInput' type="number" focus placeholder="请输入手机号" value="{{name}}" bindinput="inputName" />

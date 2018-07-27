@@ -34,7 +34,9 @@ function getCompanyVoList(name, pwd) {
             return request(
               api.getAccessCompanyVoList, {
                 userName: name,
-                password: pwd
+                password: pwd,
+              }, "POST",{
+                isAuth:false,
               }
             )
           }
@@ -67,6 +69,8 @@ function login(name, pwd, companyId) {
           companyId,
           code: code,
           userInfo: JSON.stringify(userInfo),
+        }, "POST", {
+          isAuth: false,
         }
       )
     }).then(ajaxData => {
@@ -95,7 +99,8 @@ function autoLogin() {
             userInfo: JSON.stringify(res.userInfo),
           },
           "POST", {
-            hideLoading: true
+            hideLoading: true,
+            isAuth: false,
           }
         )
       })
@@ -134,7 +139,7 @@ function changeLoginCompany(companyId) {
           code: res.code,
           companyId,
           userInfo: JSON.stringify(res.userInfo),
-        },
+        }
       )
     }).then(ajaxData => {
       setUserInfo(ajaxData)

@@ -8,28 +8,28 @@
       {{numberFr.stringNull(sectionName)}}
     </view>
   </view>
-<view class="gooddesc-wrap">
-  <view class="weui-flex">
-    <view class="weui-flex__item">
-      销量:
-      <text class='colorfe9'>{{numberFr.formatNum(goodsQuantity)}}台</text>
+  <view class="gooddesc-wrap">
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        销量:
+        <text class='colorfe9'>{{numberFr.formatNum(goodsQuantity)}}台</text>
+      </view>
+      <view class="weui-flex__item">
+        金额:
+        <text class='colorfe9'>￥{{numberFr.formatNum(goodsAmount,2)}}</text>
+      </view>
     </view>
-    <view class="weui-flex__item">
-      金额:
-      <text class='colorfe9'>￥{{numberFr.formatNum(goodsAmount,2)}}</text>
+    <view class="weui-flex" wx:if="{{CKCBJ}}">
+      <view class="weui-flex__item">
+        均毛:
+        <text class='colorfe9'>￥{{numberFr.formatNum(goodsAvgProfitAmount,2)}}</text>
+      </view>
+      <view class="weui-flex__item">
+        毛利:
+        <text class='colorfe9'>￥{{numberFr.formatNum(goodsProfitAmount,2)}}</text>
+      </view>
     </view>
   </view>
-  <view class="weui-flex" wx:if="{{CKCBJ}}">
-    <view class="weui-flex__item">
-      均毛:
-      <text class='colorfe9'>￥{{numberFr.formatNum(goodsAvgProfitAmount,2)}}</text>
-    </view>
-    <view class="weui-flex__item">
-      毛利:
-      <text class='colorfe9'>￥{{numberFr.formatNum(goodsProfitAmount,2)}}</text>
-    </view>
-  </view>
-</view>
 </view>
 
 <!-- 搜索 -->
@@ -77,21 +77,41 @@
   <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
 </scroll-view>
 
-<view class="weui-flex sum-wrap align-center" wx:if="{{totalVo!=null}}">
-  <view class="weui-flex__item   tr">
-    <view class='sum-desc'>销量</view>
-    <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+<view class="weui-flex sum-wrap align-center">
+
+
+  <view class='weui-flex__item' wx:if="{{CKCBJ}}">
+    <view class="weui-flex">
+      <view class="weui-flex__item   tr">
+        <view class='sum-desc'>销量</view>
+        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+      </view>
+      <view class="weui-flex__item tr ">
+        <view class='sum-desc'>金额</view>
+        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
+      </view>
+      <view class="weui-flex__item tr ">
+        <view class='sum-desc'>均毛</view>
+        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsAvgProfitAmount===undefined?0:totalVo.goodsAvgProfitAmount),2)}}</view>
+      </view>
+      <view class="weui-flex__item tr">
+        <view class='sum-desc'>毛利</view>
+        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsProfitAmount===undefined?0:totalVo.goodsProfitAmount),2)}}</view>
+      </view>
+    </view>
   </view>
-  <view class="weui-flex__item tr ">
-    <view class='sum-desc'>金额</view>
-    <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount))}}</view>
-  </view>
-  <view class="weui-flex__item tr " wx:if="{{CKCBJ}}">
-    <view class='sum-desc'>均毛</view>
-    <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsAvgProfitAmount===undefined?0:totalVo.goodsAvgProfitAmount),2)}}</view>
-  </view>
-  <view class="weui-flex__item tr" wx:if="{{CKCBJ}}">
-    <view class='sum-desc'>毛利</view>
-    <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsProfitAmount===undefined?0:totalVo.goodsProfitAmount),2)}}</view>
+
+  <view class='weui-flex__item' wx:else>
+    <view class="weui-flex">
+      <view class="weui-flex__item"></view>
+      <view class="weui-flex__item   tr noAuthQuantity">
+        <view class='sum-desc'>销量</view>
+        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+      </view>
+      <view class="weui-flex__item tr noAuthAmount">
+        <view class='sum-desc'>金额</view>
+        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
+      </view>
+    </view>
   </view>
 </view>

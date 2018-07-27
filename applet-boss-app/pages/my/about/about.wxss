@@ -5,10 +5,6 @@
   background-color: #fff;
 }
 
-.logo {
-  width: 328rpx;
-  height: 184rpx;
-}
 
 .weui-cell {
   font-size: 32rpx;

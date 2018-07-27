@@ -75,6 +75,29 @@ Page({
       icon,
       CKCBJ,
     });
+
+    if (groupField === 'goodsClassName') {
+      wx.setNavigationBarTitle({
+        title: '毛利战报-类别详情'
+      })
+    } else if (groupField === 'goodsBrandName') {
+      wx.setNavigationBarTitle({
+        title: '毛利战报-品牌详情'
+      })
+    } else if (groupField === 'sectionName') {
+      wx.setNavigationBarTitle({
+        title: '毛利战报-部门详情'
+      })
+    } else if (groupField === 'salesManName') {
+      wx.setNavigationBarTitle({
+        title: '毛利战报-营业员详情'
+      })
+    } else {
+      wx.setNavigationBarTitle({
+        title: '毛利战报详情'
+      })
+    }
+
     this.getDataList()
     this.getTotalVo()
   },

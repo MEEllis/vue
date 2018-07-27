@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '15116201365',
-    pwd: '123456',
+    name: '',
+    pwd: '',
     companyList: [], //公司列表
     showOp: {
       showName: 0,

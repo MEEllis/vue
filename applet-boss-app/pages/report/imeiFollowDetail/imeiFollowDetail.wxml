@@ -39,7 +39,7 @@
         </view>
         <view class="weui-flex mt-20">
           <view class=" weui-flex__item">
-            配置：{{goodsVo.goodsConfiguration}}
+            配置：{{numberFr.stringNull(goodsVo.goodsConfiguration)}}
           </view>
         </view>
       </view>

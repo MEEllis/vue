@@ -4,7 +4,7 @@
       <image wx:if="{{WXUserInfo && WXUserInfo.avatarUrl}}" class="userinfo-avatar" src="{{ WXUserInfo.avatarUrl }}" background-size="cover"></image>
     </view>
     <text class="userinfo-nickname">{{ WXUserInfo.nickName }}</text>
-    <text class="ysUserinfo-nickname">{{ ysUserInfo.employeeName }}： {{ ysUserInfo.telephone }}</text>
+    <text class="ysUserinfo-nickname">{{ ysUserInfo.name }}：{{ ysUserInfo.telephone }}</text>
   </view>
 
   <view class="weui-cells mt-30">

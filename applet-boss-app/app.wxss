@@ -9,6 +9,12 @@ page {
   line-height: 1.6;
 }
 
+.logo {
+  width: 289rpx;
+  height: 173rpx;
+}
+
+
 button[type=default] {
   background: #fff;
 }
@@ -324,6 +330,17 @@ button[type=default] {
 
 .sum-wrap .sum-hj {
   max-width: 150rpx;
+  font-size: 12px;
+}
+
+
+.sum-wrap .noAuthQuantity {
+  max-width: 200rpx;
+  font-size: 12px;
+}
+
+.sum-wrap .noAuthAmount {
+  max-width: 200rpx;
   font-size: 12px;
 }
 

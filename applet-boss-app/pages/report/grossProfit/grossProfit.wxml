@@ -63,22 +63,38 @@
     </view>
 
   </view>
-  <view class="weui-flex sum-wrap align-center" >
+  <view class="weui-flex sum-wrap align-center">
     <view class="weui-flex__item sum-hj  tc">
       合计
     </view>
-    <view class="weui-flex__item tr">
-      <view class='sum-desc'>数量</view>
-      <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+    <view class='weui-flex__item' wx:if="{{authValidate.CKCBJ}}">
+      <view class="weui-flex">
+        <view class="weui-flex__item tr ">
+          <view class='sum-desc'>数量</view>
+          <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+        </view>
+        <view class="weui-flex__item tr ">
+          <view class='sum-desc'>均毛</view>
+          <view class='sum-val'>
+            ￥{{numberFr.formatNum((totalVo.goodsAvgProfitAmount===undefined?0:totalVo.goodsAvgProfitAmount),2)}}
+          </view>
+        </view>
+        <view class="weui-flex__item tr">
+          <view class='sum-desc'>毛利</view>
+          <view class='sum-val'>
+            ￥{{numberFr.formatNum((totalVo.goodsProfitAmount===undefined?0:totalVo.goodsProfitAmount),2)}}
+          </view>
+        </view>
+      </view>
     </view>
-    <view class="weui-flex__item tr" wx:if="{{authValidate.CKCBJ}}">
-      <view class='sum-desc'>均毛</view>
-      <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAvgProfitAmount===undefined?0:totalVo.goodsAvgProfitAmount),2)}} </view>
+    <view class='weui-flex__item' wx:else>
+      <view class="weui-flex">
+        <view class="weui-flex__item"></view>
+        <view class="weui-flex__item noAuthQuantity">
+          <view class='sum-desc'>数量</view>
+          <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+        </view>
+      </view>
     </view>
-    <view class="weui-flex__item tr" wx:if="{{authValidate.CKCBJ}}">
-      <view class='sum-desc'>毛利</view>
-      <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsProfitAmount===undefined?0:totalVo.goodsProfitAmount),2)}}</view>
-    </view>
-
   </view>
 </view>

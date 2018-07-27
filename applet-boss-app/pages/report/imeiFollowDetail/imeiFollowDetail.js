@@ -24,8 +24,7 @@ Page({
     } = options;
 
     imeiId = imeiId === undefined ? '' : imeiId;
-    CKCBJ = CKCBJ === undefined ? false : imeiId;
-
+    CKCBJ = CKCBJ === 'true' ? true : false;
     this.setData({
       imeiId,
       CKCBJ,

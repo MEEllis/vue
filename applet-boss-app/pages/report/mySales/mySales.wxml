@@ -28,7 +28,7 @@
           总金额:
         </view>
         <view class="weui-flex__item">
-          ￥{{numberFr.formatNum(totalVo.goodsAmount)}}
+          ￥{{numberFr.formatNum(totalVo.goodsAmount,2)}}
         </view>
       </view>
       <view class="weui-flex" wx:if="{{authValidate.CKCBJ}}">
@@ -36,13 +36,13 @@
           均 毛:
         </view>
         <view class="weui-flex__item">
-          ￥{{numberFr.formatNum(totalVo.goodsAvgProfitAmount)}}
+          ￥{{numberFr.formatNum(totalVo.goodsAvgProfitAmount,2)}}
         </view>
         <view class="weui-flex__item total-desc">
           总毛利:
         </view>
         <view class="weui-flex__item">
-          ￥{{numberFr.formatNum(totalVo.goodsProfitAmount)}}
+          ￥{{numberFr.formatNum(totalVo.goodsProfitAmount,2)}}
         </view>
       </view>
     </view>

@@ -23,7 +23,7 @@
     <view class="weui-navbar__slider" style="left: {{ sliderLeft }}px; transform: translateX({{ sliderOffset }}px); -webkit-transform: translateX({{ sliderOffset }}px);"></view>
   </view>
   <view class="weui-tab__panel">
-    <view class="weui-tab__content" >
+    <view class="weui-tab__content">
       <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
         <view class='border-top-20' wx:for="{{ dataList }}" wx:key="">
           <view class="weui-cell ">
@@ -51,22 +51,36 @@
 
       </scroll-view>
     </view>
- 
+
   </view>
   <view class="weui-flex sum-wrap align-center">
     <view class="weui-flex__item sum-hj  tc">
       合计
     </view>
-    <view class="weui-flex__item tr">
+    <view class='weui-flex__item' wx:if="{{authValidate.CKCBJ}}">
+      <view class="weui-flex">
+        <view class="weui-flex__item tr">
+        </view>
+        <view class="weui-flex__item tr">
+          <view class='sum-desc'>数量</view>
+          <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+        </view>
+        <view class="weui-flex__item tr">
+          <view class='sum-desc'>金额</view>
+          <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
+        </view>
+      </view>
     </view>
-    <view class="weui-flex__item tr">
-      <view class='sum-desc'>数量</view>
-      <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+    <view class='weui-flex__item' wx:else>
+      <view class="weui-flex">
+        <view class="weui-flex__item"></view>
+        <view class="weui-flex__item noAuthQuantity">
+          <view class='sum-desc'>数量</view>
+          <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+        </view>
+      </view>
     </view>
-    <view class="weui-flex__item tr" wx:if="{{authValidate.CKCBJ}}">
-      <view class='sum-desc'>金额</view>
-      <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount))}}</view>
-    </view>
+
 
   </view>
 </view>
