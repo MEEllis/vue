@@ -104,7 +104,8 @@ function getScrollHeight(subHeight) {
   return new Promise(function(resolve, reject) {
     wx.getSystemInfo({
       success: function(res) {
-        let scrollHeight
+        let scrollHeight;
+        
         if (Array.isArray(subHeight)) {
           scrollHeight = []
           for (let i = 0; i < subHeight.length; i++) {
@@ -114,6 +115,43 @@ function getScrollHeight(subHeight) {
           scrollHeight = res.windowHeight - subHeight - 1
         }
         resolve(scrollHeight);
+      },
+      fail: function(err) {
+        reject(err);
+      }
+    });
+  });
+}
+
+
+//获取滚动高度通过元素获取高度
+function getScrollHeightByEle(subEle) {
+  return new Promise(function(resolve, reject) {
+    wx.getSystemInfo({
+      success: function(res) {
+        var query = wx.createSelectorQuery();
+        let scrollHeight = res.windowHeight;
+        if (Array.isArray(subEle)) {
+          for (let i = 0; i < subEle.length; i++) {
+            const subEleItem = subEle[i];
+            query.select('.' + subEleItem).boundingClientRect(function(rect) {})
+          }
+          console.log(scrollHeight)
+          query.exec(res => {
+            res.forEach((value, index, array)=>{
+              if (value){
+                console.log(value.height)
+                scrollHeight = scrollHeight - value.height
+              }
+            })
+            resolve(scrollHeight);
+          });
+        } else {
+          query.select('.' + subEle).boundingClientRect(function(rect) {
+            scrollHeight = scrollHeight - rect.height
+            resolve(scrollHeight);
+          }).exec();
+        }
       },
       fail: function(err) {
         reject(err);
@@ -262,6 +300,7 @@ module.exports = {
   login,
   getUserInfo,
   getScrollHeight,
+  getScrollHeightByEle,
   stringNull,
   getMainPage,
   accAdd,

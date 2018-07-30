@@ -1,5 +1,5 @@
 .weui-cell {
-  padding: 11px 15px;
+  padding: 22rpx 30rpx;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -15,8 +15,8 @@
   left: 0;
   top: 0;
   right: 0;
-  height: 1px;
-  border-top: 1px solid #d9d9d9;
+  height: 1rpx;
+  border-top: 1rpx solid #d9d9d9;
   color: #d9d9d9;
 }
 
@@ -43,7 +43,7 @@
 
 .weui-cell__ft {
   text-align: right;
-  padding-left: 8px;
+  padding-left: 16rpx;
   color: #999;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .weui-cell__ft_in-access {
-  padding-right: 13px;
+  padding-right: 26rpx;
   position: relative;
 }
 
@@ -76,7 +76,7 @@
 
 .weui-cell_link {
   color: #586c94;
-  font-size: 14px;
+  font-size: 28rpx;
 }
 
 .weui-cell_link:active {
@@ -114,8 +114,10 @@
   top: 0;
   width: 100%;
   background-color: #fff;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #333;
+  border-bottom:1rpx solid #d9d9d9;
+
 }
 
 .weui-navbar__item {
@@ -124,7 +126,7 @@
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  padding: 10px 0;
+  padding: 20rpx 0;
   text-align: center;
   font-size: 0;
 }
@@ -139,7 +141,7 @@
   left: 0;
   bottom: 0;
   width: 6em;
-  height: 2px;
+  height: 4rpx;
   background-color: #21a4ff;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
@@ -149,7 +151,7 @@
 
 .weui-navbar__title {
   display: inline-block;
-  font-size: 15px;
+  font-size: 30rpx;
   max-width: 8em;
   width: auto;
   overflow: hidden;
@@ -166,15 +168,15 @@
 .weui-tab__panel {
   box-sizing: border-box;
   height: 100%;
-  padding-top: 44px;
+  padding-top: 88rpx;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .ui-radio {
-  padding-left: 19px;
-  font-size: 14px;
-  margin-left: 4px;
+  padding-left: 38rpx;
+  font-size: 28rpx;
+  margin-left: 8rpx;
 }
 
 .ui-radio {
@@ -189,9 +191,9 @@
   font-family: "iconfont";
   content: '\e66c';
   position: absolute;
-  font-size: 16px;
-  top: 0px;
-  left: 0px;
+  font-size: 32rpx;
+  top: 0rpx;
+  left: 0rpx;
   line-height: 1.2;
   color: #ccc;
 }

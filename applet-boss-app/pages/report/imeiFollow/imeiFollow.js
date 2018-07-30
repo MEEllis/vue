@@ -34,7 +34,7 @@ Page({
    */
   onReady: function() {
     const that = this;
-    util.getScrollHeight((56)).then((scrollHeight) => {
+    util.getScrollHeightByEle(['search-bar']).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,

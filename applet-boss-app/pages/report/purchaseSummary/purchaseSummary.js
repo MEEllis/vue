@@ -89,10 +89,10 @@ Page({
    */
   onReady: function() {
     const that = this;
-    util.getScrollHeight((46 + 52 + 25 + 44 + 46)).then((scrollHeight) => {
+    util.getScrollHeightByEle(['cate-wrap', 'search-bar', 'sel-time', 'weui-navbar', 'sum-wrap']).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
-        scrollHeight,
+        scrollHeight: scrollHeight - 1,
       })
     })
   },

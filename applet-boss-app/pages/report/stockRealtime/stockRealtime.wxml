@@ -7,7 +7,7 @@
   </scroll-view>
 </view>
 <!-- 搜索 -->
-<search-bar placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
+<search-bar class='search-bar' placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
 
 
 <!-- 商品列表 -->
@@ -30,7 +30,7 @@
           <text class='count-tai'>￥{{numberFr.formatNum(item.goodsPrice,2)}}</text>
         </view>
         <view class="weui-flex__item">
-          金额：
+          <text class='color333'>金额：</text>
           <text class='count-tai'>￥{{numberFr.formatNum(item.goodsAmount,2)}}</text>
         </view>
       </view>
@@ -60,11 +60,11 @@
       </view>
       <view class="weui-flex__item tr ">
         <view class='sum-desc'>均价</view>
-        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsPrice===undefined?0:totalVo.goodsPrice),2)}}</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsPrice===undefined?0:totalVo.goodsPrice),2)}}</view>
       </view>
       <view class="weui-flex__item tr">
         <view class='sum-desc'>金额</view>
-        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
       </view>
     </view>
   </view>

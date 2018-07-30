@@ -110,11 +110,7 @@ Page({
     let {
       CKCBJ
     } = this.data;
-    var section = 0;
-    if (CKCBJ == true) {
-      section = 39
-    }
-    util.getScrollHeight((47 + section + 52 + 25)).then((scrollHeight) => {
+    util.getScrollHeightByEle(['list-wrap','sale-detail', 'search-bar', 'sel-time']).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,

@@ -21,7 +21,7 @@
   </view>
 </view>
 <!-- 搜索 -->
-<search-bar placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{detailKeyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+<search-bar class='search-bar' placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{detailKeyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
 <view class='sel-time border-top'>
   查询日期:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
 </view>

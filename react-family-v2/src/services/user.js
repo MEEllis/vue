@@ -7,3 +7,11 @@ export async function query() {
 export async function queryCurrent() {
   return request('/api/currentUser');
 }
+
+// 登录接口 ，获取公司列表
+export async function fakeAccountLogin(params) {
+  return request('/manager/emp/empLoginAjax.do', {
+    method: 'POST',
+    body: params,
+  });
+}

@@ -63,21 +63,8 @@ http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_three_react-redux.htm
 https://github.com/ant-design/ant-design/issues/477
 
 
-
-
-小程序-零售开单-原型图
-https://pro.modao.cc/app/a7c16a144867d63723777312feecd83c6318cd1b?#screen=sd58e6613e3e9a5532e0aa4
-hqm
-
-
 http://rap2.taobao.org/
 
- 云盛联达-微信小程序账号
-邮箱：miniapp@phoneerp.com
-密码：   LianShengYun8888
 
- 云盛联达-boss app
-邮箱：wxappboss@phoneerp.com
-密码：   LianShengYun8888
 
 

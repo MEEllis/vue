@@ -62,7 +62,7 @@
   position: absolute;
   right: -30rpx;
   left: -30rpx;
-  height: 1px;
+  height: 1rpx;
   border-top: 1rpx solid #e6e6e6;
   bottom: 0;
 }
@@ -83,7 +83,7 @@
   min-width: 40rpx;
   height: 40rpx;
   line-height: 40rpx;
-  border: 1px solid #ffaf23;
+  border: 1rpx solid #ffaf23;
   border-radius: 50%;
   text-align: center;
   margin-right: 8rpx;
@@ -100,7 +100,7 @@
   left: 0rpx;
   right: 0;
   bottom: 0;
-  height: 1px;
+  height: 1rpx;
   color: #e6e6e6;
   border-top: 1rpx dashed #e6e6e6;
 }

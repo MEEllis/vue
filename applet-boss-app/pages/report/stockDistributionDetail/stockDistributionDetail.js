@@ -57,6 +57,13 @@ Page({
         scrollHeight,
       })
     })
+
+    util.getScrollHeightByEle(['list-item', 'search-bar']).then((scrollHeight) => {
+      // 计算主体部分高度,单位为px
+      that.setData({
+        scrollHeight,
+      })
+    })
   },
   searchInput: function(e) {
     const {

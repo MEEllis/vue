@@ -2,7 +2,7 @@
   <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
   <import src="../../../template/pagination.wxml" />
   <!-- 搜索 -->
-  <view class="weui-search-bar">
+  <view class="search-bar weui-search-bar">
     <form class="weui-search-bar__form">
       <view class="weui-search-bar__box">
         <icon class="weui-icon-search_in-box" type="search" size="14"></icon>

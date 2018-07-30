@@ -1,0 +1,45 @@
+﻿//选中 当前行的id
+var selRowId = $("#id").jqGrid('getGridParam','selrow');
+var selRowId = $("#id").jqGrid('getGridParam','selarrrow');
+
+//列是否可以编辑
+jqGrid.setColProp("rePriceBalance", {editable: false})
+
+表格是否可以编辑
+dataGrid.$grid.setGridParam({cellEdit: false});
+
+//列是否可以显示，隐藏
+jqGrid.setGridParam().showCol("op");
+jqGrid.setGridParam().hideCol("op");
+
+//某一行 数据
+jqGrid('getRowData', keyId);
+
+//获取参数
+jqGrid.getGridParam();
+//清理数据
+.jqGrid('clearGridData')
+  //获取 jqGrid 的数据ids
+  var ids=$('#dataGrid').getDataIDs();
+  $.each(ids,function(index,rowid){
+            var idxRowData=$('#dataGrid').jqGrid("getRowData",rowid);
+  
+  })
+  //设置单元格内容
+     $('#dataGrid').jqGrid("setCell",rowid,"goodsNumber",num+1);
+	 //列冻结
+	 $('#modalGrid1thrkc5xd94').jqGrid('setFrozenColumns');
+
+武汉金豆医疗数据科技有限公司
+
+福禄网络	 
+
+
+rmdir/s e:\ellis	 
+tab:keyCode==9   
+enter:keyCode==13
+$('#dataGrid').showCol(['discountRate','discountAmount','discountedAmount','includingTaxPrice','includingTaxAmount','taxRate','taxAmount']);
+
+
+
+componet(dispatch) ---> react-router-redux (next)====>dva(createPromiseMiddleware.js 中间件) ====>redux-saga(Middleware.js中间件)

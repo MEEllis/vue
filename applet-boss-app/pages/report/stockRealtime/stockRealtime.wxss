@@ -1,4 +1,4 @@
-
 .detail-content {
   padding: 20rpx 30rpx;
+  color: #333333;
 }

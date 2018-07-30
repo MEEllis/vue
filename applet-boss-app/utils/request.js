@@ -1,5 +1,4 @@
 import util from './util.js'
-import serviceUser from '../services/user.js';
 
 
 /**
@@ -17,12 +16,12 @@ export default function request(url, data = {}, method = "POST", config) {
     }
     let header;
     //是否权限
-    if (config.isAuth === false){
+    if (config.isAuth === false) {
       header = {
         'content-type': 'application/x-www-form-urlencoded',
         'MINI-APP-CODE': '0002'
       }
-    }else{
+    } else {
       header = {
         'content-type': 'application/x-www-form-urlencoded',
         'ERP-WX-TOKEN': wx.getStorageSync('token')
@@ -45,8 +44,8 @@ export default function request(url, data = {}, method = "POST", config) {
           }
           // 未登录时（），先调用自动登录
           else if (code === '1000') {
-            // serviceUser.autoLogin()
-            console.log(serviceUser)
+            const serviceUser = require('../services/user.js');
+            serviceUser.autoLogin()
           }
           //自动登录失败（）
           else if (res.data.code == '1002') {
@@ -61,8 +60,7 @@ export default function request(url, data = {}, method = "POST", config) {
             wx.switchTab({
               url: '/pages/report/index/index'
             });
-          } 
-          else {
+          } else {
             util.showErrorToast(res.data.desc)
             reject(res.data);
           }

@@ -10,7 +10,15 @@
   background-color: #21a4ff !important;
 }
 
-
-.weui-cell{
+.weui-cell {
   font-size: 30rpx;
+}
+
+radio {
+  color: #333;
+}
+
+.picker {
+  font-size: 28rpx;
+  color: #333;
 }

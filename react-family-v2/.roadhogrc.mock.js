@@ -6,11 +6,7 @@ import {
   updateSellingPointState,
   deleteSellingPoint,
 } from './mock/sellingPoint';
-import { getActivities, getNotice, getFakeList } from './mock/api';
-import { getFakeChartData } from './mock/chart';
-import { getProfileBasicData } from './mock/profile';
-import { getProfileAdvancedData } from './mock/profile';
-import { getNotices } from './mock/notices';
+
 import { format, delay } from 'roadhog-api-doc';
 
 // 是否禁用代理
@@ -55,8 +51,7 @@ const proxy = {
       address: 'Sidney No. 1 Lake Park',
     },
   ],
-  'GET /api/project/notice': getNotice,
-  'GET /api/activities': getActivities,
+
   'POST /api/addSellingPoint': {
     $params: {
       pageSize: {
@@ -77,38 +72,24 @@ const proxy = {
   'GET /api/tags': mockjs.mock({
     'list|100': [{ name: '@city', 'value|1-100': 150, 'type|0-2': 1 }],
   }),
-  'GET /api/fake_list': getFakeList,
-  'GET /api/fake_chart_data': getFakeChartData,
-  'GET /api/profile/basic': getProfileBasicData,
-  'GET /api/profile/advanced': getProfileAdvancedData,
-  'POST /api/login/account': (req, res) => {
+
+  'POST /manager/emp/empLoginAjax.do': (req, res) => {
     const { password, userName, type } = req.body;
     if (password === '888888' && userName === 'admin') {
       res.send({
-        status: 'ok',
-        type,
-        currentAuthority: 'admin',
+        result: 1,
       });
       return;
     }
-    if (password === '123456' && userName === 'user') {
-      res.send({
-        status: 'ok',
-        type,
-        currentAuthority: 'user',
-      });
-      return;
-    }
+
     res.send({
-      status: 'error',
-      type,
-      currentAuthority: 'guest',
+      result: -999,
     });
   },
   'POST /api/register': (req, res) => {
     res.send({ status: 'ok', currentAuthority: 'user' });
   },
-  'GET /api/notices': getNotices,
+
   'GET /api/500': (req, res) => {
     res.status(500).send({
       timestamp: 1513932555104,

@@ -38,7 +38,7 @@ Page({
       name,
       pwd
     } = this.data
-    if (!wxUserInfo.userInfo){
+    if (!wxUserInfo.userInfo) {
       return;
     }
     util.login().then(({
@@ -54,17 +54,12 @@ Page({
           _this.setData({
             companyList: ajaxData.data.companyList
           });
+          wx.setStorageSync('companyList', ajaxData.data.companyList)
           //只有一个公司，直接登录
           if (ajaxData.data.companyList.length === 1) {
             _this.login(ajaxData.data.companyList[0].id)
           } else {
-            wx.setStorage({
-              key: "companyList",
-              data: ajaxData.data.companyList,
-              success: function() {
-                _this.thridModal.show();
-              }
-            });
+            _this.thridModal.show();
           }
 
         })

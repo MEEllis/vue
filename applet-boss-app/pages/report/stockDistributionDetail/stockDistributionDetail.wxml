@@ -9,7 +9,7 @@
 
 
     <view class="weui-flex font-28">
-      <view class="weui-flex__item tl colorfe9 tai">
+      <view class="weui-flex__item tl fw colorfbb tai">
         {{numberFr.formatNum(goodsQuantity)}}台
       </view>
 
@@ -17,7 +17,7 @@
   </view>
 
   <!-- 搜索 -->
-  <search-bar placeholder="部门编码/部门名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+  <search-bar  class='search-bar' placeholder="部门编码/部门名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
   <scroll-view class="list-wrap" scroll-y='true' style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
     <!-- 部门列表 -->
     <view class='section-wrap border-bottom' wx:for-item="sectionItem" wx:for="{{dataList}}" wx:for-index="sectionIdx" wx:key="{{sectionIdx}}">

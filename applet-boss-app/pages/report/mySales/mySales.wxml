@@ -7,7 +7,7 @@
   </scroll-view>
 </view>
 <!-- 搜索 -->
-<search-bar placeholder="部门编码/部门名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
+<search-bar class='search-bar' placeholder="部门编码/部门名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
 <view class='sel-time border-top'>
   查询日期:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
 </view>

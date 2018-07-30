@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import { Layout, message } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
-import { Route, Redirect, Switch } from 'dva/router';
+import { Redirect, Switch } from 'dva/router';
 import { ContainerQuery } from 'react-container-query';
 import classNames from 'classnames';
 import { enquireScreen, unenquireScreen } from 'enquire-js';
 import GlobalHeader from '../components/GlobalHeader';
 import SiderMenu from '../components/SiderMenu';
-import NotFound from '../routes/Exception/404';
 import { getRoutes } from '../utils/utils';
 import Authorized from '../utils/Authorized';
 import { getMenuData } from '../common/menu';
@@ -223,7 +222,6 @@ class BasicLayout extends React.PureComponent {
                 />
               ))}
               {RedirectControl}
-              <Route render={NotFound} />
             </Switch>
           </Content>
         </Layout>

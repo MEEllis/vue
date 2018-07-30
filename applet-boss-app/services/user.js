@@ -131,7 +131,7 @@ function changeLoginCompany(companyId) {
           code: res.code,
           companyId,
           userInfo: JSON.stringify(res.userInfo),
-        }
+        } 
       )
     }).then(ajaxData => {
       setUserInfo(ajaxData)
@@ -147,6 +147,7 @@ function setUserInfo(ajaxData){
   wx.setStorageSync('token', ajaxData.data['ERP-WX-TOKEN']);
   wx.setStorageSync('companyList', ajaxData.data.accessCompanyVoList);
 }
+
 module.exports = {
   checkLogin,
   getCompanyVoList,

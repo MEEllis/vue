@@ -103,17 +103,11 @@ Page({
       CKCBJ,
     } = this.data;
     let section = 0;
-    debugger
     if (nodeType == 'Section') {
-      if (CKCBJ === true) {
-        section = 103;
-      } else {
-        section = 81;
-      }
       wx.setNavigationBarTitle({
         title: '门店销量详情'
       })
-    }else{
+    } else {
       wx.setNavigationBarTitle({
         title: '公司销量详情'
       })
@@ -124,6 +118,15 @@ Page({
         scrollHeight,
       })
     })
+
+    util.getScrollHeightByEle(['list-wrap', 'search-bar', 'sel-time', 'sum-wrap']).then((scrollHeight) => {
+      // 计算主体部分高度,单位为px
+      that.setData({
+        scrollHeight,
+      })
+    })
+
+
   },
   searchInput: function(e) {
     const {

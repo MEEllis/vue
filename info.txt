@@ -1,0 +1,104 @@
+计划安排：
+每日必须1个小时的课外知识。
+陈戈扬：上海利莫网络科技有限公司
+
+禅道：
+http://192.168.0.121:8088/zentao/user-login.html
+用户：  liuyifei
+密码 ： liuyifei
+
+
+
+api地址：
+
+http://mapi.erp.com
+
+用户：  wy@phoneerp.com
+密码 ： 123456
+
+svn 
+用户：  liuyifei
+密码 ： liuyifei
+
+svn 操作，先与资源库同步，再更新与服务器一致，再提交代码。
+
+云盛用户名：  17702727227     13752014002
+密码： 123456                 123456  
+
+严琼洁：
+15116201365
+
+刘姐：
+18811111111
+18963943990
+
+13752014002
+ 
+branch:      
+13752014001  
+雷静 ：18907161231
+
+18900010001
+
+
+云盛软件 ：
+云盛用户名：wy@phoneerp.com
+密码：  123456
+
+ 采购管理的后台:
+ 
+ 资金往来： 雷静
+ 
+CLASSPATH
+%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+
+
+
+备忘录：
+
+ 
+ 
+小程序-零售开单-原型图
+https://pro.modao.cc/app/a7c16a144867d63723777312feecd83c6318cd1b?#screen=sd58e6613e3e9a5532e0aa4
+hqm
+
+ 云盛联达-微信小程序账号
+邮箱：miniapp@phoneerp.com
+密码：   LianShengYun8888
+
+ 云盛联达-boss app
+邮箱：wxappboss@phoneerp.com
+密码：   LianShengYun8888
+ 
+ 孙玉丽 微信账号:syl961020
+郭云云 微信账号:yunyunguo525
+甘小翩 微信账号:Anylovetvxq
+yanqiongjie
+lljcqf027
+wan13971610401
+
+
+万文婷： wan13971610401
+严琼结： yanqiongjie
+
+给大家看一个我认为现阶段所见到的最好的小型ERP软件：
+http://www.lk361.com/home/service
+
+用户：13407406547 (非串号管理） 18975502205(串号管理)
+密码：19850109
+
+18702757845 来肯云商
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,9 @@ let NewApiRootUrl = ''
 // 后台联调的接口
 //LoginNewApiRootUrl = 'http://192.168.0.9:8801/';
 //NewApiRootUrl = 'http://192.168.0.9:8802/';
+// 黎超
+//LoginNewApiRootUrl = 'http://192.168.0.62:8801/';
+//NewApiRootUrl = 'http://192.168.0.62:8802/';
 
 // 提交测试的接口
 LoginNewApiRootUrl = 'https://branch.phoneerp.com/common/';

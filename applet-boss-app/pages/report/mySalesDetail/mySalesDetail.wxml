@@ -33,7 +33,7 @@
 </view>
 
 <!-- 搜索 -->
-<search-bar placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{detailKeyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+<search-bar class='search-bar' placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{detailKeyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
 <view class='sel-time border-top'>
   查询日期:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
 </view>
@@ -88,15 +88,15 @@
       </view>
       <view class="weui-flex__item tr ">
         <view class='sum-desc'>金额</view>
-        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
       </view>
       <view class="weui-flex__item tr ">
         <view class='sum-desc'>均毛</view>
-        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsAvgProfitAmount===undefined?0:totalVo.goodsAvgProfitAmount),2)}}</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAvgProfitAmount===undefined?0:totalVo.goodsAvgProfitAmount),2)}}</view>
       </view>
       <view class="weui-flex__item tr">
         <view class='sum-desc'>毛利</view>
-        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsProfitAmount===undefined?0:totalVo.goodsProfitAmount),2)}}</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsProfitAmount===undefined?0:totalVo.goodsProfitAmount),2)}}</view>
       </view>
     </view>
   </view>
@@ -110,7 +110,7 @@
       </view>
       <view class="weui-flex__item tr noAuthAmount">
         <view class='sum-desc'>金额</view>
-        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
       </view>
     </view>
   </view>
