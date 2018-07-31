@@ -77,12 +77,14 @@ const proxy = {
     const { password, userName, type } = req.body;
     if (password === '888888' && userName === 'admin') {
       res.send({
+        status: 200,
         result: 1,
       });
       return;
     }
 
     res.send({
+      status: 200,
       result: -999,
     });
   },

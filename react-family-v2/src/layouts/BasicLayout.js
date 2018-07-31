@@ -3,19 +3,18 @@ import PropTypes from 'prop-types';
 import { Layout, message } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
-import { Redirect, Switch } from 'dva/router';
+import { Redirect, Switch, Route } from 'dva/router';
 import { ContainerQuery } from 'react-container-query';
 import classNames from 'classnames';
 import { enquireScreen, unenquireScreen } from 'enquire-js';
 import GlobalHeader from '../components/GlobalHeader';
 import SiderMenu from '../components/SiderMenu';
 import { getRoutes } from '../utils/utils';
-import Authorized from '../utils/Authorized';
+
 import { getMenuData } from '../common/menu';
 import logo from '../assets/logo.svg';
 
 const { Content, Header } = Layout;
-const { AuthorizedRoute, check } = Authorized;
 
 /**
  * 根据菜单取得重定向地址.
@@ -125,13 +124,6 @@ class BasicLayout extends React.PureComponent {
     if (redirect) {
       urlParams.searchParams.delete('redirect');
       window.history.replaceState(null, 'redirect', urlParams.href);
-    } else {
-      const { routerData } = this.props;
-      // get the first authorized route path in routerData
-      const authorizedPath = Object.keys(routerData).find(
-        item => check(routerData[item].authority, item) && item !== '/'
-      );
-      return authorizedPath;
     }
     return redirect;
   };
@@ -184,7 +176,6 @@ class BasicLayout extends React.PureComponent {
           // 不带Authorized参数的情况下如果没有权限,会强制跳到403界面
           // If you do not have the Authorized parameter
           // you will be forced to jump to the 403 interface without permission
-          Authorized={Authorized}
           menuData={getMenuData()}
           collapsed={collapsed}
           location={location}
@@ -212,12 +203,11 @@ class BasicLayout extends React.PureComponent {
                 <Redirect key={item.from} exact from={item.from} to={item.to} />
               ))}
               {getRoutes(match.path, routerData).map(item => (
-                <AuthorizedRoute
+                <Route
                   key={item.key}
                   path={item.path}
                   component={item.component}
                   exact={item.exact}
-                  authority={item.authority}
                   redirectPath="/exception/403"
                 />
               ))}

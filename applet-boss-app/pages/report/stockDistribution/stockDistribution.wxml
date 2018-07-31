@@ -12,7 +12,7 @@
 <!-- 商品列表 -->
 <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
   <view class='border-bottom' wx:for="{{ dataList }}" wx:key="">
-    <navigator url='/pages/report/stockDistributionDetail/stockDistributionDetail?goodsId={{item.goodsId}}&goodsName={{item.goodsName}}&goodsQuantity={{item.goodsQuantity}}&companySectionParam={{item.companySectionParam}}' class="weui-cell">
+    <navigator url='{{item.url}}' class="weui-cell">
       <text class='iconfont icon-shouji'></text>
       <view class="weui-cell__bd ellipsis color000 font-30">
         {{numberFr.stringNull(item.goodsName)}}

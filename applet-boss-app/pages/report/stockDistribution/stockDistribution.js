@@ -191,7 +191,11 @@ Page({
       if (Array.isArray(res.data.dataList)) {
         for (let i = 0; i < res.data.dataList.length; i++) {
           var item = res.data.dataList[i];
+          
           item.url = `/pages/report/stockDistributionDetail/stockDistributionDetail?goodsId=${item.goodsId}&goodsName=${item.goodsName}&goodsQuantity=${item.goodsQuantity}&companySectionParam=${companySectionParam}`;
+
+
+          
         }
       }
       let dataList = that.data.dataList.concat(res.data.dataList)

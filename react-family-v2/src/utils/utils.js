@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { parse, stringify } from 'qs';
 
 export function fixedZero(val) {
   return val * 1 < 10 ? `0${val}` : val;
@@ -151,6 +152,18 @@ export function getRoutes(path, routerData) {
     };
   });
   return renderRoutes;
+}
+
+export function getPageQuery() {
+  return parse(window.location.href.split('?')[1]);
+}
+
+export function getQueryPath(path = '', query = {}) {
+  const search = stringify(query);
+  if (search.length) {
+    return `${path}?${search}`;
+  }
+  return path;
 }
 
 /* eslint no-useless-escape:0 */

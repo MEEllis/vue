@@ -40,17 +40,17 @@
       </view>
     </view>
     <view class="gooddesc-wrap" wx:if="{{CKCBJ}}">
-      
+
       <view class="weui-flex">
 
         <view class="weui-flex__item">
           均毛:
-          <text class='colorfe9'>￥{{numberFr.formatNum(sectionItem.goodsAvgProfitAmount)}}</text>
+          <text class='colorfe9'>￥{{numberFr.formatNum(sectionItem.goodsAvgProfitAmount,2)}}</text>
         </view>
 
         <view class="weui-flex__item">
           毛利:
-          <text class='colorfe9'>￥{{numberFr.formatNum(sectionItem.goodsProfitAmount)}}</text>
+          <text class='colorfe9'>￥{{numberFr.formatNum(sectionItem.goodsProfitAmount,2)}}</text>
         </view>
       </view>
     </view>

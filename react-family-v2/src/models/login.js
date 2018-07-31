@@ -1,7 +1,5 @@
 import { routerRedux } from 'dva/router';
 import { fakeAccountLogin } from '../services/user';
-import { setAuthority } from '../utils/authority';
-import { reloadAuthorized } from '../utils/Authorized';
 
 export default {
   namespace: 'login',
@@ -21,8 +19,7 @@ export default {
         payload: response,
       });
       // Login successfully
-      if (response.status === 'ok') {
-        reloadAuthorized();
+      if (response.status === 200) {
         yield put(routerRedux.push('/'));
       }
     },
@@ -37,11 +34,9 @@ export default {
         yield put({
           type: 'changeLoginStatus',
           payload: {
-            status: false,
-            currentAuthority: 'guest',
+            status: 0,
           },
         });
-        reloadAuthorized();
         yield put(routerRedux.push('/user/login'));
       }
     },
@@ -49,11 +44,9 @@ export default {
   // 以 key/value 格式定义 reducer。用于处理同步操作，唯一可以修改 state 的地方。由 action 触发。负责处理 action 的 state 更新。
   reducers: {
     changeLoginStatus(state, { payload }) {
-      setAuthority(payload.currentAuthority);
       return {
         ...state,
         status: payload.status,
-        type: payload.type,
       };
     },
   },
