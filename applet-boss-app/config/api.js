@@ -1,7 +1,7 @@
 let LoginNewApiRootUrl = ''
 let NewApiRootUrl = ''
 //NewApiRootUrl = 'http://127.0.0.1:8080/wxapi/'; // 预生产的接口
-// 后台联调的接口
+// 明杰后台联调的接口
 //LoginNewApiRootUrl = 'http://192.168.0.9:8801/';
 //NewApiRootUrl = 'http://192.168.0.9:8802/';
 // 黎超
