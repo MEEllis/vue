@@ -7,7 +7,7 @@
     {{numberFr.stringNull(nodeName)}}
   </view>
   <view class='weui-cell__ft'>
-    <text class='count-tai'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity),2)}}台</text>
+    <text class='count-tai'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}台</text>
   </view>
 </view>
 <view class="weui-flex align-center sale-detail " wx:if="{{CKCBJ}}">
