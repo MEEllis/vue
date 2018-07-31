@@ -1,0 +1,67 @@
+@import (reference) "../../../../node_modules/rework.less/rework";
+@import (reference) "../../Skin/less/skin";
+
+.filter {
+
+    &-item {
+
+        &-label {}
+        &-main {}
+
+    }
+
+    &-default,
+    &-operation {
+        margin-bottom: 10px;
+    }
+
+    &-default {
+        border: 2px solid #f1f1f4;
+        background-color: #fff;
+
+        .filter-item {
+            .clearfix();
+            border-bottom: 1px dotted #d9d9d9;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            &-label,
+            &-main {
+                padding: 10px;
+            }
+
+            &-label {
+                float: left;
+                width: 120px;
+                height: 37px;
+                background-color: #fbfaf8;
+            }
+            &-main {
+                margin-left: 120px;
+
+                ul {
+                    // .clearfix();
+                }
+                li {
+                    // float: left;
+                    display: inline-block;
+                    margin-right: 20px;
+                }
+                a {
+                    color: #666;
+                }
+            }
+
+        }
+    }
+
+    &-operation {
+        .ant-radio-group,
+        .ant-btn {
+            vertical-align: top;
+        }
+    }
+
+}

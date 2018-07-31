@@ -1,0 +1,149 @@
+@import (reference) "../../../../node_modules/rework.less/rework";
+@import (reference) "../../Skin/less/skin";
+.sign {
+    .sendweixinbtn {
+        background: transparent;
+        border: 0;
+        &:focus {
+            outline: 0;
+        }
+    }
+    .telCode {
+        width: 310px;
+        margin-bottom: 0;
+        font-size: 14px;
+        height: 40px;
+        border: 1px solid #e7e7e7;
+        border-radius: 2px;
+        text-indent: 14px;
+    }
+    .inner {
+        position: relative;
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .login-detail {
+        width: 310px;
+        margin: 0 auto;
+        margin-top: 20px;
+        .m10 {
+            margin: 10px;
+        }
+        .pl10 {
+            padding-left: 10px;
+        }
+        .text-blue {
+            color: #0a819c!important;
+        }
+        .weixinValidateSub {
+            width: 15%;
+            height: 38px;
+            text-align: center;
+            margin-right: 15px;
+            padding-left: 0px;
+            padding-right: 0px;
+            text-indent: 0px;
+        }
+    }
+    .header,
+    .footer {
+        background-color: #fff;
+    }
+    .header {
+        overflow: hidden;
+        .logo {
+            position: relative;
+            display: block;
+            width: 330px;
+            height: 100%;
+            .text-replace();
+            span {
+                display: block;
+                height: 50px;
+                background: url('../images/kachanglogo.png') no-repeat;
+            }
+            &-wrap {
+                position: relative;
+                display: block;
+                width: 396px;
+                height: 50px;
+                margin-top: 17px;
+                margin-bottom: 17px;
+                strong {
+                    position: absolute;
+                    top: 13px;
+                    line-height: 1;
+                    font-weight: normal;
+                    left: 200px;
+                }
+            }
+        }
+    }
+    .container {
+        height: 660px;
+        background: #248aec url("../images/kachang-bg.jpg") center top no-repeat;
+    }
+    .footer {
+        .inner {
+            text-align: center;
+            padding: 20px 0;
+            .divider {
+                margin-left: 5px;
+                margin-right: 5px;
+                color: #ccc;
+            }
+        }
+        .copyright {}
+        .id {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            span {}
+        }
+        .search {
+            a {}
+            img {
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+        }
+    }
+    &-form {
+        position: absolute;
+        right: 0;
+        top: 130px;
+        .ant-input-group-addon {
+            padding: 0;
+        }
+        width: 350px;
+        padding: 30px;
+        border-radius: 5px;
+        background-color: #fff;
+        &-hd {
+            margin-bottom: 24px;
+            h3 {
+                text-align: center;
+                font-size: 22px;
+                font-weight: normal;
+            }
+        }
+        &-bd {}
+        .ant-input,
+        .ant-btn {
+            height: 40px;
+            padding: 10px;
+            line-height: 1;
+            font-size: 16px;
+        }
+        .has-success,
+        .has-warning,
+        .has-error,
+        .is-validating {
+            &.has-feedback {
+                &:after {
+                    top: 5px;
+                }
+            }
+        }
+    }
+}

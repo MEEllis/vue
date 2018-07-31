@@ -1,0 +1,85 @@
+@import (reference) "../../../../node_modules/rework.less/rework";
+
+.child{
+    margin:8px 0;
+}
+.parent{
+    margin:20px 0;
+}
+.firstClass{
+    border-bottom:1px solid #ccc;
+    height:40px;
+    line-height:40px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+.secondClass{
+    border-bottom:1px solid #eee;
+    height:40px;
+    line-height:40px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.ant-modal-footer
+{
+  clear: both;
+}
+
+.permission {
+    &-hd,
+    &-bd,
+    &-ft {
+        position: relative;
+    }
+    &-item {
+        float: left;
+        width: 21%;
+        margin-right: 40px;
+        margin-bottom: 40px;
+        border: 1px solid #d6dadd;
+    }
+
+    .firstClass {
+        background-color: #f5f6fa;
+        border-bottom-color: #dee3e7;
+
+        .icon {
+            color: #334353;
+        }
+    }
+    .secondClass {
+        background-color: #f9fafc;
+        border-bottom-color: #f1f1f1;
+
+        .icon {
+            color: #bbc7c5;
+        }
+    }
+    .threeClass {
+        padding-left: 20px;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    &-action {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        button {
+            margin-right: 10px;
+        }
+    }
+
+    &-hd {
+        border-bottom: 1px solid #eee;
+    }
+    &-bd {
+        .clearfix();
+        margin: 20px 0;
+    }
+    &-ft {
+        border-top: 1px solid #eee;
+    }
+}

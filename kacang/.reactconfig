@@ -1,0 +1,15 @@
+{
+  "directory": {
+    "source": "src",
+    "component": "components",
+    "script": "js",
+    "style": "less",
+    "image": "images",
+    "staticData": "json"
+  },
+  "saga": {
+    "urlPrefix": "Api.",
+    "method": "post",
+    "extraImport": "import Api from '../config/api';"
+  }
+}

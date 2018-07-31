@@ -1,0 +1,37 @@
+@import (reference) "../../../../node_modules/rework.less/rework";
+@import (reference) "../../Skin/less/skin";
+
+
+.navbar {
+    display: block;
+
+    &-top-links {
+        .clearfix();
+
+        & > li {
+            float: left;
+        }
+
+        .dropdown-trigger {
+            height: 50px;
+            padding: 11px 15px 0;
+
+            color: @topbarColor;
+            border-left: 1px solid @topbarBorderLeftColor;
+            border-right: 1px solid @topbarBorderRightColor;
+        }
+        .dropdown-panel {
+            font-size: 12px;
+        }
+
+        .dropdown-active {
+            .dropdown-trigger {
+                color: #1c1c1c;
+                background-color: #fff;
+                border-color: transparent;
+            }
+        }
+
+    }
+
+}

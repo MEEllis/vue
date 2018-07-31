@@ -1,0 +1,127 @@
+{
+  "name": "react-boilerplate",
+  "version": "2.0.0",
+  "description": "project boilerplate",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.prod.js --progress --profile --colors",
+    "build-dll": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.prod.dll.js",
+    "deploy": "npm run build && deploy-client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yincw/react-boilerplate.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "babel",
+    "webpack"
+  ],
+  "author": "yincw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yincw/react-boilerplate/issues"
+  },
+  "homepage": "https://github.com/yincw/react-boilerplate#readme",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          "last 3 versions",
+          "> 1%"
+        ]
+      }
+    }
+  },
+  "theme": {
+    "primary-color": "#1bcdc4"
+  },
+  "dependencies": {
+    "antd": "^2.11.1",
+    "axios": "^0.16.2",
+    "classnames": "^2.2.5",
+    "hoist-non-react-statics": "^1.2.0",
+    "jsencrypt": "^2.3.1",
+    "konva": "^1.6.1",
+    "lodash": "^4.17.4",
+    "nprogress": "^0.2.0",
+    "object.omit": "^2.0.1",
+    "prop-types": "^15.5.8",
+    "rc-queue-anim": "^1.0.5",
+    "rc-tween-one": "^1.2.7",
+    "react": "^15.6.1",
+    "react-component-date": "^0.1.25",
+    "react-copy-to-clipboard": "^5.0.0",
+    "react-custom-scrollbars": "^4.0.1",
+    "react-dom": "^15.6.1",
+    "react-konva": "^1.1.3",
+    "react-redux": "^5.0.2",
+    "react-router": "^3.0.2",
+    "react-router-redux": "^4.0.7",
+    "recharts": "^0.22.4",
+    "redux": "^3.7.0",
+    "redux-actions": "^2.0.1",
+    "redux-auth-wrapper": "^1.0.0",
+    "redux-nprogress": "^0.1.3",
+    "redux-saga": "^0.15.3",
+    "reselect": "^2.5.4",
+    "rework.less": "^1.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^7.1.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-import": "^1.2.1",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-recharts": "^1.1.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.24.1",
+    "browser-sync": "^2.18.7",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "clean-webpack-plugin": "^0.1.16",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-compat": "^1.0.4",
+    "eslint-plugin-import": "^2.5.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.1.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "fetch-mock": "^5.9.3",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.28.0",
+    "image-webpack-loader": "^3.2.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "lodash-webpack-plugin": "^0.11.2",
+    "mockjs": "^1.0.1-beta3",
+    "postcss-loader": "^2.0.6",
+    "postcss-pxtorem": "^4.0.0",
+    "react-addons-perf": "^15.4.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "rucksack-css": "^0.9.1",
+    "style-loader": "^0.18.2",
+    "svg-sprite-loader": "^3.0.5",
+    "url-loader": "^0.5.7",
+    "web-deploy": "^0.2.0",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.6.1",
+    "webpack-merge": "^4.1.0"
+  }
+}

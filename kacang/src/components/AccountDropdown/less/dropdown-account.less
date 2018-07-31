@@ -1,0 +1,79 @@
+@import (reference) "../../../../node_modules/rework.less/rework";
+@import (reference) "../../Skin/less/skin";
+
+.dropdown-account {
+    .dropdown-trigger {
+
+        .user-avatar {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            vertical-align: middle;
+            background: url('../images/user-avatar.png') no-repeat;
+
+            img {
+                display: none;
+            }
+        }
+        .user-name {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .icon-arrow {
+            transition: transform .2s linear;
+            transform: rotate(0deg);
+        }
+    }
+    .dropdown-panel {
+        width: 220px;
+
+        .account {
+            &-info {
+                padding: 10px;
+
+                li {
+                    line-height: 24px;
+                }
+                .icon {
+                    margin-right: 5px;
+                    color: #adadad;
+                }
+            }
+            &-link {
+                padding: 10px 0;
+                border-top: 1px dashed #e5e5e5;
+                border-bottom: 1px dashed #e5e5e5;
+
+                li {}
+                a {
+                    display: block;
+                    white-space: nowrap;
+                    height: 30px;
+                    line-height: 20px;
+                    padding: 5px 10px;
+                    color: @sitePrimaryColor;
+
+                    &:hover {
+                        background-color: #ecf4f9;
+                    }
+                }
+            }
+        }
+    }
+
+    &.dropdown-active {
+        .dropdown-trigger {
+
+            .user-avatar {
+                background-image: url('../images/user-avatar-active.png');
+            }
+
+            .icon-arrow {
+                transform: rotate(180deg);
+                color: @sitePrimaryColor;
+            }
+        }
+        .dropdown-panel {}
+    }
+}

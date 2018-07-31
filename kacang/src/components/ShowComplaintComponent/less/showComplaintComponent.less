@@ -1,0 +1,144 @@
+@greyBorder: #d9dee4;
+.showComplaintDiv{
+    overflow: hidden;
+}
+.showComplaintLeft{
+    width:400px;
+    float:left;
+    border-right:1px dotted @greyBorder;
+    .showComplaintComponent-top {
+        padding-bottom: 10px;
+        border-bottom: 1px dotted @greyBorder;
+        line-height: 30px;
+        .order-status{
+            color:#488c6c;
+            i{
+                display:inline-block;
+                background:url('../img/icon-ok.png') no-repeat 0 0;
+                background-size:100%;
+                width:14px;
+                height:14px;
+                margin-right:6px;
+                // line-height:30px;
+                vertical-align: middle;
+            }
+        }
+        .total-money{
+            span{
+                color:#bf4346;
+                font-size:20px;
+                padding-right:2px;
+                em{
+                    font-style:normal;
+                    font-size:12px;
+                }
+            }
+            i{
+                display:inline-block;
+                background:url('../img/money.png') no-repeat 0 0;
+                background-size:100%;
+                width:14px;
+                height:14px;
+                margin-right:6px;
+                // line-height:30px;
+                vertical-align: middle;
+            }
+        }
+        .purchase-money{
+            span{
+                color:#bf4346;
+                font-size:20px;
+                padding-right:2px;
+                em{
+                    font-style:normal;
+                    font-size:12px;
+                }
+            }
+        }
+    }
+    .showComplaintComponent-body {
+        padding-top: 20px;
+    }
+}
+.showComplaintRight{
+    float:left;
+    width:400px;
+    padding-left:10px;
+    .complaintList:first-child{
+        margin-top: 0;
+    }
+    .complaintList{
+        border:1px #f1f1f1 solid;
+        padding:0 10px 10px 10px;
+        margin-top: 10px;
+        overflow:hidden;
+        &>p{
+            // border-top:1px solid @greyBorder;
+            border-bottom:1px solid @greyBorder;
+            padding:6px 2px;
+            span{
+                padding-right:10px;
+            }
+        }
+        &>div{
+            padding-top:14px;
+            p:first-child{color:#999;}
+        }
+        .talk-message{
+            padding:10px;
+            color:#333;
+
+            border-radius:5px;
+        }
+        .talk-in{
+            float:left;
+            width:80%;
+            .talk-message-me{
+                margin-left:10px;
+                position:relative;
+                background-color:#ededed;
+            }
+            .talk-message-me:after,.talk-message-me:before,.talk-message-p:after,.talk-message-p:before{
+                position:absolute;
+                pointer-events:none;
+                content:'';
+                display:block;
+                width:0;
+                height:0;
+                border:8px solid transparent;
+                right:100%;
+                top:10px;
+            }
+            .talk-message-me:before{
+                border-right-color:#ededed;
+            }
+        }
+        .talk-out{
+            .talk-info{text-align: right;}
+            float:right;
+            width:80%;
+            .talk-message-p{
+                position:relative;
+                background-color:#d9edf7;
+            }
+            .talk-message-me:after,.talk-message-me:before,.talk-message-p:after,.talk-message-p:before{
+                position:absolute;
+                pointer-events:none;
+                content:'';
+                display:block;
+                width:0;
+                height:0;
+                border:8px solid transparent;
+                left:100%;
+                top:10px;
+            }
+            .talk-message-p:before{
+                border-left-color:#d9edf7
+            }
+
+        }
+        *, :after , :before{
+            box-sizing:border-box;
+        }
+    }
+}
