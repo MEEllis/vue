@@ -1,13 +1,17 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
+import App from './app';
 
 
-const render = () => {
+const render = (Component) => {
     ReactDOM.render( 
-        <h1>Hello, world!</h1>,
+        <AppContainer>
+            <Component/>
+        </AppContainer>,
         document.getElementById('app')
     );
 };
 
-render();
+render(App);
