@@ -6,8 +6,10 @@ const commonConfig = require('./webpack.config.base');
 
 const devConfig = {
     devtool: 'inline-source-map',
+    mode: 'development',
     entry: {
         app: [
+            'babel-polyfill',
             'react-hot-loader/patch',
             path.join(__dirname, 'src/index.js')
         ]
@@ -27,11 +29,16 @@ const devConfig = {
         contentBase: path.join(__dirname, './dist'),
         historyApiFallback: true,
         host: '127.0.0.1',
+        hot: true,
+        progress:true,
         proxy: {
             "/api/*": "http://localhost:7090/$1"
         }
     },
-    plugins:[]
+    plugins:[
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
+    ]
 };
 
 module.exports = merge({

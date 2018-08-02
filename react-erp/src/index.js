@@ -15,3 +15,15 @@ const render = (Component) => {
 };
 
 render(App);
+console.log("----------------------------------------------")
+console.log(module.hot)
+
+/*热更新*/
+if (module.hot) {
+  
+    module.hot.accept('./router', () => {
+        console.log("***************************************************")
+        const NewApp = App;
+        render(NewApp);
+    });
+}
