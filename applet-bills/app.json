@@ -81,5 +81,9 @@
       }
     ]
   },
+  "networkTimeout": {
+    "request": 80000,
+    "downloadFile": 80000
+  },
   "debug": false
 }

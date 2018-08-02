@@ -32,7 +32,7 @@ Page({
   },
 
   tapNew: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/billing/newBilling/newBilling'
     })
   },
