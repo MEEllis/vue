@@ -1,27 +1,31 @@
 import React, {Component} from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { connect } from 'dva';
 import style from './Login.less';
 import Login from '../../components/Login/index';
 
-const FormItem = Form.Item;
 const { UserName, Password, Submit } = Login;
-
+@connect(({ login}) => ({
+    login
+}))
 export default class LoginPage extends Component {
     state={
         status:'ok'
     }
-
     // 登录
     handleSubmit = (err, values) => {
-        if (err) {
-            return;
+        const { dispatch } = this.props;
+        if (!err) {
+          dispatch({
+            type: 'login/login',
+            payload: {
+              ...values,
+            },
+          });
         }
     };
-
     renderMessage = content => {
         return <Alert style={{ marginBottom: 24 }} message={content} type="error" showIcon />;
     };
-
     render() {
         const { status } = this.state;
         return (

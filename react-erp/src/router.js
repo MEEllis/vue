@@ -1,17 +1,27 @@
 import React from 'react';
+import { routerRedux, Route, Switch } from 'dva/router';
+import { LocaleProvider, Spin } from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
+import dynamic from 'dva/dynamic';
+import { getRouterData } from './common/router';
+const { ConnectedRouter } = routerRedux;
 
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import lazyLoad from './common/lazyLoad';
+dynamic.setDefaultLoadingComponent(() => {
+  return <Spin size="large"  />;
+});
 
-import Login from 'bundle-loader?lazy&name=login!./containers/User/Login';
-
-const Root = () => (
-    <Router>
+function RouterConfig({ history, app }) {
+  const routerData = getRouterData(app);
+  const UserLayout = routerData['/user'].component;
+  return (
+    <LocaleProvider locale={zhCN}>
+      <ConnectedRouter history={history}>
         <Switch>
-            <Route exact path="/user" component={lazyLoad(Login)}/>
-            <Route path="/user/login" component={lazyLoad(Login)}/>
+          <Route path="/user" component={UserLayout} />
         </Switch>
-    </Router>
-);
+      </ConnectedRouter>
+    </LocaleProvider>
+  );
+}
 
-export default Root;
+export default RouterConfig;

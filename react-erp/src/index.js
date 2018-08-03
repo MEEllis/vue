@@ -1,29 +1,20 @@
 import 'babel-polyfill';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {AppContainer} from 'react-hot-loader';
-import App from './app';
+import dva from 'dva';
+import createLoading from 'dva-loading';
+import createHistory from 'history/createBrowserHistory';
+
+// 1. Initialize
+const app = dva({
+    history: createHistory(),
+});
+// 2. Plugins
+app.use(createLoading());
+
+// 3. Register global model
 
 
-const render = (Component) => {
-    ReactDOM.render( 
-        <AppContainer>
-            <Component/>
-        </AppContainer>,
-        document.getElementById('app')
-    );
-};
+// 4. Router
+app.router(require('./router').default);
 
-render(App);
-console.log("----------------------------------------------")
-console.log(module.hot)
-
-/*热更新*/
-if (module.hot) {
-  
-    module.hot.accept('./router', () => {
-        console.log("***************************************************")
-        const NewApp = App;
-        render(NewApp);
-    });
-}
+// 5. Start
+app.start('#app');

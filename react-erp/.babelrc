@@ -6,10 +6,14 @@
   ],
   "plugins": [
     "react-hot-loader/babel",
-    "transform-runtime", ["import", {
+    "transform-decorators-legacy",
+    "transform-runtime",
+     ["import", {
       "libraryName": "antd",
       "libraryDirectory": "es",
       "style": "css"
-    }]
+      }
+    ], 
+     "dva-hmr"
   ]
 }
