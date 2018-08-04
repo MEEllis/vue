@@ -2,7 +2,8 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
 const commonConfig = require('./webpack.config.base');
-const mockUrlObj = require('./.webpack.mock');
+
+const apiMocker = require('webpack-api-mocker');
 const bodyParser = require('body-parser');
 
 const devConfig = {
@@ -55,20 +56,11 @@ const devConfig = {
         open: false,
         progress:true, // 显示webpack 打包明细
         proxy: {
-            "/api/*": "http://localhost:7090/$1"
+           
         },
         before(app) {
-            // 返回模拟请求数据
-            Object.keys(mockUrlObj).forEach((key) => {
-              const [type, url] = key.split(' ');
-              app.use(url, bodyParser.json());
-              if (type === 'GET') {
-                app.get(url, mockUrlObj[key]);
-              } else if (type === 'POST') {
-                app.post(url, mockUrlObj[key]);
-              }
-            });
-          },
+           apiMocker(app, path.resolve('./mock/webpack.mock.js'), { })
+        },
     },
     plugins:[
         new webpack.LoaderOptionsPlugin(), //加载loader插件的一些配置选项，如postcss loader，你可以直接新建一个postcss.config.js文件来配置选项

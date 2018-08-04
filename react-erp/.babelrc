@@ -14,6 +14,11 @@
       "style": "css"
       }
     ], 
-     "dva-hmr"
+    [
+      "dva-hmr", {
+        "container": "#root",
+        "quiet": false
+      }
+    ]
   ]
 }
