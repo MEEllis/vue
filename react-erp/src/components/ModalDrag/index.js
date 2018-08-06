@@ -1,15 +1,17 @@
 import React, { Component,Fragment } from 'react';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+import Draggable from 'react-draggable';
 
-@DragDropContext(HTML5Backend)
+
 class ModalDrag extends Component {
 
   render() {
     const {children } = this.props;
+    debugger
     return (
       <Fragment>
+          <Draggable>
             {[...children]}
+          </Draggable>
       </Fragment>
     );
   }

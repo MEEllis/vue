@@ -7,7 +7,7 @@ const commonConfig = {
     app: [
       path.join(__dirname, 'src/index.js')
     ],
-    vendor: ['react','react-dom','dva','dva-loading']
+    vendor: ['jquery','react','react-dom','dva','dva-loading']
   },
   output: {
     path: path.join(__dirname, './dist'),
@@ -15,8 +15,20 @@ const commonConfig = {
     chunkFilename: '[name].[chunkhash].js',
     publicPath: "/"
   },
+
   module: {
-    rules: [{
+    rules: [
+      {
+        test: require.resolve('jquery'),
+        use: [{
+          loader: 'expose-loader',
+          options: 'jQuery'
+        },{
+          loader: 'expose-loader',
+          options: '$'
+        }]
+      },
+      {
       test: /\.js$/,
       use: [
         

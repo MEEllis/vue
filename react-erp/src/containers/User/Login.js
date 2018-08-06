@@ -1,13 +1,40 @@
 import React, {Component,Fragment} from 'react';
 import { connect } from 'dva';
+import ReactDOM from 'react-dom';
 import style from './Login.less';
 import Login from '../../components/Login/index';
 import ModalDrag from '../../components/ModalDrag/index';
-import { Modal } from 'antd';
+import Draggable from 'react-draggable';
+import DragM from 'dragm';
+import { Modal,Card } from 'antd';
 
 const { UserName, Password, Submit } = Login;
 
-
+class BuildTitle extends React.Component {
+    updateTransform = transformStr => {
+      const header =  $(this.modalDom).find('.ant-modal-header')
+      if(header.offset().top<0 ||header.offset().left<0){
+     
+          return;
+          $('.ant-modal-header').offset()
+      }else{
+        this.modalDom.style.transform = transformStr;
+      }
+     
+    };
+    componentDidMount() {
+      const node= ReactDOM.findDOMNode(this)
+      this.modalDom= $(node).closest(".ant-modal")[0]
+    }
+    render() {
+      const { title } = this.props;
+      return (
+        <DragM updateTransform={this.updateTransform}>
+          <div>{title}</div>
+        </DragM>
+      );
+    }
+  }
 @connect(({ login}) => ({
     login
 }))
@@ -19,7 +46,6 @@ export default class LoginPage extends Component {
     handleSubmit = (err, values) => {
         const { dispatch } = this.props;
         if (!err) {
-            console.log(111111)
           dispatch({
             type: 'login/login',
             payload: {
@@ -35,6 +61,9 @@ export default class LoginPage extends Component {
     };
     render() {
         const { status } = this.state;
+        const title = (
+            <BuildTitle  title="公司选择 Modal" />
+          );
         return (
             <Fragment>
                 <div className={style.loginForm}>
@@ -45,11 +74,35 @@ export default class LoginPage extends Component {
                     <Submit >登录</Submit>
                     </Login>
                 </div>
-                <ModalDrag>
-                    <Modal visible={true} >
-                            aaaaaaaaa
-                    </Modal>
-                </ModalDrag>
+                <Modal title={title}  visible={true} >
+                        <div>
+                            ccccc
+                        </div>
+               </Modal> 
+               <Modal title={title}  visible={false} >
+                        <div>
+                            dddd
+                        </div>
+               </Modal> 
+               <Modal title={title}  visible={false} >
+                        <div>
+                            eeeee
+                        </div>
+               </Modal> 
+                <Draggable handle=".ant-modal-header" bounds='body'>
+                    <Modal title='公司选择' visible={false} >
+                        <div>
+                            ccccc
+                        </div>
+                    </Modal> 
+                </Draggable>
+                <Draggable handle=".ant-card-head" bounds='body'>
+                    <Card title="Card title" extra={<a href="#">More</a>} style={{ width: 300 }}>
+                        <p>Card content</p>
+                        <p>Card content</p>
+                        <p>Card content</p>
+                    </Card>
+                </Draggable>
           </Fragment>
         );
     }

@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import $ from 'jquery'
 import dva from 'dva';
 import createLoading from 'dva-loading';
 import createHistory from 'history/createBrowserHistory';
