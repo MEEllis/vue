@@ -2,13 +2,20 @@ import { isUrl } from '../utils/utils';
 
 const menuData = [
   {
-    name: '登录',
-    icon: 'login',
-    path: 'login',
+    name: '账户',
+    icon: 'user',
+    path: 'user',
+    children: [
+      {
+        name: '登录',
+        path: 'login',
+      }
+    ],
   },
 ];
 
-function formatter(data, parentPath = '/', parentAuthority) {
+ // 处理父子级的url,
+function formatter(data, parentPath = '/') {
   return data.map(item => {
     let { path } = item;
     if (!isUrl(path)) {
@@ -17,10 +24,9 @@ function formatter(data, parentPath = '/', parentAuthority) {
     const result = {
       ...item,
       path,
-      authority: item.authority || parentAuthority,
     };
     if (item.children) {
-      result.children = formatter(item.children, `${parentPath}${item.path}/`, item.authority);
+      result.children = formatter(item.children, `${parentPath}${item.path}/`);
     }
     return result;
   });

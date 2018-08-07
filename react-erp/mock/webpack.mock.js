@@ -5,20 +5,25 @@ const proxy = {
     res.send({message: 'Ok'});
   },
   'POST /login/account': (req, res) => {
-    const {password, userName, type} = req.body;
+    const {password, userName} = req.body;
     
     if((password === '1' && userName === '1') || (password === '123456' && userName === 'user'))  {
       res.send({
-        code: '10000',
-        type,
+        result: 1,
         companyList:getCompanyList
       });
     }else{
       res.send({
-        status: '-999',
-        type,
+        result: -999,
       });
     }
+  },
+  'POST /login/company': (req, res) => {
+    const {password, userName,companyId} = req.body;
+    res.send({
+      result: 1,
+      token:'abcddsdfsdfsljlksjfdlkjskdlfjksdfsdfsdfsdfsdfsdf',
+    });
   },
 };
 

@@ -1,46 +1,21 @@
 import React, {Component,Fragment} from 'react';
 import { connect } from 'dva';
-import ReactDOM from 'react-dom';
 import style from './Login.less';
 import Login from '../../components/Login/index';
-import ModalDrag from '../../components/ModalDrag/index';
-import Draggable from 'react-draggable';
-import DragM from 'dragm';
-import { Modal,Card } from 'antd';
+import { Modal,Select  } from 'antd';
 
 const { UserName, Password, Submit } = Login;
-
-class BuildTitle extends React.Component {
-    updateTransform = transformStr => {
-      const header =  $(this.modalDom).find('.ant-modal-header')
-      if(header.offset().top<0 ||header.offset().left<0){
-     
-          return;
-          $('.ant-modal-header').offset()
-      }else{
-        this.modalDom.style.transform = transformStr;
-      }
-     
-    };
-    componentDidMount() {
-      const node= ReactDOM.findDOMNode(this)
-      this.modalDom= $(node).closest(".ant-modal")[0]
-    }
-    render() {
-      const { title } = this.props;
-      return (
-        <DragM updateTransform={this.updateTransform}>
-          <div>{title}</div>
-        </DragM>
-      );
-    }
-  }
-@connect(({ login}) => ({
+const Option = Select.Option;
+@connect(({login}) => ({
     login
 }))
 export default class LoginPage extends Component {
     state={
-        status:'ok'
+        status:'ok',
+        companyVisible:false,
+        selCompanyId:'',
+        userName:'',
+        password:''
     }
     // 登录
     handleSubmit = (err, values) => {
@@ -52,18 +27,60 @@ export default class LoginPage extends Component {
               ...values,
             },
           }).then(() => {
-
+            const {login:{companyList}} = this.props;
+            if(Array.isArray(companyList)&&companyList.length>0){
+                if(companyList.length===1){
+                    this.setState({
+                        selCompanyId:companyList[0].id,
+                        userName: values.userName,
+                        password: values.password,
+                     })
+                }else{
+                    this.setState({
+                        selCompanyId:companyList[0].id, 
+                        companyVisible:true, 
+                        userName: values.userName,
+                        password: values.password,
+                     })
+                }
+            }
           })
         }
     };
     renderMessage = content => {
         return <Alert style={{ marginBottom: 24 }} message={content} type="error" showIcon />;
     };
+    companyOk=()=>{
+         this.loginByCompany()
+    }
+    companyCancel=()=>{
+        this.setState({
+            companyVisible:false, 
+         }) 
+    }
+    handleChange=(value)=>{
+        this.setState({
+            selCompanyId:value, 
+         })
+    }
+    loginByCompany=()=>{
+        const { dispatch } = this.props;
+        const { selCompanyId,userName,password } = this.state;
+        if(selCompanyId){
+            dispatch({
+            type: 'login/company',
+                payload: {
+                companyId:selCompanyId ,
+                userName:userName ,
+                password:password ,
+                },
+            })
+        }
+    }
     render() {
-        const { status } = this.state;
-        const title = (
-            <BuildTitle  title="公司选择 Modal" />
-          );
+        const { status,companyVisible,selCompanyId } = this.state;
+        const {login:{companyList}} = this.props;
+      
         return (
             <Fragment>
                 <div className={style.loginForm}>
@@ -74,35 +91,17 @@ export default class LoginPage extends Component {
                     <Submit >登录</Submit>
                     </Login>
                 </div>
-                <Modal title={title}  visible={true} >
-                        <div>
-                            ccccc
-                        </div>
+               <Modal title='选择公司' onOk={this.companyOk}  onCancel={this.companyCancel} visible={companyVisible} >
+                    <div style={{margin:'0 auto',textAlign:'center'}}>
+                    公司名称:
+                        <Select defaultValue={selCompanyId} style={{ width: 210 }} onChange={this.handleChange}>
+                        {companyList.map(item =>{
+                        return (<Option key={item.id} value={item.id} >{item.name}</Option> ) 
+                        })} 
+                    </Select>
+                    </div>
                </Modal> 
-               <Modal title={title}  visible={false} >
-                        <div>
-                            dddd
-                        </div>
-               </Modal> 
-               <Modal title={title}  visible={false} >
-                        <div>
-                            eeeee
-                        </div>
-               </Modal> 
-                <Draggable handle=".ant-modal-header" bounds='body'>
-                    <Modal title='公司选择' visible={false} >
-                        <div>
-                            ccccc
-                        </div>
-                    </Modal> 
-                </Draggable>
-                <Draggable handle=".ant-card-head" bounds='body'>
-                    <Card title="Card title" extra={<a href="#">More</a>} style={{ width: 300 }}>
-                        <p>Card content</p>
-                        <p>Card content</p>
-                        <p>Card content</p>
-                    </Card>
-                </Draggable>
+            
           </Fragment>
         );
     }

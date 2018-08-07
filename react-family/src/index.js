@@ -6,9 +6,6 @@ import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
 import store from './redux/store';
 
-
-
-
 /*热更新*/
 if (module.hot) {
     module.hot.accept('./router/router', () => {

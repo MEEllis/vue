@@ -6,3 +6,10 @@ export async function accountLogin(params) {
     body: params,
   });
 }
+
+export async function companyLogin(params) {
+  return request('/login/company', {
+    method: 'POST',
+    body: params,
+  });
+}

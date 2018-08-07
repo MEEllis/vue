@@ -1,4 +1,4 @@
-import { accountLogin } from '../services/user';
+import { accountLogin,companyLogin } from '../services/user';
 
 export default {
   namespace: 'login',
@@ -8,17 +8,22 @@ export default {
   effects: {
     *login({ payload }, { call, put }) {
       const response = yield call(accountLogin, payload);
-      if(response.code==='10000'){
+      if(response.result===1){
         yield put({
           type: 'addCompanyList',
           payload: response,
         });
       }
     },
+    *company({ payload }, { call, put }) {
+      const response = yield call(companyLogin, payload);
+      if(response.result===1){
+         localStorage.setItem('token', response.token)
+      }
+    },
   },
   reducers: {
     addCompanyList(state, { payload }) {
-      debugger
       return {
         ...state,
         companyList: payload.companyList,

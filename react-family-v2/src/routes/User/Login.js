@@ -31,7 +31,6 @@ export default class LoginPage extends Component {
   renderMessage = content => {
     return <Alert style={{ marginBottom: 24 }} message={content} type="error" showIcon />;
   };
-
   render() {
     const { login, submitting } = this.props;
     return (

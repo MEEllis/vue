@@ -42,7 +42,6 @@
   "dependencies": {
     "antd": "^3.7.3",
     "classnames": "^2.2.6",
-    "dragm": "^0.0.3",
     "dva": "^2.3.1",
     "dva-loading": "^2.0.3",
     "jquery": "^3.3.1",
@@ -51,7 +50,6 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-draggable": "^3.0.5",
-    "react-rnd": "^9.0.1"
+    "react-draggable": "^3.0.5"
   }
 }

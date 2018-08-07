@@ -9,12 +9,15 @@ let NewApiRootUrl = ''
 //NewApiRootUrl = 'http://192.168.0.62:8802/';
 
 // 提交测试的接口
-LoginNewApiRootUrl = 'https://branch.phoneerp.com/common/';
-NewApiRootUrl = 'https://branch.phoneerp.com/boss/';
+LoginNewApiRootUrl = 'https://branchapi.phoneerp.com/api/v1/common/';
+NewApiRootUrl = 'https://branchapi.phoneerp.com/api/v1/boss/';
 
 //NewApiRootUrl = 'https://pre.phoneerp.com/wxapi/'; // 预生产的接口
 
 //NewApiRootUrl = 'https://www.phoneerp.com/wxapi/'; // 线上的接口
+
+
+
 //NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/21285/'; // 模拟接口地址
 
 
