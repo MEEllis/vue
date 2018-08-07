@@ -2,12 +2,15 @@ let NewApiRootUrl = ''
 let baseApiRootUrl
 //NewApiRootUrl = 'http://127.0.0.1:8080/wxapi/'; // 预生产的接口
 //NewApiRootUrl = 'http://192.168.0.62/wxapi/'; // 后台联调的接口
-NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/'; // 提交测试的接口
+ // 提交测试的接口
+//NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/';
+//baseApiRootUrl = 'https://branchapi.phoneerp.com/';
+// 预生产的接口
+//NewApiRootUrl = 'https://pre.phoneerp.com/wxapi/'; 
 
-baseApiRootUrl = 'https://branch.phoneerp.com/'; // 提交测试的接口
-//NewApiRootUrl = 'https://pre.phoneerp.com/wxapi/'; // 预生产的接口
-
-//NewApiRootUrl = 'https://www.phoneerp.com/wxapi/'; // 线上的接口
+// 线上的接口
+NewApiRootUrl = 'https://www.phoneerp.com/wxapi/';
+NewApiRootUrl = 'https://api.phoneerp.com/'; 
 //NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
 
 
@@ -53,5 +56,5 @@ module.exports = {
   saveAndPostDraftRetailVo: NewApiRootUrl + 'common/saveAndPostDraftRetailVo', // 保存草稿单并过账
   getRetailDraftOrderVo: NewApiRootUrl + 'common/getRetailDraftOrderVo', // 查询草稿单
   updateRetailRemarkById: NewApiRootUrl + 'common/updateRetailRemarkById', // 修改零售单备注
-  print: baseApiRootUrl + 'ws/clerk/assistant/retail/print', // 打印零售单
+  print: baseApiRootUrl + 'api/v1/ws/clerk/assistant/retail/print', // 打印零售单
 }

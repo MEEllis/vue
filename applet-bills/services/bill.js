@@ -23,7 +23,7 @@ function saveAndPostDraftRetailVo(saveData) {
   return new Promise(function (resolve, reject) {
     const { sectionId, addPage, remark, ignoredAmount, totalAmount, integralDeductionAmount, dataVo, onlinePayFlag, scanPayVo } = saveData;
 
-    const { vipVo, goodsVo } = addPage.data;
+    const { vipVo, goodsVo, billsId } = addPage.data;
 
 
     const goodsDetailList = [];
@@ -85,7 +85,7 @@ function saveAndPostDraftRetailVo(saveData) {
         }
       }
     }
-    const order = JSON.stringify({
+    const addData = {
       "sectionId": sectionId,
       "customerId": vipVo.customerId,
       "customerName": vipVo.customerName,
@@ -100,7 +100,11 @@ function saveAndPostDraftRetailVo(saveData) {
       "remark": remark,
       "goodsDetailList": goodsDetailList,
       "paymentReceivedOrderVo": paymentReceivedOrderVo,
-    });
+    };
+    if (!!billsId){
+      addData.billsId = billsId;
+    }
+    const order = JSON.stringify(addData);
     util.request(
       api.saveAndPostDraftRetailVo,
       { order }
