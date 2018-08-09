@@ -10,7 +10,7 @@ let baseApiRootUrl
 
 // 线上的接口
 NewApiRootUrl = 'https://www.phoneerp.com/wxapi/';
-NewApiRootUrl = 'https://api.phoneerp.com/'; 
+baseApiRootUrl = 'https://api.phoneerp.com/'; 
 //NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
 
 
