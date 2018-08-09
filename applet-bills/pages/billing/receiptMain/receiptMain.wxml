@@ -47,8 +47,12 @@
     <text class='iconfont icon-weixin1'></text>
     <text class='wxlab'>微信扫码收款</text>
   </button>
-  <button class="zhifubao mb-20" type="default" hidden='{{!dataVo[8]}}' data-paytype='alipay' bindtap='tapScanCode'>
+  <button class="zhifubao mb-20" type="default"  hidden='{{!dataVo[8]}}' data-paytype='alipay' bindtap='tapScanCode'>
     <text class='iconfont icon-zhifubao1'></text>
+    <text class='zflab'>支付宝扫码收款</text>
+  </button>
+    <button class="best_pay mb-20" type="default"  hidden='{{!dataVo[8]}}' data-paytype='best_pay' bindtap='tapScanCode'>
+    <text class='iconfont icon-yizhifu'></text>
     <text class='zflab'>支付宝扫码收款</text>
   </button>
   <button class="xianxia mb-20" type="default" bindtap='tapxianxia'>线下收款</button>

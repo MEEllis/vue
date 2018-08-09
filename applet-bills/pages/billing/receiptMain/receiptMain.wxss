@@ -54,6 +54,20 @@ page {
   font-size: 36rpx;
 }
 
+.best_pay {
+  background-color: #e25e5c !important;
+  color: #fff !important;
+  font-size: 36rpx;
+}
+.icon-yizhifu{
+  font-size: 90rpx;
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  top: -70rpx;
+  margin-left:-10px;
+}
+
 .icon-zhifubao1 {
   font-size: 50rpx;
   height: 1px;
