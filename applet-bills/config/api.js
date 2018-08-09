@@ -5,12 +5,17 @@ let baseApiRootUrl
  // 提交测试的接口
 //NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/';
 //baseApiRootUrl = 'https://branchapi.phoneerp.com/';
+
+
 // 预生产的接口
 //NewApiRootUrl = 'https://pre.phoneerp.com/wxapi/'; 
 
 // 线上的接口
 NewApiRootUrl = 'https://www.phoneerp.com/wxapi/';
-baseApiRootUrl = 'https://api.phoneerp.com/'; 
+baseApiRootUrl = 'https://api.phoneerp.com/';
+
+
+
 //NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
 
 
