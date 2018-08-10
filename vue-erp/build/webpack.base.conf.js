@@ -19,6 +19,7 @@ const createLintingRule = () => ({
   }
 })
 
+
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -48,7 +49,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test') ,resolve('node_modules/webpack-dev-server/client')]
+        include: [resolve('mocker'), resolve('src'), resolve('test') ,resolve('node_modules/webpack-dev-server/client')]
       },
       {
         test: /\.svg$/,

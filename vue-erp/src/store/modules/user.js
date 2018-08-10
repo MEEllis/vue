@@ -1,9 +1,10 @@
 import {
   getCompanyList,
+  getMenuList,
   login,
   logout,
   getInfo
-} from '@/api/login'
+} from '@/api/user'
 import {
   getToken,
   setToken,
@@ -15,8 +16,9 @@ const user = {
     companyList: [],
     token: getToken(),
     name: '',
+    id: '',
     avatar: '',
-    roles: []
+    menuList: []
   },
 
   mutations: {
@@ -34,6 +36,9 @@ const user = {
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
+    },
+    SET_MENULIST: (state, menuList) => {
+      state.menuList = menuList
     }
   },
 
@@ -63,10 +68,10 @@ const user = {
     }, userInfo) {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
-        login(username, userInfo.password).then(response => {
-          const data = response.data
-          setToken(data.token)
-          commit('SET_TOKEN', data.token)
+        login(username, userInfo.password, userInfo.companyId).then(response => {
+          const token = response.token
+          setToken(token)
+          commit('SET_TOKEN', token)
           resolve()
         }).catch(error => {
           reject(error)
@@ -87,8 +92,23 @@ const user = {
           } else {
             reject('getInfo: roles must be a non-null array !')
           }
-          commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
+          commit('SET_NAME', data.detail.name)
+          resolve(response)
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
+
+    // 菜单
+    GetMenuList({
+      commit,
+      state
+    }) {
+      return new Promise((resolve, reject) => {
+        getMenuList(state.token).then(response => {
+          const data = response.data
+          commit('SET_MENULIST', data.menuVoList)
           resolve(response)
         }).catch(error => {
           reject(error)

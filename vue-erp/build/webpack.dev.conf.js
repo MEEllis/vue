@@ -8,7 +8,7 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
+const apiMocker = require('webpack-api-mocker')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -42,7 +42,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll,
     },
-  
+
+    before(app){
+      apiMocker(app, path.resolve('mocker/index.js'))
+     }
   },
   plugins: [
     new webpack.DefinePlugin({

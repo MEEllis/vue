@@ -1,37 +1,54 @@
 <template>
-  <div class="login-container">
-    <el-form class="login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" >
-      <h3 class="title">vue-element-admin</h3>
-      <el-form-item prop="username">
-        <span class="svg-container svg-container_login">
-          <svg-icon icon-class="user" />
-        </span>
-        <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="请输入用户名" />
-      </el-form-item>
-      <el-form-item prop="password">
-        <span class="svg-container">
-          <svg-icon icon-class="password"></svg-icon>
-        </span>
-        <el-input name="password" :type="pwdType" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on"
-          placeholder="请输入密码"></el-input>
-          <span class="show-pwd" @click="showPwd"><svg-icon icon-class="eye" /></span>
-      </el-form-item>
+  <div class=''>
+     <div class='login-container'>
+      <el-form class='login-form' autoComplete='on' :model='loginForm' :rules='loginRules' ref='loginForm' >
+        <h3 class='title'>vue-element-admin</h3>
+        <el-form-item prop='username'>
+          <span class='svg-container svg-container_login'>
+            <svg-icon icon-class='user' />
+          </span>
+          <el-input name='username' type='text' v-model='loginForm.username' autoComplete='on' placeholder='请输入用户名' />
+        </el-form-item>
+        <el-form-item prop='password'>
+          <span class='svg-container'>
+            <svg-icon icon-class='password'></svg-icon>
+          </span>
+          <el-input name='password' :type='pwdType' @keyup.enter.native='handleLogin' v-model='loginForm.password' autoComplete='on'
+            placeholder='请输入密码'></el-input>
+            <span class='show-pwd' @click='showPwd'><svg-icon icon-class='eye' /></span>
+        </el-form-item>
 
-      <el-form-item>
-        <el-button type="primary" style="width:100%;" :loading="loading" @click.native.prevent="handleLogin">
-          登录
-        </el-button>
-      </el-form-item>
-      
-    </el-form>
+        <el-form-item>
+          <el-button type='primary' style='width:100%;' :loading='loading' @click.native.prevent='handleLogin'>
+            登录
+          </el-button>
+        </el-form-item>
+        
+      </el-form>
+      </div>
+      <el-dialog v-el-drag-dialog  title='公司选择' width='600px' :visible.sync='dialogTableVisible'>
+        公司名称
+        <el-select  filterable  v-model='companyId' placeholder='请选择'>
+          <el-option v-for='item in companyList' :key='item.id' :label='item.name' :value='item.id'>
+          </el-option>
+        </el-select>
+        <div slot='footer' class='dialog-footer'>
+          <el-button  @keyup.enter='handleCompanyCancel' @click='handleCompanyCancel'>取 消</el-button>
+          <el-button type='primary' @keyup.enter='handleCompany' @click='handleCompany'>确 定</el-button>
+        </div>
+    </el-dialog>
   </div>
+
 </template>
 
 <script>
 import { isvalidUsername } from '@/utils/validate'
+import elDragDialog from '@/directive/el-dragDialog' // base on element-ui
+import { mapState } from 'vuex'
 
 export default {
   name: 'login',
+  directives: { elDragDialog },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!isvalidUsername(value)) {
@@ -48,12 +65,16 @@ export default {
       }
     }
     return {
+      dialogTableVisible: false,
+      companyId: '',
       loginForm: {
         username: 'admin',
         password: 'admin'
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+        username: [
+          { required: true, trigger: 'blur', validator: validateUsername }
+        ],
         password: [{ required: true, trigger: 'blur', validator: validatePass }]
       },
       loading: false,
@@ -72,24 +93,57 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          this.$store.dispatch('GetCompanyList', this.loginForm).then(() => {
-            this.loading = false
-          }).catch(() => {
-            this.loading = false
-          })
+          this.$store
+            .dispatch('GetCompanyList', this.loginForm)
+            .then(() => {
+              const { companyList } = this
+              this.loading = false
+              this.companyId = this.companyList[0].id
+              if (Array.isArray(companyList) && companyList.length >= 1) {
+                this.dialogTableVisible = true
+              } else {
+                this.handleCompany()
+              }
+            })
+            .catch(() => {
+              this.loading = false
+            })
         } else {
           console.log('error submit!!')
           return false
         }
       })
+    },
+    handleCompany() {
+      this.dialogTableVisible = false
+      const { companyId } = this
+      this.$store
+        .dispatch('Login', {
+          ...this.loginForm,
+          companyId })
+        .then(() => {
+          this.$router.push({ path: '/' })
+        })
+        .catch(() => {
+          this.loading = false
+        })
+    },
+    handleCompanyCancel() {
+      this.dialogTableVisible = false
     }
-  }
+  },
+  computed: mapState({
+    // 箭头函数可使代码更简练
+    companyList: (state) => {
+      return state.user.companyList
+    }
+  })
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
-$bg:#2d3a4b;
-$light_gray:#eee;
+<style rel='stylesheet/scss' lang='scss'>
+$bg: #2d3a4b;
+$light_gray: #eee;
 
 /* reset element-ui css */
 .login-container {
@@ -118,13 +172,12 @@ $light_gray:#eee;
     color: #454545;
   }
 }
-
 </style>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
-$bg:#2d3a4b;
-$dark_gray:#889aa4;
-$light_gray:#eee;
+<style rel='stylesheet/scss' lang='scss' scoped>
+$bg: #2d3a4b;
+$dark_gray: #889aa4;
+$light_gray: #eee;
 .login-container {
   position: fixed;
   height: 100%;

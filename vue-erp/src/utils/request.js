@@ -1,7 +1,12 @@
 import axios from 'axios'
-import { Message, MessageBox } from 'element-ui'
+import {
+  Message,
+  MessageBox
+} from 'element-ui'
 import store from '../store'
-import { getToken } from '@/utils/auth'
+import {
+  getToken
+} from '@/utils/auth'
 
 // 创建axios实例
 const service = axios.create({
@@ -24,12 +29,11 @@ service.interceptors.request.use(config => {
 // respone拦截器
 service.interceptors.response.use(
   response => {
-  /**
-  * code为非20000是抛错 可结合自己业务进行修改
-  */
-    debugger
+    /**
+     * code为非20000是抛错 可结合自己业务进行修改
+     */
     const res = response.data
-    if (res.code !== 20000) {
+    if (res.result !== 1) {
       Message({
         message: res.message,
         type: 'error',
@@ -44,7 +48,7 @@ service.interceptors.response.use(
           type: 'warning'
         }).then(() => {
           store.dispatch('FedLogOut').then(() => {
-            location.reload()// 为了重新实例化vue-router对象 避免bug
+            location.reload() // 为了重新实例化vue-router对象 避免bug
           })
         })
       }
@@ -54,7 +58,7 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log('err' + error)// for debug
+    console.log('err' + error) // for debug
     Message({
       message: error.message,
       type: 'error',

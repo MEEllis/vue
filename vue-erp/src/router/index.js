@@ -24,54 +24,10 @@ import Layout from '../views/layout/Layout'
 export const constantRouterMap = [
   { path: '/login', component: () => import('@/views/login/index'), hidden: true },
   { path: '/404', component: () => import('@/views/404'), hidden: true },
-
   {
     path: '/',
-    component: Layout,
-    redirect: '/dashboard',
-    name: 'Dashboard',
-    hidden: true,
-    children: [{
-      path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
-    }]
+    component: Layout
   },
-
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
-
   { path: '*', redirect: '/404', hidden: true }
 ]
 
@@ -81,3 +37,22 @@ export default new Router({
   routes: constantRouterMap
 })
 
+export const asyncRouterMap = [{
+  menuCode: 'JCSZ',
+  path: '/basicSetting',
+  component: Layout,
+  alwaysShow: true, // will always show the root menu
+  meta: {
+    title: '基础设置',
+    icon: 'lock'
+  },
+  children: [{
+    menuCode: 'GSXX',
+    path: 'companyInfo',
+    component: () => import('@/views/basicSetting/companyInfo'),
+    name: 'companyInfo',
+    meta: {
+      title: '公司信息'
+    }
+  }]
+}]
