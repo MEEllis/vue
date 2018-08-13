@@ -21,19 +21,29 @@ import Layout from '../views/layout/Layout'
     icon: 'svg-name'             the icon show in the sidebar,
   }
 **/
-export const constantRouterMap = [
-  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
-  { path: '/404', component: () => import('@/views/404'), hidden: true },
-  {
-    path: '/',
-    component: Layout
-  },
-  { path: '*', redirect: '/404', hidden: true }
+export const constantRouterMap = [{
+  path: '/login',
+  component: () =>
+      import('@/views/login/index'),
+  hidden: true
+},
+{
+  path: '/404',
+  component: () =>
+      import('@/views/404'),
+  hidden: true
+},
+{
+  path: '/',
+  component: Layout
+}
 ]
 
 export default new Router({
   // mode: 'history', //后端支持可开
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({
+    y: 0
+  }),
   routes: constantRouterMap
 })
 
@@ -49,10 +59,18 @@ export const asyncRouterMap = [{
   children: [{
     menuCode: 'GSXX',
     path: 'companyInfo',
-    component: () => import('@/views/basicSetting/companyInfo'),
+    component: () =>
+        import('@/views/basicSetting/companyInfo'),
     name: 'companyInfo',
     meta: {
       title: '公司信息'
     }
-  }]
+  },
+  {
+    menuCode: '404',
+    path: '*',
+    redirect: '/404',
+    hidden: true
+  }
+  ]
 }]

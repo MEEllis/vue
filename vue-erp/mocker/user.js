@@ -127,7 +127,6 @@ const companyList = {
 const info = {
   'result': 1,
   'data': {
-    'roles': ['admin'],
     detail: {
       'attrs': {},
       'id': 762,

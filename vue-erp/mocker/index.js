@@ -3,11 +3,12 @@ const {
   info,
   getMenuList
 } = require('./user')
-console.log(companyList)
-console.log(info)
-console.log(getMenuList)
+const {
+  companyInfo
+} = require('./basicSetting')
+
 const proxy = {
-  'POST /user/companyList': (req, res) => {
+  'POST /manager/user/companyList': (req, res) => {
     const {
       password,
       username
@@ -21,7 +22,7 @@ const proxy = {
       })
     }
   },
-  'POST /user/login': (req, res) => {
+  'POST /manager/user/login': (req, res) => {
     const {
       password,
       username
@@ -38,10 +39,19 @@ const proxy = {
       })
     }
   },
-  'GET /user/info': (req, res) => {
+  'GET /manager/user/info': (req, res) => {
     return res.send(info)
   },
-  'GET /user/getMenuList': (req, res) => {
+  'GET /manager/authority/companyInfo/companyList': (req, res) => {
+    const one = Object.assign({}, companyInfo.data.company[0])
+    for (let i = 0; i < 50; i++) {
+      one.id += i
+      one.name += i
+      companyInfo.data.company.push(one)
+    }
+    return res.send(companyInfo)
+  },
+  'GET /manager/user/getMenuList': (req, res) => {
     return res.send(getMenuList)
   }
 }
