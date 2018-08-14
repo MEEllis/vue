@@ -10,7 +10,7 @@ const companyInfo = {
       'name': '程英测试公司',
       'parentLayerCode': null,
       'areaId': -1,
-      'status': 0,
+      'status': 1,
       'remark': '7777',
       'createUid': 1599,
       'createTime': 1490077049000,

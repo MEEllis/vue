@@ -43,10 +43,13 @@ const proxy = {
     return res.send(info)
   },
   'GET /manager/authority/companyInfo/companyList': (req, res) => {
-    const one = Object.assign({}, companyInfo.data.company[0])
-    for (let i = 0; i < 50; i++) {
-      one.id += i
-      one.name += i
+    for (let i = 1; i < 10; i++) {
+      const one = {
+        ...companyInfo.data.company[0]
+      }
+      one.id = Number(one.id) + i
+      one.name = one.name + i
+      one.code = Number(one.code) + i
       companyInfo.data.company.push(one)
     }
     return res.send(companyInfo)
