@@ -2,7 +2,7 @@
   <div class=''>
      <div class='login-container'>
       <el-form class='login-form' autoComplete='on' :model='loginForm' :rules='loginRules' ref='loginForm' >
-        <h3 class='title'>vue-element-admin</h3>
+        <h3 class='title'>享换购</h3>
         <el-form-item prop='username'>
           <span class='svg-container svg-container_login'>
             <svg-icon icon-class='user' />
@@ -33,8 +33,8 @@
           </el-option>
         </el-select>
         <div slot='footer' class='dialog-footer'>
-          <el-button  @keyup.enter='handleCompanyCancel' @click='handleCompanyCancel'>取 消</el-button>
-          <el-button type='primary' @keyup.enter='handleCompany' @click='handleCompany'>确 定</el-button>
+          <el-button size="small" @keyup.enter='handleCompanyCancel' @click='handleCompanyCancel'>取 消</el-button>
+          <el-button size="small" type='primary' @keyup.enter='handleCompany' @click='handleCompany'>确 定</el-button>
         </div>
     </el-dialog>
   </div>

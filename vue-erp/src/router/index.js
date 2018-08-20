@@ -48,29 +48,56 @@ export default new Router({
 })
 
 export const asyncRouterMap = [{
-  menuCode: 'JCSZ',
-  path: '/basicSetting',
+  menuCode: 'XTPZI',
+  path: '/systemConfig',
   component: Layout,
-  alwaysShow: true, // will always show the root menu
-  meta: {
-    title: '基础设置',
-    icon: 'lock'
-  },
   children: [{
-    menuCode: 'GSXX',
-    path: 'companyInfo',
+    menuCode: 'XTPZ',
+    path: 'index',
     component: () =>
         import('@/views/basicSetting/companyInfo'),
-    name: 'companyInfo',
+    name: 'icons',
     meta: {
-      title: '公司信息'
+      title: '系统配置',
+      icon: 'lock'
     }
+  }]
+},
+{
+  menuCode: 'RBCX',
+  path: '/report',
+  meta: {
+    title: '报表查询',
+    icon: 'lock'
   },
-  {
-    menuCode: '404',
-    path: '*',
-    redirect: '/404',
-    hidden: true
-  }
-  ]
-}]
+  alwaysShow: true,
+  component: Layout,
+  children: [{
+    menuCode: 'DDMX',
+    path: 'orderDetails',
+    component: () =>
+        import('@/views/report/orderDetails'),
+    name: 'orderDetails',
+    meta: {
+      title: '订单明细',
+      icon: 'lock'
+    }
+  }, {
+    menuCode: 'DDTJ',
+    path: 'orderStatistics',
+    component: () =>
+        import('@/views/report/orderStatistics'),
+    name: 'orderStatistics',
+    meta: {
+      title: '订单统计',
+      icon: 'lock'
+    }
+  }]
+},
+{
+  menuCode: '404',
+  path: '*',
+  redirect: '/404',
+  hidden: true
+}
+]
