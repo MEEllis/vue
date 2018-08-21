@@ -1,5 +1,5 @@
 const companyList = {
-  'result': 1,
+  'code': '0000',
   'desc': null,
   'data': {
     'companyList': [{
@@ -125,7 +125,7 @@ const companyList = {
   'billsId': null
 }
 const info = {
-  'result': 1,
+  'code': '0000',
   'data': {
     detail: {
       'attrs': {},
@@ -161,7 +161,7 @@ const info = {
 }
 
 const getMenuList = {
-  'result': 1,
+  'code': '0000',
   'desc': null,
   'data': {
     'menuVoList': [
@@ -173,9 +173,12 @@ const getMenuList = {
         'menuCode': 'RBCX'
       }, {
         'menuCode': 'DDMX'
+      }, {
+        'menuCode': 'PTCZY_MODULE'
+      }, {
+        'menuCode': 'PTCZY'
       }]
-  },
-  'billsId': null
+  }
 }
 module.exports = {
   companyList,

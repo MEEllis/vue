@@ -88,7 +88,6 @@ export default {
       this.resetPwd = getRandomPassword()
     },
     resetPwdCancel(row) {
-      debugger
       this.resetPwdVisible = false
     },
     resetPwdOK(row) {

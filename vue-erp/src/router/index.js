@@ -70,6 +70,7 @@ export const asyncRouterMap = [{
     title: '报表查询',
     icon: 'lock'
   },
+  name: 'report',
   alwaysShow: true,
   component: Layout,
   children: [{
@@ -90,6 +91,26 @@ export const asyncRouterMap = [{
     name: 'orderStatistics',
     meta: {
       title: '订单统计',
+      icon: 'lock'
+    }
+  }]
+},
+{
+  menuCode: 'PTCZY_MODULE',
+  path: '/platformOperator',
+  meta: {
+    title: '平台操作员',
+    icon: 'lock'
+  },
+  component: Layout,
+  children: [{
+    menuCode: 'PTCZY',
+    path: 'index',
+    component: () =>
+        import('@/views/platformOperator/index'),
+    name: 'index',
+    meta: {
+      title: '平台操作员',
       icon: 'lock'
     }
   }]

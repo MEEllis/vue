@@ -1,5 +1,6 @@
 const companyInfo = {
   'result': 1,
+  'code': '0000',
   'desc': '查询成功',
   'data': {
     'company': [{
