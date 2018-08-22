@@ -27,6 +27,15 @@ export function enableUser(data) {
   })
 }
 
+// 获取角色集合
+export function getRoleList(data) {
+  return request({
+    url: '/api/v1/manager/role/getRoleList',
+    method: 'post',
+    data
+  })
+}
+
 // 修改用户
 export function userAuthUpdate(data) {
   return request({
@@ -76,6 +85,15 @@ export function roleAuthUpdate(data) {
 export function rolePrivileges(data) {
   return request({
     url: '/api/v1/manager/role/privileges',
+    method: 'post',
+    data
+  })
+}
+
+// 角色授权
+export function resetPassword(data) {
+  return request({
+    url: '/api/v1/manager/user/resetPassword',
     method: 'post',
     data
   })

@@ -17,6 +17,7 @@ label {
 }
 
 html {
+  font-size: 14px;
   height: 100%;
   box-sizing: border-box;
 }
@@ -79,6 +80,18 @@ a:hover {
   padding: 10px;
 }
 
+.pagination-container{
+  padding-top: 10px;
+}
+
 .txt-default{
   width: 230px;
+}
+
+.search-wrap{
+  padding: 10px 0px;
+}
+
+.pd-left-8{
+  padding-left: 8px;
 }

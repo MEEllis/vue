@@ -7,7 +7,8 @@ const {
   companyInfo
 } = require('./basicSetting')
 const {
-  getUserVoPageList
+  getUserVoPageList,
+  getRoleList
 } = require('./platformOperator')
 
 const proxy = {
@@ -54,12 +55,20 @@ const proxy = {
   'POST /api/v1/manager/user/getUserVoPageList': (req, res) => {
     return res.send(getUserVoPageList)
   },
+  'POST /api/v1/manager/role/getRoleList': (req, res) => {
+    return res.send(getRoleList)
+  },
   'POST /api/v1/manager/user/deleteUser': (req, res) => {
     return res.send({
       code: '0000'
     })
   },
   'POST /api/v1/manager/user/enableUser': (req, res) => {
+    return res.send({
+      code: '0000'
+    })
+  },
+  'POST /api/v1/manager/user/resetPassword': (req, res) => {
     return res.send({
       code: '0000'
     })

@@ -34,9 +34,9 @@ service.interceptors.response.use(
       return response.data
     } else {
       Message({
-        message: res.message,
+        message: res.desc,
         type: 'error',
-        duration: 5 * 1000
+        duration: 3 * 1000
       })
       // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;
       if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
@@ -58,7 +58,7 @@ service.interceptors.response.use(
     Message({
       message: error.message,
       type: 'error',
-      duration: 5 * 1000
+      duration: 3 * 1000
     })
     return Promise.reject(error)
   }
