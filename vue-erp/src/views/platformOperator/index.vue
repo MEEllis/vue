@@ -4,13 +4,13 @@
       <el-button icon='el-icon-plus' size="mini" @click="handleAdd()">新增</el-button>
       <el-button icon='el-icon-plus' size="mini" @click="handleEnable(1)">启用</el-button>
       <el-button icon='el-icon-plus' size="mini" @click="handleEnable(0)">禁用</el-button>
-      <el-button icon='el-icon-plus' size="mini" @click="handleAdd()">角色权限</el-button>
+      <el-button icon='el-icon-plus' size="mini" @click="handleRole()">角色权限</el-button>
     </el-row>
     <el-row class="search-wrap">
       查询信息:
-      <el-input class='txt-default'  @keyup.enter.native="handleFilter" placeholder="请输入姓名、账号" v-model="searchKey" clearable autofocus>
+      <el-input class='txt-default' @keyup.enter.native="handleFilter" placeholder="请输入姓名、账号" v-model="searchKey" clearable autofocus>
       </el-input>
-      <el-checkbox class='pd-left-8'  @change='handleFilter'  v-model="containsDisabled">显示禁用</el-checkbox>
+      <el-checkbox class='pd-left-8' @change='handleFilter' v-model="containsDisabled">显示禁用</el-checkbox>
     </el-row>
     <el-table :data="dataList" height='calc(100vh - 205px)' border stripe @selection-change="handleSelectionChange">
       <el-table-column width="50" label="序号" type="index" align="center">
@@ -56,7 +56,7 @@
       </el-pagination>
     </div>
 
-    <el-dialog v-el-drag-dialog :title='textMap[dialogUserStatus]+"操作员"' width='600px' :visible.sync='dialogUserVisible'>
+    <el-dialog v-el-drag-dialog :title='textMap[dialogUserStatus]+"操作员"' width='600px' append-to-body  :visible.sync='dialogUserVisible'>
       <el-form class='login-form' label-position="right" label-width="90px" autoComplete='on' :model='roleForm' :rules='roleRules' ref="roleForm">
         <el-form-item label="登陆账号:" prop="login">
           <el-tooltip class="item" effect="dark" placement="top-start">
@@ -81,6 +81,35 @@
         <el-button size="small" @click='handleUserCancel'>取 消</el-button>
       </div>
     </el-dialog>
+
+    <el-dialog v-el-drag-dialog title='角色权限' width='900px' append-to-body :visible.sync='dialogRoleVisible'>
+      <el-card class="box-card" style="width:160px;" body-style='height:350px; overflow: auto;'>
+        <div slot="header" class="clearfix">
+          <span>角色列表</span>
+          <el-row>
+            <el-col :span="8">
+              <el-button style="" type="text" @click="handleRoleAdd()">添加</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button style="" type="text">修改</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button style="" type="text">删除</el-button>
+            </el-col>
+          </el-row>
+        </div>
+        <div>
+          <div v-for="item in roleForm.roleList" :key="item.id" style="border-bottom: 1px solid #ccc;">
+            {{item.name}}
+          </div>
+        </div>
+
+      </el-card>
+      <div slot='footer' class='dialog-footer'>
+        <el-button size="small" type='primary' @click='handleUserOk(0)'>保 存</el-button>
+        <el-button size="small" @click='handleUserCancel'>取 消</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -98,6 +127,7 @@ export default {
       searchKey: '',
       containsDisabled: false,
       dialogUserVisible: false,
+      dialogRoleVisible: true,
       dialogUserStatus: '',
       textMap: {
         update: '修改',
@@ -157,7 +187,7 @@ export default {
     resetRoleForm() {
       this.roleForm.login = ''
       this.roleForm.name = ''
-      this.roleForm.roleIds = ''
+      this.roleForm.roleIds = []
       this.roleForm.id = ''
       this.$nextTick(() => {
         this.$refs['roleForm'].clearValidate()
@@ -182,8 +212,13 @@ export default {
             message: '修改成功',
             type: 'success'
           })
+          this.getList()
         })
       }
+    },
+    handleRole() {
+      this.dialogRoleVisible = true
+      this.loadRoleList()
     },
     handleAdd() {
       this.dialogUserVisible = true
@@ -217,6 +252,7 @@ export default {
           type: 'success',
           message: '删除成功!'
         })
+        this.getList()
       })
     },
     handleResetPwd(rowData) {
@@ -258,6 +294,24 @@ export default {
         }
       })
     },
+    handleRoleAdd() {
+      this.$prompt('请输入邮箱', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
+        inputErrorMessage: '邮箱格式不正确'
+      }).then(({ value }) => {
+        this.$message({
+          type: 'success',
+          message: '你的邮箱是: ' + value
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '取消输入'
+        })
+      })
+    },
     loadRoleList() {
       if (this.roleForm.roleList.length === 0) {
         getRoleList().then(res => {
@@ -275,6 +329,7 @@ export default {
         this.dialogUserVisible = false
       }
       this.resetRoleForm()
+      this.getList()
     }
   },
   computed: mapState({
