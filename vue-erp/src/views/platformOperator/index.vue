@@ -56,21 +56,21 @@
       </el-pagination>
     </div>
 
-    <el-dialog v-el-drag-dialog :title='textMap[dialogUserStatus]+"操作员"' width='600px' append-to-body  :visible.sync='dialogUserVisible'>
-      <el-form class='login-form' label-position="right" label-width="90px" autoComplete='on' :model='roleForm' :rules='roleRules' ref="roleForm">
+    <el-dialog v-el-drag-dialog :title='textMap[dialogUserStatus]+"操作员"' width='600px' append-to-body :visible.sync='dialogUserVisible'>
+      <el-form class='login-form' label-position="right" label-width="90px" autoComplete='on' :model='userForm' :rules='userRules' ref="userForm">
         <el-form-item label="登陆账号:" prop="login">
           <el-tooltip class="item" effect="dark" placement="top-start">
             <div slot="content">留空时自动编号.编号规则为顺序编号B+4位流水号.<br/>例如：第一个新增的操作员编码为B0001，第二个应为B0002，以此类推</div>
-            <el-input class='txt-default' placeholder="请输入登陆账号" v-model="roleForm.login" clearable> </el-input>
+            <el-input class='txt-default' placeholder="请输入登陆账号" v-model="userForm.login" clearable> </el-input>
           </el-tooltip>
         </el-form-item>
 
         <el-form-item label="姓名:" prop="name">
-          <el-input class='txt-default' placeholder="请输入姓名" v-model="roleForm.name" clearable> </el-input>
+          <el-input class='txt-default' placeholder="请输入姓名" v-model="userForm.name" clearable> </el-input>
         </el-form-item>
         <el-form-item label="角色名称:" prop="roleIds">
-          <el-select multiple collapse-tags v-model='roleForm.roleIds' placeholder='请选择'>
-            <el-option v-for='item in roleForm.roleList' :key='item.id' :label='item.name' :value='item.id'>
+          <el-select multiple collapse-tags v-model='userForm.roleIds' placeholder='请选择'>
+            <el-option v-for='item in userForm.roleList' :key='item.id' :label='item.name' :value='item.id'>
             </el-option>
           </el-select>
         </el-form-item>
@@ -83,7 +83,7 @@
     </el-dialog>
 
     <el-dialog v-el-drag-dialog title='角色权限' width='900px' append-to-body :visible.sync='dialogRoleVisible'>
-      <el-card class="box-card" style="width:160px;" body-style='height:350px; overflow: auto;'>
+      <el-card class="box-card" style="width:160px;" body-style='height:350px; overflow-y: auto;'>
         <div slot="header" class="clearfix">
           <span>角色列表</span>
           <el-row>
@@ -91,30 +91,42 @@
               <el-button style="" type="text" @click="handleRoleAdd()">添加</el-button>
             </el-col>
             <el-col :span="8">
-              <el-button style="" type="text">修改</el-button>
+              <el-button style="" type="text" @click="handleRoleUpdate()">修改</el-button>
             </el-col>
             <el-col :span="8">
-              <el-button style="" type="text">删除</el-button>
+              <el-button style="" type="text" @click="handleRoleDel()">删除</el-button>
             </el-col>
           </el-row>
         </div>
         <div>
-          <div v-for="item in roleForm.roleList" :key="item.id" style="border-bottom: 1px solid #ccc;">
-            {{item.name}}
+          <div v-for="item in userForm.roleList" :key="item.id" style="border-bottom: 1px solid #ccc;">
+            <el-button style="" type="text" @click="roleForm.id = item.id">{{item.name}}</el-button>
           </div>
         </div>
 
       </el-card>
       <div slot='footer' class='dialog-footer'>
         <el-button size="small" type='primary' @click='handleUserOk(0)'>保 存</el-button>
-        <el-button size="small" @click='handleUserCancel'>取 消</el-button>
+        <el-button size="small" @click='dialogRoleVisible=false'>取 消</el-button>
+      </div>
+    </el-dialog>
+
+    <el-dialog v-el-drag-dialog :title='textMap[dialogRoleStatus]+"角色"' width='600px' append-to-body :visible.sync='dialogRoleEditVisible'>
+      <el-form class='login-form' label-position="right" label-width="90px" autoComplete='on' :model='roleForm' :rules='roleRules' ref="roleForm">
+        <el-form-item label="角色名称:" prop="name">
+          <el-input class='txt-default' placeholder="请输入角色名称" v-model="roleForm.name" clearable autofocus> </el-input>
+        </el-form-item>
+      </el-form>
+      <div slot='footer' class='dialog-footer'>
+        <el-button size="small" type='primary' @click='handleRoleOk()'>保 存</el-button>
+        <el-button size="small" @click='dialogRoleEditVisible = false'>取 消</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import { getUserVoPageList, getRoleList, userAuthAdd, userAuthUpdate, deleteUser, enableUser, resetPassword } from '@/api/platformOperator'
+import { getUserVoPageList, getRoleList, userAuthAdd, userAuthUpdate, deleteUser, enableUser, resetPassword, roleAuthAdd, roleAuthUpdate, deleteRole } from '@/api/platformOperator'
 import { isvalidUsername } from '@/utils/validate'
 import elDragDialog from '@/directive/el-dragDialog' // base on element-ui
 import { mapState } from 'vuex'
@@ -127,8 +139,10 @@ export default {
       searchKey: '',
       containsDisabled: false,
       dialogUserVisible: false,
-      dialogRoleVisible: true,
+      dialogRoleVisible: false,
+      dialogRoleEditVisible: false,
       dialogUserStatus: '',
+      dialogRoleStatus: '',
       textMap: {
         update: '修改',
         create: '新增'
@@ -140,18 +154,25 @@ export default {
         totalRecordCount: 0
       },
       multipleSelection: [],
-      roleRules: {
+      userRules: {
         name: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
         roleIds: [
           { required: true, message: '请至少选择一个角色名称', trigger: 'change' }
         ]
       },
-      roleForm: {
+      userForm: {
         id: '',
         login: '',
         name: '',
         roleIds: [],
         roleList: []
+      },
+      roleRules: {
+        name: [{ required: true, message: '请输入角色名称', trigger: 'blur' }]
+      },
+      roleForm: {
+        id: '',
+        name: ''
       }
     }
   },
@@ -184,13 +205,13 @@ export default {
       this.listQuery.pageNum = val
       this.getList()
     },
-    resetRoleForm() {
-      this.roleForm.login = ''
-      this.roleForm.name = ''
-      this.roleForm.roleIds = []
-      this.roleForm.id = ''
+    resetUserForm() {
+      this.userForm.login = ''
+      this.userForm.name = ''
+      this.userForm.roleIds = []
+      this.userForm.id = ''
       this.$nextTick(() => {
-        this.$refs['roleForm'].clearValidate()
+        this.$refs['userForm'].clearValidate()
       })
     },
     handleSelectionChange(list) {
@@ -223,7 +244,7 @@ export default {
     handleAdd() {
       this.dialogUserVisible = true
       this.dialogUserStatus = 'create'
-      this.resetRoleForm()
+      this.resetUserForm()
       this.loadRoleList()
     },
     handleUpdate(rowData) {
@@ -233,10 +254,10 @@ export default {
       }
       this.dialogUserVisible = true
       this.dialogUserStatus = 'update'
-      this.roleForm.login = rowData.login
-      this.roleForm.name = rowData.name
-      this.roleForm.roleIds = roleIds
-      this.roleForm.id = rowData.id
+      this.userForm.login = rowData.login
+      this.userForm.name = rowData.name
+      this.userForm.roleIds = roleIds
+      this.userForm.id = rowData.id
       this.loadRoleList()
     },
     handleDel(rowData) {
@@ -264,13 +285,13 @@ export default {
     },
     handleUserCancel() {
       this.dialogUserVisible = false
-      this.resetRoleForm()
+      this.resetUserForm()
     },
     handleUserOk(flag) {
-      this.$refs['roleForm'].validate((valid) => {
+      this.$refs['userForm'].validate((valid) => {
         if (valid) {
           const { dialogUserStatus } = this
-          const { login, name, roleIds, id } = this.roleForm
+          const { login, name, roleIds, id } = this.userForm
           if (dialogUserStatus === 'create') {
             userAuthAdd({
               login,
@@ -295,27 +316,54 @@ export default {
       })
     },
     handleRoleAdd() {
-      this.$prompt('请输入邮箱', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
-        inputErrorMessage: '邮箱格式不正确'
-      }).then(({ value }) => {
-        this.$message({
-          type: 'success',
-          message: '你的邮箱是: ' + value
-        })
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '取消输入'
-        })
+      this.dialogRoleStatus = 'create'
+      this.dialogRoleEditVisible = true
+      this.resetRoleForm()
+    },
+    handleRoleUpdate() {
+      this.dialogRoleStatus = 'update'
+      this.dialogRoleEditVisible = true
+      this.resetRoleForm()
+    },
+    handleRoleDel() {
+      this.dialogRoleStatus = 'create'
+      this.dialogRoleEditVisible = true
+    },
+    handleRoleOk() {
+      this.$refs['roleForm'].validate((valid) => {
+        if (valid) {
+          const { dialogRoleStatus } = this
+          const { name, id } = this.roleForm
+          if (dialogRoleStatus === 'create') {
+            roleAuthAdd({
+              name
+            }).then(res => {
+              this.roleSaveSuccess('保存成功')
+            })
+          } else {
+            roleAuthUpdate({
+              id,
+              name
+            }).then(res => {
+              this.roleSaveSuccess('修改成功')
+            })
+          }
+        } else {
+          return false
+        }
+      })
+    },
+    resetRoleForm() {
+      this.roleForm.name = ''
+      this.roleForm.id = ''
+      this.$nextTick(() => {
+        this.$refs['roleForm'].clearValidate()
       })
     },
     loadRoleList() {
-      if (this.roleForm.roleList.length === 0) {
+      if (this.userForm.roleList.length === 0) {
         getRoleList().then(res => {
-          this.roleForm.roleList = res.data.dataList
+          this.userForm.roleList = res.data.dataList
         })
       }
     },
@@ -328,8 +376,18 @@ export default {
       if (!flag) {
         this.dialogUserVisible = false
       }
-      this.resetRoleForm()
+      this.resetUserForm()
       this.getList()
+    },
+    roleSaveSuccess(message) {
+      this.$message({
+        showClose: true,
+        message: message,
+        type: 'success'
+      })
+      this.resetRoleForm()
+      this.dialogRoleEditVisible = false
+      this.userForm.roleIds = []
     }
   },
   computed: mapState({
