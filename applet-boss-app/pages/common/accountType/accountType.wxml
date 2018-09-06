@@ -1,0 +1,17 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<!-- 搜索 -->
+<search-bar placeholder="资金账户类型编码/资金账户类型名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+
+<!-- 商品列表 -->
+<scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;">
+  <view class='list-item' bindtap='tapSel' data-id="{{item.id}}" data-name="{{item.name}}" wx:for-items="{{dataList}}" wx:key="">
+    <view class='list-item-title border-bottom'>
+      <view class='weui-cell'>
+        <view class="weui-cell__bd">
+          {{numberFr.stringNull(item.name)}}
+        </view>
+        <text class='fr iconfont {{activeId==item.id?"icon-gouxuan":""}}'></text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

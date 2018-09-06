@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "资金账户类型",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

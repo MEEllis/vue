@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "运营商业务名称",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "分期业务",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

@@ -45,6 +45,7 @@ Page({
         scrollHeight,
       })
     })
+    var query = wx.createSelectorQuery();
   },
   searchInput: function(e) {
     const {

@@ -1,0 +1,38 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<!-- 搜索 -->
+<search-bar placeholder="分期业务编码/分期业务名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+
+<!-- 商品列表 -->
+<scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;">
+  <view class='list-item' wx:for-items="{{dataList}}" wx:key="">
+    <!-- 公司名称 -->
+    <view bindtap='tapSel' data-id="{{item.id}}" data-name="{{item.name}}" class='list-item-title border-bottom' wx:if="{{item.id===''}}">
+      <view class='weui-cell'>
+        <view class="weui-cell__bd">
+          {{numberFr.stringNull(item.name)}}
+        </view>
+        <text class='fr iconfont {{(activeId==item.id)==true?"icon-gouxuan":""}}'></text>
+      </view>
+    </view>
+    <view wx:else  class='list-item-title border-bottom ' >
+      <view class='weui-cell color666' style='padding:8rpx 30rpx;font-size:24rpx;'>
+        <view class="weui-cell__bd">
+          {{numberFr.stringNull(item.name)}}
+        </view>
+        <text class='fr iconfont '></text>
+      </view>
+    </view>
+    <!-- 部门名称 -->
+    <view wx:for-items="{{item.installmentBusinessList}}" wx:key="" wx:for-item="childItem" bindtap='tapSel' data-id="{{childItem.id}}" data-name="{{childItem.name}}" style='padding-left:80rpx;'>
+      <view class='list-item-title border-bottom'>
+        <view class='weui-cell' style='padding: 14rpx 30rpx 14rpx 0rpx;'>
+          <view class="weui-cell__bd">
+            <view style='line-height:1;'> {{numberFr.stringNull(childItem.name)}}</view>
+            <view style='line-height:1;padding-top:10rpx;' class='font-24 color666'> {{numberFr.stringNull(childItem.sectionPath)}}</view>
+          </view>
+          <text class='fr iconfont {{(activeId==childItem.id)==true?"icon-gouxuan":""}}'></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
