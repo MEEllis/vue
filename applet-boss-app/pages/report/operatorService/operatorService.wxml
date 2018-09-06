@@ -2,7 +2,7 @@
 <import src="../../../template/pagination.wxml" />
 
 <!-- 搜索 -->
-<search-bar class='search-bar' placeholder="{{groupFieldName}}编码/{{groupFieldName}}名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
+<search-bar class='search-bar' placeholder="{{groupFieldName}}" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
 <view class='sel-time border-top'>
   查询日期:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
 </view>
@@ -11,7 +11,7 @@
 <view class="weui-tab">
   <view class="weui-navbar">
     <block wx:for-items="{{ tabs}}" wx:key="{{ index }}">
-      <view data-value="{{item.value}}" data-name="{{item.name}}" class="weui-navbar__item {{ groupField == item.value ? 'weui-bar__item_on' : '' }}" bindtap="tabClick">
+      <view data-value="{{item.value}}" data-name="{{item.name}}" data-lab="{{item.searchLab}}" class="weui-navbar__item {{ groupField == item.value ? 'weui-bar__item_on' : '' }}" bindtap="tabClick">
         <view class="weui-navbar__title">{{ item.name }}</view>
       </view>
     </block>

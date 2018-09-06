@@ -28,8 +28,8 @@ Page({
     timeActive: 0,
     timeList: ['今日', '本周', '本月', '自定义'],
     toDayDate: '',
-    groupFeildList: [],
-    groupFeild: '',
+    groupFieldList: [],
+    groupField: '',
 
   },
 
@@ -93,10 +93,10 @@ Page({
   },
 
  
-  groupFeildRadioChange: function (e) {
-    const groupFeild = e.detail.value;
+  groupFieldRadioChange: function (e) {
+    const groupField = e.detail.value;
     this.setData({
-      groupFeild,
+      groupField,
     });
   },
 
@@ -165,7 +165,7 @@ Page({
       startDate,
       endDate,
       timeActive,
-      groupFeild,
+      groupField,
     } = this.data;
     const {
       addPage
@@ -184,7 +184,7 @@ Page({
         startDate,
         endDate,
         timeActive,
-        groupFeild,
+        groupField,
       })
       addPage.searchSubmit()
     }
@@ -211,7 +211,7 @@ Page({
       startDate,
       endDate,
       timeActive: 2,
-      groupFeild: 'sectionName',
+      groupField: 'sectionName',
     })
   },
   setDelta: function () {
@@ -250,7 +250,7 @@ Page({
           startDate,
           endDate,
           timeActive,
-          groupFeild,
+          groupField,
           tabs,
         } = addPage.data;
         this.setData({
@@ -270,8 +270,8 @@ Page({
           startDate,
           endDate,
           timeActive,
-          groupFeild,
-          groupFeildList: tabs,
+          groupField,
+          groupFieldList: tabs,
         });
       }
     }

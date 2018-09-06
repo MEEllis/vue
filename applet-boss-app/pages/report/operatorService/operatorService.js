@@ -15,8 +15,8 @@ Page({
     companySectionParamId: '',
     companySectionParamName: '',
     companySectionParamData: [],
-    operatorId:'',
-    operatorName:'全部',
+    operatorId: '',
+    operatorName: '全部',
     operatorData: [],
     operatorUnitId: '',
     operatorUnitName: '全部',
@@ -29,7 +29,7 @@ Page({
     startDate: '',
     endDate: '',
     groupFeild: 'sectionName',
-    groupFieldName: '门店',
+    groupFieldName: '部门编码/部门名称',
     page: 1,
     pageSize: 20,
     dataList: [],
@@ -41,20 +41,24 @@ Page({
     },
     tabs: [{
       name: '门店',
+      searchLab: '部门编码/部门名称',
       value: 'sectionName'
     }, {
       name: '营业员',
-        value: 'salesManName'
+      searchLab: '营业员编码/营业员名称',
+      value: 'salesManName'
     }, {
-        name: '业务',
-        value: 'businessName'
+      name: '业务',
+      searchLab: '运营商单位编码/运营商单位名称/业务编码/业务名称',
+      value: 'businessName'
     }, {
-        name: '运营商',
-        value: 'operatorName'
+      name: '运营商',
+      searchLab: '运营商编码/运营商名称',
+      value: 'operatorName'
     }],
     sliderOffset: 0,
     sliderLeft: 0,
-    icon:'icon-iconfontdianpu5',
+    icon: 'icon-iconfontdianpu5',
   },
 
   /**
@@ -95,7 +99,7 @@ Page({
   },
   tabClick: function(e) {
     const groupFeild = e.currentTarget.dataset.value;
-    const groupFieldName = e.currentTarget.dataset.name;
+    const groupFieldName = e.currentTarget.dataset.lab;
     this.setData({
       groupFeild,
       groupFieldName,
@@ -114,15 +118,17 @@ Page({
   },
   //关键字搜索
   searchSubmit: function() {
-    const { groupFeild} = this.data;
-    let icon='';
-    if (groupFeild ==='sectionName'){
+    const {
+      groupFeild
+    } = this.data;
+    let icon = '';
+    if (groupFeild === 'sectionName') {
       icon = 'icon-iconfontdianpu5'
-    } else if (groupFeild === 'salesManName'){
+    } else if (groupFeild === 'salesManName') {
       icon = 'icon-iconfontgerenzhongxin'
     } else if (groupFeild === 'businessName') {
       icon = 'icon-zuzhichangsuo-shiyoudanwei'
-    } else{
+    } else {
       icon = 'icon-TX_ICO'
     }
     this.setData({
@@ -230,7 +236,7 @@ Page({
   },
 
   //获取运营商名称集合
-  getOperatorsList: function () {
+  getOperatorsList: function() {
     var that = this;
     const {
       menuCode
@@ -244,7 +250,7 @@ Page({
     })
   },
   //获取运营商单位
-  getOperatorUnitsList: function () {
+  getOperatorUnitsList: function() {
     var that = this;
     const {
       menuCode
@@ -258,7 +264,7 @@ Page({
     })
   },
   //获取运营商业务名称
-  getOperatorNameList: function () {
+  getOperatorNameList: function() {
     var that = this;
     const {
       menuCode
@@ -300,7 +306,7 @@ Page({
     });
   },
   //获取总计行对象
-  getTotalVo: function () {
+  getTotalVo: function() {
     var that = this;
     const postData = this.getSearchParam();
     request(api.getOperatorServiceTotalVo, postData).then(res => {

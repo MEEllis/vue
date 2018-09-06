@@ -35,7 +35,7 @@ Page({
     salesType: '',
 
 
-    groupFeildList: [{
+    groupFieldList: [{
       name: '部门',
       value: 'sectionName'
     }, {
@@ -48,7 +48,7 @@ Page({
         name: '型号',
         value: 'modelName'
       }],
-    groupFeild: '',
+    groupField: '',
 
     rankingGistList: [],
     rankingGist: '',
@@ -123,10 +123,10 @@ Page({
   },
 
   //排行对象
-  groupFeildRadioChange: function (e) {
-    const groupFeild = e.detail.value;
+  groupFieldRadioChange: function (e) {
+    const groupField = e.detail.value;
     this.setData({
-      groupFeild,
+      groupField,
     });
   },
     //排行依据
@@ -199,7 +199,7 @@ Page({
       endDate,
       timeActive,
       salesType,
-      groupFeild,
+      groupField,
       rankingGist,
     } = this.data;
     const {
@@ -216,7 +216,7 @@ Page({
         endDate,
         timeActive,
         salesType,
-        groupFeild,
+        groupField,
         rankingGist,
       })
       addPage.searchSubmit()
@@ -241,7 +241,7 @@ Page({
       endDate,
       timeActive: 2,
       salesType: '',
-      groupFeild: 'salesManName',
+      groupField: 'salesManName',
       rankingGist: 'goodsQuantity',
     })
   },
@@ -274,7 +274,7 @@ Page({
           endDate,
           timeActive,
           salesType,
-          groupFeild,
+          groupField,
           rankingGist,
           tabs,
         } = addPage.data;
@@ -290,7 +290,7 @@ Page({
           endDate,
           timeActive,
           salesType,
-          groupFeild,
+          groupField,
           rankingGist,
           rankingGistList:tabs,
         });

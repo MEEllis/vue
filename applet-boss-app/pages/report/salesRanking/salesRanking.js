@@ -24,7 +24,7 @@ Page({
     endDate: '',
     rankingGist: 'goodsQuantity', //排行依据goodsQuantity数量,goodsAmount金额,goodsProfitAmount毛利
     salesType:'',
-    groupFeild:'salesManName',
+    groupField:'salesManName',
     page: 1,
     pageSize: 20,
     dataList: [],
@@ -185,7 +185,7 @@ Page({
       startDate,
       endDate,
       salesType,
-      groupFeild,
+      groupField,
       rankingGist,
     } = this.data;
     return {
@@ -195,7 +195,7 @@ Page({
       startDate,
       endDate,
       salesType,
-      groupFeild,
+      groupField,
       rankingGist,
     }
   },

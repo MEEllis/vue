@@ -70,9 +70,9 @@
   <view class="weui-cell">
     统计对象
     <view class="weui-cell__bd tr">
-      <radio-group class="radio-group" bindchange="groupFeildRadioChange">
-        <label class="ui-radio {{item.value==groupFeild?'checked':''}}" wx:for="{{groupFeildList}}" wx:key="">
-          <radio value="{{item.value}}" checked="{{item.value==groupFeild}}" />{{item.name}}
+      <radio-group class="radio-group" bindchange="groupFieldRadioChange">
+        <label class="ui-radio {{item.value==groupField?'checked':''}}" wx:for="{{groupFieldList}}" wx:key="">
+          <radio value="{{item.value}}" checked="{{item.value==groupField}}" />{{item.name}}
         </label>
       </radio-group>
     </view>
