@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "销售排行(按营业员)",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

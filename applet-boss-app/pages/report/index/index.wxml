@@ -76,7 +76,7 @@
         <image src="../../../images/11-1.png" lazy-load='true' />
         <view>采购汇总</view>
       </navigator>
-      <view  wx:else class='weui-flex__item tc'>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/11.png" lazy-load='true' />
         <view>采购汇总</view>
       </view>
@@ -86,7 +86,11 @@
       </view>
     </view>
     <view class='weui-flex align-center'>
-      <view class='weui-flex__item tc'>
+      <navigator wx:if="{{authObj.BOSS_WDZJ.status===0}}" url='/pages/report/myMoney/myMoney' class='weui-flex__item tc'>
+        <image src="../../../images/13-1.png" lazy-load='true' />
+        <view>我的资金</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/13.png" lazy-load='true' />
         <view>我的资金</view>
       </view>
@@ -94,7 +98,11 @@
         <image src="../../../images/14.png" lazy-load='true' />
         <view>我的往来</view>
       </view>
-      <view class='weui-flex__item tc'>
+      <navigator wx:if="{{authObj.BOSS_YYSYWZB.status===0}}" url='/pages/report/operatorService/operatorService' class='weui-flex__item tc'>
+        <image src="../../../images/15-1.png" lazy-load='true' />
+        <view>运营商业务战报</view>
+      </navigator>
+      <view  wx:else class='weui-flex__item tc'>
         <image src="../../../images/15.png" lazy-load='true' />
         <view>运营商业务战报</view>
       </view>
@@ -104,7 +112,11 @@
         <image src="../../../images/16.png" lazy-load='true' />
         <view>增值服务战报</view>
       </view>
-      <view class='weui-flex__item tc'>
+      <navigator wx:if="{{authObj.BOSS_FQYWZB.status===0}}" url='/pages/report/installMentfee/installMentfee' class='weui-flex__item tc'>
+        <image src="../../../images/17-1.png" lazy-load='true' />
+        <view>分期业务战报</view>
+      </navigator>
+      <view  wx:else class='weui-flex__item tc'>
         <image src="../../../images/17.png" lazy-load='true' />
         <view>分期业务战报</view>
       </view>
@@ -129,7 +141,11 @@
         <image src="../../../images/01.png" lazy-load='true' />
         <view>销售占比</view>
       </view>
-      <view class='weui-flex__item tc'>
+      <navigator wx:if="{{authObj.BOSS_XSPH.status===0}}" url='/pages/report/salesRanking/salesRanking' class='weui-flex__item tc'>
+        <image src="../../../images/02-1.png" lazy-load='true' />
+        <view>销售排行</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/02.png" lazy-load='true' />
         <view>销售排行</view>
       </view>
@@ -143,7 +159,11 @@
         <image src="../../../images/04.png" lazy-load='true' />
         <view>销售对比</view>
       </view>
-      <view class='weui-flex__item tc'>
+      <navigator wx:if="{{authObj.BOSS_JXDB.status===0}}" url='/pages/report/salesRanking/salesRanking' class='weui-flex__item tc'>
+        <image src="../../../images/05-1.png" lazy-load='true' />
+        <view>进销对比</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/05.png" lazy-load='true' />
         <view>进销对比</view>
       </view>

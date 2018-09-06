@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "运营商业务战报",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

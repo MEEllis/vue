@@ -1,0 +1,52 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<!-- 一级类目 -->
+<view class='cate-wrap'>
+  <scroll-view scroll-x="true" class="cate-cotent">
+    <button class="cate-item  {{accountTypeId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="cateTap"> {{item.name}}</button>
+  </scroll-view>
+</view>
+<!-- 搜索 -->
+<search-bar class='search-bar' placeholder="资金账户编码/资金账户名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
+<view class='sel-time border-top'>
+  查询日期:{{startDate}}
+</view>
+
+<!-- 商品列表 -->
+<scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+  <view class='list-wrap mb-24' wx:for="{{ dataList }}" wx:key="">
+    <view class="weui-cell" data-index='{{index}}'>
+      <text class='iconfont icon-qia'></text>
+      <view class="weui-cell__bd ellipsis color000 font-30">
+        {{numberFr.stringNull(item.name)}}
+      </view>
+    </view>
+    <view class="weui-flex align-center sale-detail ">
+      <view class="weui-flex__item tc ">
+        <view class='sum-desc'>今日收入</view>
+        <view class='sum-val'>￥{{numberFr.formatNum(item.todayIncomeAmount,2)}}</view>
+      </view>
+      <view class="weui-flex__item tc " wx:if="{{authValidate.CKCBJ}}">
+        <view class='sum-desc'>今日支出</view>
+        <view class='sum-val'>￥{{numberFr.formatNum(item.todayPayAmount,2)}}</view>
+      </view>
+      <view class="weui-flex__item tc">
+        <view class='sum-desc'>余额</view>
+        <view class='sum-val'>￥{{numberFr.formatNum(item.balance,2)}}</view>
+      </view>
+    </view>
+  </view>
+  <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+</scroll-view>
+
+<view class="weui-flex sum-wrap align-center">
+  <view class="weui-flex__item sum-hj  tc">
+    合计
+  </view>
+  <view class="weui-flex__item"></view>
+  <view class="weui-flex__item tr" style='max-width:250rpx;'>
+    <view class='sum-desc'>金额</view>
+    <view class='sum-val'>￥{{numberFr.formatNum((totalVo.balance===undefined?0:totalVo.balance),2)}}</view>
+  </view>
+
+</view>

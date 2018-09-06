@@ -1,0 +1,66 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<!-- 一级类目 -->
+<view class='cate-wrap'>
+  <scroll-view scroll-x="true" class="cate-cotent">
+    <button class="cate-item  {{goodsClassId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="cateTap"> {{item.name}} </button>
+  </scroll-view>
+</view>
+<!-- 搜索 -->
+<search-bar class='search-bar' placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
+<view class='sel-time border-top'>
+  查询日期:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
+</view>
+
+<!-- 商品列表 -->
+
+<view class="weui-tab">
+  <view class="weui-navbar">
+    <block wx:for-items="{{ tabs}}" wx:key="{{ index }}">
+      <view data-value="{{item.value}}" data-name="{{item.name}}" class="weui-navbar__item {{ groupField == item.value ? 'weui-bar__item_on' : '' }}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{ item.name }}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider {{authValidate.CKCBJ?'ck':''}} " style="left: {{ sliderLeft }}px; transform: translateX({{ sliderOffset }}px); -webkit-transform: translateX({{ sliderOffset }}px);"></view>
+  </view>
+  <view class="weui-tab__panel">
+    <view class="weui-tab__content">
+      <scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+        <view class='scroll-wrap'>
+          <view class="weui-flex" wx:for="{{ dataList }}" wx:key="">
+            <view class="weui-flex__item" style='max-width:60rpx;margin-right:20rpx;'>
+              <image style='width:60rpx;height:77rpx;' wx:if="{{index<3}}" src="../../../images/business/sale-rank-0{{index+1}}.png"></image>
+              <view class='rank-index' wx:else>{{index+1}}</view>
+            </view>
+            <view class="weui-flex__item">
+              <view class='rank-desc'>
+                <view class=''>
+                    {{numberFr.stringNull(item.name)}}
+                </view>
+                <view class='fr color218' wx-if="{{rankingGist==='goodsQuantity'}}">
+               {{numberFr.formatNum(item[rankingGist])}}台
+                </view>
+                <view class='fr color218' wx:elif="{{rankingGist==='goodsAmount'}}">
+                 ￥{{numberFr.formatNum(item[rankingGist],2)}}
+                </view>
+                <view class='fr color218' wx:else>
+                 ￥{{numberFr.formatNum(item[rankingGist],2)}}
+                </view>
+              </view>
+              <view class="i-progress">
+                <view class="i-progress-outer">
+                  <view class="i-progress-inner">
+                    <view class="i-progress-bg" style="width: {{item.percent}}%;height: 20rpx"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+      </scroll-view>
+    </view>
+
+  </view>
+</view>

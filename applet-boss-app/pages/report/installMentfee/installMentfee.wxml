@@ -1,0 +1,84 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<!-- 搜索 -->
+<search-bar class='search-bar' placeholder="{{groupFieldName}}编码/{{groupFieldName}}名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
+<view class='sel-time border-top'>
+  查询日期:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
+</view>
+
+<!-- 商品列表 -->
+<view class="weui-tab">
+  <view class="weui-navbar">
+    <block wx:for-items="{{ tabs}}" wx:key="{{ index }}">
+      <view data-value="{{item.value}}" data-name="{{item.name}}" class="weui-navbar__item {{ groupField == item.value ? 'weui-bar__item_on' : '' }}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{ item.name }}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider " style="left: {{ sliderLeft }}px; transform: translateX({{ sliderOffset }}px); -webkit-transform: translateX({{ sliderOffset }}px);"></view>
+  </view>
+  <view class="weui-tab__panel">
+    <view class="weui-tab__content">
+      <scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+        <view class='mt-24 list-wrap' wx:for="{{ dataList }}" wx:key="">
+          <view class="weui-cell ">
+            <text class='iconfont {{icon}}'></text>
+            <view class="weui-cell__bd ellipsis color000 font-30">
+              {{numberFr.stringNull(item.name)}}
+            </view>
+          </view>
+          <view class="weui-cell" wx:if="{{groupFeild==='installmentBusinessName'}}">
+            <text class='iconfont icon-yuegong'></text>
+            <view class="weui-cell__bd ellipsis color000 font-30">
+              {{numberFr.stringNull(item.installmentfeesName)}}
+            </view>
+          </view>
+          <view class='sale-detail'>
+            <view class="weui-flex align-center">
+              <view class="weui-flex__item tl ">
+                数量:
+                <text class='colorfe9'>{{numberFr.formatNum(item.goodsQuantity)}}笔</text>
+              </view>
+              <view class="weui-flex__item tl">
+                贷款金额:
+                <text class='colorfe9'>￥{{numberFr.formatNum(item.tallymanLoanAmount,2)}}</text>
+              </view>
+            </view>
+            <view class="weui-flex align-center">
+              <view class="weui-flex__item tl ">
+                佣金均价:
+                <text class='colorfe9'>￥{{numberFr.formatNum(item.commissionAvg,2)}}</text>
+              </view>
+              <view class="weui-flex__item tl">
+                佣金预估:
+                <text class='colorfe9'>￥{{numberFr.formatNum(item.commissionEstimate,2)}}</text>
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+      </scroll-view>
+    </view>
+
+  </view>
+  <view class="weui-flex sum-wrap align-center">
+
+    <view class="weui-flex__item tr">
+      <view class='sum-desc'>数量</view>
+      <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+    </view>
+    <view class="weui-flex__item tr">
+      <view class='sum-desc'>实际收款</view>
+      <view class='sum-val'>￥{{numberFr.formatNum((totalVo.tallymanLoanAmount===undefined?0:totalVo.tallymanLoanAmount),2)}}</view>
+    </view>
+    <view class="weui-flex__item tr">
+      <view class='sum-desc'>佣金均价</view>
+      <view class='sum-val'>￥{{numberFr.formatNum((totalVo.commissionAvg===undefined?0:totalVo.commissionAvg),2)}}</view>
+    </view>
+    <view class="weui-flex__item tr">
+      <view class='sum-desc'>佣金预估</view>
+      <view class='sum-val'>￥{{numberFr.formatNum((totalVo.commissionEstimate===undefined?0:totalVo.commissionEstimate),2)}}</view>
+    </view>
+
+  </view>
+</view>

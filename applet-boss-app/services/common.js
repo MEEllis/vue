@@ -92,6 +92,111 @@ function getContactUnitList(data) {
   })
 }
 
+
+//获取运营商名称
+function getOperatorsList(data) {
+  return new Promise(function (resolve, reject) {
+    request(api.getOperatorsList, data).then(res => {
+      let Item = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = Item.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
+//获取运营商单位
+function getOperatorUnitsList(data) {
+  return new Promise(function (resolve, reject) {
+    request(api.getOperatorUnitsList, data).then(res => {
+      let Item = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = Item.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
+//获取运营商业务名称
+function getOperatorNameList(data) {
+  return new Promise(function (resolve, reject) {
+    request(api.getOperatorNameList, data).then(res => {
+      let Item = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = Item.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
+
+//获取分期商名称
+function getInstallmentfeesList(data) {
+  return new Promise(function (resolve, reject) {
+    request(api.getInstallmentfeesList, data).then(res => {
+      let Item = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = Item.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
+//获取分期业务名称
+function getInstallmentBusinessList(data) {
+  return new Promise(function (resolve, reject) {
+    request(api.getInstallmentBusinessList, data).then(res => {
+      let Item = [{
+        id: '',
+        code: '',
+        name: '全部',
+        installmentBusinessList:[]
+      }]
+      var dataList = Item.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
+//获取分期业务名称
+function getAccountTypeList(data) {
+  return new Promise(function (resolve, reject) {
+    request(api.getAccountTypeList, data).then(res => {
+      let Item = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = Item.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
 //设置公司参数
 function setCompanySectionParam(companySectionParamNodeType, companySectionParamId){
   let companySectionParam = '';
@@ -101,9 +206,6 @@ function setCompanySectionParam(companySectionParamNodeType, companySectionParam
   return companySectionParam;
 }
 
-
-
-
 module.exports = {
   getBossAuthValidate,
   getGoodsClassList,
@@ -111,4 +213,10 @@ module.exports = {
   getCompanySectionList,
   setCompanySectionParam,
   getContactUnitList,
+  getOperatorsList,
+  getOperatorUnitsList,
+  getOperatorNameList,
+  getInstallmentfeesList,
+  getInstallmentBusinessList,
+  getAccountTypeList,
 }

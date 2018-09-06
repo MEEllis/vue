@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "分期业务战报",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

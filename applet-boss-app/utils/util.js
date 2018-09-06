@@ -136,11 +136,9 @@ function getScrollHeightByEle(subEle) {
             const subEleItem = subEle[i];
             query.select('.' + subEleItem).boundingClientRect(function(rect) {})
           }
-          console.log(scrollHeight)
           query.exec(res => {
             res.forEach((value, index, array)=>{
               if (value){
-                console.log(value.height)
                 scrollHeight = scrollHeight - value.height
               }
             })

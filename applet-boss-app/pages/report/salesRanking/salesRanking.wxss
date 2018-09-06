@@ -1,0 +1,41 @@
+.weui-navbar__slider {
+  width: 375rpx;
+}
+
+.weui-navbar__slider.ck {
+  width: 250rpx;
+}
+
+.rank-index {
+  min-width: 44rpx;
+  height: 44rpx;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  border: 8rpx solid #94d2fd;
+  background-color: #63bdfc;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+}
+
+image{
+  display: block;
+}
+
+.scroll-wrap{
+  padding: 0rpx 30rpx;
+  	font-size: 26rpx;
+}
+.scroll-wrap .weui-flex{
+  margin-top: 30rpx;
+}
+.i-progress{
+  line-height: 1;
+}
+.rank-desc{
+   line-height: 1;
+   padding-top: 10rpx;
+}
+.rank-desc>view{
+  display: inline-block;
+}

@@ -11,16 +11,3 @@
 .sale-detail .sum-val {
   color: #fe9f45;
 }
-
-.total-desc {
-  max-width: 100rpx;
-  text-align: right;
-  color: #333;
-}
-
-.total-wrap {
-  background-color: #fff;
-  padding: 16rpx 30rpx;
-  color: #fe9f45;
-  font-size: 28rpx;
-}

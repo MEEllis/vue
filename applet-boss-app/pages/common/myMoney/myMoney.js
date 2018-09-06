@@ -56,11 +56,8 @@ Page({
 
   bindDateStart: function (e) {
     const date = e.detail.value;
-    const {
-      startDate,
-    } = this.data;
     this.setData({
-      startDate,
+      startDate: date,
     })
 
   },

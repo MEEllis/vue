@@ -4,14 +4,14 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.0",
+	"libVersion": "2.2.5",
 	"appid": "wx9f22d7e7010593c1",
 	"projectname": "applet-boss-app",
 	"isGameTourist": false,
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 19,
 			"list": [
 				{
 					"id": -1,
@@ -123,6 +123,36 @@
 					"id": -1,
 					"name": "report/stockRealtime",
 					"pathName": "pages/report/stockRealtime/stockRealtime",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/salesRanking",
+					"pathName": "pages/report/salesRanking/salesRanking",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/operatorService",
+					"pathName": "pages/report/operatorService/operatorService",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/installMentfee",
+					"pathName": "pages/report/installMentfee/installMentfee",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/purchaseSalesCompare",
+					"pathName": "pages/report/purchaseSalesCompare/purchaseSalesCompare",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/myMoney",
+					"pathName": "pages/report/myMoney/myMoney",
 					"query": ""
 				}
 			]
