@@ -27,7 +27,7 @@
               {{numberFr.stringNull(item.name)}}
             </view>
           </view>
-          <view class="weui-cell" wx:if="{{groupFeild==='businessName'}}">
+          <view class="weui-cell" wx:if="{{groupField==='businessName'}}">
             <text class='iconfont icon-yewu1'></text>
             <view class="weui-cell__bd ellipsis color000 font-30">
               {{numberFr.stringNull(item.operatorUnitName)}}

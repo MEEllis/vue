@@ -46,7 +46,7 @@ Page({
         value: 'goodsBrandName'
       }, {
         name: '型号',
-        value: 'modelName'
+        value: 'goodsModelName'
       }],
     groupField: '',
 

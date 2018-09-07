@@ -23,8 +23,8 @@ Page({
     startDate: '',
     endDate: '',
     rankingGist: 'goodsQuantity', //排行依据goodsQuantity数量,goodsAmount金额,goodsProfitAmount毛利
-    salesType:'',
-    groupField:'salesManName',
+    salesType: '',
+    groupField: 'salesManName',
     page: 1,
     pageSize: 20,
     dataList: [],
@@ -43,7 +43,6 @@ Page({
     }],
     sliderOffset: 0,
     sliderLeft: 0,
-
   },
 
   /**
@@ -240,19 +239,24 @@ Page({
       if (Array.isArray(res.data.dataList)) {
         for (let i = 0; i < res.data.dataList.length; i++) {
           var item = res.data.dataList[i];
-          if (i === 0) {
-            if (dataList[0]) {
-              item.percent = item[rankingGist] / dataList[0][rankingGist] * 100;
+          if (item[rankingGist] >= 0) {
+            if (i === 0) {
+              if (dataList[0]) {
+                item.percent = item[rankingGist] / dataList[0][rankingGist] * 100;
+              } else {
+                item.percent = 100;
+              }
             } else {
-              item.percent = 100;
+              if (dataList[0]) {
+                item.percent = item[rankingGist] / dataList[0][rankingGist] * 100;
+              } else {
+                item.percent = item[rankingGist] / res.data.dataList[0][rankingGist] * 100;
+              }
             }
           } else {
-            if (dataList[0]) {
-              item.percent = item[rankingGist] / dataList[0][rankingGist] * 100;
-            } else {
-              item.percent = item[rankingGist] / res.data.dataList[0][rankingGist] * 100;
-            }
+            item.percent = 0;
           }
+
         }
       }
       let dataLists = that.data.dataList.concat(res.data.dataList)

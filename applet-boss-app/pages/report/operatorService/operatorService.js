@@ -28,7 +28,7 @@ Page({
     timeActive: 2,
     startDate: '',
     endDate: '',
-    groupFeild: 'sectionName',
+    groupField: 'sectionName',
     groupFieldName: '部门编码/部门名称',
     page: 1,
     pageSize: 20,
@@ -98,10 +98,10 @@ Page({
     })
   },
   tabClick: function(e) {
-    const groupFeild = e.currentTarget.dataset.value;
+    const groupField = e.currentTarget.dataset.value;
     const groupFieldName = e.currentTarget.dataset.lab;
     this.setData({
-      groupFeild,
+      groupField,
       groupFieldName,
       sliderOffset: e.currentTarget.offsetLeft,
     });
@@ -119,14 +119,14 @@ Page({
   //关键字搜索
   searchSubmit: function() {
     const {
-      groupFeild
+      groupField
     } = this.data;
     let icon = '';
-    if (groupFeild === 'sectionName') {
+    if (groupField === 'sectionName') {
       icon = 'icon-iconfontdianpu5'
-    } else if (groupFeild === 'salesManName') {
+    } else if (groupField === 'salesManName') {
       icon = 'icon-iconfontgerenzhongxin'
-    } else if (groupFeild === 'businessName') {
+    } else if (groupField === 'businessName') {
       icon = 'icon-zuzhichangsuo-shiyoudanwei'
     } else {
       icon = 'icon-TX_ICO'
@@ -145,14 +145,14 @@ Page({
   setSlider: function() {
     var that = this;
     const {
-      groupFeild,
+      groupField,
       tabs
     } = this.data;
     wx.getSystemInfo({
       success: function(res) {
         let activeIndex = 0;
         for (let i = 0; i < tabs.length; i++) {
-          if (tabs[i].value === groupFeild) {
+          if (tabs[i].value === groupField) {
             activeIndex = i;
             break;
           }
@@ -203,7 +203,7 @@ Page({
       keyWord,
       startDate,
       endDate,
-      groupFeild,
+      groupField,
       operatorId,
       operatorUnitId,
       operatorNameId,
@@ -213,7 +213,7 @@ Page({
       keyWord,
       startDate,
       endDate,
-      groupFeild,
+      groupField,
       operatorId,
       operatorUnitId,
       operatorNameId,
@@ -285,7 +285,7 @@ Page({
       page,
       pageSize,
       dataList,
-      groupFeild,
+      groupField,
     } = this.data;
     postData.page = page;
     postData.pageSize = pageSize;
