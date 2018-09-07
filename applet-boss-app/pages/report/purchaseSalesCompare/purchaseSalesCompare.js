@@ -109,14 +109,14 @@ Page({
       // 近7天
       else if (timeActive == 2) {
         const lastDate = util.formatTime(new Date(curDate.setTime(curDate.getTime() - 24 * 60 * 60 * 1000 * 7)))
-        startDate = curTime;
-        endDate = lastDate;
+        startDate = lastDate;
+        endDate = curTime;
       }
       // 近30天
       else if (timeActive == 3) {
         const lastDate = util.formatTime(new Date(curDate.setTime(curDate.getTime() - 24 * 60 * 60 * 1000 * 30)))
-        startDate = curTime;
-        endDate = lastDate;
+        startDate = lastDate;
+        endDate = curTime;
       }
       this.setData({
         startDate,
