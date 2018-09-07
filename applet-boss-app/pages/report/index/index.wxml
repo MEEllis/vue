@@ -159,7 +159,7 @@
         <image src="../../../images/04.png" lazy-load='true' />
         <view>销售对比</view>
       </view>
-      <navigator wx:if="{{authObj.BOSS_JXDB.status===0}}" url='/pages/report/salesRanking/salesRanking' class='weui-flex__item tc'>
+      <navigator wx:if="{{authObj.BOSS_JXDB.status===0}}" url='/pages/report/purchaseSalesCompare/purchaseSalesCompare' class='weui-flex__item tc'>
         <image src="../../../images/05-1.png" lazy-load='true' />
         <view>进销对比</view>
       </navigator>
