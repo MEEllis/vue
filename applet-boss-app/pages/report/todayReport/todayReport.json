@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "今日战报",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

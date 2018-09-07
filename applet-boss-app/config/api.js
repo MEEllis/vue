@@ -30,7 +30,7 @@ module.exports = {
   login: loginRootUrl + 'login/login', //使用账号密码登录
   autoLogin: loginRootUrl + 'login/autoLogin', //微信自动登录
   changeLoginCompany: loginRootUrl + 'login/changeLoginCompany', //切换登录公司
-  
+
   getFirstGoodsClassVoList: bossRootUrl + 'common/getGoodsClassList', //获取商品一级类别集合
   getGoodsClassList: bossRootUrl + 'common/getGoodsClassList', //获取商品一级类别集合
   getGoodsBrandVoList: bossRootUrl + 'common/getGoodsBrandList', //获取商品品牌集合
@@ -78,6 +78,7 @@ module.exports = {
   getGrossProfitDetailData: bossRootUrl + 'report/sales/grossProfit/getGrossProfitDetailData', // 毛利战报 详情页
   getGrossProfitDetailTotalVo: bossRootUrl + 'report/sales/grossProfit/getGrossProfitDetailTotalVo', // 毛利战报 详情页总计行接口
 
+  // v1.2
   getSalesRankingData: bossRootUrl + 'report/sales/salesRanking/getPageData', //销售排行主页分页集合
 
   getPurchaseSalesCompareData: bossRootUrl + 'report/purchase/purchaseSalesCompare/getPageData', // 进销对比主页分页集合
@@ -91,4 +92,22 @@ module.exports = {
 
   getInstallMentfeeData: bossRootUrl + 'report/retail/installMentfee/getPageData', //分期业务战报主页分页集合
   getInstallMentfeeTotalVo: bossRootUrl + 'report/retail/installMentfee/getTotalVo', //分期业务战报主页总计行对象
+
+  // v1.3
+  getTodayReportData: bossRootUrl + 'report/retail/todayReport/getDataList', //今日战报主页(不分页)集合
+  getTodayReportTotalVo: bossRootUrl + 'report/retail/todayReport/getTotalVo', //今日战报主页总计行对象
+
+  getTodayPurchaseData: bossRootUrl + 'report/purchase/todayPurchase/getDataList', //今日采购主页分页集合
+  getTodayPurchaseTotalVo: bossRootUrl + 'report/purchase/todayPurchase/getTotalVo', //今日采购主页总计行对象
+
+  getStockRatioData: bossRootUrl + 'report/storage/stockRatio/getDataList', //获取库存占比(不分页)数据集合
+
+  getUnsalableStockData: bossRootUrl + 'report/storage/unsalableStock/getPageData', //滞销库存主页分页集合
+  getUnsalableStockTotalVo: bossRootUrl + 'report/storage/unsalableStock/getTotalVo', //滞销库存主页总计行对象
+  getUnsalableStockDetailTotalVo: bossRootUrl + 'report/storage/unsalableStock/getDetailPageData', //获取滞销库存详情页分页集合
+
+  getThirdPartyDeductionReportData: bossRootUrl + 'report/retail/thirdPartyDeductionReport/getPageData', //第三方抵扣战报主页分页集合
+  getThirdPartyDeductionReportTotalVo: bossRootUrl + 'report/retail/thirdPartyDeductionReport/getTotalVo', //今第三方抵扣战报主页总计行对象
+
+  getValueAddedReportData: bossRootUrl + 'report/retail/valueAddedReport/getPageData', //获取增值服务战报主页分页集合
 }

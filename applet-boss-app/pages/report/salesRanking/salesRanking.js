@@ -66,7 +66,27 @@ Page({
     this.getBossAuthValidate();
     this.getDataList()
   },
-
+  /**
+   * 
+   */
+  onShow: function() {
+    const {
+      groupField
+    } = this.data;
+    let title = '';
+    if (groupField === 'goodsModelName') {
+      title = '型号'
+    } else if (groupField === 'sectionName') {
+      title = '部门'
+    } else if (groupField === 'goodsBrandName') {
+      title = '品牌'
+    } else {
+      title = '营业员'
+    }
+    wx.setNavigationBarTitle({
+      title: '销售排行(按' + title + ')'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
