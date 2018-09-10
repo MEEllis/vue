@@ -50,7 +50,6 @@ button[type=default] {
   margin-bottom: 24rpx;
 }
 
-
 .mb-30 {
   margin-bottom: 30rpx;
 }
@@ -122,6 +121,7 @@ button[type=default] {
 .colorfff {
   color: #fff;
 }
+
 .color8c8 {
   color: #8c8c8c;
 }
@@ -129,6 +129,7 @@ button[type=default] {
 .color218 {
   color: #2183ee;
 }
+
 .color4ab {
   color: #4ab624;
 }
@@ -215,7 +216,10 @@ button[type=default] {
   position: relative;
 }
 
-.border-bottom:before, .border-top:before {
+.bordotted-top:before ,
+.bordotted-bottom:before,
+.border-bottom:before,
+ .border-top:before {
   content: " ";
   position: absolute;
   right: 0;
@@ -234,6 +238,18 @@ button[type=default] {
   bottom: 0;
   border-bottom: 1rpx solid #d9d9d9;
 }
+
+
+.bordotted-top:before {
+  top: 0;
+  border-top: 1rpx dotted #d9d9d9;
+}
+
+.bordotted-bottom:before {
+  bottom: 0;
+  border-bottom: 1rpx dotted #d9d9d9;
+}
+
 
 .btnBlue {
   background-color: rgba(71, 110, 201, 1) !important;
@@ -276,6 +292,7 @@ button[type=default] {
 
 .list-wrap {
   background: #fff;
+  font-size: 28rpx;
 }
 
 .detail-content {
@@ -421,42 +438,41 @@ button[type=default] {
   line-height: 1;
   margin-right: 12rpx;
 }
+
 .icon-yuegong {
-  color: #FF6493;
+  color: #ff6493;
   font-size: 42rpx;
   line-height: 1;
   margin-right: 12rpx;
 }
 
 .icon-shangchang {
-  color: #FF9966;
+  color: #f96;
   font-size: 40rpx;
   line-height: 1;
   margin-right: 12rpx;
 }
 
 .icon-TX_ICO {
-  color: #2C87F8;
+  color: #2c87f8;
   font-size: 48rpx;
   line-height: 1;
   margin-right: 12rpx;
 }
 
 .icon-yewu1 {
-  color: #E4B01F;
+  color: #e4b01f;
   font-size: 48rpx;
   line-height: 1;
   margin-right: 12rpx;
 }
 
-
 .icon-qia {
-  color: #E4B01F;
+  color: #e4b01f;
   font-size: 40rpx;
   line-height: 1;
   margin-right: 12rpx;
 }
-
 
 .icon-xiangxia-copy {
   padding-left: 8rpx;

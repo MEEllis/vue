@@ -1,4 +1,27 @@
 .detail-content {
-  padding: 20rpx 30rpx;
-  color: #333333;
+  padding: 0rpx 30rpx;
+  color: #333;
+}
+
+.next-wrap {
+  background-color: #21a4ff;
+  color: #fff;
+  height: 72rpx;
+  font-size: 28rpx;
+}
+
+.cur-date {
+  background-color: #fff;
+  border-radius: 6px;
+  color: #000;
+  height: 56rpx;
+  line-height: 56rpx;
+}
+
+.icon-40.left:before {
+  color: #fff;
+}
+
+.price {
+  padding-left: 38rpx;
 }
