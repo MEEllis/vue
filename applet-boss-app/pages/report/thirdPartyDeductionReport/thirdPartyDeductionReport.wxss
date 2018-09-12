@@ -1,1 +1,9 @@
-/* pages/report/thirdPartyDeductionReport/thirdPartyDeductionReport.wxss */
+.weui-navbar__slider {
+  width: 187.5rpx;
+}
+
+.sale-detail {
+  font-size: 28rpx;
+  padding: 16rpx 30rpx;
+  border-top: 1rpx dotted #d9d9d9;
+}

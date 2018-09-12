@@ -8,7 +8,8 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.5",
@@ -33,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 20,
+			"current": 26,
 			"list": [
 				{
 					"id": -1,
@@ -160,6 +161,41 @@
 					"name": "report/todayReport",
 					"pathName": "pages/report/todayReport/todayReport",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/todayPurchase",
+					"pathName": "pages/report/todayPurchase/todayPurchase",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/unsalableStock",
+					"pathName": "pages/report/unsalableStock/unsalableStock",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/thirdPartyDeductionReport",
+					"pathName": "pages/report/thirdPartyDeductionReport/thirdPartyDeductionReport",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/valueAddedReport",
+					"pathName": "pages/report/valueAddedReport/valueAddedReport",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/assetProfile",
+					"pathName": "pages/report/assetProfile/assetProfile",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "packageEchart/stockRatio",
+					"pathName": "packageEchart/pages/report/stockRatio/stockRatio"
 				}
 			]
 		}

@@ -212,14 +212,12 @@ button[type=default] {
   border-top: 20rpx solid #efeff4;
 }
 
-.border-bottom, .border-top {
+.bordotted-top, .bordotted-bottom, .border-bottom, .border-top {
   position: relative;
 }
 
-.bordotted-top:before ,
-.bordotted-bottom:before,
-.border-bottom:before,
- .border-top:before {
+.bordotted-top:before, .bordotted-bottom:before, .border-bottom:before,
+.border-top:before {
   content: " ";
   position: absolute;
   right: 0;
@@ -239,7 +237,6 @@ button[type=default] {
   border-bottom: 1rpx solid #d9d9d9;
 }
 
-
 .bordotted-top:before {
   top: 0;
   border-top: 1rpx dotted #d9d9d9;
@@ -249,7 +246,6 @@ button[type=default] {
   bottom: 0;
   border-bottom: 1rpx dotted #d9d9d9;
 }
-
 
 .btnBlue {
   background-color: rgba(71, 110, 201, 1) !important;
@@ -386,6 +382,7 @@ button[type=default] {
   color: #669ffd;
   font-size: 48rpx;
   line-height: 1;
+  left: 0;
   padding-right: 8rpx;
 }
 
@@ -470,6 +467,27 @@ button[type=default] {
 .icon-qia {
   color: #e4b01f;
   font-size: 40rpx;
+  line-height: 1;
+  margin-right: 12rpx;
+}
+
+.icon-gedanweidijiaoxizhixueqieyanxiaoshou {
+  color: #80bcf9;
+  font-size: 40rpx;
+  line-height: 1;
+  margin-right: 12rpx;
+}
+
+.icon-youhuiquandikou {
+  color: #f85c5c;
+  font-size: 44rpx;
+  line-height: 1;
+  margin-right: 12rpx;
+}
+
+.icon-zengzhifuwu {
+  color: #FCC70D;
+  font-size: 44rpx;
   line-height: 1;
   margin-right: 12rpx;
 }

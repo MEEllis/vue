@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "抵扣单位",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

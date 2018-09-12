@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "活动名称",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

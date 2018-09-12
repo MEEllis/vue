@@ -21,11 +21,11 @@
     "pages/report/installMentfee/installMentfee",
     "pages/report/todayReport/todayReport",
     "pages/report/todayPurchase/todayPurchase",
-    "pages/report/stockRatio/stockRatio",
     "pages/report/unsalableStock/unsalableStock",
     "pages/report/unsalableStockDetail/unsalableStockDetail",
     "pages/report/thirdPartyDeductionReport/thirdPartyDeductionReport",
     "pages/report/valueAddedReport/valueAddedReport",
+    "pages/report/assetProfile/assetProfile",
     "pages/common/default/default",
     "pages/common/saleModal/saleModal",
     "pages/common/companySection/companySection",
@@ -46,8 +46,23 @@
     "pages/common/installmentfees/installmentfees",
     "pages/common/installmentBusiness/installmentBusiness",
     "pages/common/purchaseSalesCompare/purchaseSalesCompare",
-    "pages/my/about/about",
+    "pages/common/unsalableStock/unsalableStock",
+    "pages/common/thirdPartyDeductionReport/thirdPartyDeductionReport",
+    "pages/common/activityNames/activityNames",
+    "pages/common/deductionUnits/deductionUnits",
+    "pages/common/valueAddedReport/valueAddedReport",
+    "pages/common/service/service",
+    "pages/common/stockRatio/stockRatio",
+    "pages/my/about/about", 
     "pages/my/index/index"
+  ],
+  "subPackages": [
+    { 
+      "root": "packageEchart/pages/",  
+      "pages": [
+        "report/stockRatio/stockRatio"
+      ]
+    }
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -55,6 +70,7 @@
     "navigationBarTitleText": "boss app",
     "navigationBarTextStyle": "white"
   },
+  
   "tabBar": {
     "color": "#999",
     "borderStyle": "#e6e6e6",

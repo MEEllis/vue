@@ -105,7 +105,7 @@ function getScrollHeight(subHeight) {
     wx.getSystemInfo({
       success: function(res) {
         let scrollHeight;
-        
+
         if (Array.isArray(subHeight)) {
           scrollHeight = []
           for (let i = 0; i < subHeight.length; i++) {
@@ -137,8 +137,8 @@ function getScrollHeightByEle(subEle) {
             query.select('.' + subEleItem).boundingClientRect(function(rect) {})
           }
           query.exec(res => {
-            res.forEach((value, index, array)=>{
-              if (value){
+            res.forEach((value, index, array) => {
+              if (value) {
                 scrollHeight = scrollHeight - value.height
               }
             })
@@ -261,7 +261,20 @@ function accDiv(a, b) {
   return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), accMul(c / d, Math.pow(10, f - e));
 }
 
+function toThousands(num,n) {
+  //参数说明：num 要格式化的数字 n 保留小数位      
+  num = String(num.toFixed(n));
+  var re = /(-?\d+)(\d{3})/;
 
+  while (re.test(num)) {
+
+    num = num.replace(re, "$1,$2");
+
+  }
+
+  return num;
+
+}
 //本月
 function getCurBMonth() {
   const curDate = new Date();
@@ -307,4 +320,5 @@ module.exports = {
   accDiv,
   getCurBMonth,
   getCurBWeekend,
+  toThousands,
 }

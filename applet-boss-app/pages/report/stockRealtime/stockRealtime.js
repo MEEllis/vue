@@ -49,7 +49,7 @@ Page({
     })
     this.getFirstGoodsClassVoList()
     this.getGoodsBrandVoList()
-    this.getGoodsList()
+    this.getDataList()
     this.getTotalVo();
     this.getBossAuthValidate();
 
@@ -114,7 +114,7 @@ Page({
     this.setData({
       page: page + 1,
     });
-    this.getGoodsList();
+    this.getDataList();
   },
   search: function() {
     this.setData({
@@ -122,7 +122,7 @@ Page({
       dataList: [],
       loadingMore: true,
     });
-    this.getGoodsList();
+    this.getDataList();
     this.getTotalVo();
   },
   // 展示明细
@@ -187,7 +187,7 @@ Page({
     })
   },
   // 获取商品列表
-  getGoodsList: function() {
+  getDataList: function() {
     const that = this;
     this.setCompanySectionParam();
     const {

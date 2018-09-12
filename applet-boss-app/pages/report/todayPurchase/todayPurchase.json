@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarTitleText": "今日采购",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

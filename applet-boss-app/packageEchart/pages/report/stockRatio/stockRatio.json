@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "库存占比",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index",
+    "ec-canvas": "../../../component/ec-canvas/ec-canvas"
+  }
+}

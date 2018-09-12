@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarTitleText": "第三方抵扣战报",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

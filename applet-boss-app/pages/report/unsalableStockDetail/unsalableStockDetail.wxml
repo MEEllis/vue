@@ -1,2 +1,40 @@
-<!--pages/report/unsalableStockDetail/unsalableStockDetail.wxml-->
-<text>pages/report/unsalableStockDetail/unsalableStockDetail.wxml</text>
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<view class="container">
+  <view class='list-item '>
+    <navigator class='weui-flex ellipsis2 title ' url='/pages/common/goodDetail/goodDetail?goodsId={{goodsId}}'>
+      <text class="fw ">{{numberFr.stringNull(goodsName)}}</text>
+      <text class="deatil">查看详情</text>
+    </navigator>
+    <view class="weui-flex font-28">
+      <view class="weui-flex__item tl fw colorfbb  tai">
+        {{numberFr.formatNum(goodsQuantity)}}台
+      </view>
+      <view class="weui-flex__item tc" wx:if='{{CKCBJ==true}}'>
+        <text class="">金额:</text>
+        <text class="fw colorfbb">￥{{numberFr.formatNum(goodsAmount,2)}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 搜索 -->
+  <search-bar class='search-bar' placeholder="串号" keyWord="{{detailKeyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+  <scroll-view class="list-wrap" scroll-y='true' style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+    <!-- 部门列表 -->
+    <view class='section-wrap border-bottom' wx:for-item="sectionItem" wx:for="{{dataList}}" wx:for-index="sectionIdx" wx:key="{{sectionIdx}}">
+      <view class="weui-cell ">
+        <view class="weui-cell__bd font000">
+          <view>{{numberFr.stringNull(sectionItem.imei)}}</view>
+          <view>{{numberFr.stringNull(sectionItem.auxiliaryImei)}}11111111111</view>
+        </view>
+        <view class="weui-cell__ft">
+          <view class='count-tai'>{{numberFr.formatNum(sectionItem.stockAge)}}天</view>
+          <view class='count-tai' wx:if='{{CKCBJ==true}}'>￥{{numberFr.formatNum(sectionItem.goodsAmount,2)}}</view>
+        </view>
+      </view>
+
+
+    </view>
+    <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+  </scroll-view>
+</view>

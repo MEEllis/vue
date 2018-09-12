@@ -1,0 +1,48 @@
+<wxs src="../../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../../template/pagination.wxml" />
+<!-- 搜索 -->
+<search-bar class='search-bar' placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
+
+<!-- 商品列表 -->
+<view class="weui-tab">
+  <view class="weui-navbar">
+    <block wx:for-items="{{ tabs}}" wx:key="{{ index }}">
+      <view data-value="{{item.value}}" data-name="{{item.name}}" class="weui-navbar__item {{ groupField == item.value ? 'weui-bar__item_on' : '' }}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{ item.name }}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider {{authValidate.CKCBJ?'ck':''}} " style="left: {{ sliderLeft }}px; transform: translateX({{ sliderOffset }}px); -webkit-transform: translateX({{ sliderOffset }}px);"></view>
+  </view>
+  <view class="weui-tab__panel">
+    <view class="weui-tab__content">
+      <view class='pie-wrap'>
+        <ec-canvas id="mychart-dom-pie" style='width: 710rpx;	height: 450rpx;display:block;' canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+      </view>
+
+      <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0)&&loadingMore===false}}'></template>
+      <scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;">
+        <view class='scroll-wrap'>
+          <view class='scroll-con'>
+            <view class=''>
+              <view class='weui-flex table-item' wx:for="{{ dataList }}" wx:key="">
+                <view class='weui-flex__item'>
+                  {{numberFr.stringNull(item.name)}}
+                </view>
+                <view class='weui-flex__item tr' wx:if="{{orderField==='goodsQuantity'}}">
+                  {{numberFr.formatNum(item[orderField])}}
+                </view>
+                <view class='weui-flex__item tr' wx:else>
+                  {{numberFr.formatNum(item[orderField],2)}}
+                </view>
+                <view class='weui-flex__item tr'>
+                  {{numberFr.stringNull(item[orderField+'Ratio'])}}%
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+  </view>
+</view>

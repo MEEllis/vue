@@ -1,1 +1,5 @@
-/* pages/report/todayPurchase/todayPurchase.wxss */
+@import '../todayReport/todayReport.wxss';
+
+.setion-wrap {
+  padding: 16rpx 30rpx;
+}

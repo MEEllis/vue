@@ -1,0 +1,43 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<!-- 一级类目 -->
+<view class='cate-wrap'>
+  <scroll-view scroll-x="true" class="cate-cotent">
+    <button class="cate-item  {{companyIds == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="cateTap"> {{item.name}}</button>
+  </scroll-view>
+</view>
+<view class='weui-flex align-center tc totalVo-wrap '>
+  <view class='weui-flex__item'>
+    <text style='	font-size: 28rpx;'>资产总额(元) \r\n</text>
+    <text style='	font-size: 64rpx;'>{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}} \r\n</text>
+    <text class='colore6e' style='font-size: 26rpx;'>资产 = 应收 + 资金 - 应付 + 库存成本(含在途)</text>
+  </view>
+</view>
+<scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;">
+
+  <view class='scroll-wrap'>
+    <view class='weui-flex table-title'>
+      <view class='weui-flex__item' >
+        类别
+      </view>
+      <view class='weui-flex__item tr'>
+        金额
+      </view>
+      <view class='weui-flex__item tr'>
+        占比
+      </view>
+    </view>
+    <view class='weui-flex table-item' wx:for="{{ dataList }}" wx:key="">
+      <view class='weui-flex__item'>
+        {{numberFr.stringNull(item.name)}}
+      </view>
+      <view class='weui-flex__item tr'>
+        {{numberFr.formatNum(item.goodsAmount,2)}}
+      </view>
+      <view class='weui-flex__item tr'>
+        {{numberFr.stringNull(item.goodsAmountRatio)}}%
+      </view>
+    </view>
+  </view>
+  <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0)&&loadingMore===false}}'></template>
+</scroll-view>

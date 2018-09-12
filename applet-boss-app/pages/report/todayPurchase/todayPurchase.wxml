@@ -1,2 +1,100 @@
-<!--pages/report/todayPurchase/todayPurchase.wxml-->
-<text>pages/report/todayPurchase/todayPurchase.wxml</text>
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<view class="weui-flex align-center next-wrap ">
+  <view class="weui-flex__item tl" data-sign='pre' bindtap='bindReceiptsDate'>
+    <text class='iconfont icon-40'></text> 上一天
+  </view>
+  <view class="weui-flex__item tc">
+    <picker mode="date" value="{{startDate}}" end="{{endDayDate}}" bindchange="bindCurDate">
+      <view class="cur-date">
+        {{startDate}}
+        <text class='iconfont icon-xiangxia-copy'></text>
+      </view>
+    </picker>
+  </view>
+  <view class="weui-flex__item tr" data-sign='next' bindtap='bindReceiptsDate'>
+    下一天
+    <text class='iconfont icon-40 left'></text>
+  </view>
+</view>
+<!-- 一级类目 -->
+<view class='cate-wrap'>
+  <scroll-view scroll-x="true" class="cate-cotent">
+    <button class="cate-item  {{goodsClassId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="cateTap"> {{item.name}}</button>
+  </scroll-view>
+</view>
+<!-- 搜索 -->
+<search-bar class='search-bar' placeholder="商品类别/品牌/型号/商品名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+
+
+<!-- 商品列表 -->
+<scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;"  bindscrolltolower='scrolltolower'>
+  <view class='list-wrap mb-24' wx:for="{{ dataList }}" wx:key="">
+    <view class="weui-cell " data-index='{{index}}'>
+      <text class='iconfont icon-caigou'></text>
+      <view class="weui-cell__bd ellipsis color000 font-30">
+        {{numberFr.stringNull(item.name)}}
+      </view>
+      <view class='weui-cell__ft'>
+        <text class='count-tai'>{{numberFr.formatNum(item.goodsQuantity)}}台</text>
+      </view>
+    </view>
+    <view class='border-top  font-28'>
+      <view class='' >
+        <view class="weui-cell">
+          <text class='iconfont icon-shouji'></text>
+          <view class="weui-cell__bd ellipsis color000 font-30">
+            {{numberFr.stringNull(item.goodsName)}}
+          </view>
+          <view class='weui-cell__ft'>
+            <text class='count-tai'>{{numberFr.formatNum(item.goodsQuantity)}}台</text>
+          </view>
+        </view>
+        <view class="weui-flex align-center bordotted-top setion-wrap" wx:if="{{authValidate.CKCBJ}}">
+          <view class="weui-flex__item tl ">
+            均毛
+            <text class='sum-val colorfe9'>￥{{numberFr.formatNum(item.goodsPrice,2)}}</text>
+          </view>
+          <view class="weui-flex__item tl">
+            金额
+            <text class='sum-val colorfe9'>￥{{numberFr.formatNum(item.goodsAmount,2)}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+</scroll-view>
+
+<view class="weui-flex sum-wrap align-center">
+  <view class="weui-flex__item sum-hj  tc">
+    合计
+  </view>
+  <view class='weui-flex__item' wx:if="{{authValidate.CKCBJ}}">
+    <view class="weui-flex">
+      <view class="weui-flex__item tr ">
+       
+      </view>
+      <view class="weui-flex__item tr ">
+        <view class='sum-desc'>数量</view>
+        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+      </view>
+      <view class="weui-flex__item tr">
+        <view class='sum-desc'>金额</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='weui-flex__item' wx:else>
+    <view class="weui-flex">
+      <view class="weui-flex__item"></view>
+      <view class="weui-flex__item noAuthQuantity">
+        <view class='sum-desc'>数量</view>
+        <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

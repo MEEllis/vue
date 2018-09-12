@@ -1,0 +1,16 @@
+.totalVo-wrap {
+  width: 750rpx;
+  height: 400rpx;
+  color: #fff;
+  background-image: linear-gradient(0deg, #1890ff 0%, #21a4ff 100%);
+}
+
+.scroll-wrap {
+  padding: 18rpx 30rpx;
+  line-height: 2;
+}
+
+.table-title {
+  color: #666;
+  font-size: 26rpx;
+}

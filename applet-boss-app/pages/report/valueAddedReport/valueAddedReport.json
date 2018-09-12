@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarTitleText": "增值服务战报",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

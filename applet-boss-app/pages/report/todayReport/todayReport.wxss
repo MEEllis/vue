@@ -1,10 +1,10 @@
 .detail-content {
-  padding: 0rpx 30rpx;
+  padding: 0rpx 0rpx;
   color: #333;
 }
 
 .next-wrap {
-  background-color: #21a4ff;
+  background-image:linear-gradient(0deg, #1890ff 0%, #21a4ff 100%);
   color: #fff;
   height: 72rpx;
   font-size: 28rpx;
@@ -23,5 +23,15 @@
 }
 
 .price {
-  padding-left: 38rpx;
+  padding: 16rpx 0rpx 16rpx 38rpx;
+}
+
+.setion-wrap {
+  padding: 16rpx 0rpx;
+}
+
+
+.detail-content .bordotted-top::before {
+  left: 30rpx;
+  right: -30rpx;
 }

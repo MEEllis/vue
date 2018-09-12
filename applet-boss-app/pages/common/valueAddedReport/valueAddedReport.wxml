@@ -1,0 +1,70 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<view class='content-wrap'>
+  <view class="weui-cell" bindtap='tapShowDetail' data-target='companySection'>
+    公司部门
+    <view class="weui-cell__bd tr">
+      <text class='font-28 color333'>{{numberFr.stringNull(companySectionParamName)}}</text>
+    </view>
+    <text class='iconfont  icon-40 left'></text>
+  </view>
+
+  <view class="weui-cell" bindtap='tapShowDetail' data-target='service'>
+    增值服务名称
+    <view class="weui-cell__bd tr">
+      <text class='font-28 color333'>{{numberFr.stringNull(serviceName)}}</text>
+    </view>
+    <text class='iconfont  icon-40 left'></text>
+  </view>
+
+  <view class="weui-cell">
+    日期
+    <view class="weui-cell__bd tr">
+      <radio-group class="radio-group" bindchange="timeRadioChange">
+        <label class="ui-radio {{index==timeActive?'checked':''}}" wx:for="{{timeList}}" wx:key="">
+          <radio value="{{index}}" checked="{{index==timeActive}}" />{{item}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+  <view class="weui-cell">
+    开始日期
+    <view class="weui-cell__bd tr">
+      <picker mode="date" value="{{startDate}}" end="{{toDayDate}}" bindchange="bindDateStart">
+        <view class="picker ">
+          {{startDate}}
+        </view>
+      </picker>
+    </view>
+    <text class='iconfont  icon-40 left'></text>
+  </view>
+
+
+  <view class="weui-cell">
+    结束日期
+    <view class="weui-cell__bd tr">
+      <picker mode="date" value="{{endDate}}" end="{{toDayDate}}" bindchange="bindDateEnd">
+        <view class="picker ">
+          {{endDate}}
+        </view>
+      </picker>
+    </view>
+    <text class='iconfont  icon-40 left'></text>
+  </view>
+
+  <view class="weui-cell">
+    统计对象
+    <view class="weui-cell__bd tr">
+      <radio-group class="radio-group" bindchange="groupFieldRadioChange">
+        <label class="ui-radio {{item.value==groupField?'checked':''}}" wx:for="{{groupFieldList}}" wx:key="">
+          <radio value="{{item.value}}" checked="{{item.value==groupField}}" />{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+</view>
+<view class='btn-wrap'>
+  <button class="search font-36" type="primary" bindtap="formSubmit">查询</button>
+  <button class="mt-24 font-36" type="default" bindtap="formReset">重置</button>
+</view>

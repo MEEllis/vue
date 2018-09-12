@@ -1,0 +1,9 @@
+@import '../common.wxss';
+
+.txt {
+  width: 160rpx;
+  float: right;
+  background-color: #fff;
+  border-radius: 4rpx;
+  border: solid 1rpx #d9d9d9;
+}

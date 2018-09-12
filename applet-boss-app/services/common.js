@@ -180,6 +180,23 @@ function getInstallmentBusinessList(data) {
   })
 }
 
+//获取抵扣单位集合
+function getDeductionUnitsList(data) {
+  return new Promise(function (resolve, reject) {
+    request(api.getDeductionUnitsList, data).then(res => {
+      let Item = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = Item.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
 //获取分期业务名称
 function getAccountTypeList(data) {
   return new Promise(function (resolve, reject) {
@@ -196,6 +213,61 @@ function getAccountTypeList(data) {
     })
   })
 }
+
+
+//获取抵扣活动集合
+function getActivityNamesList(data) {
+  return new Promise(function (resolve, reject) {
+    request(api.getActivityNamesList, data).then(res => {
+      let Item = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = Item.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
+
+
+//获取抵扣活动集合
+function getCompanyList(data) {
+  return new Promise(function (resolve, reject) {
+    request(api.getCompanyList, data).then(res => {
+      let Item = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = Item.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
+//获取抵扣活动集合
+function getAddValueServiceNameList(data) {
+  return new Promise(function (resolve, reject) {
+    request(api.getAddValueServiceNameList, data).then(res => {
+      let Item = [{
+        id: '',
+        code: '',
+        name: '全部'
+      }]
+      var dataList = Item.concat(res.data.dataList)
+      resolve(dataList)
+    }).catch((err) => {
+      reject(err);
+    })
+  })
+}
+
 
 //设置公司参数
 function setCompanySectionParam(companySectionParamNodeType, companySectionParamId){
@@ -219,4 +291,8 @@ module.exports = {
   getInstallmentfeesList,
   getInstallmentBusinessList,
   getAccountTypeList,
+  getDeductionUnitsList,
+  getActivityNamesList,
+  getCompanyList,
+  getAddValueServiceNameList,
 }

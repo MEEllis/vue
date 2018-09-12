@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "增值服务名称",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

@@ -2,8 +2,8 @@ let loginRootUrl = ''
 let bossRootUrl = ''
 
 // 明杰后台联调的接口
-// loginRootUrl = 'http://192.168.0.9:8801/api/v1/common/';
-// bossRootUrl = 'http://192.168.0.9:8802/api/v1/boss/';
+loginRootUrl = 'http://192.168.0.9:8801/api/v1/common/';
+bossRootUrl = 'http://192.168.0.9:8802/api/v1/boss/';
 // 黎超
 //loginRootUrl = 'http://192.168.0.62:8801/api/v1/common/';
 //bossRootUrl = 'http://192.168.0.62:8802/api/v1/boss/';
@@ -21,30 +21,34 @@ let bossRootUrl = ''
 //bossRootUrl = 'https://www.phoneerp.com/api/v1/boss/'; 
 
 // 模拟接口地址
-loginRootUrl = 'http://rap2api.taobao.org/app/mock/21285/api/v1/common/'; 
-bossRootUrl = 'http://rap2api.taobao.org/app/mock/21285/api/v1/boss/'; 
+// loginRootUrl = 'http://rap2api.taobao.org/app/mock/21285/api/v1/common/'; 
+// bossRootUrl = 'http://rap2api.taobao.org/app/mock/21285/api/v1/boss/'; 
 
 
 module.exports = {
-  getAccessCompanyVoList: loginRootUrl + 'login/getAccessCompanyVoList', //获取可使用公司
+  getAccessCompanyVoList: loginRootUrl + 'login/getAccessCompanyVoList', //可使用公司
   login: loginRootUrl + 'login/login', //使用账号密码登录
   autoLogin: loginRootUrl + 'login/autoLogin', //微信自动登录
   changeLoginCompany: loginRootUrl + 'login/changeLoginCompany', //切换登录公司
 
-  getFirstGoodsClassVoList: bossRootUrl + 'common/getGoodsClassList', //获取商品一级类别集合
-  getGoodsClassList: bossRootUrl + 'common/getGoodsClassList', //获取商品一级类别集合
-  getGoodsBrandVoList: bossRootUrl + 'common/getGoodsBrandList', //获取商品品牌集合
-  getGoodsBrandList: bossRootUrl + 'common/getGoodsBrandList', //获取商品品牌集合
+  getFirstGoodsClassVoList: bossRootUrl + 'common/getGoodsClassList', //商品一级类别集合
+  getGoodsClassList: bossRootUrl + 'common/getGoodsClassList', //商品一级类别集合
+  getGoodsBrandVoList: bossRootUrl + 'common/getGoodsBrandList', //商品品牌集合
+  getGoodsBrandList: bossRootUrl + 'common/getGoodsBrandList', //商品品牌集合
   getBossAuthValidate: bossRootUrl + 'common/getBossAuthValidate',
-  getCompanySectionList: bossRootUrl + 'common/getCompanySectionList', //获取商品品牌集合
-  getContactUnitList: bossRootUrl + 'common/getContactUnitList', //获取往来单位
-  getBossMenuList: bossRootUrl + 'common/getBossMenuList', //获取Boss小程序菜单集合
-  getOperatorsList: bossRootUrl + 'common/getOperatorList', //获取运营商名称集合
-  getOperatorUnitsList: bossRootUrl + 'common/getOperatorUnitList', //获取运营商单位
-  getOperatorNameList: bossRootUrl + 'common/getOperatorNameList', //获取运营商业务名称
-  getInstallmentfeesList: bossRootUrl + 'common/getInstallmentfeesList', //获取分期商名称
-  getInstallmentBusinessList: bossRootUrl + 'common/getInstallmentBusinessList', //获取分期业务名称
-  getAccountTypeList: bossRootUrl + 'common/getAccountTypeList', //获取分期业务名称
+  getCompanySectionList: bossRootUrl + 'common/getCompanySectionList', //商品品牌集合
+  getContactUnitList: bossRootUrl + 'common/getContactUnitList', //往来单位
+  getBossMenuList: bossRootUrl + 'common/getBossMenuList', //Boss小程序菜单集合
+  getOperatorsList: bossRootUrl + 'common/getOperatorList', //运营商名称集合
+  getOperatorUnitsList: bossRootUrl + 'common/getOperatorUnitList', //运营商单位
+  getOperatorNameList: bossRootUrl + 'common/getOperatorNameList', //运营商业务名称
+  getInstallmentfeesList: bossRootUrl + 'common/getInstallmentfeesList', //分期商名称
+  getInstallmentBusinessList: bossRootUrl + 'common/getInstallmentBusinessList', //分期业务名称
+  getDeductionUnitsList: bossRootUrl + 'common/getDeductionUnitsList', //抵扣单位集合
+  getActivityNamesList: bossRootUrl + 'common/getActivityNamesList', //抵扣活动集合
+  getCompanyList: bossRootUrl + 'common/getCompanyList', //公司集合
+  getAccountTypeList: bossRootUrl + 'common/getAccountTypeList', //分期业务名称
+  getAddValueServiceNameList: bossRootUrl + 'common/getAddValueServiceNameList', //增值服务名称集合
 
 
   getGoodsDetailVo: bossRootUrl + 'report/storage/currentStock/getGoodsDetailVo', // 商品详情页
@@ -71,7 +75,7 @@ module.exports = {
   getGrossProfitDetailData: bossRootUrl + 'report/sales/getGrossProfitDetailData', // 毛利战报 主页总计行对象 
 
   getPurchaseCollectData: bossRootUrl + 'report/purchase/purchaseCollect/getPurchaseCollectData', // 采购汇总报表
-  getPurchaseCollectTotalVo: bossRootUrl + 'report/purchase/purchaseCollect/getPurchaseCollectTotalVo', // 采购汇总报表获取总计行对象
+  getPurchaseCollectTotalVo: bossRootUrl + 'report/purchase/purchaseCollect/getPurchaseCollectTotalVo', // 采购汇总报表总计行对象
 
   getGrossProfitData: bossRootUrl + 'report/sales/grossProfit/getGrossProfitData', // 毛利战报 主页
   getGrossProfitTotalVo: bossRootUrl + 'report/sales/grossProfit/getGrossProfitTotalVo', // 毛利战报 主页总计行对象
@@ -97,17 +101,21 @@ module.exports = {
   getTodayReportData: bossRootUrl + 'report/retail/todayReport/getDataList', //今日战报主页(不分页)集合
   getTodayReportTotalVo: bossRootUrl + 'report/retail/todayReport/getTotalVo', //今日战报主页总计行对象
 
-  getTodayPurchaseData: bossRootUrl + 'report/purchase/todayPurchase/getDataList', //今日采购主页分页集合
+  getTodayPurchaseData: bossRootUrl + 'report/purchase/todayPurchase/getPageData', //今日采购主页分页集合
   getTodayPurchaseTotalVo: bossRootUrl + 'report/purchase/todayPurchase/getTotalVo', //今日采购主页总计行对象
 
-  getStockRatioData: bossRootUrl + 'report/storage/stockRatio/getDataList', //获取库存占比(不分页)数据集合
+  getStockRatioData: bossRootUrl + 'report/storage/stockRatio/getDataList', //库存占比(不分页)数据集合
 
   getUnsalableStockData: bossRootUrl + 'report/storage/unsalableStock/getPageData', //滞销库存主页分页集合
   getUnsalableStockTotalVo: bossRootUrl + 'report/storage/unsalableStock/getTotalVo', //滞销库存主页总计行对象
-  getUnsalableStockDetailTotalVo: bossRootUrl + 'report/storage/unsalableStock/getDetailPageData', //获取滞销库存详情页分页集合
+  getUnsalableStockDetailTotalVo: bossRootUrl + 'report/storage/unsalableStock/getDetailPageData', //滞销库存详情页分页集合
 
   getThirdPartyDeductionReportData: bossRootUrl + 'report/retail/thirdPartyDeductionReport/getPageData', //第三方抵扣战报主页分页集合
-  getThirdPartyDeductionReportTotalVo: bossRootUrl + 'report/retail/thirdPartyDeductionReport/getTotalVo', //今第三方抵扣战报主页总计行对象
+  getThirdPartyDeductionReportTotalVo: bossRootUrl + 'report/retail/thirdPartyDeductionReport/getTotalVo', //第三方抵扣战报主页总计行对象
 
-  getValueAddedReportData: bossRootUrl + 'report/retail/valueAddedReport/getPageData', //获取增值服务战报主页分页集合
+  getValueAddedReportData: bossRootUrl + 'report/retail/valueAddedReport/getPageData', //增值服务战报主页分页集合
+  getValueAddedReportTotalVo: bossRootUrl + 'report/retail/valueAddedReport/getTotalVo', //增值服务战报主页总计行
+
+  getAssetProfileData: bossRootUrl + 'report/contact/assetProfile/getDataList', //资产概要集合
+  getAssetProfileTotalVo: bossRootUrl + 'report/contact/assetProfile/getTotalVo', //资产总额
 }

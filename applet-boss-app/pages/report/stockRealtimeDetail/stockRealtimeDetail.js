@@ -84,6 +84,7 @@ Page({
     this.setData({
       page: 1,
       dataList: [],
+      loadingMore: true,
     });
     this.getDataList();
 

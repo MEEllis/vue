@@ -1,1 +1,1 @@
-/* pages/report/unsalableStockDetail/unsalableStockDetail.wxss */
+@import '../stockDistributionDetail/stockDistributionDetail.wxss';
