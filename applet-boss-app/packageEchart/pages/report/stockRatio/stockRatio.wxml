@@ -16,7 +16,7 @@
   <view class="weui-tab__panel">
     <view class="weui-tab__content">
       <view class='pie-wrap'>
-        <ec-canvas id="mychart-dom-pie" style='width: 710rpx;	height: 450rpx;display:block;' canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+        <ec-canvas id="mychart-dom-pie" style='width: 710rpx;	height: 460rpx;display:block;' canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
       </view>
 
       <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0)&&loadingMore===false}}'></template>

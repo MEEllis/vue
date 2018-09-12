@@ -254,6 +254,10 @@ Page({
         desc = '金额'
       }
       var option = {
+        tooltip: {
+          trigger: 'item',
+          formatter: "{b}: {c} \n ({d}%)"
+        },
         backgroundColor: "#ffffff",
         color: ["#CC9BFF", "#FF9493", "#8C99F7", "#60CBF8", "#7EB3FA"],
         series: [{
@@ -264,7 +268,7 @@ Page({
           },
           type: 'pie',
           center: ['50%', '50%'],
-          radius: ['40%', '80%'],
+          radius: ['38%', '70%'],
           data: echartData,
           itemStyle: {
             emphasis: {
@@ -283,7 +287,7 @@ Page({
           type: 'text',
           top: 'center',
           left: 'center',
-          z: 200,
+          z: 1,
           style: {
             text: `${util.toThousands(total, 2)}\n库存总${desc}`,
             textAlign: 'center',
@@ -299,7 +303,7 @@ Page({
             chart.setOption(option);
             clearInterval(interval);
           }
-        },200)
+        }, 200)
       }
       let dataLists = that.data.dataList.concat(res.data.dataList)
       that.setData({

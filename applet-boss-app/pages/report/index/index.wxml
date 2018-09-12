@@ -7,7 +7,7 @@
   <view class='report-body'>
     <view class='weui-flex align-center'>
       <navigator wx:if="{{authObj.BOSS_JRZB.status===0}}" url='/pages/report/todayReport/todayReport' class='weui-flex__item tc'>
-        <image src="../../../images/1.png" lazy-load='true' />
+        <image src="../../../images/1-1.png" lazy-load='true' />
         <view>今日战报</view>
       </navigator>
       <view wx:else class='weui-flex__item tc'>
