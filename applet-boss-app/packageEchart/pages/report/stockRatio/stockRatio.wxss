@@ -22,3 +22,28 @@
   line-height: 72rpx;
   font-size: 24rpx;
 }
+
+.top {
+  width: 24rpx;
+  height: 24rpx;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  top: 8rpx;
+}
+
+.top0 {
+  border: solid 4rpx #cc9bff;
+}
+
+.top1 {
+  border: solid 4rpx #ff9493;
+}
+
+.top2 {
+  border: solid 4rpx #8c99f7;
+}
+
+.top3 {
+  border: solid 4rpx #60cbf8;
+}

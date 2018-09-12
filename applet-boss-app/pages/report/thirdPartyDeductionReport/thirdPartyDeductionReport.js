@@ -48,11 +48,11 @@ Page({
     }, {
       name: '活动',
       searchLab: '第三方抵扣单位编码/第三方抵扣单位名称',
-      value: 'installmentBusinessName'
+        value: 'couponName'
     }, {
       name: '单位',
       searchLab: '第三方抵扣单位编码/第三方抵扣单位名称',
-      value: 'installmentFeesName'
+        value: 'contactunitName'
     }],
     sliderOffset: 0,
     sliderLeft: 0,
