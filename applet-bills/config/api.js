@@ -3,8 +3,8 @@ let baseApiRootUrl
 //NewApiRootUrl = 'http://127.0.0.1:8080/wxapi/'; // 预生产的接口
 //NewApiRootUrl = 'http://192.168.0.62/wxapi/'; // 后台联调的接口
  // 提交测试的接口
-//NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/';
-//baseApiRootUrl = 'https://branchapi.phoneerp.com/';
+// NewApiRootUrl = 'https://branch.phoneerp.com/wxapi/';
+// baseApiRootUrl = 'https://branchapi.phoneerp.com/';
 
 
 // 预生产的接口
@@ -15,8 +15,9 @@ NewApiRootUrl = 'https://www.phoneerp.com/wxapi/';
 baseApiRootUrl = 'https://api.phoneerp.com/';
 
 
-
-//NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; // 模拟接口地址
+// 模拟接口地址
+// NewApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/'; 
+// baseApiRootUrl = 'http://rap2api.taobao.org/app/mock/13207/wxapi/';
 
 
 module.exports = {

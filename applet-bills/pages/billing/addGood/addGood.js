@@ -229,7 +229,7 @@ Page({
             }, 1500)
           })
         } else if (res.cancel) {
-      
+
         }
       }
     })
@@ -482,6 +482,7 @@ Page({
         const {
           vipVo
         } = res.data
+        //非会员
         if (vipVo === null) {
           that.setData({
             vipVo: {
@@ -489,16 +490,23 @@ Page({
               "customerTelephone": customerTelephone,
             },
           });
-        } else {
+        } 
+        //会员
+        else {
+          // 禁用会员
           if (vipVo.status == 1) {
+            // 清空折扣
+            vipVo.defaultDiscountRate=100;
+            vipVo.goodsDiscountList=[];
             that.setData({
-              vipVo: {},
+              vipVo: vipVo,
             });
           } else {
             that.setData({
               vipVo,
             });
           }
+         
         }
 
         if (billsId !== '') {

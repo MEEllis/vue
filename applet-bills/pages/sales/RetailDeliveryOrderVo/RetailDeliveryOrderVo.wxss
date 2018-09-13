@@ -180,6 +180,7 @@
 .sum-wrap .c1 {
   font-size: 28rpx;
 }
+
 .sum-wrap .p2 {
   margin-left: 8rpx;
 }
@@ -212,4 +213,14 @@ button.update.button-hover {
 
 .sum-wrap button {
   border-radius: 0;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.container-con{
+  margin-bottom: 120rpx;
 }
