@@ -97,6 +97,7 @@
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  word-break: break-all;
 }
 
 .align-center {
@@ -232,21 +233,21 @@
 
 .i-progress-bg {
   border-radius: 100px;
-	background-image: linear-gradient(90deg, 
-		#2181ee 0%, 
-		#21cdff 100%), 
-	linear-gradient(
-		#21a4ff, 
-		#21a4ff);
-	background-blend-mode: normal, 
-		normal;
+  background-image: linear-gradient(90deg, #2181ee 0%, #21cdff 100%),
+                      linear-gradient(#21a4ff, #21a4ff);
+  background-blend-mode: normal, normal;
   position: relative;
   animation: animate-positive 1.5s;
 }
 
 @-webkit-keyframes animate-positive {
-    0% { width: 0%;}
+  0% {
+    width: 0%;
+  }
 }
+
 @keyframes animate-positive {
-    0% { width:0%; }
+  0% {
+    width: 0%;
+  }
 }

@@ -4,10 +4,11 @@
 }
 
 .next-wrap {
-  background-image:linear-gradient(0deg, #1890ff 0%, #21a4ff 100%);
+  background-image: linear-gradient(0deg, #1890ff 0%, #21a4ff 100%);
   color: #fff;
   height: 72rpx;
   font-size: 28rpx;
+  padding: 0 16rpx;
 }
 
 .cur-date {
@@ -29,7 +30,6 @@
 .setion-wrap {
   padding: 16rpx 0rpx;
 }
-
 
 .detail-content .bordotted-top::before {
   left: 30rpx;

@@ -32,7 +32,7 @@
                   {{numberFr.formatNum(item[orderField])}}
                 </view>
                 <view class='weui-flex__item tr' wx:else>
-                  {{numberFr.formatNum(item[orderField],2)}}
+                  ￥{{numberFr.formatNum(item[orderField],2)}}
                 </view>
                 <view class='weui-flex__item tr'>
                   {{numberFr.stringNull(item[orderField+'Ratio'])}}%

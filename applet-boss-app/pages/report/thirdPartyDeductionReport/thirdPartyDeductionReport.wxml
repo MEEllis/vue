@@ -30,7 +30,7 @@
               <text class='count-tai'>{{numberFr.formatNum(item.goodsQuantity)}}笔</text>
             </view>
           </view>
-          <view class="weui-cell" wx:if="{{groupField==='installmentBusinessName'}}">
+          <view class="weui-cell" wx:if="{{groupField==='couponName'}}">
             <text class='iconfont icon-youhuiquandikou'></text>
             <view class="weui-cell__bd ellipsis color000 font-30">
               {{numberFr.stringNull(item.contactunitName)}}
@@ -39,7 +39,7 @@
           <view class='sale-detail'>
             <view class="weui-flex align-center">
               <view class="weui-flex__item tl ">
-                实际收款:
+                抵现金额:
                 <text class='colorfe9'>￥{{numberFr.formatNum(item.goodsAmount,2)}}</text>
               </view>
               <view class="weui-flex__item tl">

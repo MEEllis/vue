@@ -44,10 +44,7 @@ Page({
     tabs: [{
       name: '数量',
       value: 'goodsQuantity'
-    }, {
-      name: '金额',
-      value: 'goodsAmount'
-    }],
+    }, ],
     sliderOffset: 0,
     sliderLeft: 0,
     ec: {
@@ -247,11 +244,13 @@ Page({
           echartData.push(lastItem)
         }
       }
-
+      let Thousand = 0;
       if (orderField === 'goodsQuantity') {
         desc = '数量'
+        Thousand = 0;
       } else {
         desc = '金额'
+        Thousand = 2;
       }
       var option = {
         tooltip: {
@@ -289,7 +288,7 @@ Page({
           left: 'center',
           z: 1,
           style: {
-            text: `${util.toThousands(total, 2)}\n库存总${desc}`,
+            text: `${util.toThousands(total, Thousand)}\n库存总${desc}`,
             textAlign: 'center',
           }
         }
@@ -319,11 +318,20 @@ Page({
     const that = this;
     const {
       menuCode,
+      tabs,
     } = this.data;
     serviceCom.getBossAuthValidate(menuCode).then(res => {
       const authValidate = res.data;
+      authValidate.CKCBJ = false
+      if (authValidate.CKCBJ) {
+        tabs.push({
+          name: '金额',
+          value: 'goodsAmount'
+        })
+      }
       that.setData({
         authValidate,
+        tabs,
       });
 
     })

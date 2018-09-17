@@ -1,4 +1,8 @@
 .weui-navbar__slider {
+  width: 750rpx;
+}
+
+.weui-navbar__slider.ck {
   width: 375rpx;
 }
 

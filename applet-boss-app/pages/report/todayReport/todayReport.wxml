@@ -2,7 +2,7 @@
 <import src="../../../template/pagination.wxml" />
 <view class="weui-flex align-center next-wrap ">
   <view class="weui-flex__item tl" data-sign='pre' bindtap='bindReceiptsDate'>
-    <text class='iconfont icon-40'></text> 上一天
+    <text class='iconfont icon-40'></text> 前一天
   </view>
   <view class="weui-flex__item tc">
     <picker mode="date" value="{{startDate}}" end="{{endDayDate}}" bindchange="bindCurDate">
@@ -13,7 +13,7 @@
     </picker>
   </view>
   <view class="weui-flex__item tr" data-sign='next' bindtap='bindReceiptsDate'>
-    下一天
+    后一天
     <text class='iconfont icon-40 left'></text>
   </view>
 </view>
@@ -110,8 +110,12 @@
         <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
       </view>
       <view class="weui-flex__item tr ">
-        <view class='sum-desc'>均价</view>
-        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsPrice===undefined?0:totalVo.goodsPrice),2)}}</view>
+        <view class='sum-desc'>均毛</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAvgProfitAmount===undefined?0:totalVo.goodsAvgProfitAmount),2)}}</view>
+      </view>
+      <view class="weui-flex__item tr ">
+        <view class='sum-desc'>毛利</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsProfitAmount===undefined?0:totalVo.goodsProfitAmount),2)}}</view>
       </view>
       <view class="weui-flex__item tr">
         <view class='sum-desc'>金额</view>
@@ -126,6 +130,10 @@
       <view class="weui-flex__item noAuthQuantity">
         <view class='sum-desc'>数量</view>
         <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+      </view>
+      <view class="weui-flex__item noAuthAmount">
+        <view class='sum-desc'>金额</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
       </view>
     </view>
   </view>

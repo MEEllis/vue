@@ -25,7 +25,7 @@
       <view class="weui-cell ">
         <view class="weui-cell__bd font000">
           <view>{{numberFr.stringNull(sectionItem.imei)}}</view>
-          <view>{{numberFr.stringNull(sectionItem.auxiliaryImei)}}11111111111</view>
+          <view>{{numberFr.stringNull(sectionItem.auxiliaryImei)}}</view>
         </view>
         <view class="weui-cell__ft">
           <view class='count-tai'>{{numberFr.formatNum(sectionItem.stockAge)}}天</view>

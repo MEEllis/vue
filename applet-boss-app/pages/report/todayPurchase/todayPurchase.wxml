@@ -2,7 +2,7 @@
 <import src="../../../template/pagination.wxml" />
 <view class="weui-flex align-center next-wrap ">
   <view class="weui-flex__item tl" data-sign='pre' bindtap='bindReceiptsDate'>
-    <text class='iconfont icon-40'></text> 上一天
+    <text class='iconfont icon-40'></text> 前一天
   </view>
   <view class="weui-flex__item tc">
     <picker mode="date" value="{{startDate}}" end="{{endDayDate}}" bindchange="bindCurDate">
@@ -13,7 +13,7 @@
     </picker>
   </view>
   <view class="weui-flex__item tr" data-sign='next' bindtap='bindReceiptsDate'>
-    下一天
+    后一天
     <text class='iconfont icon-40 left'></text>
   </view>
 </view>
@@ -52,7 +52,7 @@
         </view>
         <view class="weui-flex align-center bordotted-top setion-wrap" wx:if="{{authValidate.CKCBJ}}">
           <view class="weui-flex__item tl ">
-            均毛
+            均价
             <text class='sum-val colorfe9'>￥{{numberFr.formatNum(item.goodsPrice,2)}}</text>
           </view>
           <view class="weui-flex__item tl">

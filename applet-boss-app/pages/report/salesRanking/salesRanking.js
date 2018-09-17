@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'BOSS_XSPH',
+    menuCode: 'BOSS_JRCG',
     scrollHeight: 0,
     goodsClassId: '',
     goodsClassName: '全部',

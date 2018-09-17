@@ -39,7 +39,7 @@
           <view class='sale-detail'>
             <view class="weui-flex align-center">
               <view class="weui-flex__item tl ">
-                抵现金额:
+                实际收款:
                 <text class='colorfe9'>￥{{numberFr.formatNum(item.goodsAmount,2)}}</text>
               </view>
               <view class="weui-flex__item tl">
