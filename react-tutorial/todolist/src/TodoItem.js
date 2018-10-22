@@ -19,9 +19,14 @@ class TodoItem extends Component{
 }
 
 TodoItem.propTypes={
-  content:PropTypes.string,
+  content:PropTypes.string.isRequired,
   index:PropTypes.number,
   handleDel:PropTypes.func,
+}
+
+TodoItem.defaultProps={
+  content:'',
+  index:0,
 }
 
 
