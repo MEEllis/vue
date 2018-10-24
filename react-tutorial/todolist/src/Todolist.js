@@ -1,73 +1,42 @@
-import React,{Component,Fragment} from 'react';
-import TodoItem from './TodoItem'
-import './style.css'
-class Todolist extends Component{
-    constructor(props){
-        super(props)
-        this.state={
-            inputValue:'hello!!!',
-            list:[
-                '学习英文',
-                'Learn React'
-            ]
-        }
-        this.handleInputChange=this.handleInputChange.bind(this)
-        this.handBtnSubmit=this.handBtnSubmit.bind(this)
-        this.handleDel=this.handleDel.bind(this)
-    }
+import React,{Component} from 'react';
+import {connect} from 'react-redux'
+import  {getInputChange,getAddItem,getDelItem} from './store/actionCreator'
+import TodolistUI from './TodolistUI'
 
+class Todolist extends Component{
     render(){
         return (
-            <Fragment>
-             <div>
-                 <label htmlFor='txtInput'>请输入：</label> 
-                 <input 
-                    id='txtInput'
-                    className='input'
-                    value={this.state.inputValue}
-                    onChange={this.handleInputChange}
-                 />
-                 <button onClick={this.handBtnSubmit}>提交</button>
-             </div>
-             <div>
-                 {this.getTodoItem()}
-             </div>
-            </Fragment>
+           <TodolistUI
+           inputValue={this.props.inputValue}
+           list={this.props.list}
+           handleInputChange={this.props.handleInputChange}
+           handBtnSubmit={this.props.handBtnSubmit}
+           handleDel={this.props.handleDel}
+           />
         )
-    }
-
-    getTodoItem(){
-      return this.state.list.map((item,index)=>{
-        return (
-                <TodoItem 
-                key={index}
-                content={item} 
-                index={index}
-                handleDel={this.handleDel}
-                />
-           )
-      })
-    }
-
-    handleInputChange(e){
-      const inputValue=e.target.value
-      this.setState(()=>({ inputValue }))
-    }
-
-    handBtnSubmit(){
-        this.setState((prevState)=>({ list:[...prevState.list,prevState.inputValue] }))
-    }
-
-    handleDel(index){
-        this.setState((prevState)=>{ 
-           // immutable  state 不允许我们做任何的改变
-          const list =[...prevState.list] //拷贝 
-          list.splice(index,1)
-          return {
-            list
-          }
-        })
     }
 }
 
-export default  Todolist;
+// store 的数据 映射到  当前组件的哪一个props 属性上
+const mapStateToProps=(state)=>{
+    return {
+        inputValue:state.inputValue,
+        list:state.list
+    }
+}
+// store 的action 映射到  当前组件的哪一个props 属性上
+const mapDispatchToProps=(dispatch)=>{
+    return {
+        handleInputChange:(e)=>{
+            dispatch(getInputChange(e.target.value))
+        },
+        handBtnSubmit(){
+            dispatch(getAddItem())
+        },
+        handleDel(index){
+            dispatch(getDelItem(index))
+        }
+    }
+}
+
+export default  connect (mapStateToProps,mapDispatchToProps)(Todolist);
