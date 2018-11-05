@@ -94,9 +94,11 @@ Page({
     this.setData({
       companySectionParamId: userInfo.companyId,
       companySectionParamName: userInfo.companyName,
+      companySectionParamNodeType: 'Company',
       goodsClassId: '',
       goodsClassName: '全部',
       groupField: 'goodsClassName',
+  
     })
   },
   //排行依据

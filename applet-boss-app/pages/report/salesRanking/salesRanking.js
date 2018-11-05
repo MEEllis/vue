@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'BOSS_JRCG',
+    menuCode: 'BOSS_XSPH',
     scrollHeight: 0,
     goodsClassId: '',
     goodsClassName: '全部',
@@ -309,5 +309,11 @@ Page({
       });
 
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

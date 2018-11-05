@@ -1,0 +1,82 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<view class='content-wrap'>
+  <view class="weui-cell" bindtap='tapShowDetail' data-target='companySection'>
+    公司部门
+    <view class="weui-cell__bd tr">
+      <text class='font-28 color333'>{{numberFr.stringNull(companySectionParamName)}}</text>
+    </view>
+    <text class='iconfont  icon-40 left'></text>
+  </view>
+  <view class="weui-cell" bindtap='tapShowDetail' data-target='goodsClass'>
+    商品类别
+    <view class="weui-cell__bd tr">
+      <text class='font-28 color333'>{{numberFr.stringNull(goodsClassName)}}</text>
+    </view>
+    <text class='iconfont  icon-40 left'></text>
+  </view>
+
+
+
+
+  <view class="weui-cell">
+    对比范围1
+    <view class="weui-cell__bd tr">
+      <picker class='' mode="date" value="{{startDate}}" end="{{toDayDate}}" data-start='startDate' data-end='endDate' data-target='startDate' data-compare='endDate' bindchange="bindDateStart">
+        <view class="picker ">
+          {{startDate}}
+        </view>
+      </picker>
+      至
+      <picker class='' mode="date" value="{{endDate}}" end="{{toDayDate}}" data-start='startDate' data-end='endDate' data-target='endDate' bindchange="bindDateEnd">
+        <view class="picker ">
+          {{endDate}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+
+  <view class="weui-cell">
+    对比范围2
+    <view class="weui-cell__bd tr">
+      <picker class='' mode="date" value="{{startDate1}}" end="{{toDayDate}}" data-start='startDate1' data-end='endDate1' data-target='startDate1' bindchange="bindDateStart">
+        <view class="picker ">
+          {{startDate1}}
+        </view>
+      </picker>
+      至
+      <picker class='' mode="date" value="{{endDate1}}" end="{{toDayDate}}" data-start='startDate1' data-end='endDate1' data-target='endDate1' bindchange="bindDateEnd">
+        <view class="picker ">
+          {{endDate1}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell">
+    销售类型
+    <view class="weui-cell__bd tr">
+      <radio-group class="radio-group" bindchange="salesTypeRadioChange">
+        <label class="ui-radio {{item.value==salesType?'checked':''}}" wx:for="{{salesTypeList}}" wx:key="">
+          <radio value="{{item.value}}" checked="{{item.value==salesType}}" />{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="weui-cell">
+    对比依据
+    <view class="weui-cell__bd tr">
+      <radio-group class="radio-group" bindchange="groupFieldRadioChange">
+        <label class="ui-radio {{item.value==groupField?'checked':''}}" wx:for="{{groupFieldList}}" wx:key="">
+          <radio value="{{item.value}}" checked="{{item.value==groupField}}" />{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+
+</view>
+<view class='btn-wrap'>
+  <button class="search font-36" type="primary" bindtap="formSubmit">查询</button>
+  <button class="mt-24 font-36" type="default" bindtap="formReset">重置</button>
+</view>

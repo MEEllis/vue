@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "周转率分析",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

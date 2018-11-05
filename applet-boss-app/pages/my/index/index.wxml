@@ -21,7 +21,8 @@
 
     <navigator url='/pages/my/about/about' class="weui-cell">
       <text class='iconfont icon-guanyu'></text>
-      <view class="weui-cell__bd">关于公司</view>
+      <view class="weui-cell__bd">关于云盛
+</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
   </view>

@@ -142,13 +142,20 @@ function getScrollHeightByEle(subEle) {
                 scrollHeight = scrollHeight - value.height
               }
             })
-            resolve(scrollHeight);
+            aa(scrollHeight)
           });
         } else {
           query.select('.' + subEle).boundingClientRect(function(rect) {
             scrollHeight = scrollHeight - rect.height
-            resolve(scrollHeight);
+            aa(scrollHeight)
           }).exec();
+        }
+        function aa(scrollHeight) {
+          //iPhone X适配
+          if (res.model.indexOf('iPhone X')>-1) {
+            scrollHeight = scrollHeight - 34;
+          }
+          resolve(scrollHeight);
         }
       },
       fail: function(err) {
@@ -261,7 +268,7 @@ function accDiv(a, b) {
   return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), accMul(c / d, Math.pow(10, f - e));
 }
 
-function toThousands(num,n) {
+function toThousands(num, n) {
   //参数说明：num 要格式化的数字 n 保留小数位      
   num = String(num.toFixed(n));
   var re = /(-?\d+)(\d{3})/;

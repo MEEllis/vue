@@ -194,6 +194,7 @@ Page({
     this.setData({
       companySectionParamId: userInfo.companyId,
       companySectionParamName: userInfo.companyName,
+      companySectionParamNodeType: 'Company',
       installmentfeesId: '',
       installmentfeesName: '全部',
       installmentBusinessId: '',

@@ -1,0 +1,10 @@
+@import '../salesRanking/salesRanking.wxss';
+
+.top-10 {
+  font-size: 22rpx;
+  letter-spacing: 0px;
+  color: #fe9f45;
+  float: right;
+  margin-right: 30rpx;
+}
+

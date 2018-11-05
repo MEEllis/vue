@@ -1,0 +1,53 @@
+.weui-navbar__slider {
+  width: 375rpx;
+}
+
+.weui-navbar__slider.ck {
+   width: 250rpx;
+}
+
+.pie-wrap {
+  width: 100%;
+  padding: 20rpx 0rpx;
+}
+
+.pie-wrap ec-canvas {
+  margin: 0 auto;
+}
+
+.scroll-wrap {
+  padding: 0rpx 20rpx;
+}
+
+.scroll-con {
+  padding: 0rpx 20rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  line-height: 72rpx;
+  font-size: 24rpx;
+}
+
+.top {
+  width: 24rpx;
+  height: 24rpx;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  top: 8rpx;
+}
+
+.top0 {
+  border: solid 4rpx #cc9bff;
+}
+
+.top1 {
+  border: solid 4rpx #ff9493;
+}
+
+.top2 {
+  border: solid 4rpx #8c99f7;
+}
+
+.top3 {
+  border: solid 4rpx #60cbf8;
+}

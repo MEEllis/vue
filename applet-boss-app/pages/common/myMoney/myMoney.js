@@ -27,7 +27,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let {
       route,
       barTitle,
@@ -48,15 +48,15 @@ Page({
   },
 
 
-  bindDateStart: function (e) {
+  bindDateStart: function(e) {
     const date = e.detail.value;
     this.setData({
       startDate: date,
     })
 
   },
-  
-  tapShowDetail: function (e) {
+
+  tapShowDetail: function(e) {
     const {
       target,
     } = e.currentTarget.dataset;
@@ -67,7 +67,7 @@ Page({
     })
 
   },
-  formSubmit: function () {
+  formSubmit: function() {
 
     const {
       companySectionParamId,
@@ -93,23 +93,24 @@ Page({
     }
     wx.navigateBack({})
   },
-  formReset: function () {
+  formReset: function() {
     //获取当前登录公司
     const userInfo = wx.getStorageSync('userInfo');
     const {
-      startDate,
+      endDate,
     } = util.getCurBMonth();
 
     this.setData({
       companySectionParamId: userInfo.companyId,
       companySectionParamName: userInfo.companyName,
+      companySectionParamNodeType: 'Company',
       accountTypeId: '',
       accountTypeName: '全部',
-      startDate,
+      startDate: endDate,
 
     })
   },
-  setDelta: function () {
+  setDelta: function() {
     const {
       route,
     } = this.data;
@@ -135,9 +136,9 @@ Page({
           companySectionParamId,
           companySectionParamName,
           companySectionParamData,
-   
+
           startDate,
-     
+
         } = addPage.data;
         this.setData({
           accountTypeId,

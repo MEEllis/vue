@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,7 +12,7 @@
 		"nodeModules": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.5",
+	"libVersion": "2.3.2",
 	"appid": "wx9f22d7e7010593c1",
 	"projectname": "applet-boss-app",
 	"isGameTourist": false,
@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 26,
+			"current": 32,
 			"list": [
 				{
 					"id": -1,
@@ -195,7 +195,44 @@
 				{
 					"id": -1,
 					"name": "packageEchart/stockRatio",
-					"pathName": "packageEchart/pages/report/stockRatio/stockRatio"
+					"pathName": "packageEchart/pages/report/stockRatio/stockRatio",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/wholesaleReport",
+					"pathName": "pages/report/wholesaleReport/wholesaleReport",
+					"query": ""
+				},
+				{
+					"id": 28,
+					"name": "packageEchart/salesContrast",
+					"pathName": "packageEchart/pages/report/salesContrast/salesContrast",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "packageEchart/salesProportion",
+					"pathName": "packageEchart/pages/report/salesProportion/salesProportion",
+					"query": ""
+				},
+				{
+					"id": 30,
+					"name": "report/turnOverRate",
+					"pathName": "pages/report/turnOverRate/turnOverRate",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/todayAllot",
+					"pathName": "pages/report/todayAllot/todayAllot",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "packageEchart/salesTrend",
+					"pathName": "packageEchart/pages/report/salesTrend/salesTrend",
+					"query": ""
 				}
 			]
 		}

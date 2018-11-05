@@ -65,12 +65,6 @@ Page({
       })
     })
   },
-  onShow: function () {
-    const { stockAge} = this.data;
-    wx.setNavigationBarTitle({
-      title: `滞销库存(超${stockAge}天)`,
-    })
-  },
 
   searchInput: function (e) {
     const {
@@ -80,7 +74,6 @@ Page({
       keyWord,
     });
   },
-
   //关键字搜索
   searchSubmit: function () {
     this.setData({
@@ -232,5 +225,11 @@ Page({
         authValidate
       });
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

@@ -1,0 +1,13 @@
+@import '../todayReport/todayReport.wxss';
+
+.weui-navbar__slider {
+  width: 375rpx;
+}
+
+.content-wrap {
+  padding: 0 30rpx;
+}
+
+.con-item {
+  line-height: 1;
+}

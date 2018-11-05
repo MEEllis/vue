@@ -1,7 +1,7 @@
 <wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
 <import src="../../../template/pagination.wxml" />
 
-<view class="list-wrap" wx:if="{{nodeType=='Section'}}">
+<view class="list-wrap section-wrap" wx:if="{{nodeType=='Section'}}">
   <view class="weui-cell ">
     <text class='iconfont icon-iconfontdianpu5'></text>
     <view class="weui-cell__bd ellipsis color000 font-30">
@@ -78,8 +78,6 @@
 </scroll-view>
 
 <view class="weui-flex sum-wrap align-center">
-
-
   <view class='weui-flex__item' wx:if="{{CKCBJ}}">
     <view class="weui-flex">
       <view class="weui-flex__item   tr">

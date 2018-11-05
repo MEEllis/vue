@@ -92,6 +92,7 @@ Page({
     this.setData({
       companySectionParamId: userInfo.companyId,
       companySectionParamName: userInfo.companyName,
+      companySectionParamNodeType: 'Company',
       goodsClassId: '',
       goodsClassName: '全部',
       stockAge: 25,

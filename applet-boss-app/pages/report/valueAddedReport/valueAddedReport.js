@@ -42,9 +42,9 @@ Page({
       searchLab: '营业员编码/营业员名称',
       value: 'salesManName'
     }, {
-        name: '服务',
-        searchLab: '增值服务名称',
-        value: 'serviceName'
+      name: '服务',
+      searchLab: '增值服务名称',
+      value: 'serviceName'
     }],
     sliderOffset: 0,
     sliderLeft: 0,
@@ -231,7 +231,7 @@ Page({
       });
     })
   },
- 
+
 
   // 获取列表
   getDataList: function () {
@@ -286,5 +286,11 @@ Page({
       });
 
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

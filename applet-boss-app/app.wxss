@@ -386,6 +386,14 @@ button[type=default] {
   padding-right: 8rpx;
 }
 
+.icon-kehu {
+  color: #12b8db;
+  font-size: 40rpx;
+  line-height: 1;
+  left: 0;
+  padding-right: 8rpx;
+}
+
 .icon-caigou {
   color: #fe9f45;
   font-size: 48rpx;
@@ -486,7 +494,7 @@ button[type=default] {
 }
 
 .icon-zengzhifuwu {
-  color: #FCC70D;
+  color: #fcc70d;
   font-size: 44rpx;
   line-height: 1;
   margin-right: 12rpx;
@@ -515,6 +523,21 @@ button[type=default] {
 .icon-xiangxia-copy.active:before {
   transform: rotate(-180deg);
   transition: transform 0.4s linear;
+}
+
+.icon-xiajiang {
+  color: #e51c23;
+  line-height: 1;
+}
+
+.icon-shangsheng {
+  color: #2a9d2a;
+  line-height: 1;
+}
+
+.icon-chiping {
+  color: #ff9800;
+  line-height: 1;
 }
 
 @-webkit-keyframes fadeIn {

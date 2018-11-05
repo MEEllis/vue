@@ -1,0 +1,39 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+
+<!-- 搜索 -->
+<search-bar class='search-bar' placeholder="商品类别/品牌/型号/商品名称/条码" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
+<view class='sel-time border-top'>
+  查询日期:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
+  <text class='top-10'>TOP 10</text>
+</view>
+
+<!-- 商品列表 -->
+<scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" >
+  <view class='scroll-wrap'>
+    <view class="weui-flex" wx:for="{{ dataList }}" wx:key="">
+      <view class="weui-flex__item" style='max-width:60rpx;margin-right:20rpx;'>
+        <image style='width:60rpx;height:77rpx;' wx:if="{{index<3}}" src="../../../images/business/sale-rank-0{{index+1}}.png"></image>
+        <view class='rank-index' wx:else>{{index+1}}</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class='rank-desc'>
+          <view class=''>
+            {{numberFr.stringNull(item.name)}}
+          </view>
+      
+          <view class='fr color218' >
+            {{numberFr.formatNum(item.turnroundRate,2)}}%
+          </view>
+        </view>
+        <view class="i-progress">
+          <view class="i-progress-outer">
+            <view class="i-progress-inner">
+              <view class="i-progress-bg" style="width: {{item.turnroundRate}}%;height: 20rpx"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

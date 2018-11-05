@@ -1,0 +1,88 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<view class="weui-flex align-center next-wrap ">
+  <view class="weui-flex__item tl" data-sign='pre' bindtap='bindReceiptsDate'>
+    <text class='iconfont icon-40'></text> 前一天
+  </view>
+  <view class="weui-flex__item tc">
+    <picker mode="date" value="{{startDate}}" end="{{endDayDate}}" bindchange="bindCurDate">
+      <view class="cur-date">
+        {{startDate}}
+        <text class='iconfont icon-xiangxia-copy'></text>
+      </view>
+    </picker>
+  </view>
+  <view class="weui-flex__item tr" data-sign='next' bindtap='bindReceiptsDate'>
+    后一天
+    <text class='iconfont icon-40 left'></text>
+  </view>
+</view>
+<!-- 一级类目 -->
+<view class='cate-wrap'>
+  <scroll-view scroll-x="true" class="cate-cotent">
+    <button class="cate-item  {{goodsClassId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="cateTap"> {{item.name}}</button>
+  </scroll-view>
+</view>
+<!-- 搜索 -->
+<search-bar class='search-bar' placeholder="商品类别/品牌/型号/商品名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+
+
+<!-- 商品列表 -->
+<view class="weui-tab">
+  <view class="weui-navbar">
+    <block wx:for-items="{{ tabs}}" wx:key="{{ index }}">
+      <view data-value="{{item.value}}" data-name="{{item.name}}" data-lab="{{item.searchLab}}" class="weui-navbar__item {{ groupField == item.value ? 'weui-bar__item_on' : '' }}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{ item.name }}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider " style="left: {{ sliderLeft }}px; transform: translateX({{ sliderOffset }}px); -webkit-transform: translateX({{ sliderOffset }}px);"></view>
+  </view>
+  <view class="weui-tab__panel">
+    <view class="weui-tab__content">
+      <scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+        <view class='list-wrap mb-24' wx:for="{{ dataList }}" wx:key="">
+          <view class="weui-cell " data-index='{{index}}'>
+            <text class='iconfont icon-shouji'></text>
+            <view class="weui-cell__bd ellipsis color000 font-30">
+              {{numberFr.stringNull(item.goodsName)}}
+            </view>
+
+          </view>
+          <view class='border-top  font-28'>
+            <view class='content-wrap'>
+              <view class="weui-flex align-center setion-wrap">
+                <view class="weui-flex__item tl ">
+                  <text class='sum-val colorfe9'>{{numberFr.formatNum(item.goodsQuantity)}}台</text>
+                </view>
+                <view class="weui-flex__item tl">
+                  <text class='sum-val colorfe9'>{{numberFr.stringNull(item.billCode)}}</text>
+                </view>
+              </view>
+              <view class="con-item">
+                调出部门：{{numberFr.stringNull(item.outSectionName)}}
+              </view>
+              <view class="con-item mt-20">
+                调入部门：{{numberFr.stringNull(item.inSectionName)}}
+              </view>
+
+              <view class="weui-flex align-center  setion-wrap">
+                <view class="weui-flex__item tl ">
+                  <text class='sum-val color8c8'>{{numberFr.stringNull(item.postMan)}}</text>
+                </view>
+                <view class="weui-flex__item tl">
+                  <text class='sum-val color8c8'>{{numberFr.stringNull(item.postTime)}}</text>
+                </view>
+              </view>
+
+
+            </view>
+          </view>
+
+        </view>
+        <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+      </scroll-view>
+    </view>
+
+  </view>
+
+</view>

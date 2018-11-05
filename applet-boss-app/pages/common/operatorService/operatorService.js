@@ -201,6 +201,7 @@ Page({
     this.setData({
       companySectionParamId: userInfo.companyId,
       companySectionParamName: userInfo.companyName,
+      companySectionParamNodeType: 'Company',
       operatorId: '',
       operatorName: '全部',
       operatorUnitId: '',

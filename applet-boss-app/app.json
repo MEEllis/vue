@@ -26,6 +26,9 @@
     "pages/report/thirdPartyDeductionReport/thirdPartyDeductionReport",
     "pages/report/valueAddedReport/valueAddedReport",
     "pages/report/assetProfile/assetProfile",
+    "pages/report/wholesaleReport/wholesaleReport",
+    "pages/report/turnOverRate/turnOverRate",
+    "pages/report/todayAllot/todayAllot",
     "pages/common/default/default",
     "pages/common/saleModal/saleModal",
     "pages/common/companySection/companySection",
@@ -53,24 +56,32 @@
     "pages/common/valueAddedReport/valueAddedReport",
     "pages/common/service/service",
     "pages/common/stockRatio/stockRatio",
-    "pages/my/about/about", 
+    "pages/common/wholesaleReport/wholesaleReport",
+    "pages/common/salesContrast/salesContrast",
+    "pages/common/salesProportion/salesProportion",
+    "pages/common/turnOverRate/turnOverRate",
+    "pages/common/salesTrend/salesTrend",
+    "pages/my/about/about",
     "pages/my/index/index"
   ],
   "subPackages": [
-    { 
-      "root": "packageEchart/pages/",  
+    {
+      "root": "packageEchart/pages/",
       "pages": [
-        "report/stockRatio/stockRatio"
+        "report/stockRatio/stockRatio",
+        "report/salesContrast/salesContrast",
+        "report/salesTrend/salesTrend",
+        "report/salesProportion/salesProportion"
+   
       ]
     }
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#21a4ff",
-    "navigationBarTitleText": "boss app",
+    "navigationBarTitleText": "云盛BOSS",
     "navigationBarTextStyle": "white"
   },
-  
   "tabBar": {
     "color": "#999",
     "borderStyle": "#e6e6e6",

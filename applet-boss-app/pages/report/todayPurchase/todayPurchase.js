@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'BOSS_JRZB',
+    menuCode: 'BOSS_JRCG',
     scrollHeight: 0,
     keyWord: '',
     goodsClassId: '',
@@ -32,7 +32,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     const startDate = util.formatTime(new Date);
     this.setData({
       startDate,
@@ -46,7 +46,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
     const that = this;
     util.getScrollHeightByEle(['next-wrap', 'cate-wrap', 'search-bar', 'sum-wrap']).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
@@ -56,7 +56,7 @@ Page({
     })
   },
 
-  searchInput: function (e) {
+  searchInput: function(e) {
     const {
       keyWord
     } = e.detail;
@@ -67,7 +67,7 @@ Page({
 
 
   //选择一级类别
-  cateTap: function (e) {
+  cateTap: function(e) {
     const {
       id,
       name
@@ -78,7 +78,7 @@ Page({
     });
     this.searchSubmit()
   },
-  bindReceiptsDate: function (e) {
+  bindReceiptsDate: function(e) {
     const {
       startDate
     } = this.data;
@@ -102,7 +102,7 @@ Page({
     this.searchSubmit()
 
   },
-  bindCurDate: function (e) {
+  bindCurDate: function(e) {
     this.setData({
       startDate: e.detail.value
     })
@@ -110,16 +110,16 @@ Page({
   },
 
   //关键字搜索
-  searchSubmit: function () {
+  searchSubmit: function() {
     this.setData({
-      page:1,
+      page: 1,
       dataList: [],
       loadingMore: true,
     });
     this.getDataList();
     this.getTotalVo();
   },
-  scrolltolower: function () {
+  scrolltolower: function() {
     const {
       page,
       curListData,
@@ -135,7 +135,7 @@ Page({
   },
 
   //获取一级类别
-  getFirstGoodsClassVoList: function () {
+  getFirstGoodsClassVoList: function() {
     var that = this;
     serviceCom.getGoodsClassList().then(categoryData => {
       that.setData({
@@ -145,7 +145,7 @@ Page({
   },
 
   //获取参数
-  getSearchParam: function () {
+  getSearchParam: function() {
     const {
       keyWord,
       goodsClassId,
@@ -155,12 +155,12 @@ Page({
       keyWord,
       goodsClassId,
       startDate,
-  
+
     }
   },
 
   // 获取商品列表
-  getDataList: function () {
+  getDataList: function() {
     const that = this;
     const postData = this.getSearchParam();
     const {
@@ -181,7 +181,7 @@ Page({
     });
   },
   //获取总计行对象
-  getTotalVo: function () {
+  getTotalVo: function() {
     var that = this;
     const postData = this.getSearchParam();
 
@@ -194,7 +194,7 @@ Page({
 
 
   //获取权限
-  getBossAuthValidate: function () {
+  getBossAuthValidate: function() {
     const that = this;
     const {
       menuCode
@@ -205,5 +205,11 @@ Page({
         authValidate
       });
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

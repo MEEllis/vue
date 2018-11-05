@@ -193,6 +193,7 @@ Page({
     this.setData({
       companySectionParamId: userInfo.companyId,
       companySectionParamName: userInfo.companyName,
+      companySectionParamNodeType: 'Company',
       deductionUnitsId: '',
       deductionUnitsName: '全部',
       activityNamesId: '',

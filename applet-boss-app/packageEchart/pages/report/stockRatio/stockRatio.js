@@ -286,24 +286,21 @@ Page({
           type: 'text',
           top: 'center',
           left: 'center',
-          z: 1,
+          z: 10,
           style: {
             text: `${util.toThousands(total, Thousand)}\n库存总${desc}`,
             textAlign: 'center',
+            fill:"#000",
           }
         }
       };
       // chart 可能没有载入完成
-      if (chart) {
-        chart.setOption(option);
-      } else {
-        const interval = setInterval(() => {
-          if (chart) {
-            chart.setOption(option);
-            clearInterval(interval);
-          }
-        }, 200)
-      }
+      const interval = setInterval(() => {
+        if (chart) {
+          chart.setOption(option);
+          clearInterval(interval);
+        }
+      }, 200)
       let dataLists = that.data.dataList.concat(res.data.dataList)
       that.setData({
         dataList: dataLists,
@@ -322,7 +319,6 @@ Page({
     } = this.data;
     serviceCom.getBossAuthValidate(menuCode).then(res => {
       const authValidate = res.data;
-      authValidate.CKCBJ = false
       if (authValidate.CKCBJ) {
         tabs.push({
           name: '金额',
@@ -336,7 +332,4 @@ Page({
 
     })
   },
-  echartInit(e) {
-    initChart(e.detail.canvas, e.detail.width, e.detail.height);
-  }
 })

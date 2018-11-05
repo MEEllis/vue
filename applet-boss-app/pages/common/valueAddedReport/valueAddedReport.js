@@ -29,7 +29,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let {
       route,
       barTitle,
@@ -51,7 +51,7 @@ Page({
     this.setDelta();
   },
   //切换时间
-  timeRadioChange: function (e) {
+  timeRadioChange: function(e) {
     const timeActive = e.detail.value;
     this.setData({
       timeActive,
@@ -86,14 +86,14 @@ Page({
   },
 
 
-  groupFieldRadioChange: function (e) {
+  groupFieldRadioChange: function(e) {
     const groupField = e.detail.value;
     this.setData({
       groupField,
     });
   },
 
-  bindDateStart: function (e) {
+  bindDateStart: function(e) {
     const date = e.detail.value;
     const {
       startDate,
@@ -112,7 +112,7 @@ Page({
     }
 
   },
-  bindDateEnd: function (e) {
+  bindDateEnd: function(e) {
     const date = e.detail.value
     const {
       startDate,
@@ -133,7 +133,7 @@ Page({
 
   },
 
-  tapShowDetail: function (e) {
+  tapShowDetail: function(e) {
     const {
       target,
     } = e.currentTarget.dataset;
@@ -144,7 +144,7 @@ Page({
     })
 
   },
-  formSubmit: function () {
+  formSubmit: function() {
     const {
       companySectionParamId,
       companySectionParamNodeType,
@@ -175,7 +175,7 @@ Page({
     }
     wx.navigateBack({})
   },
-  formReset: function () {
+  formReset: function() {
     //获取当前登录公司
     const userInfo = wx.getStorageSync('userInfo');
     const {
@@ -186,6 +186,7 @@ Page({
     this.setData({
       companySectionParamId: userInfo.companyId,
       companySectionParamName: userInfo.companyName,
+      companySectionParamNodeType: 'Company',
       serviceId: '',
       serviceName: '全部',
       startDate,
@@ -194,7 +195,7 @@ Page({
       groupField: 'sectionName',
     })
   },
-  setDelta: function () {
+  setDelta: function() {
     const {
       route,
     } = this.data;

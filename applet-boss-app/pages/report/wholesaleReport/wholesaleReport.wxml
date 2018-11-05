@@ -1,0 +1,109 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<!-- 一级类目 -->
+<view class='cate-wrap'>
+  <scroll-view scroll-x="true" class="cate-cotent">
+    <button class="cate-item  {{goodsClassId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="cateTap"> {{item.name}}</button>
+  </scroll-view>
+</view>
+<!-- 搜索 -->
+<search-bar class='search-bar' placeholder="{{groupFieldName}}" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit' bindtapAdvanced='tapAdvanced' isShowAdvanced="true"></search-bar>
+<view class='sel-time border-top'>
+  查询日期:{{startDate==endDate?startDate:(startDate+'至'+endDate)}}
+</view>
+
+<!-- 商品列表 -->
+<view class="weui-tab">
+  <view class="weui-navbar">
+    <block wx:for-items="{{ tabs}}" wx:key="{{ index }}">
+      <view data-value="{{item.value}}" data-name="{{item.name}}" data-lab="{{item.searchLab}}" class="weui-navbar__item {{ groupField == item.value ? 'weui-bar__item_on' : '' }}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{ item.name }}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider " style="left: {{ sliderLeft }}px; transform: translateX({{ sliderOffset }}px); -webkit-transform: translateX({{ sliderOffset }}px);"></view>
+  </view>
+  <view class="weui-tab__panel">
+    <view class="weui-tab__content">
+      <scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+        <view class='mt-24 list-wrap' wx:for="{{ dataList }}" wx:key="">
+          <view class="weui-cell ">
+            <text class='iconfont {{icon}}'></text>
+            <view class="weui-cell__bd ellipsis color000 font-30">
+              {{numberFr.stringNull(item.name)}}
+            </view>
+            <view class='weui-cell__ft'>
+              <text class='count-tai'>{{numberFr.formatNum(item.goodsQuantity)}}台</text>
+            </view>
+          </view>
+          <view class='sale-detail weui-flex align-center' wx:if="{{authValidate.CKCBJ}}">
+            <view class="weui-flex__item tc ">
+              <view class='sum-desc'>金额</view>
+              <view class='sum-val'>￥{{numberFr.formatNum(item.goodsAmount,2)}}</view>
+            </view>
+            <view class="weui-flex__item tc " wx:if="{{authValidate.CKCBJ}}">
+              <view class='sum-desc'>均毛</view>
+              <view class='sum-val'>￥{{numberFr.formatNum(item.goodsAvgProfitAmount,2)}}</view>
+            </view>
+            <view class="weui-flex__item tc">
+              <view class='sum-desc'>毛利</view>
+              <view class='sum-val'>￥{{numberFr.formatNum(item.goodsProfitAmount,2)}}</view>
+            </view>
+          </view>
+          <view class=" sale-detail " wx:else>
+            <view class="weui-flex align-center">
+              <view class="weui-flex__item tl ">
+                金额:
+                <text class='colorfe9'>￥{{numberFr.formatNum(item.goodsAmount,2)}}</text>
+              </view>
+            </view>
+          </view>
+
+
+        </view>
+        <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+      </scroll-view>
+    </view>
+
+  </view>
+  <view class="weui-flex sum-wrap align-center">
+    <view class='weui-flex__item' wx:if="{{authValidate.CKCBJ}}">
+      <view class="weui-flex">
+        <view class="weui-flex__item tr ">
+          <view class='sum-desc'>数量</view>
+          <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+        </view>
+
+        <view class="weui-flex__item tr">
+          <view class='sum-desc'>金额</view>
+          <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
+        </view>
+        <view class="weui-flex__item tr">
+          <view class='sum-desc'>均毛</view>
+          <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAvgProfitAmount===undefined?0:totalVo.goodsAvgProfitAmount),2)}}</view>
+        </view>
+        <view class="weui-flex__item tr">
+          <view class='sum-desc'>毛利</view>
+          <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsProfitAmount===undefined?0:totalVo.goodsProfitAmount),2)}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='weui-flex__item' wx:else>
+      <view class="weui-flex align-center">
+        <view class="weui-flex__item sum-hj  tc">
+          合计
+        </view>
+        <view class="weui-flex__item"></view>
+        <view class="weui-flex__item noAuthQuantity">
+          <view class='sum-desc'>数量</view>
+          <view class='sum-val'>{{numberFr.formatNum((totalVo.goodsQuantity===undefined?0:totalVo.goodsQuantity))}}</view>
+        </view>
+        <view class="weui-flex__item tr noAuthAmount">
+          <view class='sum-desc'>金额</view>
+          <view class='sum-val'>￥{{numberFr.formatNum((totalVo.goodsAmount===undefined?0:totalVo.goodsAmount),2)}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

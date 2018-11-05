@@ -22,16 +22,23 @@
         <image src="../../../images/2.png" lazy-load='true' />
         <view>我的销量</view>
       </view>
+
+
       <view class='weui-flex__item tc'>
         <image src="../../../images/3.png" lazy-load='true' />
         <view>营业款</view>
       </view>
+
+
+
     </view>
     <view class='weui-flex align-center'>
       <view class='weui-flex__item tc'>
         <image src="../../../images/4.png" lazy-load='true' />
         <view>批发战报</view>
       </view>
+
+
       <navigator wx:if="{{authObj.BOSS_MLZB.status===0}}" url='/pages/report/grossProfit/grossProfit' class='weui-flex__item tc'>
         <image src="../../../images/5-1.png" lazy-load='true' />
         <view>毛利战报</view>
@@ -92,10 +99,18 @@
         <image src="../../../images/11.png" lazy-load='true' />
         <view>采购汇总</view>
       </view>
-      <view class='weui-flex__item tc'>
+
+      <navigator wx:if="{{authObj.BOSS_JRDB.status===0}}" url='/pages/report/todayAllot/todayAllot' class='weui-flex__item tc'>
+        <image src="../../../images/12-1.png" lazy-load='true' />
+        <view>今日调拨</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/12.png" lazy-load='true' />
         <view>今日调拨</view>
       </view>
+
+
+
     </view>
     <view class='weui-flex align-center'>
       <navigator wx:if="{{authObj.BOSS_WDZJ.status===0}}" url='/pages/report/myMoney/myMoney' class='weui-flex__item tc'>
@@ -106,10 +121,14 @@
         <image src="../../../images/13.png" lazy-load='true' />
         <view>我的资金</view>
       </view>
+
+
       <view class='weui-flex__item tc'>
         <image src="../../../images/14.png" lazy-load='true' />
         <view>我的往来</view>
       </view>
+
+      
       <navigator wx:if="{{authObj.BOSS_YYSYWZB.status===0}}" url='/pages/report/operatorService/operatorService' class='weui-flex__item tc'>
         <image src="../../../images/15-1.png" lazy-load='true' />
         <view>运营商业务战报</view>
@@ -157,10 +176,17 @@
   </view>
   <view class='report-body'>
     <view class='weui-flex align-center'>
-      <view class='weui-flex__item tc'>
+
+      <navigator wx:if="{{authObj.BOSS_XSZB.status===0}}" url='/pages/report/salesProportion/salesProportion' class='weui-flex__item tc'>
+        <image src="../../../images/01-1.png" lazy-load='true' />
+        <view>销售占比</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/01.png" lazy-load='true' />
         <view>销售占比</view>
       </view>
+
+
       <navigator wx:if="{{authObj.BOSS_XSPH.status===0}}" url='/pages/report/salesRanking/salesRanking' class='weui-flex__item tc'>
         <image src="../../../images/02-1.png" lazy-load='true' />
         <view>销售排行</view>
@@ -169,16 +195,28 @@
         <image src="../../../images/02.png" lazy-load='true' />
         <view>销售排行</view>
       </view>
-      <view class='weui-flex__item tc'>
+
+      <navigator wx:if="{{authObj.BOSS_XSZS.status===0}}" url='/packageEchart/pages/report/salesTrend/salesTrend' class='weui-flex__item tc'>
+        <image src="../../../images/03-1.png" lazy-load='true' />
+        <view>销售走势</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/03.png" lazy-load='true' />
         <view>销售走势</view>
       </view>
     </view>
     <view class='weui-flex align-center'>
-      <view class='weui-flex__item tc'>
+
+      <navigator wx:if="{{authObj.BOSS_XSDB.status===0}}" url='/packageEchart/pages/report/salesContrast/salesContrast' class='weui-flex__item tc'>
+        <image src="../../../images/04-1.png" lazy-load='true' />
+        <view>销售对比</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/04.png" lazy-load='true' />
         <view>销售对比</view>
       </view>
+
+
       <navigator wx:if="{{authObj.BOSS_JXDB.status===0}}" url='/pages/report/purchaseSalesCompare/purchaseSalesCompare' class='weui-flex__item tc'>
         <image src="../../../images/05-1.png" lazy-load='true' />
         <view>进销对比</view>
@@ -198,24 +236,35 @@
       </view>
     </view>
     <view class='weui-flex align-center'>
-      <view class='weui-flex__item tc'>
+
+
+      <navigator wx:if="{{authObj.BOSS_ZZLFX.status===0}}" url='/pages/report/turnOverRate/turnOverRate' class='weui-flex__item tc'>
+        <image src="../../../images/07-1.png" lazy-load='true' />
+        <view>周转率分析</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/07.png" lazy-load='true' />
         <view>周转率分析</view>
       </view>
-      <view class='weui-flex__item tc'>
+
+      <navigator wx:if="{{authObj.BOSS_ZZTSFX.status===2}}" url='/pages/report/assetProfile/assetProfile' class='weui-flex__item tc'>
+        <image src="../../../images/07-1.png" lazy-load='true' />
+        <view>周转天数分析</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/08.png" lazy-load='true' />
         <view>周转天数分析</view>
       </view>
 
-      <navigator wx:if="{{authObj.BOSS_ZCGY.status===0}}" url='/pages/report/assetProfile/assetProfile' class='weui-flex__item tc'>
+      <navigator wx:if="{{authObj.BOSS_ZCGY.status===2}}" url='/pages/report/assetProfile/assetProfile' class='weui-flex__item tc'>
         <image src="../../../images/09-1.png" lazy-load='true' />
         <view>资产概要</view>
       </navigator>
-      <view wx:else  class='weui-flex__item tc'>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/09.png" lazy-load='true' />
         <view>资产概要</view>
       </view>
-    </view>     
+    </view>
 
 
   </view>

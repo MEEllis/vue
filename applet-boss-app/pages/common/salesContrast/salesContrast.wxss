@@ -1,0 +1,11 @@
+@import '../common.wxss';
+picker {
+  background-color: #fff;
+  border-radius: 6rpx;
+  border: solid 1rpx #d9d9d9;
+  font-size: 28rpx;
+  max-width: 194rpx;
+  text-align: center;
+  margin: 0 10rpx;
+  display: inline-block
+}

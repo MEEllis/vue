@@ -240,6 +240,7 @@ Page({
     this.setData({
       companySectionParamId: userInfo.companyId,
       companySectionParamName: userInfo.companyName,
+      companySectionParamNodeType: 'Company',
       supplierId: '',
       supplierName: '全部',
       goodsClassId: '',

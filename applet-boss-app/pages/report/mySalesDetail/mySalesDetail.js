@@ -103,23 +103,19 @@ Page({
       CKCBJ,
     } = this.data;
     let section = 0;
+    let sumHeight = ['search-bar', 'sel-time', 'sum-wrap']
     if (nodeType == 'Section') {
       wx.setNavigationBarTitle({
         title: '门店销量详情'
       })
+      sumHeight.push('section-wrap')
     } else {
       wx.setNavigationBarTitle({
         title: '公司销量详情'
       })
     }
-    util.getScrollHeight((section + 52 + 25 + 46)).then((scrollHeight) => {
-      // 计算主体部分高度,单位为px
-      that.setData({
-        scrollHeight,
-      })
-    })
 
-    util.getScrollHeightByEle(['list-wrap', 'search-bar', 'sel-time', 'sum-wrap']).then((scrollHeight) => {
+    util.getScrollHeightByEle(sumHeight).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
         scrollHeight,

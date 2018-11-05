@@ -1,0 +1,17 @@
+.weui-navbar__slider {
+  width: 250rpx;
+}
+
+.sale-detail {
+  font-size: 28rpx;
+  padding: 16rpx 30rpx;
+  border-top: 1rpx dotted #d9d9d9;
+}
+
+.sale-detail .sum-desc {
+  color: #333;
+}
+
+.sale-detail .sum-val {
+  color: #fe9f45;
+}

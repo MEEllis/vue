@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "今日调拨",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

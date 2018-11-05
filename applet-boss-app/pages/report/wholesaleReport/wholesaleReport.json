@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "批发战报",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}
