@@ -33,7 +33,12 @@
 
     </view>
     <view class='weui-flex align-center'>
-      <view class='weui-flex__item tc'>
+
+      <navigator wx:if="{{authObj.BOSS_PFZB.status===0}}" url='/pages/report/wholesaleReport/wholesaleReport' class='weui-flex__item tc'>
+        <image src="../../../images/4-1.png" lazy-load='true' />
+        <view>批发战报</view>
+      </navigator>
+      <view  wx:else class='weui-flex__item tc'>
         <image src="../../../images/4.png" lazy-load='true' />
         <view>批发战报</view>
       </view>
