@@ -93,6 +93,18 @@ Page({
       })
     })
   },
+  //选择一级类别
+  cateTap: function (e) {
+    const {
+      id,
+      name
+    } = e.currentTarget.dataset;
+    this.setData({
+      goodsClassId: id,
+      goodsClassName: name,
+    });
+    this.searchSubmit()
+  },
   tabClick: function(e) {
     const groupField = e.currentTarget.dataset.value;
     const groupFieldName = e.currentTarget.dataset.lab;
