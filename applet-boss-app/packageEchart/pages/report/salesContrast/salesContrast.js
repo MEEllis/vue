@@ -201,7 +201,7 @@ Page({
     var pages = getCurrentPages() //获取加载的页面
     var currentPage = pages[pages.length - 1] //获取当前页面的对象
     wx.navigateTo({
-      url: `/pages/common/salesContrast/salesContrast?route=${currentPage.route}&barTitle=库存占比-查询条件`,
+      url: `/pages/common/salesContrast/salesContrast?route=${currentPage.route}&barTitle=销售对比-查询条件`,
     })
   },
 

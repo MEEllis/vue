@@ -216,7 +216,7 @@ Page({
       keyWord,
       salesType,
       rankingGist,
-
+      groupField
     } = this.data;
     return {
       companySectionParam,
@@ -224,7 +224,7 @@ Page({
       keyWord,
       salesType,
       rankingGist,
-
+      groupField
     }
   },
   //

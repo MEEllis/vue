@@ -128,7 +128,7 @@
         <view>我的往来</view>
       </view>
 
-      
+
       <navigator wx:if="{{authObj.BOSS_YYSYWZB.status===0}}" url='/pages/report/operatorService/operatorService' class='weui-flex__item tc'>
         <image src="../../../images/15-1.png" lazy-load='true' />
         <view>运营商业务战报</view>
@@ -177,7 +177,7 @@
   <view class='report-body'>
     <view class='weui-flex align-center'>
 
-      <navigator wx:if="{{authObj.BOSS_XSZB.status===0}}" url='/pages/report/salesProportion/salesProportion' class='weui-flex__item tc'>
+      <navigator wx:if="{{authObj.BOSS_XSZB.status===0}}" url='/packageEchart/pages/report/salesProportion/salesProportion' class='weui-flex__item tc'>
         <image src="../../../images/01-1.png" lazy-load='true' />
         <view>销售占比</view>
       </navigator>
