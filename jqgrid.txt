@@ -34,6 +34,12 @@ jqGrid.getGridParam();
 
 福禄网络	 
 
+photoshop 
+ctrl + 鼠标 是选中图层
+ctrl+alt 再点击显示隐藏图层。 （隐藏多余的图层）
+裁剪 
+shitf +ctrl+alt +s     保存图片
+
 
 rmdir/s e:\ellis	 
 tab:keyCode==9   
@@ -43,3 +49,15 @@ $('#dataGrid').showCol(['discountRate','discountAmount','discountedAmount','incl
 
 
 componet(dispatch) ---> react-router-redux (next)====>dva(createPromiseMiddleware.js 中间件) ====>redux-saga(Middleware.js中间件)
+
+
+   
+
+
+
+
+
+
+
+
+

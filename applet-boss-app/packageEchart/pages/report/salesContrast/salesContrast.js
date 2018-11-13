@@ -321,12 +321,19 @@ Page({
             axisTick: {
               alignWithLabel: true
             },
+            axisLabel: {
+              fontSize: 8,
+            }
           }
         ],
         yAxis: [
           {
-            type: 'value'
-          }
+            type: 'value',
+            axisLabel: {
+              fontSize: 8,
+            }
+          },
+          
         ],
         series: [
           {

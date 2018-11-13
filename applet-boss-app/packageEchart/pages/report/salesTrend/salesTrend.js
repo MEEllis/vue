@@ -110,7 +110,7 @@ Page({
     util.getScrollHeightByEle(['groupField-wrap', 'cate-wrap', 'pie-wrap', 'search-bar', 'weui-navbar']).then((scrollHeight) => {
       // 计算主体部分高度,单位为px
       that.setData({
-        scrollHeight: scrollHeight - 3,
+        scrollHeight: scrollHeight - 4,
       })
     })
   },
@@ -322,7 +322,7 @@ Page({
 
         }
       }
-
+      
       var option = {
         tooltip: {
           trigger: 'axis',
@@ -339,12 +339,19 @@ Page({
         },
         xAxis: {
           type: 'category',
-          data: xAxisData
+          data: xAxisData,
+          axisLabel: {
+            fontSize: 9,
+          }
         },
         yAxis: {
           type: 'value',
           name: rankingGistDesc,
+          axisLabel:{
+            fontSize:9,
+          }
         },
+        dataZoom: [{ show: true, realtime: true, start: 0, end: 100 }],
         series: [{
           data: echartData,
           type: 'line',

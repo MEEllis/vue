@@ -176,14 +176,12 @@ Page({
   getSearchParam: function() {
     const {
       keyWord,
-      CompanySectionParam,
       goodsClassId,
       startDate,
       allotType
     } = this.data;
     return {
       keyWord,
-      CompanySectionParam,
       goodsClassId,
       startDate,
       allotType

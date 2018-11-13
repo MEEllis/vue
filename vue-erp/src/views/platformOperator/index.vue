@@ -13,7 +13,7 @@
       <el-checkbox class='pd-left-8' @change='handleFilter' v-model="containsDisabled">显示禁用</el-checkbox>
     </el-row>
     <el-table :data="dataList" height='calc(100vh - 205px)' border stripe @selection-change="handleSelectionChange">
-      <el-table-column width="50" label="序号" type="index" align="center">
+      <el-table-column width="60" label="序号" type="index" align="center">
       </el-table-column>
       <el-table-column type="selection" width="45" align="center">
       </el-table-column>
@@ -81,68 +81,31 @@
         <el-button size="small" @click='handleUserCancel'>取 消</el-button>
       </div>
     </el-dialog>
-
-    <el-dialog v-el-drag-dialog title='角色权限' width='900px' append-to-body :visible.sync='dialogRoleVisible'>
-      <el-card class="box-card" style="width:160px;" body-style='height:350px; overflow-y: auto;'>
-        <div slot="header" class="clearfix">
-          <span>角色列表</span>
-          <el-row>
-            <el-col :span="8">
-              <el-button style="" type="text" @click="handleRoleAdd()">添加</el-button>
-            </el-col>
-            <el-col :span="8">
-              <el-button style="" type="text" @click="handleRoleUpdate()">修改</el-button>
-            </el-col>
-            <el-col :span="8">
-              <el-button style="" type="text" @click="handleRoleDel()">删除</el-button>
-            </el-col>
-          </el-row>
-        </div>
-        <div>
-          <div v-for="item in userForm.roleList" :key="item.id" style="border-bottom: 1px solid #ccc;">
-            <el-button style="" type="text" @click="roleForm.id = item.id">{{item.name}}</el-button>
-          </div>
-        </div>
-
-      </el-card>
-      <div slot='footer' class='dialog-footer'>
-        <el-button size="small" type='primary' @click='handleUserOk(0)'>保 存</el-button>
-        <el-button size="small" @click='dialogRoleVisible=false'>取 消</el-button>
-      </div>
-    </el-dialog>
-
-    <el-dialog v-el-drag-dialog :title='textMap[dialogRoleStatus]+"角色"' width='600px' append-to-body :visible.sync='dialogRoleEditVisible'>
-      <el-form class='login-form' label-position="right" label-width="90px" autoComplete='on' :model='roleForm' :rules='roleRules' ref="roleForm">
-        <el-form-item label="角色名称:" prop="name">
-          <el-input class='txt-default' placeholder="请输入角色名称" v-model="roleForm.name" clearable autofocus> </el-input>
-        </el-form-item>
-      </el-form>
-      <div slot='footer' class='dialog-footer'>
-        <el-button size="small" type='primary' @click='handleRoleOk()'>保 存</el-button>
-        <el-button size="small" @click='dialogRoleEditVisible = false'>取 消</el-button>
-      </div>
-    </el-dialog>
+    <!-- 角色权限 -->
+    <role-auth :dialogRoleVisible.sync='dialogRoleVisible' :roleList='userForm.roleList' @reloadRoleList="loadRoleList"></role-auth>
   </div>
 </template>
 
 <script>
-import { getUserVoPageList, getRoleList, userAuthAdd, userAuthUpdate, deleteUser, enableUser, resetPassword, roleAuthAdd, roleAuthUpdate, deleteRole } from '@/api/platformOperator'
+import { getUserVoPageList, getRoleList, userAuthAdd, userAuthUpdate, deleteUser, enableUser, resetPassword } from '@/api/platformOperator'
 import { isvalidUsername } from '@/utils/validate'
 import elDragDialog from '@/directive/el-dragDialog' // base on element-ui
+import RoleAuth from '@/components/RoleAuth'// svg组件
 import { mapState } from 'vuex'
 
 export default {
   name: 'platformOperator',
   directives: { elDragDialog },
+  components: {
+    RoleAuth
+  },
   data() {
     return {
       searchKey: '',
       containsDisabled: false,
       dialogUserVisible: false,
       dialogRoleVisible: false,
-      dialogRoleEditVisible: false,
       dialogUserStatus: '',
-      dialogRoleStatus: '',
       textMap: {
         update: '修改',
         create: '新增'
@@ -166,13 +129,6 @@ export default {
         name: '',
         roleIds: [],
         roleList: []
-      },
-      roleRules: {
-        name: [{ required: true, message: '请输入角色名称', trigger: 'blur' }]
-      },
-      roleForm: {
-        id: '',
-        name: ''
       }
     }
   },
@@ -315,56 +271,18 @@ export default {
         }
       })
     },
-    handleRoleAdd() {
-      this.dialogRoleStatus = 'create'
-      this.dialogRoleEditVisible = true
-      this.resetRoleForm()
-    },
-    handleRoleUpdate() {
-      this.dialogRoleStatus = 'update'
-      this.dialogRoleEditVisible = true
-      this.resetRoleForm()
-    },
-    handleRoleDel() {
-      this.dialogRoleStatus = 'create'
-      this.dialogRoleEditVisible = true
-    },
-    handleRoleOk() {
-      this.$refs['roleForm'].validate((valid) => {
-        if (valid) {
-          const { dialogRoleStatus } = this
-          const { name, id } = this.roleForm
-          if (dialogRoleStatus === 'create') {
-            roleAuthAdd({
-              name
-            }).then(res => {
-              this.roleSaveSuccess('保存成功')
-            })
-          } else {
-            roleAuthUpdate({
-              id,
-              name
-            }).then(res => {
-              this.roleSaveSuccess('修改成功')
-            })
-          }
-        } else {
-          return false
-        }
-      })
-    },
-    resetRoleForm() {
-      this.roleForm.name = ''
-      this.roleForm.id = ''
-      this.$nextTick(() => {
-        this.$refs['roleForm'].clearValidate()
-      })
-    },
-    loadRoleList() {
-      if (this.userForm.roleList.length === 0) {
+
+    loadRoleList(reload) {
+      if (reload) {
         getRoleList().then(res => {
           this.userForm.roleList = res.data.dataList
         })
+      } else {
+        if (this.userForm.roleList.length === 0) {
+          getRoleList().then(res => {
+            this.userForm.roleList = res.data.dataList
+          })
+        }
       }
     },
     userSaveSuccess(flag, message) {
@@ -378,24 +296,12 @@ export default {
       }
       this.resetUserForm()
       this.getList()
-    },
-    roleSaveSuccess(message) {
-      this.$message({
-        showClose: true,
-        message: message,
-        type: 'success'
-      })
-      this.resetRoleForm()
-      this.dialogRoleEditVisible = false
-      this.userForm.roleIds = []
     }
+
   },
   computed: mapState({
 
   })
 }
 
-function loadRoleList() {
-
-}
 </script>

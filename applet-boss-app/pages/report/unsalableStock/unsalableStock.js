@@ -2,6 +2,8 @@ import request from '../../../utils/request.js';
 import util from '../../../utils/util.js';
 import api from '../../../config/api.js';
 import serviceCom from '../../../services/common.js';
+var app = getApp();     // 取得全局App
+
 
 Page({
 
@@ -43,7 +45,7 @@ Page({
     this.setData({
       companySectionParamId: userInfo.companyId,
       companySectionParamName: userInfo.companyName,
-
+      stockAge: app.globalData.stockAge
     })
     this.getFirstGoodsClassVoList()
     this.getDataList()
@@ -164,12 +166,15 @@ Page({
       goodsClassId,
       stockAge,
     } = this.data;
+    app.globalData.stockAge = stockAge;
     return {
       companySectionParam,
       keyWord,
       goodsClassId,
       stockAge,
     }
+    
+
   },
   // 获取商品列表
   getDataList: function () {

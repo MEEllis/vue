@@ -1,10 +1,11 @@
+const delay = require('webpack-api-mocker/utils/delay')
 const {
   companyList,
   info,
   getMenuList
 } = require('./user')
 const {
-  companyInfo
+  getConfigList
 } = require('./basicSetting')
 const {
   getUserVoPageList,
@@ -45,9 +46,6 @@ const proxy = {
   },
   'GET /manager/user/info': (req, res) => {
     return res.send(info)
-  },
-  'GET /manager/authority/companyInfo/companyList': (req, res) => {
-    return res.send(companyInfo)
   },
   'GET /manager/user/getMenuList': (req, res) => {
     return res.send(getMenuList)
@@ -97,6 +95,9 @@ const proxy = {
     return res.send({
       code: '0000'
     })
+  },
+  'POST /api/v1/manager/system/getConfigList': (req, res) => {
+    return res.send(getConfigList)
   }
 }
-module.exports = proxy
+module.exports = delay(proxy, 1500)

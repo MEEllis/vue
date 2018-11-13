@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "滞销库存",
   "usingComponents": {
     "search-bar": "/component/search-bar/index"
   }

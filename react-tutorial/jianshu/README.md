@@ -10,7 +10,7 @@
 1. 性能提升，
 2. 他是的跨端应用得以实现。 虚拟DOM 解释成相对应的 原生组件 。 React Native
 
- React 生命周期函数(P18)
+ React 生命周期函数
 1. Initialization(初始化，setup props and state)   
 2. Mounting (挂载) [componentWillMount,render,componentDidMount]
 3. Updation (修改状态 props , state):
@@ -43,4 +43,14 @@ immutable.js：（数据的不可变性的库）
 
 
 redux-devtools-extension：（redux 的调试库）
+
+
+
+Fedux  Flow  数据走向 : 见 statics/下 redux flow.jpg
+
+
+
+react-loadable
+
+       
 

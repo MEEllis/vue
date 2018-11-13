@@ -16,6 +16,10 @@ App({
   },
   //错误监听函数 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
   onError:function(){
-
+  
+  },
+  //全局变量
+  globalData:{
+    stockAge: 25, //滞销超期天数
   }
 })

@@ -48,22 +48,6 @@ export default new Router({
 })
 
 export const asyncRouterMap = [{
-  menuCode: 'XTPZI',
-  path: '/systemConfig',
-  component: Layout,
-  children: [{
-    menuCode: 'XTPZ',
-    path: 'index',
-    component: () =>
-        import('@/views/basicSetting/companyInfo'),
-    name: 'icons',
-    meta: {
-      title: '系统配置',
-      icon: 'lock'
-    }
-  }]
-},
-{
   menuCode: 'RBCX',
   path: '/report',
   meta: {
@@ -116,6 +100,21 @@ export const asyncRouterMap = [{
   }]
 },
 {
+  menuCode: 'XTPZI',
+  path: '/systemConfig',
+  component: Layout,
+  children: [{
+    menuCode: 'XTPZ',
+    path: 'index',
+    component: () =>
+        import('@/views/basicSetting/index'),
+    name: 'icons',
+    meta: {
+      title: '系统配置',
+      icon: 'lock'
+    }
+  }]
+}, {
   menuCode: '404',
   path: '*',
   redirect: '/404',
