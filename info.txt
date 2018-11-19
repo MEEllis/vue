@@ -87,6 +87,7 @@ http://www.lk361.com/home/service
 用户：13407406547 (非串号管理） 18975502205(串号管理)
 密码：19850109
 
+rimraf node_modules
 
 
 
@@ -111,9 +112,11 @@ http://www.lk361.com/home/service
 0.5 0.8 1 1.2 1.5 
 
 
+
+
 收款中...，请不要后退或关闭当前页面，请耐心等待并协助顾客输入密码或者完成支付认证操作
 
-
+s
 Mozilla/5.0 (iPhone; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E302 MicroMessenger/6.7.3(0x16070321) NetType/WIFI Language/zh_CN
 
 

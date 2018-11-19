@@ -78,6 +78,14 @@ Page({
     //获取当前登录公司
     const userInfo = wx.getStorageSync('userInfo');
     const curTime = util.formatTime(new Date);
+
+    //获取上个月第一天
+    var startDate1 = util.formatTime(new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1));
+    //获取上个月最后一天
+    var date = new Date();
+    var day = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+    var endDate1 = util.formatTime(new Date(new Date().getFullYear(), new Date().getMonth() - 1, day));
+
     const {
       startDate,
       endDate,
@@ -88,8 +96,8 @@ Page({
       toDayDate: curTime,
       startDate: startDate,
       endDate: endDate,
-      startDate1: startDate,
-      endDate1: endDate,
+      startDate1: startDate1,
+      endDate1: endDate1,
     })
     this.getCompanySectionList();
     this.getFirstGoodsClassVoList()
