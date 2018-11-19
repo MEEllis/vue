@@ -1,8 +1,0 @@
-@import '../sales.wxss';
-
-.icon-dikouquan {
-  font-size: 44rpx;
-  position: relative;
-  color:#F0A568;
-}
-

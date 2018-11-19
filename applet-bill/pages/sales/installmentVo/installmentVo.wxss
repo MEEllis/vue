@@ -1,8 +1,0 @@
-@import '../sales.wxss';
-
-.icon-fenqiyewu1 {
-  color: #FB949F;
-  font-size: 44rpx;
-  position: relative;
-}
-
