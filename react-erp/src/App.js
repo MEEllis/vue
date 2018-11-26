@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-import { Row, Col, Button } from 'antd';
+import React from 'react';
+import { Provider } from 'react-redux'
+import store from './store';
+import PageRouters from './routers/PageRouters';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="login-container">
-        <canvas id="noise-canvas"></canvas>
-        <Row type="flex" justify="center" align="middle">
-          <Col>
-            aaaa
-          </Col>
-
-        </Row>
-        <Button>aaa</Button>
-      </div>
-    );
-  }
+//如果不需要生命周期函数，就不需要写成一个组件的扩展，可以写成一个函数 
+const App =()=>{
+  return (
+    <Provider store={store}>
+        <PageRouters></PageRouters>
+    </Provider>
+  )
 }
 
 export default App;

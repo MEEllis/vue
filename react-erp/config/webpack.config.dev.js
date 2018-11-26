@@ -1,5 +1,6 @@
 
 
+const autoprefixer = require('autoprefixer');
 const fs = require('fs');
 const path = require('path');
 const resolve = require('resolve');
@@ -150,6 +151,8 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
+      '@': paths.appSrc,
+      'api': paths.appSrc + '/services/api',
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -221,9 +224,7 @@ module.exports = {
               customize: require.resolve(
                 'babel-preset-react-app/webpack-overrides'
               ),
-
               plugins: [
-                ['import', [{ libraryName: 'antd', style: true }]],
                 [
                   require.resolve('babel-plugin-named-asset-import'),
                   {
@@ -233,14 +234,7 @@ module.exports = {
                       },
                     },
                   },
-              
-                  // [{
-                  //   libraryName: 'antd',
-                  //   style: true
-                  // }] // import less
                 ],
-              
-                //'react-hot-loader/babel'
               ],
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -280,6 +274,14 @@ module.exports = {
               sourceMaps: false,
             },
           },
+            //Parse less files and modify variables
+            {
+              test: /\.less$/,
+              use: getStyleLoaders({
+                importLoaders: 1,
+                getLocalIdent: getCSSModuleLocalIdent,
+              }, 'less-loader')
+            },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
           // "style" loader turns CSS into JS modules that inject <style> tags.
@@ -327,6 +329,8 @@ module.exports = {
               'sass-loader'
             ),
           },
+
+            
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
           // In production, they would get copied to the `build` folder.

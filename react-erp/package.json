@@ -5,6 +5,7 @@
   "devDependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
+    "autoprefixer": "^9.3.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
@@ -33,6 +34,8 @@
     "jest": "23.6.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "0.4.3",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.1.0",
@@ -57,7 +60,10 @@
     "antd": "^3.10.8",
     "axios": "^0.18.0",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -117,6 +123,16 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": "css"
+        }
+      ]
     ]
   }
 }

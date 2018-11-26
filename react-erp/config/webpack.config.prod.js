@@ -304,8 +304,8 @@ module.exports = {
                       },
                     },
                   },
-                ],
-                ['import', [{ libraryName: 'antd', style: true }]],  // import less
+                ]
+               
               ],
               cacheDirectory: true,
               // Save disk space when time isn't as important
