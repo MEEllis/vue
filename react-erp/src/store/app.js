@@ -1,7 +1,10 @@
+//action types
 const SPIN_LOADING = "SPIN_LOADING"
 const UPDATE_TOPATH = "UPDATE_TOPATH"
 const UPDATE_ACCESSMENU = "UPDATE_ACCESSMENU"
 const UPDATE_MODULE = "UPDATE_MODULE"
+
+//reducer
 export default function (state, action) {
     if (!state) {
         state = {
@@ -39,4 +42,21 @@ export default function (state, action) {
         default:
             return state
     }
+}
+
+// action creators
+export const spinLoading = (loading) => {
+    return { type: SPIN_LOADING, spinLoading: loading }
+}
+
+export const updateToPath = (toPath) => {
+    return { type: UPDATE_TOPATH, toPath: toPath }
+}
+
+export const updateAccessMenu = (data) => {
+    return { type: UPDATE_ACCESSMENU, ...data }
+}
+
+export const updateModule = (module) => {
+    return { type: UPDATE_MODULE,...module }
 }

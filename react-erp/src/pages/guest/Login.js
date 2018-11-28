@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Form, Icon, Input, Button, Card } from 'antd';
 import './login.less';
 //import noise from '@/utils/noise';
-// import { loginByUsername } from 'api';
+import { loginByUsername } from 'api';
 import logo from '@/logo.png';
 // import { setToken, getToken } from '@/utils/token'
 
@@ -27,12 +27,10 @@ class Login extends React.PureComponent {
                 this.startLogin();
                 const userName = values.userName;
                 const password = values.password;
-                debugger
                 try {
-                    // let res = await loginByUsername(userName, password);
-                    //const data = res.data;
-                    //setToken(data.accessToken);
-
+                    let res = await loginByUsername(userName, password);
+                    const data = res.data;
+                 
                 }
                 catch (e) {
 
