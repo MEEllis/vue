@@ -1,4 +1,4 @@
-'use strict';
+
 
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
@@ -73,7 +73,10 @@ module.exports = function(proxy, allowedHost) {
       ignored: ignoredFiles(paths.appSrc),
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
-    https: protocol === 'https',
+    https: protocol === {
+      key: fs.readFileSync('nginx-1.14.1/conf/server.key'),
+      cert: fs.readFileSync('nginx-1.14.1/conf/server.crt'),
+    },
     host,
     overlay: false,
     historyApiFallback: {

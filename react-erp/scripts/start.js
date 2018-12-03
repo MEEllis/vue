@@ -98,7 +98,8 @@ checkBrowsers(paths.appPath, isInteractive)
         clearConsole();
       }
       console.log(chalk.cyan('Starting the development server...\n'));
-      //openBrowser(urls.localUrlForBrowser);
+      console.log(chalk.cyan(urls.localUrlForBrowser+'\n'));
+      // openBrowser(urls.localUrlForBrowser);
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {

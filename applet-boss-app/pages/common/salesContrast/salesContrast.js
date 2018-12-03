@@ -101,18 +101,24 @@ Page({
       startDate,
       endDate,
     } = util.getCurBMonth();
+    //获取上个月第一天
+    var startDate1 = util.formatTime(new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1));
+    //获取上个月最后一天
+    var date = new Date();
+    var day = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+    var endDate1 = util.formatTime(new Date(new Date().getFullYear(), new Date().getMonth() - 1, day));
     this.setData({
       companySectionParamId: userInfo.companyId,
       companySectionParamName: userInfo.companyName,
       companySectionParamNodeType: 'Company',
       goodsClassId: '',
       goodsClassName: '全部',
-      groupField: 'goodsClassName',
+      groupField: 'goodsQuantity',
       salesType:'',
       startDate: startDate,
       endDate: endDate,
-      startDate1: startDate,
-      endDate1: endDate,
+      startDate1: startDate1,
+      endDate1: endDate1,
     })
   },
   bindDateStart: function (e) {

@@ -118,8 +118,7 @@ rimraf node_modules
 
 s
 Mozilla/5.0 (iPhone; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E302 MicroMessenger/6.7.3(0x16070321) NetType/WIFI Language/zh_CN
-
-
+{"billsId":"","sectionId":1167,"contactUnitId":"","customerId":"2933","customerName":"a","customerTelephone":"15608631192","ignoredAmount":0,"totalAmount":6555,"totalPayAmount":"6555","shouldReceiveAmount":"6555","integralDeductionAmount":0,"remark":"","goodsDetailList":[{"orderNo":"1","giftFlag":0,"storageId":846,"goodsId":33694,"imeiId":19664,"goodsNumber":1,"retailPrice":6555,"discountRate":100,"discountedPrice":6555,"discountedAmount":6555,"remark":""},{"orderNo":"1.1","giftFlag":1,"storageId":846,"goodsId":33900,"goodsNumber":1,"retailPrice":0,"discountRate":100,"discountedPrice":0,"discountedAmount":0,"remark":""},{"orderNo":"1.2","giftFlag":1,"storageId":846,"goodsId":33900,"goodsNumber":1,"retailPrice":0,"discountRate":100,"discountedPrice":0,"discountedAmount":0,"remark":""}],"paymentReceivedOrderVo":{"detailList":[]},"depositDetailList":[],"operatorDetailList":[],"addServiceDetailList":[],"thirdPartyDetailList":[],"installmentDetailList":[]}
 
 
 
