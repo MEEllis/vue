@@ -3,12 +3,10 @@ import qs from 'qs'
 export function loginByUsername(username, password) {
     const data = {
       username,
-      password,
-      authCode:'jacc',
-      cid:-1
+      password
     }
     return request({
-      url: '/manager/emp/empLoginAjax.do',
+      url: "/manager/emp/empLoginAjax.do",
       method: 'post',
       data: qs.stringify(data),
       loading: 'spin'

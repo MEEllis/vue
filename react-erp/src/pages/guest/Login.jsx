@@ -1,17 +1,21 @@
-import React from 'react';
-import { Row, Col, Form, Icon, Input, Button, Card } from 'antd';
+import React, { Fragment } from 'react';
+import { Row, Col, Form, Icon, Input, Button, Card, Select } from 'antd';
 import './login.less';
 //import noise from '@/utils/noise';
 import { loginByUsername } from 'api';
+import LoginSelCompany from '@/components/LoginSelCompany';
 import logo from '@/logo.png';
 // import { setToken, getToken } from '@/utils/token'
 
 const FormItem = Form.Item;
 const { Meta } = Card;
+const { Option } = Select;
 
 class Login extends React.PureComponent {
     state = {
-        loading: false
+        loading: false,
+        companyList: [{id:-1,name:'ccc'}],
+        companyModalShow: false,
     }
     startLogin = () => {
         this.setState({ loading: true });
@@ -28,19 +32,22 @@ class Login extends React.PureComponent {
                 const userName = values.userName;
                 const password = values.password;
                 try {
-                    let res = await loginByUsername(userName, password);
+                    const res = await loginByUsername(userName, password);
+                    this.endLogin();
                     const data = res.data;
-                 
+                    this.setState({
+                        companyModalShow: true,
+                        companyList: data.data.companyList
+                    });
                 }
                 catch (e) {
 
                 }
-                setTimeout(() => {
-                    this.endLogin();
-                    history.push('/');
-                }, 2000);
             }
         });
+    }
+    handleSelCompanyChange = () => {
+
     }
     componentWillMount() {
         const { history } = this.props;
@@ -50,13 +57,13 @@ class Login extends React.PureComponent {
         // }
     }
     componentDidMount() {
-        //noise.Init();
         setTimeout(() => {
             let loading = document.getElementById("StartLoading");
             loading && document.body.removeChild(loading);
         }, 200);
     }
     render() {
+        const { companyList } = this.state
         const { getFieldDecorator } = this.props.form;
         const form = <Form onSubmit={this.handleSubmit} className="login-form">
             <FormItem
@@ -85,28 +92,47 @@ class Login extends React.PureComponent {
             </Button>
             </FormItem>
         </Form>;
+        const OptionItems = companyList.map((item) =>{
+            return  (<Option value={item.id} >{item.name}</Option>)
+        });
+        console.log(OptionItems)
         return (
-            <div className="login-container">
-                <canvas id="noise-canvas"></canvas>
-                <Row type="flex" justify="center" align="middle">
-                    <Col>
-                        <Card
-                            hoverable
-                            bordered={false}
-                            cover={<div style={{padding:10}}>
-                            <img className="logo" alt="logo" src={logo} />
-                            {form}
-                            </div>}
-                        >
-                            <Meta
-                                avatar={<Icon type="ant-design" style={{ color: '#1890ff', fontSize: 28 }} />}
-                                title="云盛erp"
-                                description="专注手机领域的ERP"
-                            />
-                        </Card>
-                    </Col>
-                </Row>
-            </div>
+            <Fragment>
+                <div className="login-container">
+                    <canvas id="noise-canvas"></canvas>
+                    <Row type="flex" justify="center" align="middle">
+                        <Col>
+                            <Card
+                                hoverable
+                                bordered={false}
+                                cover={<div style={{ padding: 10 }}>
+                                    <img className="logo" alt="logo" src={logo} />
+                                    {form}
+                                </div>}
+                            >
+                                <Meta
+                                    avatar={<Icon type="ant-design" style={{ color: '#1890ff', fontSize: 28 }} />}
+                                    title="云盛erp"
+                                    description="专注手机领域的ERP"
+                                />
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+                <LoginSelCompany modalVisible={this.state.companyModalShow} title="公司选择">
+                aaa
+                    <Select
+                        showSearch
+                        style={{ width: 200 }}
+                        placeholder="请选择公司"
+                        optionFilterProp="children"
+                        onChange={this.handleSelCompanyChange}
+                        filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                    >
+                        <OptionItems></OptionItems>
+                    </Select>
+                </LoginSelCompany>
+            </Fragment>
         )
     }
 }

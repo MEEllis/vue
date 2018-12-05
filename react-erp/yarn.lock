@@ -1934,7 +1934,7 @@ check-types@^7.3.0:
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-7.4.0.tgz#0378ec1b9616ec71f774931a3c6516fad8c152f4"
 
-chokidar@^2.0.0, chokidar@^2.0.2, chokidar@^2.0.4:
+chokidar@2.0.4, chokidar@^2.0.0, chokidar@^2.0.2, chokidar@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.0.4.tgz#356ff4e2b0e8e43e322d18a372460bbcf3accd26"
   dependencies:
@@ -2086,6 +2086,10 @@ color@^3.0.0:
   dependencies:
     color-convert "^1.9.1"
     color-string "^1.5.2"
+
+colors-cli@1.0.20:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/colors-cli/-/colors-cli-1.0.20.tgz#0913888747c46d7472236e553f685070ab1660f0"
 
 colors@~1.1.2:
   version "1.1.2"
@@ -4085,7 +4089,7 @@ http-proxy-middleware@~0.18.0:
     lodash "^4.17.5"
     micromatch "^3.1.9"
 
-http-proxy@^1.16.2:
+http-proxy@1.17.0, http-proxy@^1.16.2:
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.17.0.tgz#7ad38494658f84605e2f6db4436df410f4e5be9a"
   dependencies:
@@ -6228,6 +6232,10 @@ path-parse@^1.0.5:
 path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
+
+path-to-regexp@2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.4.0.tgz#35ce7f333d5616f1c1e1bfe266c3aba2e5b2e704"
 
 path-to-regexp@^1.7.0:
   version "1.7.0"
@@ -9023,6 +9031,16 @@ wbuf@^1.1.0, wbuf@^1.7.2:
 webidl-conversions@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
+
+webpack-api-mocker@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/webpack-api-mocker/-/webpack-api-mocker-1.6.3.tgz#91f001ea9164cc04a208074884841d509d2e591b"
+  dependencies:
+    body-parser "1.18.3"
+    chokidar "2.0.4"
+    colors-cli "1.0.20"
+    http-proxy "1.17.0"
+    path-to-regexp "2.4.0"
 
 webpack-dev-middleware@3.4.0:
   version "3.4.0"

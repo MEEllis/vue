@@ -153,6 +153,7 @@ module.exports = {
       'react-native': 'react-native-web',
       '@': paths.appSrc,
       'api': paths.appSrc + '/services/api',
+      'components': paths.appSrc + '/components',
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding

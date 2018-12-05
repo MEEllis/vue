@@ -7,6 +7,7 @@ const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const config = require('./webpack.config.dev');
 const paths = require('./paths');
 const fs = require('fs');
+const apiMocker = require('webpack-api-mocker');
 
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
@@ -73,10 +74,7 @@ module.exports = function(proxy, allowedHost) {
       ignored: ignoredFiles(paths.appSrc),
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
-    https: protocol === {
-      key: fs.readFileSync('nginx-1.14.1/conf/server.key'),
-      cert: fs.readFileSync('nginx-1.14.1/conf/server.crt'),
-    },
+    https: protocol === 'https',
     host,
     overlay: false,
     historyApiFallback: {
@@ -91,7 +89,7 @@ module.exports = function(proxy, allowedHost) {
         // This registers user provided middleware for proxy reasons
         require(paths.proxySetup)(app);
       }
-
+      apiMocker(app, paths.mockerMian)
       // This lets us fetch source contents from webpack for the error overlay
       app.use(evalSourceMapMiddleware(server));
       // This lets us open files from the runtime error overlay.

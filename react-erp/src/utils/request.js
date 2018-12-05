@@ -6,7 +6,7 @@ import { message } from 'antd';
 
 // create an axios instance
 const service = axios.create({
-  baseURL: process.env.NODE_ENV === 'development' ? 'https://localhost:4000' : 'http://69.171.69.13:3001', // api的base_url
+  baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'http://69.171.69.13:3001', // api的base_url
   timeout: 20000 // request timeout
 })
 
@@ -23,12 +23,11 @@ service.interceptors.response.use(
   response => {
     loading.hide(response.config)
     const res = response.data;
-    if (res.statusCode !== 200) {
-      message.error(res.msg);
-      return Promise.reject(res.msg);
-    } else {
-
+    if(res.code === '0000'){
       return response.data;
+    }else{
+      message.error(res.desc);
+      return Promise.reject(res.desc);
     }
   },
   error => {
