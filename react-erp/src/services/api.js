@@ -3,7 +3,7 @@ import qs from 'qs'
 export function loginByUsername(username, password) {
     const data = {
       username,
-      password
+      password,
     }
     return request({
       url: "/manager/emp/empLoginAjax.do",
@@ -11,4 +11,18 @@ export function loginByUsername(username, password) {
       data: qs.stringify(data),
       loading: 'spin'
     })
+}
+
+export function loginByToken(username, password,companyId) {
+  const data = {
+    username,
+    password,
+    cid:companyId ? companyId : -1,
   }
+  return request({
+    url: "/manager/emp/empLoginToken.do",
+    method: 'post',
+    data: qs.stringify(data),
+    loading: 'spin'
+  })
+}

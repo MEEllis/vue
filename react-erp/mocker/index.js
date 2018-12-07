@@ -141,5 +141,26 @@ const proxy = {
       })
     }
   },
+
+  'POST /manager/emp/empLoginToken.do': (req, res) => {
+    const {
+      password,
+      username
+    } = req.body
+    if (username === 'admin' && password === '123') {
+      return res.send({
+        'code': '0000',
+        'desc': null,
+        'data':{
+          'token':'SwyHTEx_RQppr97g4J5lKXtabJecpejuef8AqKYMAJc'
+        }
+      })
+    } else {
+      return res.send({
+        status: 'error',
+        'code': '0000'
+      })
+    }
+  },
 }
 module.exports = delay(proxy, 1500)

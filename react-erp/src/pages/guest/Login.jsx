@@ -1,20 +1,20 @@
 import React, { Fragment } from 'react';
-import { Row, Col, Form, Icon, Input, Button, Card, Select } from 'antd';
+import { Row, Col, Form, Icon, Input, Button, Card } from 'antd';
 import './login.less';
 //import noise from '@/utils/noise';
-import { loginByUsername } from 'api';
+import { loginByUsername, loginByToken } from 'api';
 import LoginSelCompany from '@/components/LoginSelCompany';
 import logo from '@/logo.png';
-// import { setToken, getToken } from '@/utils/token'
-
+import { setToken, getToken } from '@/utils/token'
 const FormItem = Form.Item;
 const { Meta } = Card;
-const { Option } = Select;
 
 class Login extends React.PureComponent {
     state = {
+        userName: '',
+        password: '',
         loading: false,
-        companyList: [{id:-1,name:'ccc'}],
+        companyList: [],
         companyModalShow: false,
     }
     startLogin = () => {
@@ -23,8 +23,19 @@ class Login extends React.PureComponent {
     endLogin = () => {
         this.setState({ loading: false });
     }
-    handleSubmit = (e) => {
+    getToken = async (companyId) => {
         const { history } = this.props;
+        const { userName, password, companyModalShow } = this.state;
+        const res = await loginByToken(userName, password, companyId);
+        setToken(res.data.token);
+        if (companyModalShow === true) {
+            this.setState({ companyModalShow: false });
+        }
+        setTimeout(() => {
+            history.push('/');
+        }, 1000);
+    }
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields(async (err, values) => {
             if (!err) {
@@ -35,10 +46,20 @@ class Login extends React.PureComponent {
                     const res = await loginByUsername(userName, password);
                     this.endLogin();
                     const data = res.data;
+                    const companyList = data.companyList;
                     this.setState({
-                        companyModalShow: true,
-                        companyList: data.data.companyList
+                        companyList,
+                        userName,
+                        password,
                     });
+                    if (companyList.length === 1) {
+                        this.getToken(userName,password,companyList[0].id)
+                    } else {
+                        this.setState({
+                            companyModalShow: true,
+                        });
+                    }
+
                 }
                 catch (e) {
 
@@ -46,7 +67,12 @@ class Login extends React.PureComponent {
             }
         });
     }
-    handleSelCompanyChange = () => {
+    handleSelCompanyCancel = () => {
+        this.setState({ companyModalShow: false });
+    }
+    handleSelCompanyOK = (fieldsValue) => {
+        const companyId = fieldsValue.select;
+        this.getToken(companyId)
 
     }
     componentWillMount() {
@@ -63,9 +89,9 @@ class Login extends React.PureComponent {
         }, 200);
     }
     render() {
-        const { companyList } = this.state
+        const { companyList, companyModalShow } = this.state
         const { getFieldDecorator } = this.props.form;
-        const form = <Form onSubmit={this.handleSubmit} className="login-form">
+        const FormLogin = <Form onSubmit={this.handleSubmit} className="login-form">
             <FormItem
                 hasFeedback
             >
@@ -92,10 +118,7 @@ class Login extends React.PureComponent {
             </Button>
             </FormItem>
         </Form>;
-        const OptionItems = companyList.map((item) =>{
-            return  (<Option value={item.id} >{item.name}</Option>)
-        });
-        console.log(OptionItems)
+
         return (
             <Fragment>
                 <div className="login-container">
@@ -107,7 +130,7 @@ class Login extends React.PureComponent {
                                 bordered={false}
                                 cover={<div style={{ padding: 10 }}>
                                     <img className="logo" alt="logo" src={logo} />
-                                    {form}
+                                    {FormLogin}
                                 </div>}
                             >
                                 <Meta
@@ -119,18 +142,12 @@ class Login extends React.PureComponent {
                         </Col>
                     </Row>
                 </div>
-                <LoginSelCompany modalVisible={this.state.companyModalShow} title="公司选择">
-                aaa
-                    <Select
-                        showSearch
-                        style={{ width: 200 }}
-                        placeholder="请选择公司"
-                        optionFilterProp="children"
-                        onChange={this.handleSelCompanyChange}
-                        filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-                    >
-                        <OptionItems></OptionItems>
-                    </Select>
+                <LoginSelCompany
+                    modalVisible={companyModalShow}
+                    handleOk={this.handleSelCompanyOK}
+                    handleCancel={this.handleSelCompanyCancel}
+                    companyList={companyList}
+                >
                 </LoginSelCompany>
             </Fragment>
         )
