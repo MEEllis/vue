@@ -26,3 +26,19 @@ export function loginByToken(username, password,companyId) {
     loading: 'spin'
   })
 }
+
+export function getMenuList() {
+  return request({
+    url: "/manager/auth/menu/getMenuList",
+    method: 'get',
+    loading: "spin"
+  })
+}
+
+export function getUserInfo() {
+  return request({
+    url: "/user/info",
+    method: 'get',
+    loading: "spin"
+  })
+}

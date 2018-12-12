@@ -23,17 +23,26 @@ class Login extends React.PureComponent {
     endLogin = () => {
         this.setState({ loading: false });
     }
-    getToken = async (companyId) => {
+    getToken = async (companyId,callback) => {
         const { history } = this.props;
         const { userName, password, companyModalShow } = this.state;
-        const res = await loginByToken(userName, password, companyId);
-        setToken(res.data.token);
-        if (companyModalShow === true) {
-            this.setState({ companyModalShow: false });
+        try { 
+            const res = await loginByToken(userName, password, companyId);
+            setToken(res.data.token);
+            if (companyModalShow === true) {
+                this.setState({ companyModalShow: false });
+            }
+            setTimeout(() => {
+                history.push('/');
+            }, 1000);
+        }     
+        catch (e) {
+         
+        } 
+        finally{
+          callback&&callback();
         }
-        setTimeout(() => {
-            history.push('/');
-        }, 1000);
+      
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -53,7 +62,7 @@ class Login extends React.PureComponent {
                         password,
                     });
                     if (companyList.length === 1) {
-                        this.getToken(userName,password,companyList[0].id)
+                        this.getToken(userName, password, companyList[0].id)
                     } else {
                         this.setState({
                             companyModalShow: true,
@@ -62,7 +71,7 @@ class Login extends React.PureComponent {
 
                 }
                 catch (e) {
-
+                    this.endLogin();
                 }
             }
         });
@@ -70,17 +79,17 @@ class Login extends React.PureComponent {
     handleSelCompanyCancel = () => {
         this.setState({ companyModalShow: false });
     }
-    handleSelCompanyOK = (fieldsValue) => {
+    handleSelCompanyOK = (fieldsValue,callback) => {
         const companyId = fieldsValue.select;
-        this.getToken(companyId)
+        this.getToken(companyId,callback)
 
     }
     componentWillMount() {
         const { history } = this.props;
-        // let token = getToken();
-        // if (token) {
-        //     history.push('/');
-        // }
+        let token = getToken();
+        if (token) {
+            history.push('/');
+        }
     }
     componentDidMount() {
         setTimeout(() => {

@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Button, Form,Select} from 'antd';
+import { Modal, Form, Select } from 'antd';
 const FormItem = Form.Item;
 const { Option } = Select;
 /**
@@ -8,7 +8,7 @@ const { Option } = Select;
  * 
  * 
  */
-class LoginSelCompany extends Component {
+class LoginSelCompany extends React.PureComponent {
   static defaultProps = {
     companyList: [],
     width: 620,
@@ -27,7 +27,13 @@ class LoginSelCompany extends Component {
     handleCancel: PropTypes.func,
   };
 
+  state = {
+    confirmLoading: false,
+  }
 
+  endClose = () => {
+    this.setState({ confirmLoading: false });
+}
   // 取消
   handleCancel = () => {
     if (this.props.handleCancel) {
@@ -40,14 +46,23 @@ class LoginSelCompany extends Component {
     this.props.form.validateFields((err, fieldsValue) => {
       if (err) return;
       if (this.props.handleOk) {
-        this.props.handleOk(fieldsValue);
+        this.setState({
+          confirmLoading: true,
+        });
+        this.props.handleOk(fieldsValue,()=>{
+          this.endClose();
+        });
       }
     });
-
   };
 
+  afterClose=()=>{
+    this.endClose();
+  }
+
   render() {
-    const { modalVisible, width,companyList,destroyOnClose } = this.props;
+    const { modalVisible, width, companyList, destroyOnClose } = this.props;
+    const { confirmLoading } = this.state
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
@@ -55,25 +70,8 @@ class LoginSelCompany extends Component {
     const handleOk = (e) => {
 
     };
-    const footer = [
-      <Button
-        key="update"
-        type="primary"
-        onClick={(e) => {
-          this.handleOk(e);
-        }}
-      >
-        保存
-      </Button>,
-      <Button
-        key="close"
-        onClick={() => {
-          this.handleCancel();
-        }}
-      >
-        取消
-      </Button>,
-    ];;
+  
+     
     const { getFieldDecorator } = this.props.form;
     return (
       <Fragment>
@@ -82,10 +80,10 @@ class LoginSelCompany extends Component {
           title='公司选择'
           visible={modalVisible}
           destroyOnClose={destroyOnClose}
-          onCancel={() => {
-            this.handleCancel();
-          }}
-          footer={footer}
+          onOk={this.handleOk}
+          confirmLoading={confirmLoading}
+          onCancel={this.handleCancel}
+          afterClose={this.afterClose}
         >
           <Form onSubmit={handleOk}>
             <FormItem
@@ -104,7 +102,7 @@ class LoginSelCompany extends Component {
                   placeholder="请选择公司"
                   optionFilterProp="children"
                   filterOption={(input, option) =>
-                     String(option.props.children).toLowerCase().indexOf(input.toLowerCase()) >= 0
+                    String(option.props.children).toLowerCase().indexOf(input.toLowerCase()) >= 0
                   }
                 >
                   {companyList.map(item => (

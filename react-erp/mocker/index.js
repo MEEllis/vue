@@ -1,7 +1,7 @@
 const delay = require('webpack-api-mocker/utils/delay')
 const companyList = {
   'code': '0000',
-  'desc': null,
+  'desc': 'aaaaaaaa',
   'data': {
     'companyList': [{
       'attrs': {},
@@ -122,8 +122,56 @@ const companyList = {
     }],
     'isOpr': 1,
     'url': 'http://branch.phoneerp.com/manager'
-  },
-  'billsId': null
+  }
+}
+
+const menuList = {
+  "code": '0000',
+  "desc": "",
+  "data": [{
+    "id": 4,
+    "parentId": 0,
+    "path": "",
+    "icon": "appstore",
+    "title": "系统",
+    "name": "系统",
+    "leftMemu": true,
+    "functionCode": "",
+    "sort": 1,
+    "children": [{
+      "id": 5,
+      "parentId": 4,
+      "path": "/system",
+      "icon": "setting",
+      "title": "基础设置",
+      "name": "基础设置",
+      "leftMemu": true,
+      "functionCode": "",
+      "children": [{
+        "id": 6,
+        "parentId": 5,
+        "path": "storage",
+        "icon": "chrome",
+        "title": "仓库信息",
+        "name": "仓库信息",
+        "leftMemu": true,
+        "functionCode": "menu_view",
+        "children": []
+      }]
+    }]
+  }]
+}
+
+const aaa = {
+  "code": '0000',
+  "desc": "",
+  "data": {
+    "userName": "严琼洁202",
+    "userRole": ["role_test", "role_website_admin"],
+    "userPermission": ["post_edit", "post_view", "post_del", "menu_view", "function_view", "role_view", "role_permission_view", "role_user_view", "user_role_view", "user_view", "department_view", "position_view"],
+    "isAdmin": 1,
+    "avatarUrl": "https://api.adorable.io/avatars/85/abott@adorable.png"
+  }
 }
 
 const proxy = {
@@ -151,8 +199,8 @@ const proxy = {
       return res.send({
         'code': '0000',
         'desc': null,
-        'data':{
-          'token':'SwyHTEx_RQppr97g4J5lKXtabJecpejuef8AqKYMAJc'
+        'data': {
+          'token': 'SwyHTEx_RQppr97g4J5lKXtabJecpejuef8AqKYMAJc'
         }
       })
     } else {
@@ -161,6 +209,14 @@ const proxy = {
         'code': '0000'
       })
     }
+  },
+
+  'GET /manager/auth/menu/getMenuList': (req, res) => {
+    return res.send(menuList)
+  },
+
+  'GET /user/info': (req, res) => {
+    return res.send(menuList)
   },
 }
 module.exports = delay(proxy, 1500)
