@@ -1,5 +1,7 @@
 //key为与后端返回菜单的name相对应
 export default {
+    storageInfo: "/app/baseSetting/storageInfo",
+
     menu: "/app/system/menu",
     function: "/app/permission/function",
     role: "/app/permission/role",

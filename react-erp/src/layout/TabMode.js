@@ -2,12 +2,19 @@ import React,{PureComponent,Fragment} from 'react'
 import { Spin,Layout } from 'antd';
 import './TabMode.css';
 import { connect } from 'react-redux';
-import MyHeader from '../containers/MySider'
+import MySider from '../containers/MySider'
 import { getToken } from '@/utils/token';
 import { getUserInfo, getMenuList } from 'api';
 import util from '@/utils/util';
 import { updateAccessMenu } from '@/store/app';
 class TabMode extends PureComponent{
+
+    state = {
+        collapsed: false,
+        responsive: false,
+        navTabShow: true,
+        navTabTop: 65
+    }
 
     componentDidMount (){
         this.initAppData()
@@ -26,7 +33,6 @@ class TabMode extends PureComponent{
         let openAccesseMenu = util.openAccesseMenu(menuRes.data);
         let currentModule = moduleList[0].name;
         let moduleMenu = moduleList[0].children;
-        
         this.props.updateAccessMenu({
             currentModule: currentModule,
             accessMenu: menuRes.data,
@@ -34,6 +40,8 @@ class TabMode extends PureComponent{
             moduleMenu: moduleMenu,
             moduleList: moduleList
         });
+        console.log(this.props.location.pathname)
+  
     }
 
     render(){
@@ -42,9 +50,9 @@ class TabMode extends PureComponent{
             <Fragment>
                  <Spin size="large" spinning={this.props.spinLoading}>
                     <Layout>
-                        <MyHeader>
+                        <MySider>
 
-                        </MyHeader>
+                        </MySider>
                     </Layout> 
                  </Spin>
             </Fragment>
