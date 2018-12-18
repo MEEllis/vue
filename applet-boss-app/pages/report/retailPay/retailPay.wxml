@@ -59,8 +59,8 @@
     <view class="weui-flex">
       <view class="weui-flex__item"></view>
       <view class="weui-flex__item noAuthAmount">
-        <view class='sum-desc'>本日收入</view>
-        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.todayIncome===undefined?0:totalVo.todayIncome),2)}}</view>
+        <view class='sum-desc'>本日余额</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.todayBalance===undefined?0:totalVo.todayBalance),2)}}</view>
       </view>
     </view>
   </view>

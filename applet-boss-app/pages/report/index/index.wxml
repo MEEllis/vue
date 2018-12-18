@@ -139,7 +139,7 @@
         <view>我的往来</view>
       </navigator>
       <view wx:else class='weui-flex__item tc'>
-        <image src="../../../images/13.png" lazy-load='true' />
+        <image src="../../../images/14.png" lazy-load='true' />
         <view>我的往来</view>
       </view>
     
