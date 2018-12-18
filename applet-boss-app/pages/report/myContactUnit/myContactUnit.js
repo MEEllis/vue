@@ -129,7 +129,10 @@ Page({
   //获取一级类别
   getFirstGoodsClassVoList: function () {
     var that = this;
-    serviceCom.getCompanyList().then(categoryData => {
+    const {
+      menuCode
+    } = this.data;
+    serviceCom.getCompanyList({ menuCode}).then(categoryData => {
       that.setData({
         categoryData,
       });
