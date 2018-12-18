@@ -1,0 +1,72 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<!-- 一级类目 -->
+<view class='cate-wrap'>
+  <scroll-view scroll-x="true" class="cate-cotent">
+    <button class="cate-item  {{companyId == item.id ? 'on' : ''}}" wx:for-items="{{categoryData}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="cateTap"> {{item.name}}</button>
+  </scroll-view>
+</view>
+<!-- 搜索 -->
+<search-bar class='search-bar' placeholder="往来单位编码/往来单位名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+
+<!-- 商品列表 -->
+<scroll-view scroll-y='true' class="list-wrap" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+  <view class='border-bottom' wx:for="{{ dataList }}" wx:key="">
+    <view class="weui-cell" bindtap='tapShowDetail' data-index='{{index}}' data-isshow='{{!!item.isShow}}'>
+      <text class='iconfont icon-shangwuren'></text>
+      <view class="weui-cell__bd ellipsis color000 font-30">
+        {{numberFr.stringNull(item.name)}}
+      </view>
+      <view class='weui-cell__ft'>
+        <text class='count-tai'>{{numberFr.formatNum(item.sumReceivableAmount)}}台</text>
+        <text class='iconfont  icon-xiangxia-copy {{(!!item.isShow)===true?"active" :""}} '></text>
+      </view>
+    </view>
+    <view class='border-top detail-content font-28' hidden='{{!item.isShow}}'>
+      <view class="weui-flex align-center pb-10">
+        <view class="weui-flex__item">
+          <text class='color333'>应付余额：</text>
+          <text class='count-tai'>￥{{numberFr.formatNum(item.payableAmount,2)}}</text>
+        </view>
+        <view class="weui-flex__item">
+          <text class='color333'>预付余额：</text>
+          <text class='count-tai'>￥{{numberFr.formatNum(item.prePaymentAmount,2)}}</text>
+        </view>
+      </view>
+      <view class="weui-flex align-center pb-10">
+        <view class="weui-flex__item">
+          <text class='color333'>应收余额：</text>
+          <text class='count-tai'>{{numberFr.stringNull(item.receivableAmount)}}</text>
+        </view>
+        <view class="weui-flex__item">
+          <text class='color333'>预收余额：</text>
+          <text class='count-tai'>{{numberFr.stringNull(item.preReceivableAmount)}}</text>
+        </view>
+      </view>
+      <view class="weui-flex align-center" style="text-align: center;">
+        <view class="weui-flex__item">
+          <text class='color333'>应收余额合计：</text>
+          <text class='count-tai'>{{numberFr.stringNull(item.sumReceivableAmount)}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0||curListData.length!==pageSize)&&loadingMore===false}}'></template>
+</scroll-view>
+
+<view class="weui-flex sum-wrap align-center">
+  <view class="weui-flex__item sum-hj  tc">
+    合计
+  </view>
+  <view class='weui-flex__item'>
+    <view class="weui-flex">
+      <view class="weui-flex__item"></view>
+      <view class="weui-flex__item ">
+        <view class='sum-desc'>应收余额合计</view>
+        <view class='sum-val'>{{numberFr.formatNum((totalVo.sumReceivableAmount===undefined?0:totalVo.sumReceivableAmount),2)}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

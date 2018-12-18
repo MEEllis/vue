@@ -12,7 +12,7 @@
 		"nodeModules": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.3.2",
+	"libVersion": "2.4.2",
 	"appid": "wx9f22d7e7010593c1",
 	"projectname": "applet-boss-app",
 	"isGameTourist": false,
@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 32,
+			"current": 35,
 			"list": [
 				{
 					"id": -1,
@@ -233,6 +233,23 @@
 					"name": "packageEchart/salesTrend",
 					"pathName": "packageEchart/pages/report/salesTrend/salesTrend",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/wholesaleReport",
+					"pathName": "pages/report/wholesaleReport/wholesaleReport",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/myContactUnit",
+					"pathName": "pages/report/myContactUnit/myContactUnit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report/retailPay",
+					"pathName": "pages/report/retailPay/retailPay"
 				}
 			]
 		}

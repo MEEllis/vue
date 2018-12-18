@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "营业款",
+  "usingComponents": {
+    "search-bar": "/component/search-bar/index"
+  }
+}

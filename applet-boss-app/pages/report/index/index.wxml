@@ -24,11 +24,17 @@
       </view>
 
 
-      <view class='weui-flex__item tc'>
+
+    <navigator wx:if="{{authObj.BOSS_YYK.status===0}}" url='/pages/report/retailPay/retailPay' class='weui-flex__item tc'>
+        <image src="../../../images/3-1.png" lazy-load='true' />
+        <view>营业款</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/3.png" lazy-load='true' />
         <view>营业款</view>
       </view>
 
+    
 
 
     </view>
@@ -128,10 +134,15 @@
       </view>
 
 
-      <view class='weui-flex__item tc'>
-        <image src="../../../images/14.png" lazy-load='true' />
+   <navigator wx:if="{{authObj.BOSS_WDWL.status===0}}" url='/pages/report/myContactUnit/myContactUnit' class='weui-flex__item tc'>
+      <image src="../../../images/14-1.png" lazy-load='true' />
+        <view>我的往来</view>
+      </navigator>
+      <view wx:else class='weui-flex__item tc'>
+        <image src="../../../images/13.png" lazy-load='true' />
         <view>我的往来</view>
       </view>
+    
 
 
       <navigator wx:if="{{authObj.BOSS_YYSYWZB.status===0}}" url='/pages/report/operatorService/operatorService' class='weui-flex__item tc'>

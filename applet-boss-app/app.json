@@ -29,6 +29,8 @@
     "pages/report/wholesaleReport/wholesaleReport",
     "pages/report/turnOverRate/turnOverRate",
     "pages/report/todayAllot/todayAllot",
+    "pages/report/retailPay/retailPay",
+    "pages/report/myContactUnit/myContactUnit",
     "pages/common/default/default",
     "pages/common/saleModal/saleModal",
     "pages/common/companySection/companySection",

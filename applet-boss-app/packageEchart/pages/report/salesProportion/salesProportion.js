@@ -21,7 +21,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'BOSS_KCZB',
+    menuCode: 'BOSS_XSZB', 
     scrollHeight: 0,
     goodsClassId: '',
     goodsClassName: '全部',

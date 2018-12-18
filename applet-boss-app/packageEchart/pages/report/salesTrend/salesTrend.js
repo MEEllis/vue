@@ -304,14 +304,15 @@ Page({
         const len = res.data.dataList.length
         for (let i = 0; i < len; i++) {
           let item = res.data.dataList[i];
-          let rankingGistValue = item[rankingGist]
+          let rankingGistValue = Number(item[rankingGist])
           echartData.push(rankingGistValue)
           xAxisData.push(item.billsDate)
           
           if (i>0){
-            if (rankingGistValue == res.data.dataList[i-1][rankingGist]){
+            let preRankingGist = Number(res.data.dataList[i - 1][rankingGist])
+            if (rankingGistValue == preRankingGist){
               item.stateIcon = 'icon-chiping';
-            } else if (rankingGistValue > res.data.dataList[i - 1][rankingGist]){
+            } else if (rankingGistValue > preRankingGist){
               item.stateIcon = 'icon-shangsheng';
             }else{
               item.stateIcon = 'icon-xiajiang';
@@ -319,7 +320,7 @@ Page({
           }else{
             item.stateIcon = 'icon-chiping';
           }
-
+          console.log(item.stateIcon)
         }
       }
       

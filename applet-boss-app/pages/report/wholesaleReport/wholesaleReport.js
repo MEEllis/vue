@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuCode: 'BOSS_ZZFWZB',
+    menuCode: 'BOSS_PFZB',
     scrollHeight: 0,
     companySectionParam: '',
     companySectionParamNodeType: 'Company',

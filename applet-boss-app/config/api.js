@@ -9,8 +9,8 @@ let bossRootUrl = ''
 //bossRootUrl = 'http://192.168.0.62:8802/api/v1/boss/';
 
 // 提交测试的接口
-loginRootUrl = 'https://branchapi.phoneerp.com/api/v1/common/';
-bossRootUrl = 'https://branchapi.phoneerp.com/api/v1/boss/';
+// loginRootUrl = 'https://branchapi.phoneerp.com/api/v1/common/';
+// bossRootUrl = 'https://branchapi.phoneerp.com/api/v1/boss/';
 
 // 预生产的接口
 // loginRootUrl = 'https://preapi.phoneerp.com/api/v1/common/';
@@ -21,8 +21,8 @@ bossRootUrl = 'https://branchapi.phoneerp.com/api/v1/boss/';
 // bossRootUrl = 'https://api.phoneerp.com/api/v1/boss/';
 
 // 模拟接口地址
-// loginRootUrl = 'http://rap2api.taobao.org/app/mock/21285/api/v1/common/';
-// bossRootUrl = 'http://rap2api.taobao.org/app/mock/21285/api/v1/boss/';
+loginRootUrl = 'http://rap2api.taobao.org/app/mock/21285/api/v1/common/';
+bossRootUrl = 'http://rap2api.taobao.org/app/mock/21285/api/v1/boss/';
 
 
 module.exports = {
@@ -130,5 +130,9 @@ module.exports = {
   getTodayAllotData: bossRootUrl + 'report/storage/todayAllot/getPageData', //获取今日调拨分页集合
   getSalesTrendData: bossRootUrl + 'report/sales/salesTrend/getDataList', //获取销售走势(不分页)集合
 
+  getMyContactUnitData: bossRootUrl + 'report/contact/myContactUnit/getPageData', //获取今日调拨分页集合
+  getMyContactUnitTotalVo: bossRootUrl + 'report/contact/myContactUnit/getTotalVo', //批发战报主页总计行对象
 
+  getRetailPayData: bossRootUrl + 'report/contact/retailPay/getPageData', //营业款分页集合
+  getRetailPayTotalVo: bossRootUrl + 'report/contact/retailPay/getTotalVo', //营业款总计行对象
 }

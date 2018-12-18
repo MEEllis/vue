@@ -1,0 +1,68 @@
+<wxs src="../../../filter/numberFr.wxs" module="numberFr"></wxs>
+<import src="../../../template/pagination.wxml" />
+<view class="weui-flex align-center next-wrap ">
+  <view class="weui-flex__item tl" data-sign='pre' bindtap='bindReceiptsDate'>
+    <text class='iconfont icon-40'></text> 前一天
+  </view>
+  <view class="weui-flex__item tc">
+    <picker mode="date" value="{{startDate}}" end="{{endDayDate}}" bindchange="bindCurDate">
+      <view class="cur-date">
+        {{startDate}}
+        <text class='iconfont icon-xiangxia-copy'></text>
+      </view>
+    </picker>
+  </view>
+  <view class="weui-flex__item tr" data-sign='next' bindtap='bindReceiptsDate'>
+    后一天
+    <text class='iconfont icon-40 left'></text>
+  </view>
+</view>
+<!-- 搜索 -->
+<search-bar class='search-bar' placeholder="部门编码/部门名称" keyWord="{{keyWord}}" bindsearchInput='searchInput' bindsearchSubmit='searchSubmit'></search-bar>
+
+
+<!-- 商品列表 -->
+<scroll-view scroll-y='true' class="" style="height:{{scrollHeight}}px;" bindscrolltolower='scrolltolower'>
+  <view class='list-wrap border-top' wx:for="{{ dataList }}" wx:key="">
+    <view class="weui-cell " bindtap='tapShowDetail' data-index='{{index}}' data-isshow='{{!!item.isShow}}'>
+      <text class='iconfont icon-iconfontdianpu5'></text>
+      <view class="weui-cell__bd ellipsis color000 font-30">
+        {{numberFr.stringNull(item.name)}}
+      </view>
+      <view class='weui-cell__ft'>
+        <text class='count-tai'>￥{{numberFr.formatNum(item.todayBalance,2)}}</text>
+        <text class='iconfont  icon-xiangxia-copy {{(!!item.isShow)===true?"active" :""}} '></text>
+      </view>
+    </view>
+    <view class="detail-content weui-flex align-center  border-top setion-wrap "  hidden='{{!item.isShow}}'>
+      <view class="weui-flex__item tc ">
+        本日收入:
+        <text class='sum-val colorfe9'>￥{{numberFr.formatNum(item.todayIncome,2)}}</text>
+      </view>
+      <view class="weui-flex__item tc ">
+      本日支出:
+        <text class='sum-val colorfe9'>￥{{numberFr.formatNum(item.todayPay,2)}}</text>
+      </view>
+    </view>
+   
+  </view>
+  <template is="pagination" data="{{dataList}}" wx:if='{{(curListData.length===0)&&loadingMore===false}}'></template>
+</scroll-view>
+
+<view class="weui-flex sum-wrap align-center">
+  <view class="weui-flex__item sum-hj  tc">
+    合计
+  </view>
+
+
+  <view class='weui-flex__item'>
+    <view class="weui-flex">
+      <view class="weui-flex__item"></view>
+      <view class="weui-flex__item noAuthAmount">
+        <view class='sum-desc'>本日收入</view>
+        <view class='sum-val'>￥{{numberFr.formatNum((totalVo.todayIncome===undefined?0:totalVo.todayIncome),2)}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>
