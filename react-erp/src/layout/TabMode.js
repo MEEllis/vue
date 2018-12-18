@@ -7,6 +7,9 @@ import { getToken } from '@/utils/token';
 import { getUserInfo, getMenuList } from 'api';
 import util from '@/utils/util';
 import { updateAccessMenu } from '@/store/app';
+import MyNavTabs from '@/containers/MyNavTabsR';
+
+const { Content } = Layout;
 class TabMode extends PureComponent{
 
     state = {
@@ -50,9 +53,12 @@ class TabMode extends PureComponent{
             <Fragment>
                  <Spin size="large" spinning={this.props.spinLoading}>
                     <Layout>
-                        <MySider>
-
-                        </MySider>
+                        <MySider></MySider>
+                        <Layout>
+                        <Content style={{ padding: 24, paddingTop: 0, background: '#fff' }}>
+                                <MyNavTabs style={{ marginTop: this.state.navTabTop, width: '100%', display: this.state.navTabShow ? 'block' : 'none' }} show={this.state.navTabShow} />
+                            </Content>
+                        </Layout> 
                     </Layout> 
                  </Spin>
             </Fragment>
