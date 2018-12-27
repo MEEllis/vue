@@ -6,8 +6,14 @@ const Home = Loadable({
     loading: ContentLoader
 });
 
+
 const StorageInfo = Loadable({
     loader: () => import('@/pages/baseSetting/StorageInfo'),
+    loading: ContentLoader
+});
+
+const Page404 = Loadable({
+    loader: () => import('@/pages/error/Page404'),
     loading: ContentLoader
 });
 
@@ -15,4 +21,6 @@ const StorageInfo = Loadable({
 export default {
     "home": Home,
     "storageInfo": StorageInfo,
+    "error_404": Page404,
+    "page404": Page404,
 }

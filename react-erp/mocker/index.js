@@ -134,31 +134,53 @@ const menuList = {
     "path": "",
     "icon": "appstore",
     "title": "系统",
-    "name": "系统",
+    "name": "system",
     "leftMemu": true,
     "functionCode": "",
     "sort": 1,
     "children": [{
       "id": 5,
       "parentId": 4,
-      "path": "/system",
+      "path": "/baseSetting",
       "icon": "setting",
       "title": "基础设置",
-      "name": "基础设置",
+      "name": "baseSetting",
       "leftMemu": true,
       "functionCode": "",
       "children": [{
         "id": 6,
         "parentId": 5,
-        "path": "storage",
+        "path": "storageInfo",
         "icon": "chrome",
         "title": "仓库信息",
-        "name": "仓库信息",
+        "name": "storageInfo",
         "leftMemu": true,
         "functionCode": "menu_view",
         "children": []
       }]
-    }]
+    },
+    // {
+    //   "id": 7,
+    //   "parentId": 4,
+    //   "path": "/purchaseManagement",
+    //   "icon": "setting",
+    //   "title": "采购管理",
+    //   "name": "purchaseManagement",
+    //   "leftMemu": true,
+    //   "functionCode": "",
+    //   "children": [{
+    //     "id": 6,
+    //     "parentId": 7,
+    //     "path": "purchase",
+    //     "icon": "chrome",
+    //     "title": "采购订单",
+    //     "name": "purchaseOrder",
+    //     "leftMemu": true,
+    //     "functionCode": "menu_view",
+    //     "children": []
+    //   }]
+    // }
+  ]
   }]
 }
 

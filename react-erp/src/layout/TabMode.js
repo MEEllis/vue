@@ -1,4 +1,4 @@
-import React,{PureComponent,Fragment} from 'react'
+import React,{Component,Fragment} from 'react'
 import { Spin,Layout } from 'antd';
 import './TabMode.css';
 import { connect } from 'react-redux';
@@ -10,7 +10,7 @@ import { updateAccessMenu } from '@/store/app';
 import MyNavTabs from '@/containers/MyNavTabsR';
 
 const { Content } = Layout;
-class TabMode extends PureComponent{
+class TabMode extends Component{
 
     state = {
         collapsed: false,
@@ -43,8 +43,6 @@ class TabMode extends PureComponent{
             moduleMenu: moduleMenu,
             moduleList: moduleList
         });
-        console.log(this.props.location.pathname)
-  
     }
 
     render(){
@@ -53,7 +51,10 @@ class TabMode extends PureComponent{
             <Fragment>
                  <Spin size="large" spinning={this.props.spinLoading}>
                     <Layout>
-                        <MySider></MySider>
+                        <MySider
+                           responsive={this.state.responsive}
+                           collapsed={this.state.collapsed}
+                        ></MySider>
                         <Layout>
                         <Content style={{ padding: 24, paddingTop: 0, background: '#fff' }}>
                                 <MyNavTabs style={{ marginTop: this.state.navTabTop, width: '100%', display: this.state.navTabShow ? 'block' : 'none' }} show={this.state.navTabShow} />

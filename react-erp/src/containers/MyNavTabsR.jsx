@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Tabs } from 'antd';
 import { withRouter } from 'react-router-dom';
-import MenuToRouter from '@/menuMapToRouter';
-import MenuMapToComponent from '@/menuMapToComponent';
+import MenuToRouter from '@/menuMapToRouter'; //路由地址
+import MenuMapToComponent from '@/menuMapToComponent'; //路由组件
 
 const TabPane = Tabs.TabPane;
 
-class MyNavTabs extends React.PureComponent {
+class MyNavTabs extends React.Component {
   state = {
     currentPage: '',
     openPages: [{
@@ -15,7 +15,6 @@ class MyNavTabs extends React.PureComponent {
       title: "首页",
       path: "/app/home",
       closable: false,
-      content: MenuMapToComponent["home"]
     }]
   }
   componentWillReceiveProps(nextProps,nextState) {
@@ -24,6 +23,7 @@ class MyNavTabs extends React.PureComponent {
     }
     const pathname = nextProps.location.pathname;
     let name = Object.keys(MenuToRouter).find(key => MenuToRouter[key] === pathname);
+    
     if (name) {
       if (this.state.openPages.some(s => s.name === name)) {
         if (this.state.currentPage !== name) {
