@@ -263,7 +263,13 @@
         <view>周转率分析</view>
       </view>
 
-      <navigator wx:if="{{authObj.BOSS_ZZTSFX.status===2}}" url='/pages/report/assetProfile/assetProfile' class='weui-flex__item tc'>
+      <view class='weui-flex__item tc'>
+      </view>
+
+      <view class='weui-flex__item tc'>
+      </view>
+
+      <!-- <navigator wx:if="{{authObj.BOSS_ZZTSFX.status===2}}" url='/pages/report/assetProfile/assetProfile' class='weui-flex__item tc'>
         <image src="../../../images/07-1.png" lazy-load='true' />
         <view>周转天数分析</view>
       </navigator>
@@ -279,7 +285,7 @@
       <view wx:else class='weui-flex__item tc'>
         <image src="../../../images/09.png" lazy-load='true' />
         <view>资产概要</view>
-      </view>
+      </view> -->
     </view>
 
 

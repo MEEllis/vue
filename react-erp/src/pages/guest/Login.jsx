@@ -23,7 +23,7 @@ class Login extends React.PureComponent {
     endLogin = () => {
         this.setState({ loading: false });
     }
-    getToken = async (companyId,callback) => {
+    getWebToken = async (companyId,callback) => {
         const { history } = this.props;
         const { userName, password, companyModalShow } = this.state;
         try { 
@@ -62,7 +62,7 @@ class Login extends React.PureComponent {
                         password,
                     });
                     if (companyList.length === 1) {
-                        this.getToken(userName, password, companyList[0].id)
+                        this.getWebToken(userName, password, companyList[0].id)
                     } else {
                         this.setState({
                             companyModalShow: true,
@@ -81,7 +81,7 @@ class Login extends React.PureComponent {
     }
     handleSelCompanyOK = (fieldsValue,callback) => {
         const companyId = fieldsValue.select;
-        this.getToken(companyId,callback)
+        this.getWebToken(companyId,callback)
 
     }
     componentWillMount() {

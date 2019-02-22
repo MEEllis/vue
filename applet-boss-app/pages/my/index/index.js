@@ -83,7 +83,7 @@ Page({
   },
   relogin: function(e) {
     try {
-      wx.clearStorageSync()
+      serviceUser.clearUserInfo()
     } catch (e) {
 
     }

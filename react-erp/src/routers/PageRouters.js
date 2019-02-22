@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch,Redirect } from 'react-router-do
 import Login from '../pages/guest/Login';
 import Page404 from '../pages/error/Page404';//HashRouter  BrowserRouter
 let Layout = null;
-Layout = require('@/layout/TabMode').default;
+Layout = require('@/layout/App').default;
 
 export default () => (
     <Router>

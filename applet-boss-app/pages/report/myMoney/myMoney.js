@@ -48,7 +48,7 @@ Page({
       startDate: curDate,
     })
     this.getAccountTypeList()
-    this.getBossAuthValidate();
+    //this.getBossAuthValidate();
     this.getCompanySectionList();
     this.searchSubmit()
   },

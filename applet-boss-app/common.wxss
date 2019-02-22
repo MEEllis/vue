@@ -210,6 +210,7 @@
   position: relative;
 }
 
+
 .i-progress-outer {
   display: inline-block;
   width: 100%;
@@ -238,6 +239,27 @@
   background-blend-mode: normal, normal;
   position: relative;
   animation: animate-positive 1.5s;
+}
+
+
+.ui-checkbox checkbox,
+.ui-checkbox checkbox .wx-checkbox-input {
+  width: 32rpx;
+  height: 32rpx;
+  position: relative;
+  top:-2rpx;
+}
+
+/*checkbox选中后样式  */
+.ui-checkbox checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #fff;
+}
+/*checkbox选中后图标样式  */
+.ui-checkbox checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  text-align: center;
+  font-size: 22rpx;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
 }
 
 @-webkit-keyframes animate-positive {

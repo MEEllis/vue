@@ -44,3 +44,6 @@ form {
   display: block;
 }
 
+.remember-wrap{
+  margin-top: 10px;
+}

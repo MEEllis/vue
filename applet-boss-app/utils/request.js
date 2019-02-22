@@ -39,16 +39,15 @@ export default function request(url, data = {}, method = "POST", config) {
           code
         } = res.data;
         if (res.statusCode == 200) {
+          const token= res.header.token;
+          if (token){
+            wx.setStorageSync('token', token)
+          }
           if (code === '0000') {
             resolve(res.data);
           }
-          // 未登录时（），先调用自动登录
-          else if (code === '1000') {
-            const serviceUser = require('../services/user.js');
-            serviceUser.autoLogin()
-          }
-          //自动登录失败（）
-          else if (res.data.code == '1002') {
+          //1002:自动登录失败（）;1000:未登录时（）
+          else if (res.data.code == '1002' || code === '1000') {
             console.log(res.data)
             wx.reLaunch({
               url: '/pages/login/login',
@@ -56,7 +55,7 @@ export default function request(url, data = {}, method = "POST", config) {
             })
           }
           //权限不足
-          else if (res.data.code == 1100) {
+          else if (res.data.code === '1100') {
             wx.switchTab({
               url: '/pages/report/index/index'
             });

@@ -64,7 +64,10 @@ Page({
     });
   },
   //关键字搜索
-  searchSubmit: function() {
+  searchSubmit: function(e) {
+    this.setData({
+      keyWord: e.detail.value
+    });
     this.search();
   },
   bindScanCode: function() {

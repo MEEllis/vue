@@ -26,7 +26,7 @@
         <view class='sum-desc'>今日收入</view>
         <view class='sum-val'>￥{{numberFr.formatNum(item.todayIncomeAmount,2)}}</view>
       </view>
-      <view class="weui-flex__item tc " wx:if="{{authValidate.CKCBJ}}">
+      <view class="weui-flex__item tc ">
         <view class='sum-desc'>今日支出</view>
         <view class='sum-val'>￥{{numberFr.formatNum(item.todayPayAmount,2)}}</view>
       </view>

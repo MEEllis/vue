@@ -25,9 +25,7 @@ Page({
   // 获取Boss小程序菜单集合
   getBossMenuList: function() {
     const that = this;
-    request(api.getBossMenuList, {}, 'POST', {
-      hideLoading: true
-    }).then(res => {
+    request(api.getBossMenuList, {}, 'POST').then(res => {
       const authObj={}; 
       if (Array.isArray(res.data.dataList)) {
         for (let i = 0; i < res.data.dataList.length; i++) {

@@ -14,13 +14,23 @@ Page({
     showOp: {
       showName: 0,
       showPwd: 0,
-    }
+    },
+  
+    items: [
+      { name: 'rememberMe', value: '记住账号密码', checked: 'true' },
+    ]
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
     this.thridModal = this.selectComponent("#thridModal");
+    const name=wx.getStorageSync('name');
+    const pwd =wx.getStorageSync('pwd');
+    this.setData({
+      name,
+      pwd,
+    });
   },
   inputName: function(e) {
     this.setData({
@@ -65,9 +75,19 @@ Page({
   login: function(companyId) {
     const {
       name,
-      pwd
+      pwd,
+      items
     } = this.data;
     serviceUser.login(name, pwd, companyId).then(ajaxData => {
+      if (items[0].checked){
+        wx.setStorageSync('name', name);
+        wx.setStorageSync('pwd', pwd);
+      }else{
+        wx.removeStorageSync('name');
+        wx.removeStorageSync('pwd');
+      }
+    
+
       wx.switchTab({
         url: '/pages/report/index/index'
       });
@@ -107,6 +127,17 @@ Page({
         pwd: '',
       })
     }
+  },
+  checkboxChange(e) {
+    var arr = e.detail.value
+    const {
+      items,
+    } = this.data;
+    
+    items[0].checked = !!arr.length
+    this.setData({
+      items,
+    })
   },
   /**
    * 用户点击右上角分享

@@ -1,6 +1,6 @@
-import React,{Component,Fragment} from 'react'
+import React,{Fragment} from 'react'
 import { Spin,Layout } from 'antd';
-import './TabMode.css';
+import './App.css';
 import { connect } from 'react-redux';
 import MySider from '../containers/MySider'
 import { getToken } from '@/utils/token';
@@ -10,7 +10,7 @@ import { updateAccessMenu } from '@/store/app';
 import MyNavTabs from '@/containers/MyNavTabsR';
 
 const { Content } = Layout;
-class TabMode extends Component{
+class TabMode extends React.PureComponent{
 
     state = {
         collapsed: false,
@@ -43,6 +43,7 @@ class TabMode extends Component{
             moduleMenu: moduleMenu,
             moduleList: moduleList
         });
+        console.log(1)
     }
 
     render(){
@@ -57,7 +58,7 @@ class TabMode extends Component{
                         ></MySider>
                         <Layout>
                         <Content style={{ padding: 24, paddingTop: 0, background: '#fff' }}>
-                                <MyNavTabs style={{ marginTop: this.state.navTabTop, width: '100%', display: this.state.navTabShow ? 'block' : 'none' }} show={this.state.navTabShow} />
+                                {/* <MyNavTabs style={{ marginTop: this.state.navTabTop, width: '100%', display: this.state.navTabShow ? 'block' : 'none' }} show={this.state.navTabShow} /> */}
                             </Content>
                         </Layout> 
                     </Layout> 

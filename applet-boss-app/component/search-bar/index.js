@@ -35,10 +35,14 @@ Component({
   methods: {
     // 搜索
     searchSubmit: function(e) {
+      this.setKeyWord(e)
       this.triggerSearch()
     },
     // 监听输入框
     inputTyping: function(e) {
+      this.setKeyWord(e)
+    },
+    setKeyWord:function(e){
       const keyWord = e.detail.value
       this.setData({
         keyWord,

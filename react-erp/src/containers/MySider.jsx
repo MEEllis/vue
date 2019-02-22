@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
 import { updateModule } from '@/store/app';
 import { Layout } from 'antd';
@@ -13,7 +13,7 @@ import util from '@/utils/util';
 
 const { Sider } = Layout;
 
-class MySiderContainer extends Component {
+class MySiderContainer extends React.PureComponent {
     state = {
         openKeys: [], //当前展开的 SubMenu 菜单项 key 数组
         selectedKeys: [] ,//当前选中的菜单项 key
@@ -24,8 +24,8 @@ class MySiderContainer extends Component {
     componentWillReceiveProps(nextProps,nextState) {
         const pathname=this.props.location.pathname;
         let name = Object.keys(MenuToRouter).find(key => MenuToRouter[key] === pathname);
+
         if (name) {
-            console.log('openAccessMenu------------------>'+this.props.openAccessMenu.length)
             let parentKeys = util.getParentMenusByName(this.props.openAccessMenu, name).map(item => {
                 return item.name;
             });
@@ -62,13 +62,12 @@ class MySiderContainer extends Component {
                 breakpoint="lg"
                 collapsedWidth={this.props.responsive ? 0 : undefined}
                 trigger={null}
-                collapsible
                 collapsed={this.props.collapsed}
                 style={{ background: '#fff' }}
             >
                 <div className="logo"><img src={logo} alt="" /><h3>云盛联达</h3></div>
                 <SiderMenu
-                    menus={this.props.menus}
+                    menus={this.props.moduleMenu}
                     mode="inline"
                     selectedKeys={this.state.selectedKeys}
                     openKeys={this.state.openKeys}
@@ -79,7 +78,7 @@ class MySiderContainer extends Component {
 }
 const mapStateToProps = state => {
     return {
-        menus: state.app.moduleMenu,
+        moduleMenu: state.app.moduleMenu,
         openAccessMenu: state.app.openAccessMenu,
         accessMenu: state.app.accessMenu,
     }

@@ -3,7 +3,7 @@
   <form class="weui-search-bar__form">
     <view class="weui-search-bar__box">
       <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-      <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder-class='placeholder' placeholder="{{placeholder}}" value="{{keyWord}}" bindinput="inputTyping" bindconfirm="searchSubmit" />
+      <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder-class='placeholder' placeholder="{{placeholder}}" value="{{keyWord}}" bindinput="inputTyping" bindblur="inputTyping" bindconfirm="searchSubmit" />
       <view class="weui-icon-clear" wx:if="{{keyWord.length > 0}}" bindtap="clearInput">
         <icon type="clear" size="14"></icon>
       </view>

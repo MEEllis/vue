@@ -5,20 +5,30 @@
 
   <form bindsubmit="formSubmit">
     <view class='item'>
-      <input class='txt-input' data-key="showName" bindfocus='focusInput' bindblur='blurInput' type="number" focus placeholder="请输入手机号" value="{{name}}" bindinput="inputName" />
+      <input class='txt-input' data-key="showName" bindfocus='focusInput' bindblur='blurInput' type="number" focus placeholder="请输入手机号" value="{{name}}" bindinput="inputName" bindconfirm="inputName" />
       <view class='clear' hidden='{{(showOp.showName==0)}}' data-key="name" bindtap="tapClear">
         <icon type="clear" size="20"></icon>
       </view>
     </view>
     <view class='item'>
-      <input class='txt-input' data-key="showPwd" bindfocus='focusInput' bindblur='blurInput' password='true' type="text" placeholder="请输入密码" value="{{pwd}}" bindinput="inputPwd" />
+      <input class='txt-input' data-key="showPwd" bindfocus='focusInput' bindblur='blurInput' password='true' type="text" placeholder="请输入密码" value="{{pwd}}" bindinput="inputPwd" bindconfirm="inputPwd" />
       <view class='clear' hidden='{{(showOp.showPwd==0)}}' data-key="pwd" bindtap="tapClear">
         <icon type="clear" size="20"></icon>
       </view>
     </view>
+
+  <view class='remember-wrap' style='font-size: 28rpx;	color: #666666;'>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="ui-checkbox" wx:key="{{index}}" wx:for="{{items}}">
+       <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+       {{item.value}}
+      </label>
+    </checkbox-group>
+  </view>
+
     <view>  
 
-      <!-- 15011111111 123456z 15116201365 123456  18963943990 123456  17700000001 abc123  17702729229/123456  -->
+      <!-- 15011111111 123456z 15116201365 123456  18963943990 123456  17700000000 123456  17702729229/123456 18907164433 123456 -->
       <button open-type="getUserInfo" wx:if="{{name.length>0&&pwd.length>0}}" class="login " type="primary" bindgetuserinfo="formSubmit">登录</button>
       <button open-type="getUserInfo" disabled wx:else class="login" type="primary" bindgetuserinfo="formSubmit">登录</button>
     </view>
